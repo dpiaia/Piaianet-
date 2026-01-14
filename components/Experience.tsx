@@ -3,41 +3,7 @@ import { motion } from 'framer-motion';
 import { Experience as ExperienceType } from '../types';
 import { Briefcase, ArrowUpRight } from 'lucide-react';
 import GalaxyBackground from './ui/GalaxyBackground';
-
-const experiences: ExperienceType[] = [
-  {
-    id: 1,
-    role: "Design Manager",
-    company: "Clinicorp Solutions",
-    period: "2023 - Presente",
-    description: "Liderança estratégica da equipe de Product Design focada em SaaS para gestão de clínicas. Responsável pela evolução da maturidade de design (Design Ops), mentoria do time e alinhamento de visão de produto junto aos C-levels para escalar a plataforma.",
-    skills: ["Liderança", "SaaS", "Design Ops"]
-  },
-  {
-    id: 2,
-    role: "UX Tech Leader",
-    company: "Mercado Livre",
-    period: "2022 - 2023",
-    description: "Atuação como referência técnica em UX no maior e-commerce da América Latina. Liderei iniciativas de Design Engineering, garantindo a fidelidade e escalabilidade do Design System entre protótipos e código em produção em múltiplos países.",
-    skills: ["E-commerce", "Design Systems", "Tech Leadership"]
-  },
-  {
-    id: 3,
-    role: "Senior Product Designer",
-    company: "IFood / Sindelantal",
-    period: "2018 - 2022",
-    description: "Foco na experiência do usuário para o mercado de Food Delivery. Liderei projetos cruciais para a operação internacional (Sindelantal - México) e iFood Brasil, otimizando jornadas de descoberta de restaurantes e checkout para milhões de usuários.",
-    skills: ["FoodTech", "Mobile First", "Internationalization"]
-  },
-  {
-    id: 4,
-    role: "Head of Design",
-    company: "Superlógica / PJBank",
-    period: "2009 - 2018",
-    description: "Uma jornada de quase uma década, evoluindo de designer para a liderança da área. Estruturei o departamento de design do zero, conduzi o rebranding completo da Superlógica e atuei no lançamento e consolidação da experiência digital do PJBank.",
-    skills: ["Fintech", "Team Building", "Branding"]
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const freelanceClients = [
   { name: "Cielo", category: "Fintech" },
@@ -51,6 +17,13 @@ const freelanceClients = [
 ];
 
 const Experience: React.FC = () => {
+  const { t } = useLanguage();
+
+  const experiences: ExperienceType[] = t.experience.jobs.map((job, index) => ({
+    id: index + 1,
+    ...job
+  }));
+
   return (
     <section id="experience" className="py-24 bg-brand-dark relative overflow-hidden">
       
@@ -68,9 +41,9 @@ const Experience: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-display font-bold mb-4">Trajetória <span className="text-brand-yellow">Profissional</span></h2>
+          <h2 className="text-4xl font-display font-bold mb-4">{t.experience.title} <span className="text-brand-yellow">{t.experience.titleHighlight}</span></h2>
           <p className="text-neutral-400 max-w-2xl mx-auto">
-            Liderança e impacto em grandes players do mercado de tecnologia.
+            {t.experience.subtitle}
           </p>
         </motion.div>
 
@@ -123,12 +96,12 @@ const Experience: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
             <div>
               <h3 className="text-2xl font-display font-bold text-white mb-2">
-                Consultoria & <span className="text-brand-yellow">Parcerias Estratégicas</span>
+                {t.experience.consulting.title} <span className="text-brand-yellow">{t.experience.consulting.titleHighlight}</span>
               </h3>
-              <p className="text-neutral-400 text-sm">Projetos paralelos, freelas e consultorias de alto impacto.</p>
+              <p className="text-neutral-400 text-sm">{t.experience.consulting.desc}</p>
             </div>
             <div className="hidden md:flex items-center gap-2 text-neutral-500 text-sm">
-              <Briefcase size={16} /> <span>Projetos Entregues</span>
+              <Briefcase size={16} /> <span>{t.experience.consulting.label}</span>
             </div>
           </div>
 

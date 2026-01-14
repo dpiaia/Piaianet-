@@ -1,9 +1,53 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Dribbble, Github } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 import Button from './ui/Button';
+import { useLanguage } from '../context/LanguageContext';
+
+// Custom Behance Icon since it's not in the standard set
+const BehanceIcon = ({ size = 20, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M8 11h4.5a2.5 2.5 0 0 1 0 5H8v-5Z" />
+    <path d="M13 13.5a2.5 2.5 0 0 0-2.5-2.5H8" />
+    <path d="M8 8h4.5a2.5 2.5 0 0 1 0 5H8V8Z" />
+    <path d="M16 10h4" />
+    <path d="M20 13a2.5 2.5 0 0 0-5 0v1" />
+    <path d="M17.5 10.5A2.5 2.5 0 0 1 20 13" />
+  </svg>
+);
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
+
+  const socials = [
+    { 
+      icon: <Linkedin size={20} />, 
+      href: "https://linkedin.com/in/denispiaia",
+      label: "LinkedIn"
+    },
+    { 
+      icon: <BehanceIcon size={20} />, 
+      href: "https://www.behance.net/denispiaia",
+      label: "Behance"
+    },
+    { 
+      icon: <Github size={20} />, 
+      href: "#",
+      label: "Github" 
+    }
+  ];
+
   return (
     <section id="contact" className="py-24 bg-brand-dark relative overflow-hidden">
       {/* Decorative bg */}
@@ -17,34 +61,36 @@ const Contact: React.FC = () => {
              viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
-              Vamos construir algo <br />
-              <span className="text-brand-yellow">Incrível</span> juntos?
+              {t.contact.title} <br />
+              <span className="text-brand-yellow">{t.contact.titleHighlight}</span> {t.contact.titleEnd}
             </h2>
             <p className="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
-              Estou sempre aberto a discutir design de produto, colaborar em novos projetos ou falar sobre oportunidades de liderança.
+              {t.contact.subtitle}
             </p>
             
-            <a href="mailto:contato@denispiaia.com">
+            <a 
+              href="https://linkedin.com/in/denispiaia" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Button className="px-10 py-5 text-lg rounded-none">
-                Mande um Olá 👋
+                {t.contact.cta}
               </Button>
             </a>
 
             <div className="mt-16 pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-neutral-500 text-sm">
-                &copy; 2024 Denis Piaia. Todos os direitos reservados.
+                &copy; 2024 Denis Piaia. {t.contact.rights}
               </div>
               
               <div className="flex gap-6">
-                {[
-                  { icon: <Linkedin size={20} />, href: "#" },
-                  { icon: <Dribbble size={20} />, href: "#" },
-                  { icon: <Github size={20} />, href: "#" },
-                  { icon: <Mail size={20} />, href: "#" },
-                ].map((social, i) => (
+                {socials.map((social, i) => (
                   <a 
                     key={i} 
                     href={social.href} 
+                    target={social.href.startsWith('http') ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
                     className="w-10 h-10 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-brand-yellow hover:border-brand-yellow transition-all"
                   >
                     {social.icon}

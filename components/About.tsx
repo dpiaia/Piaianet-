@@ -1,15 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Users, Zap, Search } from 'lucide-react';
-
-const skills = [
-  { icon: <Users size={24} />, title: "Liderança de Equipe", desc: "Mentoria e gestão de times de alta performance." },
-  { icon: <Search size={24} />, title: "User Research", desc: "Decisões baseadas em dados e comportamento real." },
-  { icon: <Layers size={24} />, title: "Design Systems", desc: "Escalabilidade e consistência visual." },
-  { icon: <Zap size={24} />, title: "Prototipagem Ágil", desc: "Validação rápida de hipóteses e conceitos." },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const About: React.FC = () => {
+  const { t } = useLanguage();
+
+  const skills = [
+    { icon: <Users size={24} />, ...t.about.skills.leadership },
+    { icon: <Search size={24} />, ...t.about.skills.research },
+    { icon: <Layers size={24} />, ...t.about.skills.designSystems },
+    { icon: <Zap size={24} />, ...t.about.skills.prototyping },
+  ];
+
   return (
     <section id="about" className="py-24 bg-brand-gray relative">
       <div className="container mx-auto px-6">
@@ -22,18 +25,12 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl font-display font-bold mb-6">
-              Sobre <span className="text-brand-yellow">Mim</span>
+              {t.about.title} <span className="text-brand-yellow">{t.about.titleHighlight}</span>
             </h2>
             <div className="space-y-6 text-neutral-400 leading-relaxed text-lg">
-              <p>
-                Minha jornada no design começou na interseção entre tecnologia e psicologia. Acredito que o bom design não é apenas sobre pixels bonitos, mas sobre resolver problemas reais de forma elegante e invisível.
-              </p>
-              <p>
-                Como <span className="text-white font-semibold">UX Leader</span>, meu foco mudou da execução individual para a orquestração de experiências. Trabalho lado a lado com PMs e Engenheiros para garantir que a voz do usuário seja ouvida em cada etapa do desenvolvimento.
-              </p>
-              <p>
-                Fora do trabalho, sou entusiasta de fotografia urbana e estudo neurociência cognitiva aplicada ao design.
-              </p>
+              <p>{t.about.p1}</p>
+              <p>{t.about.p2}</p>
+              <p>{t.about.p3}</p>
             </div>
           </motion.div>
 

@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { NavItem } from '../types';
-
-const navItems: NavItem[] = [
-  { label: 'Sobre', href: '#about' },
-  { label: 'Experiência', href: '#experience' },
-  { label: 'Projetos', href: '#projects' },
-  { label: 'Depoimentos', href: '#testimonials' },
-  { label: 'Contato', href: '#contact' },
-];
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const { language, setLanguage, t } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.experience, href: '#experience' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.testimonials, href: '#testimonials' },
+    { label: t.nav.contact, href: '#contact' },
+  ];
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -46,6 +47,32 @@ const Header: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-yellow transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
+          
+          <div className="h-4 w-px bg-white/10 mx-2" />
+
+          {/* Language Switcher */}
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={() => setLanguage('pt')} 
+              className={`text-xs font-bold transition-colors ${language === 'pt' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+            >
+              BR
+            </button>
+            <span className="text-neutral-700 text-xs">/</span>
+            <button 
+              onClick={() => setLanguage('en')} 
+              className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+            >
+              US
+            </button>
+            <span className="text-neutral-700 text-xs">/</span>
+             <button 
+              onClick={() => setLanguage('es')} 
+              className={`text-xs font-bold transition-colors ${language === 'es' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+            >
+              ES
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -65,17 +92,30 @@ const Header: React.FC = () => {
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden bg-brand-dark border-b border-white/10"
         >
-          <nav className="flex flex-col p-6 space-y-4">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-lg font-medium text-neutral-300 hover:text-brand-yellow"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="flex flex-col p-6 space-y-6">
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-lg font-medium text-neutral-300 hover:text-brand-yellow"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-white/10">
+               <div className="flex items-center gap-4 text-sm font-medium">
+                  <span className="text-neutral-500 flex items-center gap-2"><Globe size={14}/> Idioma:</span>
+                  <div className="flex gap-4">
+                    <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-yellow' : 'text-white'}>PT</button>
+                    <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-yellow' : 'text-white'}>EN</button>
+                    <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-yellow' : 'text-white'}>ES</button>
+                  </div>
+               </div>
+            </div>
           </nav>
         </motion.div>
       )}

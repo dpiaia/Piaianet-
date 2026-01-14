@@ -3,90 +3,58 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, Layers, Monitor, CheckCircle2 } from 'lucide-react';
 import { Project } from '../types';
 import Button from './ui/Button';
-
-// Extended Data with Details
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "CliniDS",
-    category: "DESIGNOPS • HEALTHTECH",
-    shortDescription: "Criando um Design System para a Clinicorp.",
-    tags: ["DESIGN SYSTEM", "UI DESIGN", "AI"],
-    coverImage: "https://picsum.photos/id/1/800/600",
-    gallery: [
-      "https://picsum.photos/id/119/800/600",
-      "https://picsum.photos/id/160/800/600",
-      "https://picsum.photos/id/180/800/600"
-    ],
-    challenge: "Escalar a consistência visual e funcional entre múltiplos módulos da plataforma Clinicorp estava se tornando insustentável, gerando débito técnico e de design.",
-    solution: "Criação e implementação do CliniDS: uma biblioteca de componentes centralizada, documentada e agnóstica, facilitando a colaboração entre designers e desenvolvedores.",
-    results: [
-      "Aumento de 40% na velocidade de entrega de novas telas.",
-      "Redução drástica de inconsistências visuais no produto.",
-      "Adoção de 100% pelo time de engenharia em 6 meses."
-    ]
-  },
-  {
-    id: 2,
-    title: "Acelerando o crescimento do iFood em Latam",
-    category: "ONBOARDING • FOODTECH",
-    shortDescription: "Landing Page automatizada para cadastros de novos restaurantes.",
-    tags: ["UX Research", "UI Design", "Prototyping"],
-    coverImage: "https://costanorte.com.br/media/_versions/legacy/39/64/396364_widexl.jpg",
-    gallery: [
-      "https://picsum.photos/id/201/800/600",
-      "https://picsum.photos/id/250/800/600"
-    ],
-    challenge: "O processo de cadastro de parceiros era manual e burocrático, limitando a velocidade de expansão agressiva necessária para o mercado Latino-americano.",
-    solution: "Desenvolvimento de um fluxo de onboarding self-service automatizado, com validação de documentos em tempo real e UX otimizada para conversão.",
-    results: [
-      "Redução de 70% no tempo médio de aprovação de restaurantes.",
-      "Crescimento exponencial da base de parceiros no México e Colômbia.",
-      "Melhoria significativa no NPS de entrada dos parceiros."
-    ]
-  },
-  {
-    id: 3,
-    title: "Recriando o agendamento de consultas",
-    category: "CALENDAR • HEALTHTECH",
-    shortDescription: "Simplificando a complexidade de agendamentos.",
-    tags: ["UX Research", "UI Design", "Prototyping", "AI"],
-    coverImage: "https://picsum.photos/id/3/800/600",
-    gallery: [
-      "https://picsum.photos/id/366/800/600",
-      "https://picsum.photos/id/395/800/600"
-    ],
-    challenge: "A gestão de agenda complexa com múltiplos profissionais e cadeiras gerava conflitos de horários e dificuldade de visualização para as recepcionistas.",
-    solution: "Redesign completo da interface de agenda focado em usabilidade cognitiva, com recursos de 'arrastar e soltar' e sugestões inteligentes de horários.",
-    results: [
-      "Otimização de 20% na ocupação das cadeiras/salas.",
-      "Redução de cliques para realizar um agendamento.",
-      "Feedback extremamente positivo das recepcionistas (Power Users)."
-    ]
-  },
-  {
-    id: 4,
-    title: "Projetos variados com Inteligência Artificial",
-    category: "AI • VIBEDESIGN",
-    shortDescription: "Compilado de projetos que fiz com uso das IAs.",
-    tags: ["AI", "Vibecode"],
-    coverImage: "https://picsum.photos/id/48/800/600",
-    gallery: [
-      "https://picsum.photos/id/404/800/600",
-      "https://picsum.photos/id/433/800/600"
-    ],
-    challenge: "Explorar como as novas ferramentas de IA Generativa podem ser integradas ao fluxo de trabalho de design para expandir a criatividade e eficiência.",
-    solution: "Uma coleção de experimentos visuais e funcionais utilizando Midjourney, Stable Diffusion e LLMs para prototipagem rápida e geração de assets.",
-    results: [
-      "Criação de identidades visuais conceituais em tempo recorde.",
-      "Exploração de novas estéticas (Vibe Design).",
-      "Automação de tarefas repetitivas no processo de discovery."
-    ]
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { t } = useLanguage();
+
+  // Data moved inside component to access translations
+  const projectsData = [
+    {
+      id: 1,
+      tags: ["DESIGN SYSTEM", "UI DESIGN", "AI"],
+      coverImage: "https://picsum.photos/id/1/800/600",
+      gallery: [
+        "https://picsum.photos/id/119/800/600",
+        "https://picsum.photos/id/160/800/600",
+        "https://picsum.photos/id/180/800/600"
+      ],
+    },
+    {
+      id: 2,
+      tags: ["UX Research", "UI Design", "Prototyping"],
+      coverImage: "https://costanorte.com.br/media/_versions/legacy/39/64/396364_widexl.jpg",
+      gallery: [
+        "https://picsum.photos/id/201/800/600",
+        "https://picsum.photos/id/250/800/600"
+      ],
+    },
+    {
+      id: 3,
+      tags: ["UX Research", "UI Design", "Prototyping", "AI"],
+      coverImage: "https://picsum.photos/id/3/800/600",
+      gallery: [
+        "https://picsum.photos/id/366/800/600",
+        "https://picsum.photos/id/395/800/600"
+      ],
+    },
+    {
+      id: 4,
+      tags: ["AI", "Vibecode"],
+      coverImage: "https://picsum.photos/id/48/800/600",
+      gallery: [
+        "https://picsum.photos/id/404/800/600",
+        "https://picsum.photos/id/433/800/600"
+      ],
+    }
+  ];
+
+  // Merge static data with translations
+  const projects: Project[] = projectsData.map((p, i) => ({
+    ...p,
+    ...t.projects.items[i]
+  }));
 
   // Prevent background scrolling when modal is open
   React.useEffect(() => {
@@ -106,15 +74,15 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-display font-bold mb-4">Projetos <span className="text-brand-yellow">Selecionados</span></h2>
-            <p className="text-neutral-400">Clique nos cards para ver o estudo de caso detalhado.</p>
+            <h2 className="text-4xl font-display font-bold mb-4">{t.projects.title} <span className="text-brand-yellow">{t.projects.titleHighlight}</span></h2>
+            <p className="text-neutral-400">{t.projects.subtitle}</p>
           </motion.div>
           
           <motion.button 
             whileHover={{ x: 5 }}
             className="text-white flex items-center gap-2 border-b border-brand-yellow pb-1 font-medium hover:text-brand-yellow transition-colors"
           >
-            Ver Behance Completo <ArrowUpRight size={16} />
+            {t.projects.ctaBehance} <ArrowUpRight size={16} />
           </motion.button>
         </div>
 
@@ -209,12 +177,12 @@ const Projects: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/5">
                   <div className="md:col-span-2">
                      <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                       <Monitor size={20} className="text-brand-yellow" /> O Desafio
+                       <Monitor size={20} className="text-brand-yellow" /> {t.projects.modal.challenge}
                      </h3>
                      <p className="text-neutral-400 leading-relaxed text-lg">{selectedProject.challenge}</p>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">Tech & Tools</h3>
+                    <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">{t.projects.modal.tech}</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.tags.map(tag => (
                         <span key={tag} className="px-3 py-1 bg-white/5 text-neutral-300 text-sm rounded-full border border-white/5">
@@ -228,7 +196,7 @@ const Projects: React.FC = () => {
                 {/* Solution */}
                 <div>
                    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                     <Layers size={20} className="text-brand-yellow" /> A Solução
+                     <Layers size={20} className="text-brand-yellow" /> {t.projects.modal.solution}
                    </h3>
                    <p className="text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
                    
@@ -248,7 +216,7 @@ const Projects: React.FC = () => {
                 {/* Results */}
                 <div className="bg-brand-gray p-8 rounded-xl border border-white/5">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <CheckCircle2 size={20} className="text-brand-yellow" /> Resultados Alcançados
+                    <CheckCircle2 size={20} className="text-brand-yellow" /> {t.projects.modal.results}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {selectedProject.results.map((res, i) => (
@@ -263,9 +231,9 @@ const Projects: React.FC = () => {
               </div>
               
               <div className="p-8 border-t border-white/5 flex justify-between items-center bg-brand-dark sticky bottom-0 z-10">
-                <span className="text-neutral-500 text-sm">Confidencial &copy; 2024</span>
+                <span className="text-neutral-500 text-sm">{t.projects.modal.confidential}</span>
                 <Button onClick={(e) => {e.stopPropagation(); setSelectedProject(null)}} variant="outline" className="text-xs px-4 py-2">
-                  Fechar Case
+                  {t.projects.modal.close}
                 </Button>
               </div>
 

@@ -3,9 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, MousePointer2 } from 'lucide-react';
 import Button from './ui/Button';
 import ParticleBackground from './ui/ParticleBackground';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
+  const { t } = useLanguage();
   
   // Improved Parallax: Elements move in the same direction at different speeds to create depth
   // Background moves slowly
@@ -44,16 +46,16 @@ const Hero: React.FC = () => {
             className="flex items-center gap-3 mb-6"
           >
             <span className="w-12 h-[1px] bg-brand-yellow" />
-            <span className="text-brand-yellow font-medium tracking-wider uppercase">Portfolio Profissional</span>
+            <span className="text-brand-yellow font-medium tracking-wider uppercase">{t.hero.badge}</span>
           </motion.div>
 
           <motion.h1
             style={{ y: yHeading, opacity }}
             className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
           >
-            Design que <br />
+            {t.hero.titleStart} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
-              transforma negócios.
+              {t.hero.titleHighlight}
             </span>
           </motion.h1>
 
@@ -61,7 +63,7 @@ const Hero: React.FC = () => {
             style={{ y: yText, opacity }}
             className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
           >
-            Olá, sou <strong className="text-white">Denis Piaia</strong>, UX Design Leader com mais de 10 anos de experiência criando produtos digitais intuitivos, acessíveis e focados na conversão e satisfação do usuário.
+            {t.hero.intro('Denis Piaia')}
           </motion.p>
 
           <motion.div
@@ -71,10 +73,10 @@ const Hero: React.FC = () => {
             className="flex flex-wrap gap-4"
           >
             <a href="#projects">
-              <Button icon={<MousePointer2 size={18} />}>Ver Projetos</Button>
+              <Button icon={<MousePointer2 size={18} />}>{t.hero.ctaProjects}</Button>
             </a>
             <a href="#contact">
-              <Button variant="outline">Entrar em Contato</Button>
+              <Button variant="outline">{t.hero.ctaContact}</Button>
             </a>
           </motion.div>
         </div>
@@ -84,7 +86,7 @@ const Hero: React.FC = () => {
         style={{ opacity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-500"
       >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <span className="text-xs uppercase tracking-widest">{t.hero.scroll}</span>
         <ArrowDown size={20} className="animate-bounce" />
       </motion.div>
     </section>

@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Experience as ExperienceType } from '../types';
-import { Briefcase, ArrowUpRight } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import GalaxyBackground from './ui/GalaxyBackground';
 import { useLanguage } from '../context/LanguageContext';
 
 const freelanceClients = [
-  { name: "Cielo", category: "Fintech" },
-  { name: "Netshoes", category: "E-commerce" },
-  { name: "Athletico Paranaense", category: "Sports Tech" },
-  { name: "Puc Campinas", category: "Educação" },
-  { name: "IxDA", category: "Comunidade" },
-  { name: "IXDD", category: "Workshops" },
-  { name: "TDC", category: "Palestrante" },
-  { name: "Coderhouse", category: "Educação" }
+  { name: "Cielo", category: "Fintech", logo: "https://cdn.worldvectorlogo.com/logos/cielo-1.svg", hoverColor: "hover:bg-sky-200" },
+  { name: "Netshoes", category: "E-commerce", logo: "https://cdn.worldvectorlogo.com/logos/netshoes-logo.svg", hoverColor: "hover:bg-violet-300" },
+  { name: "Athletico Paranaense", category: "Sports Tech", logo: "https://cdn.worldvectorlogo.com/logos/athletico-pr-1.svg", hoverColor: "hover:bg-white" },
+  { name: "PUC Campinas", category: "Educação", logo: "https://www.puc-campinas.edu.br/wp-content/uploads/2022/02/logo-puc-branco-2020.png", hoverColor: "hover:bg-blue-700" },
+  { name: "IxDA", category: "Comunidade", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/09/IxDA-Logo.png?fit=216%2C70&quality=80&ssl=1", hoverColor: "hover:bg-gray-300" },
+  { name: "IxDD", category: "Workshops", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/08/IxDD-Logo-2.png?resize=300%2C92&quality=80&ssl=1", hoverColor: "hover:bg-yellow-400" },
+  { name: "TDC", category: "Palestrante", logo: "https://s3-sa-east-1.amazonaws.com/thedevconf/2018/img/branding/branding-tdc-uma-cor-fundo-escuro.png", hoverColor: "hover:bg-blue-500" },
+  { name: "Coderhouse", category: "Educação", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" }
 ];
 
 const Experience: React.FC = () => {
@@ -110,21 +110,21 @@ const Experience: React.FC = () => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -5 }}
-                className="group h-32 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-brand-yellow/30 hover:bg-neutral-900/60 transition-all flex flex-col items-center justify-center p-4 cursor-default relative overflow-hidden"
+                className={`group h-32 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-transparent transition-all duration-300 flex flex-col items-center justify-center p-4 cursor-default relative overflow-hidden ${client.hoverColor}`}
               >
-                {/* Decorative background accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-brand-yellow/5 rounded-full blur-2xl group-hover:bg-brand-yellow/10 transition-colors -mr-8 -mt-8" />
-                
-                <h4 className="text-xl font-display font-bold text-neutral-500 group-hover:text-white transition-colors tracking-tight text-center">
-                  {client.name}
-                </h4>
-                <span className="text-xs text-neutral-600 group-hover:text-brand-yellow mt-2 uppercase tracking-widest opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all">
-                  {client.category}
-                </span>
-
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                   <ArrowUpRight size={12} className="text-brand-yellow" />
-                </div>
+                {client.logo ? (
+                  <div className="relative w-full h-full flex items-center justify-center p-4">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name} 
+                      className="max-w-full max-h-16 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-60 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
+                    />
+                  </div>
+                ) : (
+                  <h4 className="text-xl font-display font-bold text-neutral-500 group-hover:text-white transition-colors tracking-tight text-center">
+                    {client.name}
+                  </h4>
+                )}
               </motion.div>
             ))}
           </div>

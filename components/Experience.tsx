@@ -45,7 +45,9 @@ const freelanceClients = [
   { name: "Athletico Paranaense", category: "Sports Tech" },
   { name: "Puc Campinas", category: "Educação" },
   { name: "IxDA", category: "Comunidade" },
-  { name: "IXDD", category: "Workshops" }
+  { name: "IXDD", category: "Workshops" },
+  { name: "TDC", category: "Palestrante" },
+  { name: "Coderhouse", category: "Educação" }
 ];
 
 const Experience: React.FC = () => {
@@ -130,7 +132,7 @@ const Experience: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {freelanceClients.map((client, idx) => (
               <motion.div
                 key={idx}

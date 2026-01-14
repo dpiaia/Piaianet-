@@ -45,13 +45,21 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 bg-brand-dark border border-white/5 hover:border-brand-yellow/50 transition-colors group"
+                className="relative overflow-hidden p-6 bg-brand-dark border border-white/5 hover:border-brand-yellow transition-colors group rounded-lg"
               >
-                <div className="mb-4 text-brand-yellow p-3 bg-brand-yellow/10 inline-block rounded-lg group-hover:scale-110 transition-transform">
-                  {skill.icon}
+                {/* Background Sweep Animation (Right to Left) */}
+                <div
+                  className="absolute inset-0 bg-brand-yellow z-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out"
+                />
+
+                {/* Content - relative and z-10 to stay on top of the sweep */}
+                <div className="relative z-10">
+                  <div className="mb-4 text-brand-yellow group-hover:text-brand-dark p-3 bg-brand-yellow/10 group-hover:bg-black/10 inline-block rounded-lg group-hover:scale-110 transition-all duration-300">
+                    {skill.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white group-hover:text-brand-dark mb-2 transition-colors duration-300">{skill.title}</h3>
+                  <p className="text-neutral-500 group-hover:text-brand-dark/80 text-sm transition-colors duration-300">{skill.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{skill.title}</h3>
-                <p className="text-neutral-500 text-sm">{skill.desc}</p>
               </motion.div>
             ))}
           </div>

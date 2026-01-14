@@ -12,7 +12,7 @@ const testimonials: Testimonial[] = [
     role: "Design Director",
     company: "Outusual 🇵🇹",
     quote: "Denis is an amazing designer that I had the pleasure to work with, he is a complete product designer, and he has skills in research, prototyping, and design delivery.",
-    avatarUrl: "https://i.pravatar.cc/150?u=richard"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQEBWjk5Nhh2Rg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1688993227445?e=1770249600&v=beta&t=vbSmU5-oPxAfZp7cLU5RyWiUqd0KAHXkCWrxs4FdOCk"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     role: "Digital",
     company: "FEMSA 🇲🇽",
     quote: "Denis is the kind of person that goes off his way to find and fix issues wherever the company needs it, always trying to improve.",
-    avatarUrl: "https://i.pravatar.cc/150?u=hector"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/C4E03AQEovh7sWS5TXA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1602034834557?e=1770249600&v=beta&t=UBz1xa-kakI9zlBWlEBkmlS2LTDWUeqAVXJ2jj-8wx4"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
     role: "Product Manager",
     company: "Bolt 🇪🇪",
     quote: "Denis has a big heart and is always concerned about the people around him. He's someone who falls in love with problems and will do everything to learn more about what can be done to solve them in the best way possible :)",
-    avatarUrl: "https://i.pravatar.cc/150?u=lucas"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQHRgSLyHb--JQ/profile-displayphoto-crop_800_800/B4DZn2.DoiJIAI-/0/1760785087498?e=1770249600&v=beta&t=JqqgVb6kzAO4TaRRGzSm6L-rGzTgcV84wLyZygITYmc"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
     role: "UX Lead",
     company: "Mercado Livre 🇧🇷",
     quote: "I had the opportunity to be led by Denis at a time when I lacked confidence and direction. His leadership was fundamental in enabling me to find my way and develop my work in a way that I didn't know I was capable of.",
-    avatarUrl: "https://i.pravatar.cc/150?u=marcelo"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/C4E03AQFCYi5XZxklbA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1590448563419?e=1770249600&v=beta&t=c06qsZQlNasUbpyO1hYIedp_IpvkHDp6DuNWKMUeuaE"
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     role: "Coordinator",
     company: "PUC Campinas 🇧🇷",
     quote: "A dedicated professor who is highly praised by his classes. As well as being collaborative and an expert in his field, Denis has empathy to spare.",
-    avatarUrl: "https://i.pravatar.cc/150?u=leo"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/D4D03AQFaas1A_b-mRA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1676812603566?e=1770249600&v=beta&t=H2KSkHnPpRNcepg1LVIHXz2Fp_BY2mTmpSWl2qG_JYo"
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const testimonials: Testimonial[] = [
     role: "Sr. Marketing Coordinator",
     company: "Nintendo 🇺🇸",
     quote: "A complete professional, mentor, speaker and, above all, a great friend. It's rare to find someone who understands so much about UI/UX and has so much empathy for the user. He's a restless professional, always questioning, proactive and offering more than is asked of him.",
-    avatarUrl: "https://i.pravatar.cc/150?u=thawnee"
+    avatarUrl: "https://media.licdn.com/dms/image/v2/C5603AQFlW7vYkgKdSQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516837840492?e=1770249600&v=beta&t=-m__4dPQlCcO_InSnotDUgomkyyQSTicYD7s1vVJHQQ"
   }
 ];
 

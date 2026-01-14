@@ -8,79 +8,79 @@ import Button from './ui/Button';
 const projects: Project[] = [
   {
     id: 1,
-    title: "Fintech App Redesign",
-    category: "Mobile App • Fintech",
-    shortDescription: "Simplificando a complexidade dos investimentos com gamificação.",
-    tags: ["UX Research", "UI Design", "Prototyping"],
+    title: "CliniDS",
+    category: "DESIGNOPS • HEALTHTECH",
+    shortDescription: "Criando um Design System para a Clinicorp.",
+    tags: ["DESIGN SYSTEM", "UI DESIGN", "AI"],
     coverImage: "https://picsum.photos/id/1/800/600",
     gallery: [
       "https://picsum.photos/id/119/800/600",
       "https://picsum.photos/id/160/800/600",
       "https://picsum.photos/id/180/800/600"
     ],
-    challenge: "Os usuários da geração Z achavam o app anterior intimidante, resultando em uma taxa de rejeição de 65% na tela de onboarding.",
-    solution: "Redesenhei o fluxo de entrada focando em educação progressiva e micro-interações gratificantes. Implementei um modo 'lite' para iniciantes.",
+    challenge: "Escalar a consistência visual e funcional entre múltiplos módulos da plataforma Clinicorp estava se tornando insustentável, gerando débito técnico e de design.",
+    solution: "Criação e implementação do CliniDS: uma biblioteca de componentes centralizada, documentada e agnóstica, facilitando a colaboração entre designers e desenvolvedores.",
     results: [
-      "Aumento de 25% na conversão de contas novas.",
-      "Redução de 40% nos chamados de suporte sobre 'como investir'.",
-      "Prêmio de Design do Ano na categoria Fintech 2023."
+      "Aumento de 40% na velocidade de entrega de novas telas.",
+      "Redução drástica de inconsistências visuais no produto.",
+      "Adoção de 100% pelo time de engenharia em 6 meses."
     ]
   },
   {
     id: 2,
-    title: "Eco-commerce Dashboard",
-    category: "Web App • B2B",
-    shortDescription: "Painel analítico para vendedores sustentáveis com dados em tempo real.",
-    tags: ["Data Viz", "Design System", "React"],
-    coverImage: "https://picsum.photos/id/20/800/600",
+    title: "Acelerando o crescimento do iFood em Latam",
+    category: "ONBOARDING • FOODTECH",
+    shortDescription: "Landing Page automatizada para cadastros de novos restaurantes.",
+    tags: ["UX Research", "UI Design", "Prototyping"],
+    coverImage: "https://costanorte.com.br/media/_versions/legacy/39/64/396364_widexl.jpg",
     gallery: [
       "https://picsum.photos/id/201/800/600",
       "https://picsum.photos/id/250/800/600"
     ],
-    challenge: "Vendedores não conseguiam visualizar o impacto de carbono de suas vendas, dificultando a tomada de decisão logística.",
-    solution: "Criei um dashboard modular com widgets arrastáveis e visualizações de dados claras (gráficos de área e heatmaps) focados em métricas ambientais.",
+    challenge: "O processo de cadastro de parceiros era manual e burocrático, limitando a velocidade de expansão agressiva necessária para o mercado Latino-americano.",
+    solution: "Desenvolvimento de um fluxo de onboarding self-service automatizado, com validação de documentos em tempo real e UX otimizada para conversão.",
     results: [
-      "Tempo médio de permanência na plataforma aumentou 3x.",
-      "Feedback positivo de 92% dos parceiros beta.",
-      "Adoção de rotas logísticas mais verdes aumentou em 15%."
+      "Redução de 70% no tempo médio de aprovação de restaurantes.",
+      "Crescimento exponencial da base de parceiros no México e Colômbia.",
+      "Melhoria significativa no NPS de entrada dos parceiros."
     ]
   },
   {
     id: 3,
-    title: "Healthcare System",
-    category: "Desktop • SaaS",
-    shortDescription: "Sistema de gestão hospitalar focado na redução de erros médicos.",
-    tags: ["Acessibilidade", "Service Design", "Complex Systems"],
+    title: "Recriando o agendamento de consultas",
+    category: "CALENDAR • HEALTHTECH",
+    shortDescription: "Simplificando a complexidade de agendamentos.",
+    tags: ["UX Research", "UI Design", "Prototyping", "AI"],
     coverImage: "https://picsum.photos/id/3/800/600",
     gallery: [
       "https://picsum.photos/id/366/800/600",
       "https://picsum.photos/id/395/800/600"
     ],
-    challenge: "O sistema legado causava fadiga cognitiva nos médicos devido ao excesso de informações e baixo contraste, levando a erros de prescrição.",
-    solution: "Desenvolvimento de uma interface de alto contraste focada na legibilidade (WCAG AAA). Hierarquia de informação reestruturada baseada na jornada do plantão.",
+    challenge: "A gestão de agenda complexa com múltiplos profissionais e cadeiras gerava conflitos de horários e dificuldade de visualização para as recepcionistas.",
+    solution: "Redesign completo da interface de agenda focado em usabilidade cognitiva, com recursos de 'arrastar e soltar' e sugestões inteligentes de horários.",
     results: [
-      "Redução estimada de 18% em erros de input de dados.",
-      "Velocidade de atendimento no pronto-socorro melhorou 12%.",
-      "Aprovado em testes de usabilidade com médicos seniores."
+      "Otimização de 20% na ocupação das cadeiras/salas.",
+      "Redução de cliques para realizar um agendamento.",
+      "Feedback extremamente positivo das recepcionistas (Power Users)."
     ]
   },
   {
     id: 4,
-    title: "Travel Companion",
-    category: "Mobile • Social",
-    shortDescription: "App social para viajantes solo encontrarem experiências seguras.",
-    tags: ["Mobile First", "Social", "Discovery"],
+    title: "Projetos variados com Inteligência Artificial",
+    category: "AI • VIBEDESIGN",
+    shortDescription: "Compilado de projetos que fiz com uso das IAs.",
+    tags: ["AI", "Vibecode"],
     coverImage: "https://picsum.photos/id/48/800/600",
     gallery: [
       "https://picsum.photos/id/404/800/600",
       "https://picsum.photos/id/433/800/600"
     ],
-    challenge: "Viajantes solo, especialmente mulheres, sentiam insegurança ao marcar encontros com outros viajantes através de apps genéricos.",
-    solution: "Sistema de verificação de identidade robusto integrado ao fluxo de UX sem causar atrito excessivo. Features de 'Check-in de Segurança' automático.",
+    challenge: "Explorar como as novas ferramentas de IA Generativa podem ser integradas ao fluxo de trabalho de design para expandir a criatividade e eficiência.",
+    solution: "Uma coleção de experimentos visuais e funcionais utilizando Midjourney, Stable Diffusion e LLMs para prototipagem rápida e geração de assets.",
     results: [
-      "50k downloads no primeiro mês de lançamento.",
-      "Avaliação 4.8 na App Store.",
-      "Zero incidentes de segurança reportados no MVP."
+      "Criação de identidades visuais conceituais em tempo recorde.",
+      "Exploração de novas estéticas (Vibe Design).",
+      "Automação de tarefas repetitivas no processo de discovery."
     ]
   }
 ];

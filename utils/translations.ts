@@ -140,22 +140,22 @@ export const translations = {
       subtitle: 'Feedback real de quem já trabalhou comigo em projetos internacionais e de alta complexidade.',
       items: [
         {
-          quote: "Denis is an amazing designer that I had the pleasure to work with, he is a complete product designer, and he has skills in research, prototyping, and design delivery.",
+          quote: "Denis é um designer incrível com quem tive o prazer de trabalhar, ele é um product designer completo, com habilidades em pesquisa, prototipagem e entrega de design.",
         },
         {
-          quote: "Denis is the kind of person that goes off his way to find and fix issues wherever the company needs it, always trying to improve.",
+          quote: "Denis é o tipo de pessoa que faz o possível para encontrar e corrigir problemas onde quer que a empresa precise, sempre tentando melhorar.",
         },
         {
-          quote: "Denis has a big heart and is always concerned about the people around him. He's someone who falls in love with problems and will do everything to learn more about what can be done to solve them in the best way possible :)",
+          quote: "Denis tem um coração enorme e está sempre preocupado com as pessoas ao seu redor. Ele é alguém que se apaixona pelos problemas e fará de tudo para aprender mais sobre o que pode ser feito para resolvê-los da melhor maneira possível :)",
         },
         {
-          quote: "I had the opportunity to be led by Denis at a time when I lacked confidence and direction. His leadership was fundamental in enabling me to find my way and develop my work in a way that I didn't know I was capable of.",
+          quote: "Tive a oportunidade de ser liderado pelo Denis em um momento em que me faltava confiança e direção. Sua liderança foi fundamental para que eu encontrasse meu caminho e desenvolvesse meu trabalho de uma forma que não sabia que era capaz.",
         },
         {
-          quote: "A dedicated professor who is highly praised by his classes. As well as being collaborative and an expert in his field, Denis has empathy to spare.",
+          quote: "Um professor dedicado e muito elogiado por suas turmas. Além de colaborativo e especialista em sua área, Denis tem empatia de sobra.",
         },
         {
-          quote: "A complete professional, mentor, speaker and, above all, a great friend. It's rare to find someone who understands so much about UI/UX and has so much empathy for the user. He's a restless professional, always questioning, proactive and offering more than is asked of him.",
+          quote: "Um profissional completo, mentor, palestrante e, acima de tudo, um grande amigo. É raro encontrar alguém que entenda tanto de UI/UX e tenha tanta empatia pelo usuário. É um profissional inquieto, sempre questionador, proativo e entregando mais do que lhe é pedido.",
         }
       ]
     },
@@ -165,7 +165,8 @@ export const translations = {
       titleEnd: 'juntos?',
       subtitle: 'Estou sempre aberto a discutir design de produto, colaborar em novos projetos ou falar sobre oportunidades de liderança.',
       cta: 'Mande um Olá 👋',
-      rights: 'Todos os direitos reservados.'
+      rights: 'Todos os direitos reservados.',
+      location: 'na ensolarada cidade de Campinas/SP.'
     }
   },
   en: {
@@ -334,7 +335,8 @@ export const translations = {
       titleEnd: 'together?',
       subtitle: 'I\'m always open to discussing product design, collaborating on new projects, or talking about leadership opportunities.',
       cta: 'Say Hello 👋',
-      rights: 'All rights reserved.'
+      rights: 'All rights reserved.',
+      location: 'in the sunny city of Campinas/SP.'
     }
   },
   es: {
@@ -349,7 +351,7 @@ export const translations = {
       badge: 'Portafolio Profesional',
       titleHighlight: 'transforma negocios.',
       titleStart: 'Diseño que',
-      intro: (name: string) => `Hola, soy ${name}, UX Design Leader con más de 10 años de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.`,
+      intro: (name: string) => `Hola, soy ${name}, UX Design Leader con más de 10 anos de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.`,
       ctaProjects: 'Ver Proyectos',
       ctaContact: 'Ponerse en contacto',
       scroll: 'Scroll',
@@ -478,22 +480,22 @@ export const translations = {
       subtitle: 'Feedback real de quienes ya han trabajado conmigo en proyectos internacionales y de alta complejidad.',
       items: [
         {
-          quote: "Denis is an amazing designer that I had the pleasure to work with, he is a complete product designer, and he has skills in research, prototyping, and design delivery.",
+          quote: "Denis es un diseñador increíble con el que tuve el placer de trabajar, es un diseñador de productos completo, con habilidades en investigación, creación de prototipos y entrega de diseño.",
         },
         {
-          quote: "Denis is the kind of person that goes off his way to find and fix issues wherever the company needs it, always trying to improve.",
+          quote: "Denis es el tipo de persona que hace todo lo posible para encontrar y solucionar problemas donde sea que la empresa lo necesite, siempre tratando de mejorar.",
         },
         {
-          quote: "Denis has a big heart and is always concerned about the people around him. He's someone who falls in love with problems and will do everything to learn more about what can be done to solve them in the best way possible :)",
+          quote: "Denis tiene un gran corazón y siempre se preocupa por las personas que lo rodean. Es alguien que se enamora de los problemas y hará todo lo posible para aprender más sobre lo que se puede hacer para resolverlos de la mejor manera posible :)",
         },
         {
-          quote: "I had the opportunity to be led by Denis at a time when I lacked confidence and direction. His leadership was fundamental in enabling me to find my way and develop my work in a way that I didn't know I was capable of.",
+          quote: "Tuve la oportunidad de ser liderado por Denis en un momento en que me faltaba confianza y dirección. Su liderazgo fue fundamental para permitirme encontrar mi camino y desarrollar mi trabajo de una manera que no sabía que era capaz.",
         },
         {
-          quote: "A dedicated professor who is highly praised by his classes. As well as being collaborative and an expert in his field, Denis has empathy to spare.",
+          quote: "Un profesor dedicado que es muy elogiado por sus clases. Además de ser colaborativo y un experto en su campo, a Denis le sobra empatía.",
         },
         {
-          quote: "A complete professional, mentor, speaker and, above all, a great friend. It's rare to find someone who understands so much about UI/UX and has so much empathy for the user. He's a restless professional, always questioning, proactive and offering more than is asked of him.",
+          quote: "Un profesional completo, mentor, orador y, sobre todo, un gran amigo. Es raro encontrar a alguien que entienda tanto de UI/UX y tenga tanta empatía por el usuario. Es un profesional inquieto, siempre cuestionando, proactivo y ofreciendo más de lo que se le pide.",
         }
       ]
     },
@@ -503,7 +505,8 @@ export const translations = {
       titleEnd: 'juntos?',
       subtitle: 'Siempre estoy abierto a discutir diseño de producto, colaborar en nuevos proyectos o hablar sobre oportunidades de liderazgo.',
       cta: 'Manda un Hola 👋',
-      rights: 'Todos los derechos reservados.'
+      rights: 'Todos los derechos reservados.',
+      location: 'en la soleada ciudad de Campinas/SP.'
     }
   }
 };

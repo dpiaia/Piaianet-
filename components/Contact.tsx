@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
     },
     { 
       icon: <Github size={20} />, 
-      href: "#",
+      href: "https://github.com/dpiaia",
       label: "Github" 
     }
   ];
@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
 
             <div className="mt-16 pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-neutral-500 text-sm">
-                &copy; 2024 Denis Piaia. {t.contact.rights}
+                &copy; 2026 Denis Piaia - {t.contact.location} {t.contact.rights}
               </div>
               
               <div className="flex gap-6">

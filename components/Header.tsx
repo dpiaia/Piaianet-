@@ -32,7 +32,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-display font-bold text-white tracking-tighter">
-          denis<span className="text-brand-yellow">.piaia</span>
+          denis<span className="text-brand-yellow">piaia</span>
         </a>
 
         {/* Desktop Nav */}

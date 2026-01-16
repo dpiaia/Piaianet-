@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Users, Zap, Search } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ParticleBackground from './ui/ParticleBackground';
 
-const About: React.FC = () => {
+const About: FC = () => {
   const { t } = useLanguage();
 
   const skills = [

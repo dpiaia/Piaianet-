@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef, FC, MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github } from 'lucide-react';
 import Button from './ui/Button';
@@ -28,7 +28,7 @@ const BehanceIcon = ({ size = 20, className = "" }) => (
   </svg>
 );
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   const { t } = useLanguage();
   const confettiRef = useRef<ConfettiRef>(null);
 
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
     }
   ];
 
-  const handleSectionClick = (e: React.MouseEvent) => {
+  const handleSectionClick = (e: MouseEvent) => {
     // Dispara os confetes nas coordenadas do clique
     if (confettiRef.current) {
       confettiRef.current.explode(e.clientX, e.clientY);

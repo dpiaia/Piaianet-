@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, Layers, Monitor, CheckCircle2 } from 'lucide-react';
 import { Project } from '../types';
@@ -6,7 +6,7 @@ import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 import ParticleBackground from './ui/ParticleBackground';
 
-const Projects: React.FC = () => {
+const Projects: FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const { t } = useLanguage();
 
@@ -58,7 +58,7 @@ const Projects: React.FC = () => {
   }));
 
   // Prevent background scrolling when modal is open
-  React.useEffect(() => {
+  useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
     } else {

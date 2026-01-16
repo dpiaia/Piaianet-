@@ -1,73 +1,71 @@
-import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
+import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 
 export interface ConfettiRef {
   explode: (x: number, y: number) => void;
 }
 
-const ConfettiCanvas = forwardRef<ConfettiRef>((_, ref) => {
+// Cores da marca
+const COLORS = ['#FACC15', '#FFFFFF', '#E5E5E5', '#CA8A04'];
+
+class Particle {
+  x: number;
+  y: number;
+  size: number;
+  color: string;
+  speedX: number;
+  speedY: number;
+  rotation: number;
+  rotationSpeed: number;
+  opacity: number;
+  gravity: number;
+  friction: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+    this.size = Math.random() * 8 + 4;
+    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    
+    const angle = Math.random() * Math.PI * 2;
+    const velocity = Math.random() * 15 + 5;
+    
+    this.speedX = Math.cos(angle) * velocity;
+    this.speedY = Math.sin(angle) * velocity;
+    
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = Math.random() * 10 - 5;
+    this.opacity = 1;
+    this.gravity = 0.5;
+    this.friction = 0.96;
+  }
+
+  update() {
+    this.speedY += this.gravity;
+    this.speedX *= this.friction;
+    this.speedY *= this.friction;
+    
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    this.rotation += this.rotationSpeed;
+    this.opacity -= 0.015;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate((this.rotation * Math.PI) / 180);
+    ctx.globalAlpha = Math.max(0, this.opacity);
+    ctx.fillStyle = this.color;
+    ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+    ctx.restore();
+  }
+}
+
+const ConfettiCanvas = forwardRef<ConfettiRef, {}>((_props, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const animationFrameId = useRef<number>();
-
-  // Cores da marca: Amarelo, Branco, Cinza Claro, Amarelo Escuro
-  const colors = ['#FACC15', '#FFFFFF', '#E5E5E5', '#CA8A04'];
-
-  class Particle {
-    x: number;
-    y: number;
-    size: number;
-    color: string;
-    speedX: number;
-    speedY: number;
-    rotation: number;
-    rotationSpeed: number;
-    opacity: number;
-    gravity: number;
-    friction: number;
-
-    constructor(x: number, y: number) {
-      this.x = x;
-      this.y = y;
-      this.size = Math.random() * 8 + 4; // Tamanho entre 4 e 12
-      this.color = colors[Math.floor(Math.random() * colors.length)];
-      
-      // Explosão em todas as direções
-      const angle = Math.random() * Math.PI * 2;
-      const velocity = Math.random() * 15 + 5; // Velocidade inicial
-      
-      this.speedX = Math.cos(angle) * velocity;
-      this.speedY = Math.sin(angle) * velocity;
-      
-      this.rotation = Math.random() * 360;
-      this.rotationSpeed = Math.random() * 10 - 5;
-      this.opacity = 1;
-      this.gravity = 0.5;
-      this.friction = 0.96; // Desaceleração
-    }
-
-    update() {
-      this.speedY += this.gravity;
-      this.speedX *= this.friction;
-      this.speedY *= this.friction;
-      
-      this.x += this.speedX;
-      this.y += this.speedY;
-      
-      this.rotation += this.rotationSpeed;
-      this.opacity -= 0.015; // Decaimento
-    }
-
-    draw(ctx: CanvasRenderingContext2D) {
-      ctx.save();
-      ctx.translate(this.x, this.y);
-      ctx.rotate((this.rotation * Math.PI) / 180);
-      ctx.globalAlpha = Math.max(0, this.opacity);
-      ctx.fillStyle = this.color;
-      // Desenha quadrado
-      ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-      ctx.restore();
-    }
-  }
+  const animationFrameId = useRef<number>(undefined);
 
   const loop = () => {
     const canvas = canvasRef.current;
@@ -77,12 +75,10 @@ const ConfettiCanvas = forwardRef<ConfettiRef>((_, ref) => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Atualizar e desenhar partículas
     particlesRef.current.forEach((particle, index) => {
       particle.update();
       particle.draw(ctx);
 
-      // Remover partículas mortas
       if (particle.opacity <= 0) {
         particlesRef.current.splice(index, 1);
       }
@@ -90,12 +86,13 @@ const ConfettiCanvas = forwardRef<ConfettiRef>((_, ref) => {
 
     if (particlesRef.current.length > 0) {
       animationFrameId.current = requestAnimationFrame(loop);
+    } else {
+      animationFrameId.current = undefined;
     }
   };
 
   useImperativeHandle(ref, () => ({
     explode: (x: number, y: number) => {
-      // Ajustar coordenadas baseadas na posição do canvas (caso tenha offset)
       const canvas = canvasRef.current;
       if (!canvas) return;
       
@@ -103,14 +100,11 @@ const ConfettiCanvas = forwardRef<ConfettiRef>((_, ref) => {
       const relativeX = x - rect.left;
       const relativeY = y - rect.top;
 
-      // Criar explosão de 30 partículas
       for (let i = 0; i < 30; i++) {
         particlesRef.current.push(new Particle(relativeX, relativeY));
       }
 
-      // Reiniciar loop se estiver parado
-      if (particlesRef.current.length > 0 && (!animationFrameId.current || particlesRef.current.length <= 30)) {
-         cancelAnimationFrame(animationFrameId.current!);
+      if (particlesRef.current.length > 0 && !animationFrameId.current) {
          loop();
       }
     }
@@ -129,7 +123,9 @@ const ConfettiCanvas = forwardRef<ConfettiRef>((_, ref) => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
   }, []);
 

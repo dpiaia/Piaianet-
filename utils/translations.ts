@@ -19,14 +19,32 @@ export const translations = {
     about: {
       title: 'Sobre',
       titleHighlight: 'Mim',
-      p1: 'Minha jornada no design começou na interseção entre tecnologia e psicologia. Acredito que o bom design não é apenas sobre pixels bonitos, mas sobre resolver problemas reais de forma elegante e invisível.',
-      p2: 'Como UX Leader, meu foco mudou da execução individual para a orquestração de experiências. Trabalho lado a lado com PMs e Engenheiros para garantir que a voz do usuário seja ouvida em cada etapa do desenvolvimento.',
-      p3: 'Fora do trabalho, sou entusiasta de fotografia urbana e estudo neurociência cognitiva aplicada ao design.',
-      skills: {
-        leadership: { title: "Liderança de Equipe", desc: "Mentoria e gestão de times de alta performance." },
-        research: { title: "User Research", desc: "Decisões baseadas em dados e comportamento real." },
-        designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
-        prototyping: { title: "Prototipagem Ágil", desc: "Validação rápida de hipóteses e conceitos." },
+      tabs: {
+        professional: 'Profissional',
+        personal: 'Pessoal'
+      },
+      professional: {
+        p1: 'Minha jornada no design começou na interseção entre tecnologia e psicologia. Acredito que o bom design não é apenas sobre pixels bonitos, mas sobre resolver problemas reais de forma elegante e invisível.',
+        p2: 'Como UX Leader, meu foco mudou da execução individual para a orquestração de experiências. Trabalho lado a lado com PMs e Engenheiros para garantir que a voz do usuário seja ouvida em cada etapa do desenvolvimento.',
+        p3: 'Atuo como facilitador entre negócios e criatividade, garantindo que as entregas tenham impacto mensurável.',
+        skills: {
+          leadership: { title: "Liderança de Equipe", desc: "Mentoria e gestão de times de alta performance." },
+          research: { title: "User Research", desc: "Decisões baseadas em dados e comportamento real." },
+          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
+          prototyping: { title: "Prototipagem Ágil", desc: "Validação rápida de hipóteses e conceitos." },
+        }
+      },
+      personal: {
+        title: 'Além do Pixel',
+        p1: 'Quando não estou no Figma ou em reuniões, gosto de desconectar e buscar inspiração no mundo real. Acredito que um bom designer precisa ter repertório de vida, não apenas visual.',
+        photosTitle: 'Momentos & Hobbies',
+        musicTitle: 'No meu Fone',
+        playlist: [
+          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
+          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
+          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+        ]
       }
     },
     experience: {
@@ -189,14 +207,32 @@ export const translations = {
     about: {
       title: 'About',
       titleHighlight: 'Me',
-      p1: 'My journey in design began at the intersection of technology and psychology. I believe good design isn\'t just about pretty pixels, but about solving real problems elegantly and invisibly.',
-      p2: 'As a UX Leader, my focus shifted from individual execution to orchestrating experiences. I work side-by-side with PMs and Engineers to ensure the user voice is heard at every stage of development.',
-      p3: 'Outside of work, I\'m an urban photography enthusiast and I study cognitive neuroscience applied to design.',
-      skills: {
-        leadership: { title: "Team Leadership", desc: "Mentoring and managing high-performance teams." },
-        research: { title: "User Research", desc: "Decisions based on data and real behavior." },
-        designSystems: { title: "Design Systems", desc: "Scalability and visual consistency." },
-        prototyping: { title: "Agile Prototyping", desc: "Rapid validation of hypotheses and concepts." },
+      tabs: {
+        professional: 'Professional',
+        personal: 'Personal'
+      },
+      professional: {
+        p1: 'My journey in design began at the intersection of technology and psychology. I believe good design isn\'t just about pretty pixels, but about solving real problems elegantly and invisibly.',
+        p2: 'As a UX Leader, my focus shifted from individual execution to orchestrating experiences. I work side-by-side with PMs and Engineers to ensure the user voice is heard at every stage of development.',
+        p3: 'I act as a facilitator between business and creativity, ensuring deliverables have measurable impact.',
+        skills: {
+          leadership: { title: "Team Leadership", desc: "Mentoring and managing high-performance teams." },
+          research: { title: "User Research", desc: "Decisions based on data and real behavior." },
+          designSystems: { title: "Design Systems", desc: "Scalability and visual consistency." },
+          prototyping: { title: "Agile Prototyping", desc: "Rapid validation of hypotheses and concepts." },
+        }
+      },
+      personal: {
+        title: 'Beyond the Pixel',
+        p1: 'When I\'m not in Figma or meetings, I like to disconnect and seek inspiration in the real world. I believe a good designer needs life repertoire, not just visual.',
+        photosTitle: 'Moments & Hobbies',
+        musicTitle: 'On My Headphones',
+        playlist: [
+          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
+          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
+          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+        ]
       }
     },
     experience: {
@@ -351,7 +387,7 @@ export const translations = {
       badge: 'Portafolio Profesional',
       titleHighlight: "I'm Denis.",
       titleStart: 'Hi There,',
-      intro: 'UX Design Leader con más de 10 años de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
+      intro: 'UX Design Leader con más de 10 anos de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
       ctaProjects: 'Ver Proyectos',
       ctaContact: 'Ponerse en contacto',
       scroll: 'Scroll',
@@ -359,14 +395,32 @@ export const translations = {
     about: {
       title: 'Sobre',
       titleHighlight: 'Mí',
-      p1: 'Mi viaje en el diseño comenzó en la intersección entre tecnología y psicología. Creo que un buen diseño no se trata solo de píxeles bonitos, sino de resolver problemas reales de manera elegante e invisible.',
-      p2: 'Como UX Leader, mi enfoque cambió de la ejecución individual a la orquestación de experiencias. Trabajo codo a codo con PMs e Ingenieros para asegurar que la voz del usuario sea escuchada en cada etapa del desarrollo.',
-      p3: 'Fuera del trabajo, soy un entusiasta de la fotografía urbana y estudio neurociencia cognitiva aplicada al diseño.',
-      skills: {
-        leadership: { title: "Liderazgo de Equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
-        research: { title: "User Research", desc: "Decisiones basadas en datos y comportamiento real." },
-        designSystems: { title: "Design Systems", desc: "Escalabilidad y consistencia visual." },
-        prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis y conceptos." },
+      tabs: {
+        professional: 'Profesional',
+        personal: 'Personal'
+      },
+      professional: {
+        p1: 'Mi viaje en el diseño comenzó en la intersección entre tecnología y psicología. Creo que un buen diseño no se trata solo de píxeles bonitos, sino de resolver problemas reales de manera elegante e invisible.',
+        p2: 'Como UX Leader, mi enfoque cambió de la ejecución individual a la orquestación de experiencias. Trabajo codo a codo con PMs e Ingenieros para asegurar que la voz del usuario sea escuchada en cada etapa del desarrollo.',
+        p3: 'Actúo como facilitador entre negocios y creatividad, asegurando que las entregas tengan impacto medible.',
+        skills: {
+          leadership: { title: "Liderazgo de Equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
+          research: { title: "User Research", desc: "Decisiones basadas en datos y comportamiento real." },
+          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistencia visual." },
+          prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis y conceptos." },
+        }
+      },
+      personal: {
+        title: 'Más allá del Píxel',
+        p1: 'Cuando no estoy en Figma o en reuniones, me gusta desconectarme y buscar inspiración en el mundo real. Creo que un buen diseñador necesita repertorio de vida, no solo visual.',
+        photosTitle: 'Momentos y Hobbies',
+        musicTitle: 'En mi Auricular',
+        playlist: [
+          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
+          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
+          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+        ]
       }
     },
     experience: {
@@ -420,7 +474,7 @@ export const translations = {
           title: "CliniDS",
           category: "DESIGNOPS • HEALTHTECH",
           shortDescription: "Creando un Design System para Clinicorp.",
-          challenge: "Escalar la consistencia visual y funcional entre múltiples módulos de la plataforma Clinicorp se estaba volviendo insostenible, generando deuda técnica y de diseño.",
+          challenge: "Escalar la consistencia visual y funcional entre múltiplos módulos de la plataforma Clinicorp se estaba volviendo insostenible, generando deuda técnica y de diseño.",
           solution: "Creación e implementación de CliniDS: una biblioteca de componentes centralizada, documentada y agnóstica, facilitando la colaboración entre diseñadores y desarrolladores.",
           results: [
             "Aumento del 40% en la velocidad de entrega de nuevas pantallas.",
@@ -486,7 +540,7 @@ export const translations = {
           quote: "Denis es el tipo de persona que hace todo lo posible para encontrar y solucionar problemas donde sea que la empresa lo necesite, siempre tratando de mejorar.",
         },
         {
-          quote: "Denis tiene un gran corazón y siempre se preocupa por las personas que lo rodean. Es alguien que se enamora de los problemas y hará todo lo posible para aprender más sobre lo que se puede hacer para resolverlos de la mejor manera posible :)",
+          quote: "Denis tiene un gran corazón y siempre se preocupa por las personas que lo rodean. Es alguien que se enamora de los problemas y hará todo lo posible para aprender mais sobre lo que se puede hacer para resolverlos de la mejor manera posible :)",
         },
         {
           quote: "Tuve la oportunidad de ser liderado por Denis en un momento en que me faltaba confianza y dirección. Su liderazgo fue fundamental para permitirme encontrar mi camino y desarrollar mi trabajo de una manera que no sabía que era capaz.",

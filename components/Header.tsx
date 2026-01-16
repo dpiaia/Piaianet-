@@ -10,9 +10,9 @@ const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { label: t.nav.about, href: '#about' },
-    { label: t.nav.experience, href: '#experience' },
     { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.experience, href: '#experience' },
+    { label: t.nav.about, href: '#about' },
     { label: t.nav.testimonials, href: '#testimonials' },
     { label: t.nav.contact, href: '#contact' },
   ];

@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
             style={{ y: yText, opacity }}
             className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
           >
-            {t.hero.intro('Denis Piaia')}
+            {t.hero.intro}
           </motion.p>
 
           <motion.div

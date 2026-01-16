@@ -9,9 +9,9 @@ export const translations = {
     },
     hero: {
       badge: 'Portfólio Profissional',
-      titleHighlight: 'transforma negócios.',
-      titleStart: 'Design que',
-      intro: (name: string) => `Olá, sou ${name}, UX Design Leader com mais de 10 anos de experiência criando produtos digitais intuitivos, acessíveis e focados na conversão e satisfação do usuário.`,
+      titleHighlight: "I'm Denis.",
+      titleStart: 'Hi There,',
+      intro: 'UX Design Leader com mais de 10 anos de experiência criando produtos digitais intuitivos, acessíveis e focados na conversão e satisfação do usuário.',
       ctaProjects: 'Ver Projetos',
       ctaContact: 'Entrar em Contato',
       scroll: 'Scroll',
@@ -179,9 +179,9 @@ export const translations = {
     },
     hero: {
       badge: 'Professional Portfolio',
-      titleHighlight: 'transforms business.',
-      titleStart: 'Design that',
-      intro: (name: string) => `Hi, I'm ${name}, a UX Design Leader with over 10 years of experience creating intuitive, accessible digital products focused on conversion and user satisfaction.`,
+      titleHighlight: "I'm Denis.",
+      titleStart: 'Hi There,',
+      intro: 'UX Design Leader with over 10 years of experience creating intuitive, accessible digital products focused on conversion and user satisfaction.',
       ctaProjects: 'View Projects',
       ctaContact: 'Get in Touch',
       scroll: 'Scroll',
@@ -349,9 +349,9 @@ export const translations = {
     },
     hero: {
       badge: 'Portafolio Profesional',
-      titleHighlight: 'transforma negocios.',
-      titleStart: 'Diseño que',
-      intro: (name: string) => `Hola, soy ${name}, UX Design Leader con más de 10 anos de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.`,
+      titleHighlight: "I'm Denis.",
+      titleStart: 'Hi There,',
+      intro: 'UX Design Leader con más de 10 años de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
       ctaProjects: 'Ver Proyectos',
       ctaContact: 'Ponerse en contacto',
       scroll: 'Scroll',
@@ -392,7 +392,7 @@ export const translations = {
           role: "Senior Product Designer",
           company: "IFood / Sindelantal",
           period: "2018 - 2022",
-          description: "Enfoque en la experiencia del usuario para el mercado de Food Delivery. Lideré proyectos cruciales para la operación internacional (Sindelantal - México) y iFood Brasil, optimizando jornadas de descubrimiento de restaurantes y checkout para millones de usuarios.",
+          description: "Enfoque en la experiencia del usuario para el mercado de Food Delivery. Lideré proyectos cruciales para la operación internacional (Sindelantal - México) and iFood Brasil, optimizando jornadas de descubrimiento de restaurantes y checkout para millones de usuarios.",
           skills: ["FoodTech", "Mobile First", "Internacionalización"]
         },
         {

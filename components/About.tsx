@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers, Users, Zap, Search } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import ParticleBackground from './ui/ParticleBackground';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
@@ -14,8 +15,9 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-brand-gray relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-24 bg-brand-gray relative overflow-hidden">
+      <ParticleBackground variant="attract" onlyYellow={true} />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <motion.div

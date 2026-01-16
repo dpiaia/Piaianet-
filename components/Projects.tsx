@@ -4,6 +4,7 @@ import { ArrowUpRight, X, Layers, Monitor, CheckCircle2 } from 'lucide-react';
 import { Project } from '../types';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
+import ParticleBackground from './ui/ParticleBackground';
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -66,8 +67,9 @@ const Projects: React.FC = () => {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="py-24 bg-brand-gray relative">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-24 bg-brand-gray relative overflow-hidden">
+      <ParticleBackground variant="attract" onlyYellow={true} />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
-const ParticleBackground: React.FC = () => {
+interface ParticleBackgroundProps {
+  variant?: 'repel' | 'attract';
+  onlyYellow?: boolean;
+}
+
+const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ variant = 'repel', onlyYellow = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -92,8 +97,13 @@ const ParticleBackground: React.FC = () => {
             const directionX = forceDirectionX * force * this.density;
             const directionY = forceDirectionY * force * this.density;
 
-            this.x -= directionX;
-            this.y -= directionY;
+            if (variant === 'attract') {
+              this.x += directionX;
+              this.y += directionY;
+            } else {
+              this.x -= directionX;
+              this.y -= directionY;
+            }
           } else {
             // Retorno suave à posição "original" (flutuante)
             if (this.x !== this.baseX) {
@@ -148,10 +158,11 @@ const ParticleBackground: React.FC = () => {
         const directionX = (Math.random() * 0.4) - 0.2;
         const directionY = (Math.random() * 0.4) - 0.2;
         
-        // Cores: Mistura de Amarelo Brand e Cinza
-        const isYellow = Math.random() > 0.8; // 20% yellow
+        // Cores: Mistura de Amarelo Brand e Cinza/Branco
+        // Se onlyYellow for true, força amarelo em todas (com opacidade variável)
+        const isYellow = onlyYellow || Math.random() > 0.8; 
         const color = isYellow 
-            ? 'rgba(250, 204, 21, 0.6)' 
+            ? `rgba(250, 204, 21, ${onlyYellow ? Math.random() * 0.4 + 0.2 : 0.6})` 
             : `rgba(255, 255, 255, ${Math.random() * 0.1 + 0.05})`;
 
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
@@ -190,7 +201,7 @@ const ParticleBackground: React.FC = () => {
       window.removeEventListener('mouseout', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [variant, onlyYellow]);
 
   return (
     <canvas 

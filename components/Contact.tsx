@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github } from 'lucide-react';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
+import ConfettiCanvas, { ConfettiRef } from './ui/ConfettiCanvas';
 
 // Custom Behance Icon since it's not in the standard set
 const BehanceIcon = ({ size = 20, className = "" }) => (
@@ -29,6 +30,7 @@ const BehanceIcon = ({ size = 20, className = "" }) => (
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
+  const confettiRef = useRef<ConfettiRef>(null);
 
   const socials = [
     { 
@@ -48,13 +50,27 @@ const Contact: React.FC = () => {
     }
   ];
 
+  const handleSectionClick = (e: React.MouseEvent) => {
+    // Dispara os confetes nas coordenadas do clique
+    if (confettiRef.current) {
+      confettiRef.current.explode(e.clientX, e.clientY);
+    }
+  };
+
   return (
-    <section id="contact" className="py-24 bg-brand-dark relative overflow-hidden">
+    <section 
+      id="contact" 
+      className="py-24 bg-brand-dark relative overflow-hidden cursor-pointer selection:bg-brand-yellow/30"
+      onClick={handleSectionClick}
+    >
+      {/* Interactive Confetti Layer */}
+      <ConfettiCanvas ref={confettiRef} />
+
       {/* Decorative bg */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-6 relative z-10 pointer-events-none">
+        <div className="max-w-4xl mx-auto text-center pointer-events-auto">
           <motion.div
              initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +88,7 @@ const Contact: React.FC = () => {
               href="https://linkedin.com/in/denispiaia" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()} // Opcional: Remover se quiser confetes ao clicar no botão também
             >
               <Button className="px-10 py-5 text-lg rounded-none">
                 {t.contact.cta}

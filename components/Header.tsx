@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-dark border-b border-white/10 py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-black shadow-lg py-4' : 'bg-transparent py-6'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

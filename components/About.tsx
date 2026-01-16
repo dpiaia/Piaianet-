@@ -1,12 +1,13 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers, Users, Zap, Search, Music2, Camera, User, Briefcase, Disc, ExternalLink } from 'lucide-react';
+import { Layers, Users, Zap, Search, Music2, Camera, User, Briefcase, Disc, Play, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ParticleBackground from './ui/ParticleBackground';
 
 const About: FC = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'professional' | 'personal'>('professional');
+  const [selectedTrack, setSelectedTrack] = useState<any | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [carouselWidth, setCarouselWidth] = useState(0);
 
@@ -136,11 +137,9 @@ const About: FC = () => {
                        </h4>
                        <div className="space-y-4 relative z-10">
                           {t.about.personal.playlist.map((track: any, i: number) => (
-                             <a 
+                             <div 
                                key={i} 
-                               href={track.url}
-                               target="_blank"
-                               rel="noopener noreferrer"
+                               onClick={() => setSelectedTrack(track)}
                                className="flex items-center justify-between group cursor-pointer transition-all hover:pl-2"
                              >
                                 <div className="flex items-center gap-3">
@@ -149,7 +148,7 @@ const About: FC = () => {
                                    </div>
                                    <div>
                                       <p className="text-white font-medium text-sm group-hover:text-brand-yellow transition-colors flex items-center gap-2">
-                                        {track.title} <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        {track.title} <Play size={10} className="opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                                       </p>
                                       <p className="text-neutral-500 text-xs">{track.artist}</p>
                                    </div>
@@ -165,7 +164,7 @@ const About: FC = () => {
                                      />
                                    ))}
                                 </div>
-                             </a>
+                             </div>
                           ))}
                        </div>
                     </div>
@@ -201,6 +200,50 @@ const About: FC = () => {
                   </div>
                </div>
             </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Spotify Modal */}
+        <AnimatePresence>
+          {selectedTrack && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedTrack(null)}
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              />
+              
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="relative w-full max-w-md bg-brand-dark rounded-xl shadow-2xl overflow-hidden border border-white/10"
+              >
+                {/* Close Button */}
+                <button 
+                  onClick={() => setSelectedTrack(null)}
+                  className="absolute top-2 right-2 z-50 p-2 bg-black/50 rounded-full text-white hover:text-brand-yellow transition-colors hover:bg-black/80"
+                >
+                  <X size={20} />
+                </button>
+
+                <div className="p-1 bg-brand-dark">
+                  <iframe 
+                    style={{ borderRadius: '12px' }}
+                    src={selectedTrack.embedUrl}
+                    width="100%" 
+                    height="352" 
+                    frameBorder="0" 
+                    allowFullScreen 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    title={selectedTrack.title}
+                  />
+                </div>
+              </motion.div>
+            </div>
           )}
         </AnimatePresence>
       </div>

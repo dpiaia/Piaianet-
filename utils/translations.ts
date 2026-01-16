@@ -40,10 +40,10 @@ export const translations = {
         photosTitle: 'Momentos & Hobbies',
         musicTitle: 'No meu Fone',
         playlist: [
-          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
-          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
-          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
-          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+          { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
+          { title: "Lay Me To Rest", artist: "Zebrahead", embedUrl: "https://open.spotify.com/embed/track/4CJFj7Wl9qKZkmNaj5GB7Z?utm_source=generator&theme=0" },
+          { title: "Hell You Call A Dream", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/03A89GAR9MPybXei4sZiYh?utm_source=generator&theme=0" }
         ]
       }
     },
@@ -228,10 +228,10 @@ export const translations = {
         photosTitle: 'Moments & Hobbies',
         musicTitle: 'On My Headphones',
         playlist: [
-          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
-          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
-          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
-          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+          { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
+          { title: "Lay Me To Rest", artist: "Zebrahead", embedUrl: "https://open.spotify.com/embed/track/4CJFj7Wl9qKZkmNaj5GB7Z?utm_source=generator&theme=0" },
+          { title: "Hell You Call A Dream", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/03A89GAR9MPybXei4sZiYh?utm_source=generator&theme=0" }
         ]
       }
     },
@@ -406,7 +406,7 @@ export const translations = {
         skills: {
           leadership: { title: "Liderazgo de Equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
           research: { title: "User Research", desc: "Decisiones basadas en datos y comportamiento real." },
-          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistencia visual." },
+          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
           prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis y conceptos." },
         }
       },
@@ -416,10 +416,10 @@ export const translations = {
         photosTitle: 'Momentos y Hobbies',
         musicTitle: 'En mi Auricular',
         playlist: [
-          { title: "Evolve", artist: "The Warning", url: "https://music.youtube.com/watch?v=QDC5gQMNUSk&si=KLLoNqtn0fbERdIV" },
-          { title: "The Emptiness Machine", artist: "Linkin Park", url: "https://music.youtube.com/watch?v=KBV_zpMm_0Q&si=P-7ZXAlmB0kZ6J8w" },
-          { title: "Anthem", artist: "Zebrahead", url: "https://music.youtube.com/watch?v=_Op5qq0Bx7g&si=ZwfCiQzz8UipEsTu" },
-          { title: "Hell You Call A Dream", artist: "The Warning", url: "https://music.youtube.com/watch?v=GEFUzXeS3N4&si=Liy9RuA5V6UJ3dRY" }
+          { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
+          { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
+          { title: "Lay Me To Rest", artist: "Zebrahead", embedUrl: "https://open.spotify.com/embed/track/4CJFj7Wl9qKZkmNaj5GB7Z?utm_source=generator&theme=0" },
+          { title: "Hell You Call A Dream", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/03A89GAR9MPybXei4sZiYh?utm_source=generator&theme=0" }
         ]
       }
     },
@@ -477,7 +477,7 @@ export const translations = {
           challenge: "Escalar la consistencia visual y funcional entre múltiplos módulos de la plataforma Clinicorp se estaba volviendo insostenible, generando deuda técnica y de diseño.",
           solution: "Creación e implementación de CliniDS: una biblioteca de componentes centralizada, documentada y agnóstica, facilitando la colaboración entre diseñadores y desarrolladores.",
           results: [
-            "Aumento del 40% en la velocidad de entrega de nuevas pantallas.",
+            "Aumento del 40% en la velocidad de entrega de novas telas.",
             "Reducción drástica de inconsistencias visuales en el producto.",
             "Adopción del 100% por el equipo de ingeniería en 6 meses."
           ]
@@ -487,7 +487,7 @@ export const translations = {
           category: "ONBOARDING • FOODTECH",
           shortDescription: "Landing Page automatizada para registros de nuevos restaurantes.",
           challenge: "El proceso de registro de socios era manual y burocrático, limitando la velocidad de expansión agresiva necesaria para el mercado latinoamericano.",
-          solution: "Desarrollo de un flujo de onboarding self-service automatizado, con validación de documentos en tiempo real y UX optimizada para conversión.",
+          solution: "Desarrollo de un flujo de onboarding self-service automatizado, com validación de documentos en tiempo real y UX optimizada para conversión.",
           results: [
             "Reducción del 70% en el tiempo promedio de aprobación de restaurantes.",
             "Crecimiento exponencial de la base de socios en México y Colombia.",

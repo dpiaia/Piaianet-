@@ -5,6 +5,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import BackToTop from './components/ui/BackToTop';
 import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Testimonials />
           <Contact />
         </main>
+        <BackToTop />
       </div>
     </LanguageProvider>
   );

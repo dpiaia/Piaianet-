@@ -242,7 +242,8 @@ const Projects: FC = () => {
             </div>
           )}
         </AnimatePresence>
-      </section>
+      </div>
+    </section>
   );
 };
 

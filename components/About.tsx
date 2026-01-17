@@ -25,11 +25,11 @@ const About: FC = () => {
   ];
 
   const personalPhotos = [
-    "https://picsum.photos/id/453/400/500", // Music/Concert vibe
-    "https://picsum.photos/id/338/400/500", // Travel/Nature
-    "https://picsum.photos/id/225/400/500", // Tea/Coffee
-    "https://picsum.photos/id/103/400/500", // Urban
-    "https://picsum.photos/id/504/400/500", // Setup/Tech
+    "/photos/denis-sf.jpg",      // Golden Gate
+    "/photos/denis-github.jpg",  // Github
+    "/photos/denis-figma.jpg",   // Figma
+    "/photos/denis-pilot.jpg",   // Cockpit
+    "/photos/denis-turbine.jpg", // Turbine
   ];
 
   return (

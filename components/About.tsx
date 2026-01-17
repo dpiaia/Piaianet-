@@ -16,13 +16,13 @@ const About: FC = () => {
     { icon: <Zap size={24} />, ...t.about.professional.skills.prototyping },
   ];
 
-  // Ajuste nos caminhos: removida a barra inicial '/' para garantir referência relativa correta à pasta public
+  // CORREÇÃO: Usando caminho absoluto (com /) para acessar a pasta public na raiz do deploy
   const personalPhotos = [
-    "photos/denis-sf.jpg",      // Golden Gate
-    "photos/denis-github.jpg",  // Github
-    "photos/denis-figma.jpg",   // Figma
-    "photos/denis-pilot.jpg",   // Cockpit
-    "photos/denis-turbine.jpg", // Turbine
+    "/photos/denis-sf.jpg",      // Golden Gate
+    "/photos/denis-github.jpg",  // Github
+    "/photos/denis-figma.jpg",   // Figma
+    "/photos/denis-pilot.jpg",   // Cockpit
+    "/photos/denis-turbine.jpg", // Turbine
   ];
 
   // Duplicamos as fotos para criar o efeito de loop infinito sem buracos

@@ -188,9 +188,9 @@ const About: FC = () => {
                            {personalPhotos.map((photo, i) => (
                               <motion.div 
                                 key={i}
-                                className="min-w-[250px] h-[350px] rounded-xl overflow-hidden relative border border-white/5 bg-neutral-900 pointer-events-none"
+                                className="min-w-[300px] h-[350px] rounded-xl overflow-hidden relative border border-white/5 bg-neutral-900 pointer-events-none shadow-lg"
                               >
-                                 <img src={photo} alt="Personal" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                                 <img src={photo} alt="Personal" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                               </motion.div>
                            ))}

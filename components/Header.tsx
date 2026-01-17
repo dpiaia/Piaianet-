@@ -31,8 +31,23 @@ const Header: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl font-display font-bold text-white tracking-tighter">
-          denis<span className="text-brand-yellow">piaia</span>
+        
+        {/* Glitch Logo */}
+        <a href="#" className="relative group text-2xl font-display font-bold tracking-tighter">
+          {/* Main Layer */}
+          <span className="relative z-10 block text-white group-hover:text-white transition-colors">
+            denis<span className="text-brand-yellow">piaia</span>
+          </span>
+          
+          {/* Glitch Layer 1 (Red Shift) - Visible on Hover */}
+          <span className="absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-100 animate-glitch-1 select-none pointer-events-none mix-blend-screen">
+            denis<span className="text-red-500">piaia</span>
+          </span>
+          
+          {/* Glitch Layer 2 (Cyan Shift) - Visible on Hover */}
+          <span className="absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-100 animate-glitch-2 select-none pointer-events-none mix-blend-screen">
+            denis<span className="text-cyan-500">piaia</span>
+          </span>
         </a>
 
         {/* Desktop Nav */}

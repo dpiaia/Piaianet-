@@ -70,7 +70,7 @@ const Projects: FC = () => {
     <section id="projects" className="py-24 bg-brand-gray relative overflow-hidden">
       <ParticleBackground variant="attract" onlyYellow={true} />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -131,119 +131,118 @@ const Projects: FC = () => {
             </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            />
-            
-            <motion.div 
-              layoutId={`card-${selectedProject.id}`}
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-brand-dark border border-white/10 rounded-2xl shadow-2xl flex flex-col"
-            >
-              {/* Close Button */}
-              <button 
-                onClick={(e) => { e.stopPropagation(); setSelectedProject(null); }}
-                className="absolute top-4 right-4 z-50 p-2 bg-black/50 rounded-full text-white hover:text-brand-yellow transition-colors hover:bg-black/80"
+        {/* Project Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedProject(null)}
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              />
+              
+              <motion.div 
+                layoutId={`card-${selectedProject.id}`}
+                className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-brand-dark border border-white/10 rounded-2xl shadow-2xl flex flex-col"
               >
-                <X size={24} />
-              </button>
+                {/* Close Button */}
+                <button 
+                  onClick={(e) => { e.stopPropagation(); setSelectedProject(null); }}
+                  className="absolute top-4 right-4 z-50 p-2 bg-black/50 rounded-full text-white hover:text-brand-yellow transition-colors hover:bg-black/80"
+                >
+                  <X size={24} />
+                </button>
 
-              {/* Hero Image */}
-              <div className="relative w-full h-64 sm:h-80 md:h-96 shrink-0">
-                <motion.img 
-                  layoutId={`img-${selectedProject.id}`}
-                  src={selectedProject.coverImage} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-8">
-                  <motion.p layoutId={`cat-${selectedProject.id}`} className="text-brand-yellow font-mono text-sm mb-2">{selectedProject.category}</motion.p>
-                  <motion.h2 layoutId={`title-${selectedProject.id}`} className="text-4xl md:text-5xl font-display font-bold text-white">{selectedProject.title}</motion.h2>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 md:p-12 space-y-12">
-                
-                {/* Intro Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/5">
-                  <div className="md:col-span-2">
-                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                       <Monitor size={20} className="text-brand-yellow" /> {t.projects.modal.challenge}
-                     </h3>
-                     <p className="text-neutral-400 leading-relaxed text-lg">{selectedProject.challenge}</p>
+                {/* Hero Image */}
+                <div className="relative w-full h-64 sm:h-80 md:h-96 shrink-0">
+                  <motion.img 
+                    layoutId={`img-${selectedProject.id}`}
+                    src={selectedProject.coverImage} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-8">
+                    <motion.p layoutId={`cat-${selectedProject.id}`} className="text-brand-yellow font-mono text-sm mb-2">{selectedProject.category}</motion.p>
+                    <motion.h2 layoutId={`title-${selectedProject.id}`} className="text-4xl md:text-5xl font-display font-bold text-white">{selectedProject.title}</motion.h2>
                   </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8 md:p-12 space-y-12">
+                  
+                  {/* Intro Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/5">
+                    <div className="md:col-span-2">
+                       <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                         <Monitor size={20} className="text-brand-yellow" /> {t.projects.modal.challenge}
+                       </h3>
+                       <p className="text-neutral-400 leading-relaxed text-lg">{selectedProject.challenge}</p>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">{t.projects.modal.tech}</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tags.map(tag => (
+                          <span key={tag} className="px-3 py-1 bg-white/5 text-neutral-300 text-sm rounded-full border border-white/5">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Solution */}
                   <div>
-                    <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">{t.projects.modal.tech}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 bg-white/5 text-neutral-300 text-sm rounded-full border border-white/5">
-                          {tag}
-                        </span>
+                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                       <Layers size={20} className="text-brand-yellow" /> {t.projects.modal.solution}
+                     </h3>
+                     <p className="text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
+                     
+                     {/* Gallery Grid */}
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {selectedProject.gallery.map((img, i) => (
+                          <img 
+                            key={i} 
+                            src={img} 
+                            alt={`Gallery ${i}`} 
+                            className={`rounded-lg border border-white/5 w-full h-64 object-cover hover:opacity-80 transition-opacity ${i === 2 ? 'md:col-span-2' : ''}`} 
+                          />
+                        ))}
+                     </div>
+                  </div>
+
+                  {/* Results */}
+                  <div className="bg-brand-gray p-8 rounded-xl border border-white/5">
+                    <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                      <CheckCircle2 size={20} className="text-brand-yellow" /> {t.projects.modal.results}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {selectedProject.results.map((res, i) => (
+                        <div key={i} className="flex flex-col gap-2">
+                          <span className="w-8 h-1 bg-brand-yellow mb-2 rounded-full" />
+                          <p className="text-white font-medium text-lg leading-snug">{res}</p>
+                        </div>
                       ))}
                     </div>
                   </div>
+
+                </div>
+                
+                <div className="p-8 border-t border-white/5 flex justify-between items-center bg-brand-dark sticky bottom-0 z-10">
+                  <span className="text-neutral-500 text-sm">{t.projects.modal.confidential}</span>
+                  <Button onClick={(e) => {e.stopPropagation(); setSelectedProject(null)}} variant="outline" className="text-xs px-4 py-2">
+                    {t.projects.modal.close}
+                  </Button>
                 </div>
 
-                {/* Solution */}
-                <div>
-                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                     <Layers size={20} className="text-brand-yellow" /> {t.projects.modal.solution}
-                   </h3>
-                   <p className="text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
-                   
-                   {/* Gallery Grid */}
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {selectedProject.gallery.map((img, i) => (
-                        <img 
-                          key={i} 
-                          src={img} 
-                          alt={`Gallery ${i}`} 
-                          className={`rounded-lg border border-white/5 w-full h-64 object-cover hover:opacity-80 transition-opacity ${i === 2 ? 'md:col-span-2' : ''}`} 
-                        />
-                      ))}
-                   </div>
-                </div>
-
-                {/* Results */}
-                <div className="bg-brand-gray p-8 rounded-xl border border-white/5">
-                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                    <CheckCircle2 size={20} className="text-brand-yellow" /> {t.projects.modal.results}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {selectedProject.results.map((res, i) => (
-                      <div key={i} className="flex flex-col gap-2">
-                        <span className="w-8 h-1 bg-brand-yellow mb-2 rounded-full" />
-                        <p className="text-white font-medium text-lg leading-snug">{res}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-              
-              <div className="p-8 border-t border-white/5 flex justify-between items-center bg-brand-dark sticky bottom-0 z-10">
-                <span className="text-neutral-500 text-sm">{t.projects.modal.confidential}</span>
-                <Button onClick={(e) => {e.stopPropagation(); setSelectedProject(null)}} variant="outline" className="text-xs px-4 py-2">
-                  {t.projects.modal.close}
-                </Button>
-              </div>
-
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-    </section>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+      </section>
   );
 };
 

@@ -39,7 +39,7 @@ const About: FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Header with Tabs */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

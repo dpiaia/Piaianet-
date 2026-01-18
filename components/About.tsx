@@ -1,5 +1,5 @@
-import { FC, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { FC, useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Layers, Users, Zap, Search, Music2, Camera, User, Briefcase, Disc, Play, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ParticleBackground from './ui/ParticleBackground';
@@ -8,6 +8,17 @@ const About: FC = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'professional' | 'personal'>('professional');
   const [selectedTrack, setSelectedTrack] = useState<any | null>(null);
+  const containerRef = useRef(null);
+
+  // Parallax Setup
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Elementos se movem em velocidades diferentes para criar profundidade
+  const yMusic = useTransform(scrollYProgress, [0, 1], [100, -100]); // Move para cima mais rápido
+  const yPhotos = useTransform(scrollYProgress, [0, 1], [50, -50]);  // Move mais suave
 
   const skills = [
     { icon: <Users size={24} />, ...t.about.professional.skills.leadership },
@@ -16,7 +27,6 @@ const About: FC = () => {
     { icon: <Zap size={24} />, ...t.about.professional.skills.prototyping },
   ];
 
-  // CORREÇÃO: Usando caminho absoluto (com /) para acessar a pasta public na raiz do deploy
   const personalPhotos = [
     "/photos/denis-sf.jpg",      // Golden Gate
     "/photos/denis-github.jpg",  // Github
@@ -29,7 +39,7 @@ const About: FC = () => {
   const infinitePhotos = [...personalPhotos, ...personalPhotos];
 
   return (
-    <section id="about" className="py-24 bg-brand-gray relative overflow-hidden min-h-[800px]">
+    <section id="about" ref={containerRef} className="py-24 bg-brand-gray relative overflow-hidden min-h-[800px]">
       <ParticleBackground variant="attract" onlyYellow={true} />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -112,9 +122,9 @@ const About: FC = () => {
               transition={{ duration: 0.3 }}
               className="flex flex-col gap-16"
             >
-               {/* Intro & Music */}
+               {/* Intro & Music with Parallax */}
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div>
+                  <motion.div style={{ y: yMusic }}>
                     <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                        <Camera className="text-brand-yellow" size={24} />
                        {t.about.personal.title}
@@ -124,7 +134,7 @@ const About: FC = () => {
                     </p>
                     
                     {/* Music Player Mockup */}
-                    <div className="bg-neutral-900/80 backdrop-blur border border-white/5 rounded-2xl p-6 relative overflow-hidden">
+                    <div className="bg-neutral-900/80 backdrop-blur border border-white/5 rounded-2xl p-6 relative overflow-hidden shadow-2xl">
                        <div className="absolute top-0 right-0 p-4 opacity-10">
                           <Music2 size={120} />
                        </div>
@@ -164,10 +174,10 @@ const About: FC = () => {
                           ))}
                        </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  {/* Infinite Auto-Scrolling Photo Carousel */}
-                  <div className="w-full relative">
+                  {/* Infinite Auto-Scrolling Photo Carousel with Parallax */}
+                  <motion.div style={{ y: yPhotos }} className="w-full relative">
                      <h3 className="text-lg font-medium text-neutral-400 mb-6 flex items-center gap-2">
                        {t.about.personal.photosTitle}
                      </h3>
@@ -184,7 +194,7 @@ const About: FC = () => {
                             x: {
                               repeat: Infinity,
                               repeatType: "loop",
-                              duration: 40, // Velocidade: aumente para mais lento, diminua para mais rápido
+                              duration: 40, 
                               ease: "linear",
                             },
                           }}
@@ -192,15 +202,20 @@ const About: FC = () => {
                           {infinitePhotos.map((photo, i) => (
                               <div 
                                 key={i}
-                                className="min-w-[300px] h-[350px] rounded-xl overflow-hidden relative border border-white/5 bg-neutral-900 shadow-lg shrink-0"
+                                className="min-w-[300px] h-[350px] rounded-xl overflow-hidden relative border border-white/5 bg-neutral-900 shadow-lg shrink-0 group"
                               >
-                                 <img src={photo} alt="Personal" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                 <img 
+                                    src={photo} 
+                                    alt="Personal Moment" 
+                                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+                                    loading="eager"
+                                 />
                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
                               </div>
                            ))}
                        </motion.div>
                      </div>
-                  </div>
+                  </motion.div>
                </div>
             </motion.div>
           )}

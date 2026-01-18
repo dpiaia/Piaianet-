@@ -27,13 +27,13 @@ const About: FC = () => {
     { icon: <Zap size={24} />, ...t.about.professional.skills.prototyping },
   ];
 
-  // CORREÇÃO: Usando URLs diretas do GitHub Raw para garantir o carregamento das imagens
+  // CORREÇÃO: Usando links do Imgur para garantir carregamento no Vercel
   const personalPhotos = [
-    "https://raw.githubusercontent.com/dpiaia/Piaianet-/main/photos/denis-sf.jpg",      // Golden Gate
-    "https://raw.githubusercontent.com/dpiaia/Piaianet-/main/photos/denis-github.jpg",  // Github
-    "https://raw.githubusercontent.com/dpiaia/Piaianet-/main/photos/denis-figma.jpg",   // Figma
-    "https://raw.githubusercontent.com/dpiaia/Piaianet-/main/photos/denis-pilot.jpg",   // Cockpit
-    "https://raw.githubusercontent.com/dpiaia/Piaianet-/main/photos/denis-turbine.jpg", // Turbine
+    "https://i.imgur.com/Ypw785G.jpeg",
+    "https://i.imgur.com/s3VhmVG.jpeg",
+    "https://i.imgur.com/7varOXb.jpeg",
+    "https://i.imgur.com/kezmZGe.jpeg",
+    "https://i.imgur.com/Qs2XqoR.jpeg"
   ];
 
   // Duplicamos as fotos para criar o efeito de loop infinito sem buracos

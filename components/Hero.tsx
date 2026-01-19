@@ -49,15 +49,34 @@ const Hero: React.FC = () => {
             <span className="text-brand-yellow font-medium tracking-wider uppercase">{t.hero.badge}</span>
           </motion.div>
 
-          <motion.h1
+          <motion.div
             style={{ y: yHeading, opacity }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8"
+            className="group relative"
           >
-            {t.hero.titleStart} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
-              {t.hero.titleHighlight}
-            </span>
-          </motion.h1>
+            {/* Camada Principal Visível */}
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 relative z-10">
+              {t.hero.titleStart} <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
+                {t.hero.titleHighlight}
+              </span>
+            </h1>
+
+            {/* Camada Glitch 1 (Red Shift) - Visível no Hover */}
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-50 animate-glitch-1 select-none pointer-events-none mix-blend-screen">
+               {t.hero.titleStart} <br />
+               <span className="text-red-500">
+                 {t.hero.titleHighlight}
+               </span>
+            </h1>
+            
+            {/* Camada Glitch 2 (Cyan Shift) - Visível no Hover */}
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-50 animate-glitch-2 select-none pointer-events-none mix-blend-screen">
+               {t.hero.titleStart} <br />
+               <span className="text-cyan-500">
+                 {t.hero.titleHighlight}
+               </span>
+            </h1>
+          </motion.div>
 
           <motion.p
             style={{ y: yText, opacity }}

@@ -9,8 +9,8 @@ export const translations = {
     },
     hero: {
       badge: 'Portfólio Profissional',
-      titleHighlight: "I'm Denis.",
-      titleStart: 'Hi There,',
+      titleHighlight: "o Denis.",
+      titleStart: 'Olá, eu sou',
       intro: 'UX Design Leader com mais de 10 anos de experiência criando produtos digitais intuitivos, acessíveis e focados na conversão e satisfação do usuário.',
       ctaProjects: 'Ver Projetos',
       ctaContact: 'Entrar em Contato',
@@ -70,7 +70,7 @@ export const translations = {
           role: "Senior Product Designer",
           company: "IFood / Sindelantal",
           period: "2018 - 2022",
-          description: "Foco na experiência do usuário para o mercado de Food Delivery. Liderei projetos cruciais para a operação internacional (Sindelantal - México) e iFood Brasil, otimizando jornadas de descoberta de restaurantes e checkout para milhões de usuários.",
+          description: "Foco na experiência do usuário para o mercado de Food Delivery. Liderei projetos cruciales para a operação internacional (Sindelantal - México) e iFood Brasil, otimizando jornadas de descoberta de restaurantes e checkout para milhões de usuários.",
           skills: ["FoodTech", "Mobile First", "Internationalization"]
         },
         {
@@ -258,7 +258,7 @@ export const translations = {
           role: "Senior Product Designer",
           company: "IFood / Sindelantal",
           period: "2018 - 2022",
-          description: "Focused on user experience for the Food Delivery market. Led crucial projects for international operations (Sindelantal - Mexico) and iFood Brazil, optimizing restaurant discovery journeys and checkout for millions of users.",
+          description: "Focused on user experience for the Food Delivery market. Led crucial projects for international operations (Sindelantal - Mexico) and iFood Brasil, optimizing restaurant discovery journeys and checkout for millions of users.",
           skills: ["FoodTech", "Mobile First", "Internationalization"]
         },
         {
@@ -336,7 +336,7 @@ export const translations = {
         tech: 'Tech & Tools',
         solution: 'The Solution',
         results: 'Key Results',
-        confidential: 'Confidential © 2024',
+        confidential: 'Confidencial © 2024',
         close: 'Close Case'
       }
     },
@@ -385,8 +385,8 @@ export const translations = {
     },
     hero: {
       badge: 'Portafolio Profesional',
-      titleHighlight: "I'm Denis.",
-      titleStart: 'Hi There,',
+      titleHighlight: "Denis.",
+      titleStart: 'Hola, soy',
       intro: 'UX Design Leader con más de 10 anos de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
       ctaProjects: 'Ver Proyectos',
       ctaContact: 'Ponerse en contacto',
@@ -549,7 +549,7 @@ export const translations = {
           quote: "Un profesor dedicado que es muy elogiado por sus clases. Además de ser colaborativo y un experto en su campo, a Denis le sobra empatía.",
         },
         {
-          quote: "Un profesional completo, mentor, orador y, sobre todo, un gran amigo. Es raro encontrar a alguien que entienda tanto de UI/UX y tenga tanta empatía por el usuario. Es un profesional inquieto, siempre cuestionando, proactivo y ofreciendo más de lo que se le pide.",
+          quote: "Un profesional completo, mentor, orador y, sobre todo, un gran amigo. Es raro encontrar a alguien que entienda tanto de UI/UX e tenga tanta empatía por el usuario. Es un profesional inquieto, siempre cuestionando, proactivo y ofreciendo más de lo que se le pide.",
         }
       ]
     },

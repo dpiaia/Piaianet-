@@ -6,16 +6,16 @@ import GalaxyBackground from './ui/GalaxyBackground';
 import { useLanguage } from '../context/LanguageContext';
 
 const freelanceClients = [
-  { name: "Cielo", category: "Fintech", logo: "https://cdn.worldvectorlogo.com/logos/cielo-1.svg", hoverColor: "hover:bg-sky-200" },
-  { name: "Netshoes", category: "E-commerce", logo: "https://cdn.worldvectorlogo.com/logos/netshoes-logo.svg", hoverColor: "hover:bg-violet-300" },
-  { name: "Zattini", category: "E-commerce", logo: "https://static.wikia.nocookie.net/logopedia/images/a/a1/Zattini_logo.png/revision/latest/scale-to-width-down/1200?cb=20191203125150", hoverColor: "hover:bg-pink-100" },
-  { name: "Athletico Paranaense", category: "Sports Tech", logo: "https://cdn.worldvectorlogo.com/logos/athletico-pr-1.svg", hoverColor: "hover:bg-white" },
-  { name: "PUC Campinas", category: "Educação", logo: "https://www.puc-campinas.edu.br/wp-content/uploads/2022/02/logo-puc-branco-2020.png", hoverColor: "hover:bg-blue-700" },
-  { name: "IxDA", category: "Comunidade", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/09/IxDA-Logo.png?fit=216%2C70&quality=80&ssl=1", hoverColor: "hover:bg-gray-300" },
-  { name: "IxDD", category: "Workshops", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/08/IxDD-Logo-2.png?resize=300%2C92&quality=80&ssl=1", hoverColor: "hover:bg-yellow-400" },
-  { name: "TDC", category: "Palestrante", logo: "https://s3-sa-east-1.amazonaws.com/thedevconf/2018/img/branding/branding-tdc-uma-cor-fundo-escuro.png", hoverColor: "hover:bg-blue-500" },
-  { name: "Coderhouse", category: "Educação", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" },
-  { name: "E muito mais", category: "Expertise", logo: "", hoverColor: "hover:bg-brand-yellow", isSpecial: true }
+  { name: "Cielo", logo: "https://cdn.worldvectorlogo.com/logos/cielo-1.svg", hoverColor: "hover:bg-sky-200" },
+  { name: "Netshoes", logo: "https://cdn.worldvectorlogo.com/logos/netshoes-logo.svg", hoverColor: "hover:bg-violet-300" },
+  { name: "Zattini", logo: "https://logopng.com.br/logos/zattini-41.png", hoverColor: "hover:bg-pink-100" },
+  { name: "Athletico Paranaense", logo: "https://cdn.worldvectorlogo.com/logos/athletico-pr-1.svg", hoverColor: "hover:bg-white" },
+  { name: "PUC Campinas", logo: "https://www.puc-campinas.edu.br/wp-content/uploads/2022/02/logo-puc-branco-2020.png", hoverColor: "hover:bg-blue-700" },
+  { name: "IxDA", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/09/IxDA-Logo.png?fit=216%2C70&quality=80&ssl=1", hoverColor: "hover:bg-gray-300" },
+  { name: "IxDD", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/08/IxDD-Logo-2.png?resize=300%2C92&quality=80&ssl=1", hoverColor: "hover:bg-yellow-400" },
+  { name: "TDC", logo: "https://s3-sa-east-1.amazonaws.com/thedevconf/2018/img/branding/branding-tdc-uma-cor-fundo-escuro.png", hoverColor: "hover:bg-blue-500" },
+  { name: "Coderhouse", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" },
+  { name: "E muito mais", logo: "", hoverColor: "hover:bg-brand-yellow", isSpecial: true }
 ];
 
 // SVG Components for the Ships
@@ -89,6 +89,7 @@ const Experience: React.FC = () => {
       
       <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-0 pointer-events-none" />
 
+      {/* Ships Layer */}
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
         <AnimatePresence>
           {ships.map((ship) => (
@@ -146,6 +147,7 @@ const Experience: React.FC = () => {
           </p>
         </motion.div>
 
+        {/* Timeline Section */}
         <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-700 before:to-transparent">
           {experiences.map((exp, index) => (
             <motion.div 
@@ -181,6 +183,7 @@ const Experience: React.FC = () => {
           ))}
         </div>
 
+        {/* Partners Grid Section (Reverted from carousel) */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -220,6 +223,16 @@ const Experience: React.FC = () => {
                       src={client.logo} 
                       alt={client.name} 
                       className="max-w-full max-h-10 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-60 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        const parent = (e.target as HTMLImageElement).parentElement;
+                        if (parent && !parent.querySelector('.fallback-text')) {
+                          const span = document.createElement('span');
+                          span.innerText = client.name;
+                          span.className = 'fallback-text text-xs font-bold uppercase tracking-tighter text-neutral-500 group-hover:text-brand-dark transition-colors text-center';
+                          parent.appendChild(span);
+                        }
+                      }}
                     />
                   </div>
                 ) : (

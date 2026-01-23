@@ -1,19 +1,21 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Experience as ExperienceType } from '../types';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, Plus } from 'lucide-react';
 import GalaxyBackground from './ui/GalaxyBackground';
 import { useLanguage } from '../context/LanguageContext';
 
 const freelanceClients = [
   { name: "Cielo", category: "Fintech", logo: "https://cdn.worldvectorlogo.com/logos/cielo-1.svg", hoverColor: "hover:bg-sky-200" },
   { name: "Netshoes", category: "E-commerce", logo: "https://cdn.worldvectorlogo.com/logos/netshoes-logo.svg", hoverColor: "hover:bg-violet-300" },
+  { name: "Zattini", category: "E-commerce", logo: "https://static.wikia.nocookie.net/logopedia/images/a/a1/Zattini_logo.png/revision/latest/scale-to-width-down/1200?cb=20191203125150", hoverColor: "hover:bg-pink-100" },
   { name: "Athletico Paranaense", category: "Sports Tech", logo: "https://cdn.worldvectorlogo.com/logos/athletico-pr-1.svg", hoverColor: "hover:bg-white" },
   { name: "PUC Campinas", category: "Educação", logo: "https://www.puc-campinas.edu.br/wp-content/uploads/2022/02/logo-puc-branco-2020.png", hoverColor: "hover:bg-blue-700" },
   { name: "IxDA", category: "Comunidade", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/09/IxDA-Logo.png?fit=216%2C70&quality=80&ssl=1", hoverColor: "hover:bg-gray-300" },
   { name: "IxDD", category: "Workshops", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/08/IxDD-Logo-2.png?resize=300%2C92&quality=80&ssl=1", hoverColor: "hover:bg-yellow-400" },
   { name: "TDC", category: "Palestrante", logo: "https://s3-sa-east-1.amazonaws.com/thedevconf/2018/img/branding/branding-tdc-uma-cor-fundo-escuro.png", hoverColor: "hover:bg-blue-500" },
-  { name: "Coderhouse", category: "Educação", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" }
+  { name: "Coderhouse", category: "Educação", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" },
+  { name: "E muito mais", category: "Expertise", logo: "", hoverColor: "hover:bg-brand-yellow", isSpecial: true }
 ];
 
 // SVG Components for the Ships
@@ -52,17 +54,12 @@ const Experience: React.FC = () => {
   }));
 
   const handleSpawnShip = (e: React.MouseEvent<HTMLElement>) => {
-    // Evita spawnar se clicar num card (opcional, mas bom pra UX)
-    // Se o target não for a section ou o container direto, pode ignorar
-    // Mas o usuário pediu "espaço vazio", então vamos deixar mais permissivo
-    // apenas garantindo que não estamos selecionando texto.
-    
     if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
-    const relativeY = e.clientY - rect.top; // Posição Y relativa à seção
+    const relativeY = e.clientY - rect.top; 
 
-    const isFalcon = Math.random() < 0.1; // 10% chance
+    const isFalcon = Math.random() < 0.1; 
     const direction = Math.random() > 0.5 ? 'right' : 'left';
     
     const newShip: ActiveShip = {
@@ -70,7 +67,7 @@ const Experience: React.FC = () => {
       y: relativeY,
       type: isFalcon ? 'falcon' : 'generic',
       direction,
-      speed: Math.random() * 2 + 1 // 1 a 3 segundos
+      speed: Math.random() * 2 + 1 
     };
 
     setShips(prev => [...prev, newShip]);
@@ -88,13 +85,10 @@ const Experience: React.FC = () => {
       className="py-24 bg-brand-dark relative overflow-hidden cursor-crosshair selection:bg-brand-yellow/30"
     >
       
-      {/* Galaxy Animation Layer */}
       <GalaxyBackground />
       
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-0 pointer-events-none" />
 
-      {/* Ships Layer (Behind content, above background) */}
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
         <AnimatePresence>
           {ships.map((ship) => (
@@ -102,7 +96,7 @@ const Experience: React.FC = () => {
               key={ship.id}
               initial={{ 
                 x: ship.direction === 'right' ? -200 : '100vw', 
-                y: ship.y - 25, // Centralizar no clique
+                y: ship.y - 25, 
                 opacity: 0,
                 rotate: ship.direction === 'right' ? 90 : -90
               }}
@@ -124,7 +118,6 @@ const Experience: React.FC = () => {
               ) : (
                 <div className="text-neutral-600">
                   <GenericShip className="w-16 h-16 transform rotate-180" />
-                  {/* Engine trail */}
                   <motion.div 
                     className="absolute top-1/2 left-1/2 w-20 h-1 bg-cyan-500 blur-md -z-10"
                     style={{ 
@@ -141,7 +134,6 @@ const Experience: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pointer-events-none">
-        {/* Timeline Header */}
         <motion.div 
           className="mb-16 text-center pointer-events-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -154,7 +146,6 @@ const Experience: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Timeline Content */}
         <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-700 before:to-transparent">
           {experiences.map((exp, index) => (
             <motion.div 
@@ -165,12 +156,10 @@ const Experience: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group pointer-events-auto`}
             >
-              {/* Dot on Timeline */}
               <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-brand-dark border-4 border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                 <div className="w-3 h-3 bg-brand-yellow rounded-full" />
               </div>
 
-              {/* Content Card */}
               <div className="ml-16 md:ml-0 md:w-[45%] p-6 md:p-8 bg-neutral-900/60 backdrop-blur-sm border border-white/5 hover:border-brand-yellow/30 transition-all rounded-none hover:bg-neutral-900/80">
                 <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
                   <h3 className="text-xl font-bold text-white">{exp.role}</h3>
@@ -192,13 +181,12 @@ const Experience: React.FC = () => {
           ))}
         </div>
 
-        {/* Freelance & Consulting Grid */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
+          className="max-w-6xl mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
         >
           <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
             <div>
@@ -212,19 +200,26 @@ const Experience: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {freelanceClients.map((client, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ y: -5 }}
                 className={`group h-32 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-transparent transition-all duration-300 flex flex-col items-center justify-center p-4 cursor-default relative overflow-hidden ${client.hoverColor}`}
               >
-                {client.logo ? (
+                {client.isSpecial ? (
+                  <div className="flex flex-col items-center justify-center gap-1 group-hover:scale-110 transition-transform duration-300">
+                    <Plus size={24} className="text-brand-yellow mb-1" />
+                    <span className="text-xs uppercase font-bold tracking-tighter text-neutral-400 group-hover:text-brand-dark transition-colors">
+                      {client.name}
+                    </span>
+                  </div>
+                ) : client.logo ? (
                   <div className="relative w-full h-full flex items-center justify-center p-4">
                     <img 
                       src={client.logo} 
                       alt={client.name} 
-                      className="max-w-full max-h-16 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-60 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
+                      className="max-w-full max-h-10 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-60 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
                     />
                   </div>
                 ) : (

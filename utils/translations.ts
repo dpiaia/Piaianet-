@@ -225,7 +225,7 @@ export const translations = {
       personal: {
         title: 'Beyond the Pixel',
         p1: 'When I\'m not in Figma or meetings, I like to disconnect and seek inspiration in the real world. I believe a good designer needs life repertoire, not just visual.',
-        photosTitle: 'Moments & Hobbies',
+        photosTitle: 'Momentos & Hobbies',
         musicTitle: 'On My Headphones',
         playlist: [
           { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
@@ -387,7 +387,7 @@ export const translations = {
       badge: 'Portafolio Profesional',
       titleHighlight: "Denis.",
       titleStart: 'Hola, soy',
-      intro: 'UX Design Leader con más de 10 anos de experiencia creando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
+      intro: 'UX Design Leader con más de 10 anos de experiencia criando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
       ctaProjects: 'Ver Proyectos',
       ctaContact: 'Ponerse en contacto',
       scroll: 'Scroll',
@@ -407,13 +407,13 @@ export const translations = {
           leadership: { title: "Liderazgo de Equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
           research: { title: "User Research", desc: "Decisiones basadas en datos y comportamiento real." },
           designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
-          prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis y conceptos." },
+          prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis e conceptos." },
         }
       },
       personal: {
         title: 'Más allá del Píxel',
         p1: 'Cuando no estoy en Figma o en reuniones, me gusta desconectarme y buscar inspiración en el mundo real. Creo que un buen diseñador necesita repertorio de vida, no solo visual.',
-        photosTitle: 'Momentos y Hobbies',
+        photosTitle: 'Momentos & Hobbies',
         musicTitle: 'En mi Auricular',
         playlist: [
           { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
@@ -432,90 +432,90 @@ export const translations = {
           role: "Design Manager",
           company: "Clinicorp Solutions",
           period: "2023 - Presente",
-          description: "Liderazgo estratégico del equipo de Product Design enfocado en SaaS para la gestión de clínicas. Responsable de la evolución de la madurez del diseño (Design Ops), mentoría del equipo y alineación de la visión del producto con los C-levels para escalar la plataforma.",
+          description: "Liderazgo estratégico del equipo de Product Design enfocado en SaaS para la gestión de clínicas. Responsable de la evolución da madurez do diseño (Design Ops), mentoría del equipo y alineación de la visión del producto con los C-levels para escalar la plataforma.",
           skills: ["Liderazgo", "SaaS", "Design Ops"]
         },
         {
           role: "UX Tech Leader",
           company: "Mercado Libre",
           period: "2022 - 2023",
-          description: "Actuación como referencia técnica en UX en el mayor e-commerce de América Latina. Lideré iniciativas de Design Engineering, garantizando la fidelidad y escalabilidad del Design System entre prototipos y código en producción en múltiples países.",
+          description: "Actuación como referencia técnica en UX en el mayor e-commerce de América Latina. Lideré iniciativas de Design Engineering, garantizando a fidelidad y escalabilidad del Design System entre prototipos y código en producción en múltiples países.",
           skills: ["E-commerce", "Design Systems", "Tech Leadership"]
         },
         {
           role: "Senior Product Designer",
           company: "IFood / Sindelantal",
           period: "2018 - 2022",
-          description: "Enfoque en la experiencia del usuario para el mercado de Food Delivery. Lideré proyectos cruciales para la operación internacional (Sindelantal - México) and iFood Brasil, optimizando jornadas de descubrimiento de restaurantes y checkout para millones de usuarios.",
+          description: "Enfoque en la experiencia del usuario para el mercado de Food Delivery. Lideré proyectos cruciales para a operación internacional (Sindelantal - México) and iFood Brasil, optimizando jornadas de descubrimiento de restaurantes y checkout para millones de usuarios.",
           skills: ["FoodTech", "Mobile First", "Internacionalización"]
         },
         {
           role: "Head of Design",
           company: "Superlógica / PJBank",
           period: "2009 - 2018",
-          description: "Un viaje de casi una década, evolucionando de diseñador al liderazgo del área. Estructuré el departamento de diseño desde cero, conduje el rebranding completo de Superlógica y actué en el lanzamiento y consolidación de la experiencia digital de PJBank.",
+          description: "Un viaje de casi una década, evolucionando de diseñador al liderazgo del área. Estructuré el departamento de diseño desde cero, conduje o rebranding completo de Superlógica y actué en o lanzamiento y consolidación de la experiencia digital de PJBank.",
           skills: ["Fintech", "Team Building", "Branding"]
         }
       ],
       consulting: {
         title: 'Consultoría y',
         titleHighlight: 'Alianzas Estratégicas',
-        desc: 'Proyectos paralelos, freelance y consultorías de alto impacto.',
+        desc: 'Proyectos paralelos, freelance e consultorías de alto impacto.',
         label: 'Proyectos Entregados'
       }
     },
     projects: {
       title: 'Proyectos',
       titleHighlight: 'Seleccionados',
-      subtitle: 'Haga clic en las tarjetas para ver el estudio de caso detallado.',
+      subtitle: 'Haga clic en las tarjetas para ver o estudio de caso detalhado.',
       ctaBehance: 'Ver Behance Completo',
       items: [
         {
           title: "CliniDS",
           category: "DESIGNOPS • HEALTHTECH",
           shortDescription: "Creando un Design System para Clinicorp.",
-          challenge: "Escalar la consistencia visual y funcional entre múltiplos módulos de la plataforma Clinicorp se estaba volviendo insostenible, generando deuda técnica y de diseño.",
-          solution: "Creación e implementación de CliniDS: una biblioteca de componentes centralizada, documentada y agnóstica, facilitando la colaboración entre diseñadores y desarrolladores.",
+          challenge: "Escalar a consistencia visual e funcional entre múltiplos módulos da plataforma Clinicorp se estava volviendo insostenible, gerando deuda técnica e de diseño.",
+          solution: "Creación e implementación de CliniDS: una biblioteca de componentes centralizada, documentada e agnóstica, facilitando a colaboración entre diseñadores e desenvolvedores.",
           results: [
-            "Aumento del 40% en la velocidad de entrega de novas telas.",
-            "Reducción drástica de inconsistencias visuales en el producto.",
-            "Adopción del 100% por el equipo de ingeniería en 6 meses."
+            "Aumento del 40% en a velocidad de entrega de novas telas.",
+            "Reducción drástica de inconsistencias visuales en o produto.",
+            "Adopción del 100% por o equipo de ingeniería en 6 meses."
           ]
         },
         {
-          title: "Acelerando el crecimiento de iFood en Latam",
+          title: "Acelerando o crecimiento de iFood en Latam",
           category: "ONBOARDING • FOODTECH",
-          shortDescription: "Landing Page automatizada para registros de nuevos restaurantes.",
-          challenge: "El proceso de registro de socios era manual y burocrático, limitando la velocidad de expansión agresiva necesaria para el mercado latinoamericano.",
-          solution: "Desarrollo de un flujo de onboarding self-service automatizado, com validación de documentos en tiempo real y UX optimizada para conversión.",
+          shortDescription: "Landing Page automatizada para registros de novos restaurantes.",
+          challenge: "O proceso de registro de socios era manual e burocrático, limitando a velocidad de expansión agresiva necesaria para o mercado latinoamericano.",
+          solution: "Desenvolvemento de um fluxo de onboarding self-service automatizado, com validación de documentos em tempo real e UX optimizada para conversión.",
           results: [
-            "Reducción del 70% en el tiempo promedio de aprobación de restaurantes.",
-            "Crecimiento exponencial de la base de socios en México y Colombia.",
-            "Mejora significativa en el NPS de entrada de los socios."
+            "Reducción del 70% en o tiempo promedio de aprobación de restaurantes.",
+            "Crecimiento exponencial da base de socios en México e Colombia.",
+            "Mejora significativa em o NPS de entrada de los socios."
           ]
         },
         {
-          title: "Reinventando la programación de citas",
+          title: "Reinventando a programación de citas",
           category: "CALENDAR • HEALTHTECH",
-          shortDescription: "Simplificando la complejidad de las agendas.",
-          challenge: "La gestión de agendas complejas con múltiples profesionales y sillas generaba conflictos de horarios y dificultades de visualización para las recepcionistas.",
-          solution: "Rediseño completo de la interfaz de agenda enfocado en usabilidad cognitiva, con recursos de 'arrastrar y soltar' y sugerencias inteligentes de horarios.",
+          shortDescription: "Simplificando a complexidade das agendas.",
+          challenge: "A gestión de agendas complexas com múltiplos profesionais e sillas gerava conflictos de horarios e dificultades de visualización para as recepcionistas.",
+          solution: "Rediseño completo da interfaz de agenda enfocado em usabilidade cognitiva, com recursos de 'arrastar e soltar' e suxerencias intelixentes de horarios.",
           results: [
-            "Optimización del 20% en la ocupación de sillas/salas.",
-            "Reducción de clics para realizar una programación.",
-            "Feedback extremadamente positivo de las recepcionistas (Power Users)."
+            "Optimización del 20% en a ocupación de sillas/salas.",
+            "Reducción de clics para realizar uma programación.",
+            "Feedback extremamente positivo das recepcionistas (Power Users)."
           ]
         },
         {
-          title: "Varios proyectos de IA",
+          title: "Varios proxectos de IA",
           category: "AI • VIBEDESIGN",
-          shortDescription: "Compilado de proyectos que hice usando IA.",
-          challenge: "Explorar cómo las nuevas herramientas de IA Generativa pueden integrarse al flujo de trabajo de diseño para expandir la creatividad y eficiencia.",
-          solution: "Una colección de experimentos visuales y funcionales utilizando Midjourney, Stable Diffusion y LLM para prototipado rápido y generación de activos.",
+          shortDescription: "Compilado de proxectos que fixen usando IA.",
+          challenge: "Explorar como as novas ferramentas de IA Generativa poden integrarse ao fluxo de traballo de diseño para expandir a creatividade e eficiencia.",
+          solution: "Unha colección de experimentos visuales e funcionales utilizando Midjourney, Stable Diffusion e LLM para prototipado rápido e generación de activos.",
           results: [
             "Creación de identidades visuales conceptuales en tiempo récord.",
-            "Exploración de nuevas estéticas (Vibe Design).",
-            "Automatización de tareas repetitivas en el proceso de descubrimiento."
+            "Exploración de novas estéticas (Vibe Design).",
+            "Automatización de tarefas repetitivas em o proceso de descubrimiento."
           ]
         }
       ],
@@ -534,22 +534,22 @@ export const translations = {
       subtitle: 'Feedback real de quienes ya han trabajado conmigo en proyectos internacionales y de alta complejidad.',
       items: [
         {
-          quote: "Denis es un diseñador increíble con el que tuve el placer de trabajar, es un diseñador de productos completo, con habilidades en investigación, creación de prototipos y entrega de diseño.",
+          quote: "Denis es un diseñador increíble con o que tuve o placer de trabajar, es un diseñador de productos completo, com habilidades em investigación, creación de prototipos e entrega de diseño.",
         },
         {
-          quote: "Denis es el tipo de persona que hace todo lo posible para encontrar y solucionar problemas donde sea que la empresa lo necesite, siempre tratando de mejorar.",
+          quote: "Denis es o tipo de persona que fai todo o posible para encontrar e solucionar problemas onde sexa que a empresa o necesite, sempre tratando de mellorar.",
         },
         {
-          quote: "Denis tiene un gran corazón y siempre se preocupa por las personas que lo rodean. Es alguien que se enamora de los problemas y hará todo lo posible para aprender mais sobre lo que se puede hacer para resolverlos de la mejor manera posible :)",
+          quote: "Denis ten um gran corazón e sempre se preocupa polas persoas que o rodean. Es alguén que se apaixona polos problemas e fará todo o posible para aprender mais sobre o que se pode facer para resolvelos da mellor maneira posible :)",
         },
         {
-          quote: "Tuve la oportunidad de ser liderado por Denis en un momento en que me faltaba confianza y dirección. Su liderazgo fue fundamental para permitirme encontrar mi camino y desarrollar mi trabajo de una manera que no sabía que era capaz.",
+          quote: "Tuve a oportunidade de ser liderado por Denis em um momento em que me faltava confianza e dirección. Su liderazgo foi fundamental para permitirme encontrar meu camiño e desenvolver meu traballo de unha maneira que non sabía que era capaz.",
         },
         {
-          quote: "Un profesor dedicado que es muy elogiado por sus clases. Además de ser colaborativo y un experto en su campo, a Denis le sobra empatía.",
+          quote: "Un profesor dedicado que es muy elogiado polas súas clases. Ademais de ser colaborativo e un experto em seu campo, a Denis lle sobra empatía.",
         },
         {
-          quote: "Un profesional completo, mentor, orador y, sobre todo, un gran amigo. Es raro encontrar a alguien que entienda tanto de UI/UX e tenga tanta empatía por el usuario. Es un profesional inquieto, siempre cuestionando, proactivo y ofreciendo más de lo que se le pide.",
+          quote: "Un profesional completo, mentor, orador e, sobre todo, un gran amigo. Es raro encontrar a alguén que entenda tanto de UI/UX e teña tanta empatía por o usuario. Es un profesional inquieto, sempre cuestionando, proactivo e ofrecendo máis do que se lle pide.",
         }
       ]
     },
@@ -557,10 +557,10 @@ export const translations = {
       title: '¿Vamos a construir algo',
       titleHighlight: 'Increíble',
       titleEnd: 'juntos?',
-      subtitle: 'Siempre estoy abierto a discutir diseño de producto, colaborar en nuevos proyectos o hablar sobre oportunidades de liderazgo.',
+      subtitle: 'Siempre estoy abierto a discutir diseño de produto, colaborar en novos proxectos o hablar sobre oportunidades de liderazgo.',
       cta: 'Manda un Hola 👋',
       rights: 'Todos los derechos reservados.',
-      location: 'en la soleada ciudad de Campinas/SP.'
+      location: 'en a soleada ciudad de Campinas/SP.'
     }
   }
 };

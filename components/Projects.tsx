@@ -1,6 +1,7 @@
+
 import { useState, useEffect, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, Layers, Monitor, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, X, Layers, Monitor, CheckCircle2, ChevronLeft, Sparkles, Cpu, Zap, Eye } from 'lucide-react';
 import { Project } from '../types';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,9 +9,9 @@ import ParticleBackground from './ui/ParticleBackground';
 
 const Projects: FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAIGallery, setShowAIGallery] = useState(false);
   const { t } = useLanguage();
 
-  // Data moved inside component to access translations
   const projectsData = [
     {
       id: 1,
@@ -42,29 +43,84 @@ const Projects: FC = () => {
     },
     {
       id: 4,
-      tags: ["AI", "Vibecode"],
-      coverImage: "https://picsum.photos/id/48/800/600",
+      tags: ["AI", "Vibecode", "Generative Art"],
+      coverImage: "https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=1600",
       gallery: [
-        "https://picsum.photos/id/404/800/600",
-        "https://picsum.photos/id/433/800/600"
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1684163761883-7d725ba0837d?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1673431336109-85834863336c?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1686190567754-3595d0ef926a?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1697577413972-78f3940103f6?auto=format&fit=crop&q=80&w=800"
       ],
     }
   ];
 
-  // Merge static data with translations
+  const aiExperiments = [
+    {
+      title: "EU MONSTRO",
+      category: "AI STUDIO",
+      desc: "Aplicativo para quem precisa quer monitorar os treinos e ter dicas.",
+      img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
+      tool: "AI Coaching + CV"
+    },
+    {
+      title: "Orkut Simulator",
+      category: "AI STUDIO",
+      desc: "Um simulador do Orkut, Rede social popular no Brasil no inicio dos anos 2000.",
+      img: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?auto=format&fit=crop&q=80&w=800",
+      tool: "Retro UI + LLM"
+    },
+    {
+      title: "Eco Vila Santa Margarida",
+      category: "AI STUDIO",
+      desc: "Area do condomínio para os moradores com comunicados, vendas, etc.",
+      img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
+      tool: "Lovable + AI"
+    },
+    {
+      title: "Tabela Mundial de Clubes",
+      category: "FIGMA MAKE",
+      desc: "Acompanhamento dos jogos e estatísticas de jogos do Mundial de Clubes FIFA.",
+      img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=800",
+      tool: "Figma AI + Data"
+    },
+    {
+      title: "Digital Humans",
+      category: "CHARACTER DESIGN",
+      desc: "Estudo de texturas de pele e iluminação realista em retratos sintéticos.",
+      img: "https://images.unsplash.com/photo-1673431336109-85834863336c?auto=format&fit=crop&q=80&w=800",
+      tool: "Midjourney + PS"
+    },
+    {
+      title: "Abstract Motion",
+      category: "VISUAL ASSETS",
+      desc: "Geração de backgrounds abstratos e dinâmicos para apresentações de alto impacto.",
+      img: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80&w=800",
+      tool: "Runway Gen-2"
+    }
+  ];
+
   const projects: Project[] = projectsData.map((p, i) => ({
     ...p,
     ...t.projects.items[i]
   }));
 
-  // Prevent background scrolling when modal is open
   useEffect(() => {
-    if (selectedProject) {
+    if (selectedProject || showAIGallery) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [selectedProject]);
+  }, [selectedProject, showAIGallery]);
+
+  const handleProjectClick = (project: Project) => {
+    if (project.id === 4) {
+      setShowAIGallery(true);
+    } else {
+      setSelectedProject(project);
+    }
+  };
 
   return (
     <section id="projects" className="py-24 bg-brand-gray relative overflow-hidden">
@@ -93,7 +149,7 @@ const Projects: FC = () => {
             <motion.div
               key={project.id}
               layoutId={`card-${project.id}`}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => handleProjectClick(project)}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -132,7 +188,146 @@ const Projects: FC = () => {
           ))}
         </div>
 
-        {/* Project Modal */}
+        {/* AI Special Gallery Overlay */}
+        <AnimatePresence>
+          {showAIGallery && (
+            <motion.div
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.1 }}
+              transition={{ duration: 0.5, ease: "circOut" }}
+              className="fixed inset-0 z-[100] bg-brand-dark overflow-y-auto"
+            >
+              <ParticleBackground variant="attract" onlyYellow={false} />
+
+              <div className="relative z-10 min-h-screen pb-20">
+                {/* Header Navigation */}
+                <div className="sticky top-0 z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-white/5 p-6 flex items-center justify-between">
+                  <button 
+                    onClick={() => setShowAIGallery(false)}
+                    className="flex items-center gap-2 text-neutral-400 hover:text-brand-yellow transition-colors font-medium group"
+                  >
+                    <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    Voltar ao Portfólio
+                  </button>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-brand-yellow/10 flex items-center justify-center">
+                      <Cpu className="text-brand-yellow animate-pulse" size={16} />
+                    </div>
+                    <span className="text-xs font-mono text-neutral-400 uppercase tracking-[0.2em] hidden sm:block">AI DESIGN LAB • VER. 2.5</span>
+                  </div>
+                </div>
+
+                <div className="container mx-auto px-6 py-16">
+                  <div className="max-w-4xl mb-24">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-2 text-brand-yellow mb-4"
+                    >
+                      <Sparkles size={18} />
+                      <span className="text-sm font-bold uppercase tracking-widest">Experimentos de Vanguarda</span>
+                    </motion.div>
+                    <motion.h1 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 }}
+                      className="text-6xl md:text-8xl font-display font-bold text-white mb-8 tracking-tighter"
+                    >
+                      AI <span className="text-brand-yellow">Studio</span>
+                    </motion.h1>
+                    <motion.p 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-xl md:text-2xl text-neutral-400 leading-relaxed max-w-3xl"
+                    >
+                      Como UX Leader, exploro a Inteligência Artificial não apenas como ferramenta, mas como co-criadora de novas estéticas e fluxos de trabalho. Abaixo, alguns experimentos de interface, arte generativa e branding sintético.
+                    </motion.p>
+                  </div>
+
+                  {/* AI Experiments Grid - Replicating Home Projects Style */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+                    {aiExperiments.map((exp, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 + i * 0.1 }}
+                        className="group relative flex flex-col bg-neutral-900/40 border border-white/5 hover:border-brand-yellow/30 transition-all rounded-2xl overflow-hidden cursor-default"
+                      >
+                        {/* Image Container */}
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <img 
+                            src={exp.img} 
+                            alt={exp.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80" />
+                          
+                          {/* Floating Badge */}
+                          <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full flex items-center gap-2">
+                             <Zap size={12} className="text-brand-yellow" />
+                             <span className="text-[10px] font-mono text-white/80">{exp.tool}</span>
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-8 flex-1 flex flex-col">
+                          <span className="text-[10px] font-bold text-brand-yellow uppercase tracking-[0.2em] mb-3 block">
+                            {exp.category}
+                          </span>
+                          <h3 className="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-yellow transition-colors">
+                            {exp.title}
+                          </h3>
+                          <p className="text-neutral-500 text-sm leading-relaxed mb-6 flex-1">
+                            {exp.desc}
+                          </p>
+                          
+                          <div className="flex items-center gap-2 text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-brand-yellow transition-colors">
+                            <Eye size={14} /> View Details
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Scientific/Technical Section */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-40 pt-20 border-t border-white/5">
+                    <div className="lg:col-span-1">
+                       <h4 className="text-3xl font-display font-bold text-white mb-6">Metodologia <span className="text-brand-yellow">Generativa</span></h4>
+                       <p className="text-neutral-500 leading-relaxed">
+                         Utilizo prompts iterativos e modelos treinados localmente para garantir que o resultado final mantenha a essência do design focado no humano, enquanto explora territórios visuais inexplorados.
+                       </p>
+                    </div>
+                    <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                       <div className="p-8 bg-white/5 border border-white/5 rounded-2xl">
+                          <div className="text-brand-yellow mb-4"><Zap size={32} /></div>
+                          <h5 className="text-white font-bold mb-2">Velocidade de Conceito</h5>
+                          <p className="text-sm text-neutral-400">Redução de 80% no tempo de criação de moodboards e conceitos visuais iniciais.</p>
+                       </div>
+                       <div className="p-8 bg-white/5 border border-white/5 rounded-2xl">
+                          <div className="text-brand-yellow mb-4"><Layers size={32} /></div>
+                          <h5 className="text-white font-bold mb-2">Escalabilidade de Assets</h5>
+                          <p className="text-sm text-neutral-400">Geração de milhares de variações iconográficas e texturais em minutos.</p>
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* Footer CTA */}
+                  <div className="mt-40 text-center">
+                    <Button onClick={() => setShowAIGallery(false)} className="px-16 py-5 text-lg">
+                      Fechar Studio IA
+                    </Button>
+                    <p className="text-neutral-600 mt-8 text-xs font-mono uppercase tracking-[0.3em]">Denis Piaia • Labs • 2024</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Standard Project Modal */}
         <AnimatePresence>
           {selectedProject && (
             <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6">

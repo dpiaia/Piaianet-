@@ -27,8 +27,6 @@ const MillenniumFalcon = ({ className, direction }: { className?: string, direct
     className={className} 
     xmlns="http://www.w3.org/2000/svg"
     style={{ 
-      // Base rotation of 90deg to make the upright character lie horizontal (pointing right)
-      // If flying left, we flip it horizontally or rotate 270deg.
       transform: direction === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)'
     }} 
   >
@@ -73,7 +71,6 @@ const MillenniumFalcon = ({ className, direction }: { className?: string, direct
   </svg>
 );
 
-// Added style prop to GenericShip to fix TS error where it was being passed but not accepted
 const GenericShip = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
     <path d="M2 12h20" strokeWidth="0" />
@@ -126,6 +123,9 @@ const Experience: React.FC = () => {
     setShips(prev => prev.filter(ship => ship.id !== id));
   };
 
+  // Duplicating clients for infinite marquee
+  const doubledClients = [...freelanceClients, ...freelanceClients];
+
   return (
     <section 
       id="experience" 
@@ -148,7 +148,6 @@ const Experience: React.FC = () => {
                 x: ship.direction === 'right' ? -200 : '100vw', 
                 y: ship.y - 25, 
                 opacity: 0,
-                // We keep rotate: 0 here and handle rotation inside the SVG component for better control
                 rotate: 0 
               }}
               animate={{ 
@@ -236,15 +235,15 @@ const Experience: React.FC = () => {
           ))}
         </div>
 
-        {/* Partners Grid Section (Reverted from carousel) */}
+        {/* Partners Marquee Section (Refactored to automatic carousel) */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-6xl mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
+          className="max-w-full mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 px-6">
             <div>
               <h3 className="text-2xl font-display font-bold text-white mb-2">
                 {t.experience.consulting.title} <span className="text-brand-yellow">{t.experience.consulting.titleHighlight}</span>
@@ -256,45 +255,62 @@ const Experience: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {freelanceClients.map((client, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -5 }}
-                className={`group h-32 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-transparent transition-all duration-300 flex flex-col items-center justify-center p-4 cursor-default relative overflow-hidden ${client.hoverColor}`}
-              >
-                {client.isSpecial ? (
-                  <div className="flex flex-col items-center justify-center gap-1 group-hover:scale-110 transition-transform duration-300">
-                    <Plus size={24} className="text-brand-yellow mb-1" />
-                    <span className="text-xs uppercase font-bold tracking-tighter text-neutral-400 group-hover:text-brand-dark transition-colors">
+          {/* Marquee Container */}
+          <div className="relative overflow-hidden w-full group py-4">
+            {/* Gradient Masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
+
+            <motion.div 
+              className="flex gap-4 w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30, // Adjust speed here
+                  ease: "linear",
+                },
+              }}
+            >
+              {doubledClients.map((client, idx) => (
+                <div
+                  key={idx}
+                  className={`group h-16 w-48 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-transparent transition-all duration-300 flex flex-col items-center justify-center p-2 cursor-default relative overflow-hidden shrink-0 ${client.hoverColor}`}
+                >
+                  {client.isSpecial ? (
+                    <div className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
+                      <Plus size={16} className="text-brand-yellow" />
+                      <span className="text-[10px] uppercase font-bold tracking-tighter text-neutral-400 group-hover:text-brand-dark transition-colors">
+                        {client.name}
+                      </span>
+                    </div>
+                  ) : client.logo ? (
+                    <div className="relative w-full h-full flex items-center justify-center p-2">
+                      <img 
+                        src={client.logo} 
+                        alt={client.name} 
+                        className="max-w-full max-h-8 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-40 group-hover:filter-none group-hover:opacity-100 group-hover:scale-105"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          const parent = (e.target as HTMLImageElement).parentElement;
+                          if (parent && !parent.querySelector('.fallback-text')) {
+                            const span = document.createElement('span');
+                            span.innerText = client.name;
+                            span.className = 'fallback-text text-[10px] font-bold uppercase tracking-tighter text-neutral-500 group-hover:text-brand-dark transition-colors text-center';
+                            parent.appendChild(span);
+                          }
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <h4 className="text-xs font-display font-bold text-neutral-500 group-hover:text-white transition-colors tracking-tight text-center">
                       {client.name}
-                    </span>
-                  </div>
-                ) : client.logo ? (
-                  <div className="relative w-full h-full flex items-center justify-center p-4">
-                    <img 
-                      src={client.logo} 
-                      alt={client.name} 
-                      className="max-w-full max-h-10 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-60 group-hover:filter-none group-hover:opacity-100 group-hover:scale-110"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                        const parent = (e.target as HTMLImageElement).parentElement;
-                        if (parent && !parent.querySelector('.fallback-text')) {
-                          const span = document.createElement('span');
-                          span.innerText = client.name;
-                          span.className = 'fallback-text text-xs font-bold uppercase tracking-tighter text-neutral-500 group-hover:text-brand-dark transition-colors text-center';
-                          parent.appendChild(span);
-                        }
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <h4 className="text-xl font-display font-bold text-neutral-500 group-hover:text-white transition-colors tracking-tight text-center">
-                    {client.name}
-                  </h4>
-                )}
-              </motion.div>
-            ))}
+                    </h4>
+                  )}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

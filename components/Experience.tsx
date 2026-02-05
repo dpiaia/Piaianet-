@@ -1,34 +1,33 @@
-
-// Add React to imports to resolve namespace errors
-import React, { useState, useEffect, FC, useRef } from 'react';
+import React, { useState, useRef, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Experience as ExperienceType } from '../types';
-import { Briefcase, Plus } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import GalaxyBackground from './ui/GalaxyBackground';
 import { useLanguage } from '../context/LanguageContext';
 
-const freelanceClients = [
-  { name: "Cielo", logo: "https://cdn.worldvectorlogo.com/logos/cielo-1.svg", hoverColor: "hover:bg-sky-200" },
-  { name: "Netshoes", logo: "https://cdn.worldvectorlogo.com/logos/netshoes-logo.svg", hoverColor: "hover:bg-violet-300" },
-  { name: "Zattini", logo: "https://logopng.com.br/logos/zattini-41.png", hoverColor: "hover:bg-pink-100" },
-  { name: "Athletico Paranaense", logo: "https://cdn.worldvectorlogo.com/logos/athletico-pr-1.svg", hoverColor: "hover:bg-white" },
-  { name: "PUC Campinas", logo: "https://www.puc-campinas.edu.br/wp-content/uploads/2022/02/logo-puc-branco-2020.png", hoverColor: "hover:bg-blue-700" },
-  { name: "IxDA", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/09/IxDA-Logo.png?fit=216%2C70&quality=80&ssl=1", hoverColor: "hover:bg-gray-300" },
-  { name: "IxDD", logo: "https://i0.wp.com/ixda.org/wp-content/uploads/2023/08/IxDD-Logo-2.png?resize=300%2C92&quality=80&ssl=1", hoverColor: "hover:bg-yellow-400" },
-  { name: "TDC", logo: "https://s3-sa-east-1.amazonaws.com/thedevconf/2018/img/branding/branding-tdc-uma-cor-fundo-escuro.png", hoverColor: "hover:bg-blue-500" },
-  { name: "Coderhouse", logo: "https://startupeable.com/directorio/wp-content/uploads/2021/03/1558441737613.png", hoverColor: "hover:bg-amber-500" },
-  { name: "E muito mais", logo: "", hoverColor: "hover:bg-brand-yellow", isSpecial: true }
+const partners = [
+  { name: "Netshoes", logo: "https://piaianet.page.gd/imgs/netshoes.svg" },
+  { name: "Zatinni", logo: "https://piaianet.page.gd/imgs/zattini.svg" },
+  { name: "PUC Campinas", logo: "https://piaianet.page.gd/imgs/puc.svg" },
+  { name: "Athlético PR", logo: "https://piaianet.page.gd/imgs/cap.svg" },
+  { name: "Cielo", logo: "https://piaianet.page.gd/imgs/cielo.svg" },
+  { name: "IxDA", logo: "https://piaianet.page.gd/imgs/ixda.svg" },
+  { name: "IXDD", logo: "https://piaianet.page.gd/imgs/ixdd.svg" },
+  { name: "TDC", logo: "https://piaianet.page.gd/imgs/tdc.svg" },
+  { name: "iFood", logo: "https://piaianet.page.gd/imgs/ifood.svg" },
+  { name: "UniBR", logo: "https://piaianet.page.gd/imgs/unibr.svg" },
+  { name: "SinDelantal", logo: "https://piaianet.page.gd/imgs/sindelantal.svg" },
+  { name: "Cliente FC", logo: "https://piaianet.page.gd/imgs/clientefc.svg" },
+  { name: "MWMKT", logo: "https://piaianet.page.gd/imgs/mwmkt.svg" },
+  { name: "Mercado Livre", logo: "https://piaianet.page.gd/imgs/meli.svg" },
 ];
 
-// SVG Component for Chewbacca/Special Ship
-const MillenniumFalcon = ({ className, direction }: { className?: string, direction: 'left' | 'right' }) => (
+const MillenniumFalcon: FC<{ className?: string, direction: 'left' | 'right' }> = ({ className, direction }) => (
   <svg 
     viewBox="0 0 64 64" 
     className={className} 
     xmlns="http://www.w3.org/2000/svg"
-    style={{ 
-      transform: direction === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)'
-    }} 
+    style={{ transform: direction === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)' }} 
   >
     <path d="m8.05 35.76a71.47 71.47 0 0 1 4.75-15.67c3.59-8.19 8.8-16.18 9.61-16.51s6.93-.32 7.06 0 .49 8.86.49 8.86a11.79 11.79 0 0 1 3.57.06s-.18-8.94.19-9.13 8.05-.35 8.56 0 6.65 13.68 6.65 13.68.92-1.2 1.54-1.28 3.68-.26 3.88.05 2.7 6.76 2.9 7.5-.17 10.2-.25 10.68-1.54 1.22-1.54 1.22a15.38 15.38 0 0 1 -.94 9.21c-2.1 4.48-4 5.89-4 5.89a12.56 12.56 0 0 1 -.07 2.44c-.18.56-7.28 8-18.84 8.07s-18.58-6.5-18.53-7.26a7.68 7.68 0 0 1 .71-2.07 12.19 12.19 0 0 1 -3.2-3.94l-1.29-2.56a1.53 1.53 0 0 1 -1.64-1.15 34.42 34.42 0 0 1 -1-7.67c.21-.28 1.08-.18 1.39-.42z" fill="#1d1d1b"/>
     <path d="m15.05 20.05s3.41-7.57 5.05-10.23 2.72-4.49 3.15-4.56 4.75 0 4.82.27 0 7.32 0 7.32-1.24.9-1.22 1.52v.63a65.1 65.1 0 0 0 -11.8 5.05z" fill="#e6e4da"/>
@@ -71,13 +70,10 @@ const MillenniumFalcon = ({ className, direction }: { className?: string, direct
   </svg>
 );
 
-const GenericShip = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+const GenericShip: FC<{ className?: string; style?: React.CSSProperties }> = ({ className, style }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 12h20" strokeWidth="0" />
     <path d="M12 2l3 9-3 2-3-2 3-9z" fill="currentColor" /> 
     <path d="M12 13l5 9-5-2-5 2 5-9z" fill="currentColor" />
-    <path d="M5 10l-3 8 5-2" stroke="currentColor" strokeWidth="2" />
-    <path d="M19 10l3 8-5-2" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
 
@@ -89,25 +85,17 @@ interface ActiveShip {
   speed: number;
 }
 
-const Experience: React.FC = () => {
+const Experience: FC = () => {
   const { t } = useLanguage();
   const [ships, setShips] = useState<ActiveShip[]>([]);
   const containerRef = useRef<HTMLElement>(null);
 
-  const experiences: ExperienceType[] = t.experience.jobs.map((job, index) => ({
-    id: index + 1,
-    ...job
-  }));
-
   const handleSpawnShip = (e: React.MouseEvent<HTMLElement>) => {
     if (!containerRef.current) return;
-
     const rect = containerRef.current.getBoundingClientRect();
     const relativeY = e.clientY - rect.top; 
-
     const isFalcon = Math.random() < 0.1; 
     const direction = Math.random() > 0.5 ? 'right' : 'left';
-    
     const newShip: ActiveShip = {
       id: Date.now() + Math.random(),
       y: relativeY,
@@ -115,7 +103,6 @@ const Experience: React.FC = () => {
       direction,
       speed: Math.random() * 2 + 1 
     };
-
     setShips(prev => [...prev, newShip]);
   };
 
@@ -123,8 +110,12 @@ const Experience: React.FC = () => {
     setShips(prev => prev.filter(ship => ship.id !== id));
   };
 
-  // Duplicating clients for infinite marquee
-  const doubledClients = [...freelanceClients, ...freelanceClients];
+  const experiences: ExperienceType[] = t.experience.jobs.map((job, index) => ({
+    id: index + 1,
+    ...job
+  }));
+
+  const doubledPartners = [...partners, ...partners];
 
   return (
     <section 
@@ -133,9 +124,7 @@ const Experience: React.FC = () => {
       onClick={handleSpawnShip}
       className="py-24 bg-brand-dark relative overflow-hidden cursor-crosshair selection:bg-brand-yellow/30"
     >
-      
       <GalaxyBackground />
-      
       <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-0 pointer-events-none" />
 
       {/* Ships Layer */}
@@ -144,42 +133,16 @@ const Experience: React.FC = () => {
           {ships.map((ship) => (
             <motion.div
               key={ship.id}
-              initial={{ 
-                x: ship.direction === 'right' ? -200 : '100vw', 
-                y: ship.y - 25, 
-                opacity: 0,
-                rotate: 0 
-              }}
-              animate={{ 
-                x: ship.direction === 'right' ? '120vw' : -200,
-                opacity: [0, 1, 1, 0]
-              }}
-              transition={{ 
-                duration: ship.speed, 
-                ease: "linear" 
-              }}
+              initial={{ x: ship.direction === 'right' ? -200 : '100vw', y: ship.y - 25, opacity: 0 }}
+              animate={{ x: ship.direction === 'right' ? '120vw' : -200, opacity: [0, 1, 1, 0] }}
+              transition={{ duration: ship.speed, ease: "linear" }}
               onAnimationComplete={() => removeShip(ship.id)}
               className="absolute text-neutral-600"
             >
               {ship.type === 'falcon' ? (
-                <div className="text-neutral-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-                  <MillenniumFalcon className="w-24 h-24" direction={ship.direction} />
-                </div>
+                <MillenniumFalcon className="w-24 h-24" direction={ship.direction} />
               ) : (
-                <div className="text-neutral-600">
-                  <GenericShip 
-                    className="w-16 h-16" 
-                    style={{ transform: ship.direction === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)' }} 
-                  />
-                  <motion.div 
-                    className="absolute top-1/2 left-1/2 w-20 h-1 bg-cyan-500 blur-md -z-10"
-                    style={{ 
-                      translateX: '-50%', 
-                      translateY: '-50%',
-                      rotate: ship.direction === 'right' ? 180 : 0
-                    }} 
-                  />
-                </div>
+                <GenericShip className="w-16 h-16" style={{ transform: ship.direction === 'right' ? 'rotate(90deg)' : 'rotate(-90deg)' }} />
               )}
             </motion.div>
           ))}
@@ -194,53 +157,44 @@ const Experience: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-display font-bold mb-4">{t.experience.title} <span className="text-brand-yellow">{t.experience.titleHighlight}</span></h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
-            {t.experience.subtitle}
-          </p>
+          <p className="text-neutral-400 max-w-2xl mx-auto">{t.experience.subtitle}</p>
         </motion.div>
 
-        {/* Timeline Section */}
+        {/* Timeline */}
         <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-700 before:to-transparent">
           {experiences.map((exp, index) => (
             <motion.div 
-              key={exp.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group pointer-events-auto`}
+              key={exp.id} 
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, margin: "-100px" }} 
+              transition={{ duration: 0.6, delay: index * 0.1 }} 
+              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group pointer-events-auto"
             >
-              <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-brand-dark border-4 border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 md:translate-x-[-50%] group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(250,204,21,0.3)]">
+              <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-brand-dark border-4 border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                 <div className="w-3 h-3 bg-brand-yellow rounded-full" />
               </div>
-
               <div className="ml-16 md:ml-0 md:w-[45%] p-6 md:p-8 bg-neutral-900/60 backdrop-blur-sm border border-white/5 hover:border-brand-yellow/30 transition-all rounded-none hover:bg-neutral-900/80">
                 <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
                   <h3 className="text-xl font-bold text-white">{exp.role}</h3>
                   <span className="text-sm font-mono text-brand-yellow py-1 px-2 bg-brand-yellow/10 rounded mt-1 sm:mt-0">{exp.period}</span>
                 </div>
                 <h4 className="text-neutral-400 font-medium mb-4">{exp.company}</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-                  {exp.description}
-                </p>
+                <p className="text-neutral-400 text-sm leading-relaxed mb-6">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => (
-                    <span key={skill} className="text-xs text-neutral-500 border border-neutral-800 px-2 py-1 bg-black/20">
-                      {skill}
-                    </span>
-                  ))}
+                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 border border-neutral-800 px-2 py-1 bg-black/20">{skill}</span>)}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Partners Marquee Section (Refactored to automatic carousel) */}
+        {/* Partners Automatic Marquee */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }} 
+          whileInView={{ opacity: 1 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.8 }} 
           className="max-w-full mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
         >
           <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 px-6">
@@ -255,59 +209,40 @@ const Experience: React.FC = () => {
             </div>
           </div>
 
-          {/* Marquee Container */}
           <div className="relative overflow-hidden w-full group py-4">
-            {/* Gradient Masks */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
+            {/* Soft edge masking */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
 
             <motion.div 
               className="flex gap-4 w-max"
               animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30, // Adjust speed here
-                  ease: "linear",
-                },
-              }}
+              transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 40, ease: "linear" } }}
             >
-              {doubledClients.map((client, idx) => (
+              {doubledPartners.map((partner, idx) => (
                 <div
                   key={idx}
-                  className={`group h-16 w-48 bg-neutral-900/40 backdrop-blur-sm border border-white/5 hover:border-transparent transition-all duration-300 flex flex-col items-center justify-center p-2 cursor-default relative overflow-hidden shrink-0 ${client.hoverColor}`}
+                  className="relative h-24 w-48 bg-black border border-white/5 overflow-hidden transition-all duration-300 shrink-0 flex items-center justify-center cursor-default p-1"
                 >
-                  {client.isSpecial ? (
-                    <div className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
-                      <Plus size={16} className="text-brand-yellow" />
-                      <span className="text-[10px] uppercase font-bold tracking-tighter text-neutral-400 group-hover:text-brand-dark transition-colors">
-                        {client.name}
-                      </span>
-                    </div>
-                  ) : client.logo ? (
-                    <div className="relative w-full h-full flex items-center justify-center p-2">
-                      <img 
-                        src={client.logo} 
-                        alt={client.name} 
-                        className="max-w-full max-h-8 w-auto h-auto object-contain transition-all duration-300 filter brightness-0 invert opacity-40 group-hover:filter-none group-hover:opacity-100 group-hover:scale-105"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                          const parent = (e.target as HTMLImageElement).parentElement;
-                          if (parent && !parent.querySelector('.fallback-text')) {
-                            const span = document.createElement('span');
-                            span.innerText = client.name;
-                            span.className = 'fallback-text text-[10px] font-bold uppercase tracking-tighter text-neutral-500 group-hover:text-brand-dark transition-colors text-center';
-                            parent.appendChild(span);
-                          }
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <h4 className="text-xs font-display font-bold text-neutral-500 group-hover:text-white transition-colors tracking-tight text-center">
-                      {client.name}
-                    </h4>
-                  )}
+                  <div className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      loading="eager"
+                      className="w-full h-full object-contain filter grayscale invert brightness-[2] opacity-60 mix-blend-screen"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent && !parent.querySelector('.fallback-text')) {
+                          const span = document.createElement('span');
+                          span.innerText = partner.name;
+                          span.className = 'fallback-text text-[10px] font-bold uppercase tracking-tighter text-neutral-500 text-center px-4';
+                          parent.appendChild(span);
+                        }
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </motion.div>

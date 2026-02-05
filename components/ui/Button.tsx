@@ -1,10 +1,13 @@
 import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
+// Added className and onClick to the interface to resolve missing property errors in components using the Button
 interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: 'primary' | 'outline' | 'ghost';
   children: React.ReactNode;
   icon?: React.ReactNode;
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: React.FC<ButtonProps> = ({ 

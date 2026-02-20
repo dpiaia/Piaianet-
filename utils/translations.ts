@@ -1,3 +1,4 @@
+
 export const translations = {
   pt: {
     nav: {
@@ -119,15 +120,15 @@ export const translations = {
           ]
         },
         {
-          title: "Recriando o agendamento de consultas",
-          category: "CALENDAR • HEALTHTECH",
-          shortDescription: "Simplificando a complexidade de agendamentos.",
-          challenge: "A gestão de agenda complexa com múltiplos profissionais e cadeiras gerava conflitos de horários e dificuldade de visualização para as recepcionistas.",
-          solution: "Redesign completo da interface de agenda focado em usabilidade cognitiva, com recursos de 'arrastar e soltar' e sugestões inteligentes de horários.",
+          title: "Criação de páginas para a Netshoes",
+          category: "FRONT END - ECOMMERCE",
+          shortDescription: "Criação de landing pages e mail marketing.",
+          challenge: "A necessidade de criar landing pages performáticas e e-mails marketing responsivos para campanhas sazonais de alta conversão na Netshoes.",
+          solution: "Desenvolvimento de templates modulares em HTML/CSS focados em performance e acessibilidade, garantindo uma experiência consistente em múltiplos dispositivos.",
           results: [
-            "Otimização de 20% na ocupação das cadeiras/salas.",
-            "Redução de cliques para realizar um agendamento.",
-            "Feedback extremamente positivo das recepcionistas (Power Users)."
+            "Aumento na taxa de cliques (CTR) em campanhas de e-mail.",
+            "Páginas com carregamento abaixo de 2 segundos.",
+            "Consistência visual entre campanhas e o e-commerce principal."
           ]
         },
         {
@@ -307,15 +308,15 @@ export const translations = {
           ]
         },
         {
-          title: "Reinventing appointment scheduling",
-          category: "CALENDAR • HEALTHTECH",
-          shortDescription: "Simplifying scheduling complexity.",
-          challenge: "Managing complex schedules with multiple professionals and chairs generated scheduling conflicts and visualization difficulties for receptionists.",
-          solution: "Complete redesign of the schedule interface focused on cognitive usability, with 'drag and drop' features and intelligent time suggestions.",
+          title: "Page creation for Netshoes",
+          category: "FRONT END - ECOMMERCE",
+          shortDescription: "Creation of landing pages and email marketing.",
+          challenge: "The need to create high-performance landing pages and responsive email marketing for high-conversion seasonal campaigns at Netshoes.",
+          solution: "Development of modular HTML/CSS templates focused on performance and accessibility, ensuring a consistent experience across multiple devices.",
           results: [
-            "20% optimization in chair/room occupancy.",
-            "Reduction in clicks to make an appointment.",
-            "Extremely positive feedback from receptionists (Power Users)."
+            "Increase in click-through rate (CTR) in email campaigns.",
+            "Pages loading under 2 seconds.",
+            "Visual consistency between campaigns and the main e-commerce."
           ]
         },
         {
@@ -439,7 +440,7 @@ export const translations = {
           role: "UX Tech Leader",
           company: "Mercado Libre",
           period: "2022 - 2023",
-          description: "Actuación como referencia técnica en UX en el mayor e-commerce de América Latina. Lideré iniciativas de Design Engineering, garantizando a fidelidad y escalabilidad del Design System entre prototipos y código en producción en múltiples países.",
+          description: "Actuación como referencia técnica en UX en el mayor e-commerce de América Latina. Lideré iniciativas de Design Engineering, garantizando a fidelidade e escalabilidade del Design System entre prototipos y código en producción en múltiples países.",
           skills: ["E-commerce", "Design Systems", "Tech Leadership"]
         },
         {
@@ -495,15 +496,15 @@ export const translations = {
           ]
         },
         {
-          title: "Reinventando a programación de citas",
-          category: "CALENDAR • HEALTHTECH",
-          shortDescription: "Simplificando a complexidade das agendas.",
-          challenge: "A gestión de agendas complexas com múltiplos profesionais e sillas gerava conflictos de horarios e dificultades de visualización para as recepcionistas.",
-          solution: "Rediseño completo da interfaz de agenda enfocado em usabilidade cognitiva, com recursos de 'arrastar e soltar' e suxerencias intelixentes de horarios.",
+          title: "Creación de páginas para Netshoes",
+          category: "FRONT END - ECOMMERCE",
+          shortDescription: "Creación de landing pages y email marketing.",
+          challenge: "La necesidad de crear landing pages de alto rendimiento y email marketing responsive para campañas estacionales de alta conversión en Netshoes.",
+          solution: "Desarrollo de plantillas modulares en HTML/CSS enfocadas en el rendimiento y la accesibilidad, garantizando una experiencia consistente en múltiples dispositivos.",
           results: [
-            "Optimización del 20% en a ocupación de sillas/salas.",
-            "Reducción de clics para realizar uma programación.",
-            "Feedback extremamente positivo das recepcionistas (Power Users)."
+            "Aumento en la tasa de clics (CTR) en campañas de correo electrónico.",
+            "Páginas con carga en menos de 2 segundos.",
+            "Consistencia visual entre las campañas y el e-commerce principal."
           ]
         },
         {
@@ -534,7 +535,7 @@ export const translations = {
       subtitle: 'Feedback real de quienes ya han trabajado conmigo en proyectos internacionales y de alta complejidad.',
       items: [
         {
-          quote: "Denis es un diseñador increíble con o que tuve o placer de trabajar, es un diseñador de productos completo, com habilidades em investigación, creación de prototipos e entrega de diseño.",
+          quote: "Denis es un diseñador increíble com o que tuve o placer de trabajar, es un diseñador de productos completo, com habilidades em investigación, creación de prototipos e entrega de diseño.",
         },
         {
           quote: "Denis es o tipo de persona que fai todo o posible para encontrar e solucionar problemas onde sexa que a empresa o necesite, sempre tratando de mellorar.",
@@ -549,7 +550,7 @@ export const translations = {
           quote: "Un profesor dedicado que es muy elogiado polas súas clases. Ademais de ser colaborativo e un experto em seu campo, a Denis lle sobra empatía.",
         },
         {
-          quote: "Un profesional completo, mentor, orador e, sobre todo, un gran amigo. Es raro encontrar a alguén que entenda tanto de UI/UX e teña tanta empatía por o usuario. Es un profesional inquieto, sempre cuestionando, proactivo e ofrecendo máis do que se lle pide.",
+          quote: "Un profesional completo, mentor, orador e, sobre todo, un gran amigo. Es raro encontrar a alguén que entenda tanto de UI/UX e teña tanta empatía por o usuario. Es un profesional inquieto, sempre cuestionando, proactivo e ofreciendo máis do que se lle pide.",
         }
       ]
     },

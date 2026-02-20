@@ -1,4 +1,3 @@
-
 import { useState, useEffect, FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, Layers, Monitor, CheckCircle2, ChevronLeft, Sparkles, Cpu, Zap, Eye } from 'lucide-react';
@@ -26,7 +25,7 @@ const Projects: FC = () => {
     {
       id: 2,
       tags: ["UX Research", "UI Design", "Prototyping"],
-      coverImage: "https://costanorte.com.br/media/_versions/legacy/39/64/396364_widexl.jpg",
+      coverImage: "https://piaianet.page.gd/imgs/ifood.jpg",
       gallery: [
         "https://picsum.photos/id/201/800/600",
         "https://picsum.photos/id/250/800/600"
@@ -34,8 +33,8 @@ const Projects: FC = () => {
     },
     {
       id: 3,
-      tags: ["UX Research", "UI Design", "Prototyping", "AI"],
-      coverImage: "https://picsum.photos/id/3/800/600",
+      tags: ["HTML", "CSS", "LANDING PAGE"],
+      coverImage: "https://piaianet.page.gd/imgs/netshoes.jpg",
       gallery: [
         "https://picsum.photos/id/366/800/600",
         "https://picsum.photos/id/395/800/600"

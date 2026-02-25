@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 interface ParticleBackgroundProps {
   variant?: 'repel' | 'attract';
@@ -7,6 +8,7 @@ interface ParticleBackgroundProps {
 
 const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ variant = 'repel', onlyYellow = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -161,9 +163,18 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ variant = 'repe
         // Cores: Mistura de Amarelo Brand e Cinza/Branco
         // Se onlyYellow for true, força amarelo em todas (com opacidade variável)
         const isYellow = onlyYellow || Math.random() > 0.8; 
-        const color = isYellow 
-            ? `rgba(250, 204, 21, ${onlyYellow ? Math.random() * 0.4 + 0.2 : 0.6})` 
-            : `rgba(255, 255, 255, ${Math.random() * 0.1 + 0.05})`;
+        
+        let color = '';
+        if (theme === 'dark') {
+          color = isYellow 
+              ? `rgba(250, 204, 21, ${onlyYellow ? Math.random() * 0.4 + 0.2 : 0.6})` 
+              : `rgba(255, 255, 255, ${Math.random() * 0.1 + 0.05})`;
+        } else {
+          // In light mode, yellow becomes lead (#333333)
+          color = isYellow 
+              ? `rgba(51, 51, 51, ${onlyYellow ? Math.random() * 0.4 + 0.2 : 0.6})` 
+              : `rgba(153, 153, 153, ${Math.random() * 0.1 + 0.05})`;
+        }
 
         particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
       }
@@ -201,7 +212,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ variant = 'repe
       window.removeEventListener('mouseout', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [variant, onlyYellow]);
+  }, [variant, onlyYellow, theme]);
 
   return (
     <canvas 

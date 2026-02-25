@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import BackToTop from './components/ui/BackToTop';
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   useEffect(() => {
@@ -25,21 +26,23 @@ function App() {
   }, []);
 
   return (
-    <LanguageProvider>
-      <div className="bg-brand-dark min-h-screen text-neutral-50 selection:bg-brand-yellow selection:text-brand-dark">
-        <Toaster position="top-center" />
-        <Header />
-        <main>
-          <Hero />
-          <Projects />
-          <Experience />
-          <About />
-          <Testimonials />
-          <Contact />
-        </main>
-        <BackToTop />
-      </div>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <div className="bg-brand-light dark:bg-brand-dark min-h-screen text-brand-dark dark:text-neutral-50 selection:bg-brand-lead dark:selection:bg-brand-yellow selection:text-white dark:selection:text-brand-dark transition-colors duration-300">
+          <Toaster position="top-center" />
+          <Header />
+          <main>
+            <Hero />
+            <Projects />
+            <Experience />
+            <About />
+            <Testimonials />
+            <Contact />
+          </main>
+          <BackToTop />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

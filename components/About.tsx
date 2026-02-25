@@ -40,7 +40,7 @@ const About: FC = () => {
   const infinitePhotos = [...personalPhotos, ...personalPhotos];
 
   return (
-    <section id="about" ref={containerRef} className="py-24 bg-brand-gray relative overflow-hidden min-h-[800px]">
+    <section id="about" ref={containerRef} className="py-24 bg-brand-light-gray dark:bg-brand-gray relative overflow-hidden min-h-[800px] transition-colors duration-300">
       <ParticleBackground variant="attract" onlyYellow={true} />
       
       <div className="container mx-auto px-6 relative z-10">
@@ -52,25 +52,25 @@ const About: FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-display font-bold mb-2">
-              {t.about.title} <span className="text-brand-yellow">{t.about.titleHighlight}</span>
+            <h2 className="text-4xl font-display font-bold mb-2 text-brand-dark dark:text-white">
+              {t.about.title} <span className="text-brand-lead dark:text-brand-yellow">{t.about.titleHighlight}</span>
             </h2>
             <div className="flex space-x-6 mt-6">
               <button 
                 onClick={() => setActiveTab('professional')}
-                className={`flex items-center gap-2 pb-2 text-lg font-medium transition-all relative ${activeTab === 'professional' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+                className={`flex items-center gap-2 pb-2 text-lg font-medium transition-all relative ${activeTab === 'professional' ? 'text-brand-lead dark:text-brand-yellow' : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'}`}
               >
                 <Briefcase size={18} />
                 {t.about.tabs.professional}
-                {activeTab === 'professional' && <motion.div layoutId="underline" className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-yellow" />}
+                {activeTab === 'professional' && <motion.div layoutId="underline" className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-lead dark:bg-brand-yellow" />}
               </button>
               <button 
                 onClick={() => setActiveTab('personal')}
-                className={`flex items-center gap-2 pb-2 text-lg font-medium transition-all relative ${activeTab === 'personal' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+                className={`flex items-center gap-2 pb-2 text-lg font-medium transition-all relative ${activeTab === 'personal' ? 'text-brand-lead dark:text-brand-yellow' : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'}`}
               >
                 <User size={18} />
                 {t.about.tabs.personal}
-                {activeTab === 'personal' && <motion.div layoutId="underline" className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-yellow" />}
+                {activeTab === 'personal' && <motion.div layoutId="underline" className="absolute bottom-0 left-0 w-full h-0.5 bg-brand-lead dark:bg-brand-yellow" />}
               </button>
             </div>
           </motion.div>
@@ -86,10 +86,10 @@ const About: FC = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start"
             >
-              <div className="space-y-6 text-neutral-400 leading-relaxed text-lg">
+              <div className="space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">
                 <p>{t.about.professional.p1}</p>
                 <p>{t.about.professional.p2}</p>
-                <p className="border-l-2 border-brand-yellow pl-4 text-white italic">{t.about.professional.p3}</p>
+                <p className="border-l-2 border-brand-lead dark:border-brand-yellow pl-4 text-brand-dark dark:text-white italic">{t.about.professional.p3}</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -100,15 +100,15 @@ const About: FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative overflow-hidden p-6 bg-brand-dark border border-white/5 hover:border-brand-yellow transition-colors group rounded-lg"
+                    className="relative overflow-hidden p-6 bg-white dark:bg-brand-dark border border-brand-lead/10 dark:border-white/5 hover:border-brand-lead dark:hover:border-brand-yellow transition-colors group rounded-lg shadow-sm dark:shadow-none"
                   >
-                    <div className="absolute inset-0 bg-brand-yellow z-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+                    <div className="absolute inset-0 bg-brand-lead dark:bg-brand-yellow z-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
                     <div className="relative z-10">
-                      <div className="mb-4 text-brand-yellow group-hover:text-brand-dark p-3 bg-brand-yellow/10 group-hover:bg-black/10 inline-block rounded-lg group-hover:scale-110 transition-all duration-300">
+                      <div className="mb-4 text-brand-lead dark:text-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark p-3 bg-brand-lead/10 dark:bg-brand-yellow/10 group-hover:bg-black/10 inline-block rounded-lg group-hover:scale-110 transition-all duration-300">
                         {skill.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-brand-dark mb-2 transition-colors duration-300">{skill.title}</h3>
-                      <p className="text-neutral-500 group-hover:text-brand-dark/80 text-sm transition-colors duration-300">{skill.desc}</p>
+                      <h3 className="text-xl font-bold text-brand-dark dark:text-white group-hover:text-white dark:group-hover:text-brand-dark mb-2 transition-colors duration-300">{skill.title}</h3>
+                      <p className="text-neutral-500 group-hover:text-white/80 dark:group-hover:text-brand-dark/80 text-sm transition-colors duration-300">{skill.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -126,35 +126,35 @@ const About: FC = () => {
                {/* Intro & Music with Parallax */}
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <motion.div style={{ y: yMusic }}>
-                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                       <Camera className="text-brand-yellow" size={24} />
+                    <h3 className="text-2xl font-bold text-brand-dark dark:text-white mb-6 flex items-center gap-2">
+                       <Camera className="text-brand-lead dark:text-brand-yellow" size={24} />
                        {t.about.personal.title}
                     </h3>
-                    <p className="text-neutral-400 leading-relaxed text-lg mb-8">
+                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg mb-8">
                        {t.about.personal.p1}
                     </p>
                     
                     {/* Music Player Mockup */}
-                    <div className="bg-neutral-900/80 backdrop-blur border border-white/5 rounded-2xl p-6 relative overflow-hidden shadow-2xl">
-                       <div className="absolute top-0 right-0 p-4 opacity-10">
+                    <div className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur border border-brand-lead/10 dark:border-white/5 rounded-2xl p-6 relative overflow-hidden shadow-xl dark:shadow-2xl">
+                       <div className="absolute top-0 right-0 p-4 opacity-5 dark:opacity-10 text-brand-dark dark:text-white">
                           <Music2 size={120} />
                        </div>
-                       <h4 className="text-sm font-bold uppercase tracking-widest text-brand-yellow mb-6 flex items-center gap-2">
+                       <h4 className="text-sm font-bold uppercase tracking-widest text-brand-lead dark:text-brand-yellow mb-6 flex items-center gap-2">
                          <Disc className="animate-spin-slow" size={16} /> {t.about.personal.musicTitle}
                        </h4>
                        <div className="space-y-4 relative z-10">
                           {t.about.personal.playlist.map((track: any, i: number) => (
                              <div 
-                               key={i} 
-                               onClick={() => setSelectedTrack(track)}
-                               className="flex items-center justify-between group cursor-pointer transition-all hover:pl-2"
+                                key={i} 
+                                onClick={() => setSelectedTrack(track)}
+                                className="flex items-center justify-between group cursor-pointer transition-all hover:pl-2"
                              >
                                 <div className="flex items-center gap-3">
-                                   <div className="w-8 h-8 rounded bg-neutral-800 flex items-center justify-center text-xs text-neutral-500 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors">
+                                   <div className="w-8 h-8 rounded bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs text-neutral-500 group-hover:bg-brand-lead dark:group-hover:bg-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark transition-colors">
                                       {i + 1}
                                    </div>
                                    <div>
-                                      <p className="text-white font-medium text-sm group-hover:text-brand-yellow transition-colors flex items-center gap-2">
+                                      <p className="text-brand-dark dark:text-white font-medium text-sm group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors flex items-center gap-2">
                                         {track.title} <Play size={10} className="opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                                       </p>
                                       <p className="text-neutral-500 text-xs">{track.artist}</p>
@@ -167,7 +167,7 @@ const About: FC = () => {
                                        key={bar}
                                        animate={{ height: [4, 12, 6, 12, 4] }}
                                        transition={{ duration: 0.5 + Math.random() * 0.5, repeat: Infinity, ease: "linear" }}
-                                       className="w-0.5 bg-brand-yellow/50 rounded-full"
+                                       className="w-0.5 bg-brand-lead/50 dark:bg-brand-yellow/50 rounded-full"
                                      />
                                    ))}
                                 </div>
@@ -179,13 +179,13 @@ const About: FC = () => {
 
                   {/* Infinite Auto-Scrolling Photo Carousel with Parallax */}
                   <motion.div style={{ y: yPhotos }} className="w-full relative">
-                     <h3 className="text-lg font-medium text-neutral-400 mb-6 flex items-center gap-2">
+                     <h3 className="text-lg font-medium text-neutral-500 dark:text-neutral-400 mb-6 flex items-center gap-2">
                        {t.about.personal.photosTitle}
                      </h3>
                      
                      {/* Gradient Masks for smooth edges */}
-                     <div className="absolute left-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-r from-brand-gray to-transparent pointer-events-none" />
-                     <div className="absolute right-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-l from-brand-gray to-transparent pointer-events-none" />
+                     <div className="absolute left-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-r from-brand-light-gray dark:from-brand-gray to-transparent pointer-events-none" />
+                     <div className="absolute right-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-l from-brand-light-gray dark:from-brand-gray to-transparent pointer-events-none" />
 
                      <div className="overflow-hidden w-full">
                        <motion.div 
@@ -203,7 +203,7 @@ const About: FC = () => {
                           {infinitePhotos.map((photo, i) => (
                               <div 
                                 key={i}
-                                className="min-w-[300px] h-[350px] rounded-xl overflow-hidden relative border border-white/5 bg-neutral-900 shadow-lg shrink-0 group"
+                                className="min-w-[300px] h-[350px] rounded-xl overflow-hidden relative border border-brand-lead/10 dark:border-white/5 bg-white dark:bg-neutral-900 shadow-lg shrink-0 group"
                               >
                                  <img 
                                     src={photo} 
@@ -231,24 +231,24 @@ const About: FC = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedTrack(null)}
-                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                className="absolute inset-0 bg-brand-dark/80 dark:bg-black/80 backdrop-blur-sm"
               />
               
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="relative w-full max-w-md bg-brand-dark rounded-xl shadow-2xl overflow-hidden border border-white/10"
+                className="relative w-full max-w-md bg-white dark:bg-brand-dark rounded-xl shadow-2xl overflow-hidden border border-brand-lead/10 dark:border-white/10"
               >
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedTrack(null)}
-                  className="absolute top-2 right-2 z-50 p-2 bg-black/50 rounded-full text-white hover:text-brand-yellow transition-colors hover:bg-black/80"
+                  className="absolute top-2 right-2 z-50 p-2 bg-white/50 dark:bg-black/50 rounded-full text-brand-dark dark:text-white hover:text-brand-lead dark:hover:text-brand-yellow transition-colors hover:bg-white/80 dark:hover:bg-black/80"
                 >
                   <X size={20} />
                 </button>
 
-                <div className="p-1 bg-brand-dark">
+                <div className="p-1 bg-white dark:bg-brand-dark">
                   <iframe 
                     style={{ borderRadius: '12px' }}
                     src={selectedTrack.embedUrl}

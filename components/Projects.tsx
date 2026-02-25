@@ -122,7 +122,7 @@ const Projects: FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-brand-gray relative overflow-hidden">
+    <section id="projects" className="py-24 bg-brand-light dark:bg-brand-gray relative overflow-hidden transition-colors duration-300">
       <ParticleBackground variant="attract" onlyYellow={true} />
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
@@ -131,13 +131,13 @@ const Projects: FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-display font-bold mb-4">{t.projects.title} <span className="text-brand-yellow">{t.projects.titleHighlight}</span></h2>
-            <p className="text-neutral-400">{t.projects.subtitle}</p>
+            <h2 className="text-4xl font-display font-bold mb-4 text-brand-dark dark:text-white">{t.projects.title} <span className="text-brand-lead dark:text-brand-yellow">{t.projects.titleHighlight}</span></h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t.projects.subtitle}</p>
           </motion.div>
           
           <motion.button 
             whileHover={{ x: 5 }}
-            className="text-white flex items-center gap-2 border-b border-brand-yellow pb-1 font-medium hover:text-brand-yellow transition-colors"
+            className="text-brand-dark dark:text-white flex items-center gap-2 border-b border-brand-lead dark:border-brand-yellow pb-1 font-medium hover:text-brand-lead dark:hover:text-brand-yellow transition-colors"
           >
             {t.projects.ctaBehance} <ArrowUpRight size={16} />
           </motion.button>
@@ -153,7 +153,7 @@ const Projects: FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative cursor-pointer rounded-xl bg-brand-dark border border-white/5 hover:border-brand-yellow/50 transition-colors overflow-hidden"
+              className="group relative cursor-pointer rounded-xl bg-white dark:bg-brand-dark border border-brand-lead/5 dark:border-white/5 hover:border-brand-lead dark:hover:border-brand-yellow/50 transition-colors overflow-hidden shadow-sm dark:shadow-none"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <motion.img 
@@ -166,18 +166,18 @@ const Projects: FC = () => {
               </div>
               
               <div className="p-6 relative">
-                <motion.p layoutId={`cat-${project.id}`} className="text-xs text-brand-yellow font-medium uppercase tracking-wider mb-2">
+                <motion.p layoutId={`cat-${project.id}`} className="text-xs text-brand-lead dark:text-brand-yellow font-medium uppercase tracking-wider mb-2">
                   {project.category}
                 </motion.p>
-                <motion.h3 layoutId={`title-${project.id}`} className="text-2xl font-display font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">
+                <motion.h3 layoutId={`title-${project.id}`} className="text-2xl font-display font-bold text-brand-dark dark:text-white mb-2 group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors">
                   {project.title}
                 </motion.h3>
-                <p className="text-neutral-400 text-sm line-clamp-2">
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm line-clamp-2">
                   {project.shortDescription}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="text-[10px] uppercase border border-white/10 px-2 py-1 text-neutral-500 rounded">
+                    <span key={tag} className="text-[10px] uppercase border border-brand-lead/10 dark:border-white/10 px-2 py-1 text-neutral-500 rounded">
                       {tag}
                     </span>
                   ))}
@@ -190,128 +190,128 @@ const Projects: FC = () => {
         {/* AI Special Gallery Overlay */}
         <AnimatePresence>
           {showAIGallery && (
-            <motion.div
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.1 }}
-              transition={{ duration: 0.5, ease: "circOut" }}
-              className="fixed inset-0 z-[100] bg-brand-dark overflow-y-auto"
-            >
-              <ParticleBackground variant="attract" onlyYellow={false} />
+              <motion.div
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.1 }}
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="fixed inset-0 z-[100] bg-brand-light dark:bg-brand-dark overflow-y-auto"
+              >
+                <ParticleBackground variant="attract" onlyYellow={false} />
 
-              <div className="relative z-10 min-h-screen pb-20">
-                {/* Header Navigation */}
-                <div className="sticky top-0 z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-white/5 p-6 flex items-center justify-between">
-                  <button 
-                    onClick={() => setShowAIGallery(false)}
-                    className="flex items-center gap-2 text-neutral-400 hover:text-brand-yellow transition-colors font-medium group"
-                  >
-                    <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                    Voltar ao Portfólio
-                  </button>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-brand-yellow/10 flex items-center justify-center">
-                      <Cpu className="text-brand-yellow animate-pulse" size={16} />
+                <div className="relative z-10 min-h-screen pb-20">
+                  {/* Header Navigation */}
+                  <div className="sticky top-0 z-50 bg-brand-light/80 dark:bg-brand-dark/80 backdrop-blur-xl border-b border-brand-lead/5 dark:border-white/5 p-6 flex items-center justify-between">
+                    <button 
+                      onClick={() => setShowAIGallery(false)}
+                      className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow transition-colors font-medium group"
+                    >
+                      <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                      Voltar ao Portfólio
+                    </button>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-brand-lead/10 dark:bg-brand-yellow/10 flex items-center justify-center">
+                        <Cpu className="text-brand-lead dark:text-brand-yellow animate-pulse" size={16} />
+                      </div>
+                      <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 uppercase tracking-[0.2em] hidden sm:block">AI DESIGN LAB • VER. 2.5</span>
                     </div>
-                    <span className="text-xs font-mono text-neutral-400 uppercase tracking-[0.2em] hidden sm:block">AI DESIGN LAB • VER. 2.5</span>
-                  </div>
-                </div>
-
-                <div className="container mx-auto px-6 py-16">
-                  <div className="max-w-4xl mb-24">
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-brand-yellow mb-4"
-                    >
-                      <Sparkles size={18} />
-                      <span className="text-sm font-bold uppercase tracking-widest">Experimentos de Vanguarda</span>
-                    </motion.div>
-                    <motion.h1 
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                      className="text-6xl md:text-8xl font-display font-bold text-white mb-8 tracking-tighter"
-                    >
-                      AI <span className="text-brand-yellow">Studio</span>
-                    </motion.h1>
-                    <motion.p 
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-xl md:text-2xl text-neutral-400 leading-relaxed max-w-3xl"
-                    >
-                      Como UX Leader, exploro a Inteligência Artificial não apenas como ferramenta, mas como co-criadora de novas estéticas e fluxos de trabalho. Abaixo, alguns experimentos de interface, arte generativa e branding sintético.
-                    </motion.p>
                   </div>
 
-                  {/* AI Experiments Grid - Replicating Home Projects Style */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-                    {aiExperiments.map((exp, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
+                  <div className="container mx-auto px-6 py-16">
+                    <div className="max-w-4xl mb-24">
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
-                        className="group relative flex flex-col bg-neutral-900/40 border border-white/5 hover:border-brand-yellow/30 transition-all rounded-2xl overflow-hidden cursor-default"
+                        className="flex items-center gap-2 text-brand-lead dark:text-brand-yellow mb-4"
                       >
-                        {/* Image Container */}
-                        <div className="relative aspect-[4/3] overflow-hidden">
-                          <img 
-                            src={exp.img} 
-                            alt={exp.title} 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80" />
-                          
-                          {/* Floating Badge */}
-                          <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full flex items-center gap-2">
-                             <Zap size={12} className="text-brand-yellow" />
-                             <span className="text-[10px] font-mono text-white/80">{exp.tool}</span>
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="p-8 flex-1 flex flex-col">
-                          <span className="text-[10px] font-bold text-brand-yellow uppercase tracking-[0.2em] mb-3 block">
-                            {exp.category}
-                          </span>
-                          <h3 className="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-yellow transition-colors">
-                            {exp.title}
-                          </h3>
-                          <p className="text-neutral-500 text-sm leading-relaxed mb-6 flex-1">
-                            {exp.desc}
-                          </p>
-                          
-                          <div className="flex items-center gap-2 text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-brand-yellow transition-colors">
-                            <Eye size={14} /> View Details
-                          </div>
-                        </div>
+                        <Sparkles size={18} />
+                        <span className="text-sm font-bold uppercase tracking-widest">Experimentos de Vanguarda</span>
                       </motion.div>
-                    ))}
-                  </div>
+                      <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-6xl md:text-8xl font-display font-bold text-brand-dark dark:text-white mb-8 tracking-tighter"
+                      >
+                        AI <span className="text-brand-lead dark:text-brand-yellow">Studio</span>
+                      </motion.h1>
+                      <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl"
+                      >
+                        Como UX Leader, exploro a Inteligência Artificial não apenas como ferramenta, mas como co-criadora de novas estéticas e fluxos de trabalho. Abaixo, alguns experimentos de interface, arte generativa e branding sintético.
+                      </motion.p>
+                    </div>
 
-                  {/* Scientific/Technical Section */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-40 pt-20 border-t border-white/5">
-                    <div className="lg:col-span-1">
-                       <h4 className="text-3xl font-display font-bold text-white mb-6">Metodologia <span className="text-brand-yellow">Generativa</span></h4>
-                       <p className="text-neutral-500 leading-relaxed">
-                         Utilizo prompts iterativos e modelos treinados localmente para garantir que o resultado final mantenha a essência do design focado no humano, enquanto explora territórios visuais inexplorados.
-                       </p>
+                    {/* AI Experiments Grid - Replicating Home Projects Style */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+                      {aiExperiments.map((exp, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                          className="group relative flex flex-col bg-white dark:bg-neutral-900/40 border border-brand-lead/5 dark:border-white/5 hover:border-brand-lead/30 dark:hover:border-brand-yellow/30 transition-all rounded-2xl overflow-hidden cursor-default shadow-sm dark:shadow-none"
+                        >
+                          {/* Image Container */}
+                          <div className="relative aspect-[4/3] overflow-hidden">
+                            <img 
+                              src={exp.img} 
+                              alt={exp.title} 
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80" />
+                            
+                            {/* Floating Badge */}
+                            <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full flex items-center gap-2">
+                               <Zap size={12} className="text-brand-yellow" />
+                               <span className="text-[10px] font-mono text-white/80">{exp.tool}</span>
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="p-8 flex-1 flex flex-col">
+                            <span className="text-[10px] font-bold text-brand-lead dark:text-brand-yellow uppercase tracking-[0.2em] mb-3 block">
+                              {exp.category}
+                            </span>
+                            <h3 className="text-2xl font-display font-bold text-brand-dark dark:text-white mb-3 group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors">
+                              {exp.title}
+                            </h3>
+                            <p className="text-neutral-600 dark:text-neutral-500 text-sm leading-relaxed mb-6 flex-1">
+                              {exp.desc}
+                            </p>
+                            
+                            <div className="flex items-center gap-2 text-brand-dark/40 dark:text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors">
+                              <Eye size={14} /> View Details
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
-                    <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                       <div className="p-8 bg-white/5 border border-white/5 rounded-2xl">
-                          <div className="text-brand-yellow mb-4"><Zap size={32} /></div>
-                          <h5 className="text-white font-bold mb-2">Velocidade de Conceito</h5>
-                          <p className="text-sm text-neutral-400">Redução de 80% no tempo de criação de moodboards e conceitos visuais iniciais.</p>
-                       </div>
-                       <div className="p-8 bg-white/5 border border-white/5 rounded-2xl">
-                          <div className="text-brand-yellow mb-4"><Layers size={32} /></div>
-                          <h5 className="text-white font-bold mb-2">Escalabilidade de Assets</h5>
-                          <p className="text-sm text-neutral-400">Geração de milhares de variações iconográficas e texturais em minutos.</p>
-                       </div>
+
+                    {/* Scientific/Technical Section */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-40 pt-20 border-t border-brand-lead/10 dark:border-white/5">
+                      <div className="lg:col-span-1">
+                         <h4 className="text-3xl font-display font-bold text-brand-dark dark:text-white mb-6">Metodologia <span className="text-brand-lead dark:text-brand-yellow">Generativa</span></h4>
+                         <p className="text-neutral-600 dark:text-neutral-500 leading-relaxed">
+                           Utilizo prompts iterativos e modelos treinados localmente para garantir que o resultado final mantenha a essência do design focado no humano, enquanto explora territórios visuais inexplorados.
+                         </p>
+                      </div>
+                      <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                         <div className="p-8 bg-brand-lead/5 dark:bg-white/5 border border-brand-lead/10 dark:border-white/5 rounded-2xl">
+                            <div className="text-brand-lead dark:text-brand-yellow mb-4"><Zap size={32} /></div>
+                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Velocidade de Conceito</h5>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-400">Redução de 80% no tempo de criação de moodboards e conceitos visuais iniciais.</p>
+                         </div>
+                         <div className="p-8 bg-brand-lead/5 dark:bg-white/5 border border-brand-lead/10 dark:border-white/5 rounded-2xl">
+                            <div className="text-brand-lead dark:text-brand-yellow mb-4"><Layers size={32} /></div>
+                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Escalabilidade de Assets</h5>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-400">Geração de milhares de variações iconográficas e texturais em minutos.</p>
+                         </div>
+                      </div>
                     </div>
-                  </div>
 
                   {/* Footer CTA */}
                   <div className="mt-40 text-center">
@@ -340,7 +340,7 @@ const Projects: FC = () => {
               
               <motion.div 
                 layoutId={`card-${selectedProject.id}`}
-                className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-brand-dark border border-white/10 rounded-2xl shadow-2xl flex flex-col"
+                className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-brand-light dark:bg-brand-dark border border-brand-lead/10 dark:border-white/10 rounded-2xl shadow-2xl flex flex-col"
               >
                 {/* Close Button */}
                 <button 
@@ -369,18 +369,18 @@ const Projects: FC = () => {
                 <div className="p-8 md:p-12 space-y-12">
                   
                   {/* Intro Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/5">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-brand-lead/10 dark:border-white/5">
                     <div className="md:col-span-2">
-                       <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                         <Monitor size={20} className="text-brand-yellow" /> {t.projects.modal.challenge}
+                       <h3 className="text-xl font-bold text-brand-dark dark:text-white mb-4 flex items-center gap-2">
+                         <Monitor size={20} className="text-brand-lead dark:text-brand-yellow" /> {t.projects.modal.challenge}
                        </h3>
-                       <p className="text-neutral-400 leading-relaxed text-lg">{selectedProject.challenge}</p>
+                       <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-lg">{selectedProject.challenge}</p>
                     </div>
                     <div>
-                      <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-4">{t.projects.modal.tech}</h3>
+                      <h3 className="text-sm font-bold text-brand-dark dark:text-white uppercase tracking-widest mb-4">{t.projects.modal.tech}</h3>
                       <div className="flex flex-wrap gap-2">
                         {selectedProject.tags.map(tag => (
-                          <span key={tag} className="px-3 py-1 bg-white/5 text-neutral-300 text-sm rounded-full border border-white/5">
+                          <span key={tag} className="px-3 py-1 bg-brand-lead/5 dark:bg-white/5 text-neutral-700 dark:text-neutral-300 text-sm rounded-full border border-brand-lead/10 dark:border-white/5">
                             {tag}
                           </span>
                         ))}
@@ -390,10 +390,10 @@ const Projects: FC = () => {
 
                   {/* Solution */}
                   <div>
-                     <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                       <Layers size={20} className="text-brand-yellow" /> {t.projects.modal.solution}
+                     <h3 className="text-xl font-bold text-brand-dark dark:text-white mb-4 flex items-center gap-2">
+                       <Layers size={20} className="text-brand-lead dark:text-brand-yellow" /> {t.projects.modal.solution}
                      </h3>
-                     <p className="text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
+                     <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
                      
                      {/* Gallery Grid */}
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -402,22 +402,22 @@ const Projects: FC = () => {
                             key={i} 
                             src={img} 
                             alt={`Gallery ${i}`} 
-                            className={`rounded-lg border border-white/5 w-full h-64 object-cover hover:opacity-80 transition-opacity ${i === 2 ? 'md:col-span-2' : ''}`} 
+                            className={`rounded-lg border border-brand-lead/10 dark:border-white/5 w-full h-64 object-cover hover:opacity-80 transition-opacity ${i === 2 ? 'md:col-span-2' : ''}`} 
                           />
                         ))}
                      </div>
                   </div>
 
                   {/* Results */}
-                  <div className="bg-brand-gray p-8 rounded-xl border border-white/5">
-                    <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                      <CheckCircle2 size={20} className="text-brand-yellow" /> {t.projects.modal.results}
+                  <div className="bg-brand-light dark:bg-brand-gray p-8 rounded-xl border border-brand-lead/10 dark:border-white/5">
+                    <h3 className="text-xl font-bold text-brand-dark dark:text-white mb-6 flex items-center gap-2">
+                      <CheckCircle2 size={20} className="text-brand-lead dark:text-brand-yellow" /> {t.projects.modal.results}
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {selectedProject.results.map((res, i) => (
                         <div key={i} className="flex flex-col gap-2">
-                          <span className="w-8 h-1 bg-brand-yellow mb-2 rounded-full" />
-                          <p className="text-white font-medium text-lg leading-snug">{res}</p>
+                          <span className="w-8 h-1 bg-brand-lead dark:bg-brand-yellow mb-2 rounded-full" />
+                          <p className="text-brand-dark dark:text-white font-medium text-lg leading-snug">{res}</p>
                         </div>
                       ))}
                     </div>
@@ -425,7 +425,7 @@ const Projects: FC = () => {
 
                 </div>
                 
-                <div className="p-8 border-t border-white/5 flex justify-between items-center bg-brand-dark sticky bottom-0 z-10">
+                <div className="p-8 border-t border-brand-lead/10 dark:border-white/5 flex justify-between items-center bg-brand-light dark:bg-brand-dark sticky bottom-0 z-10">
                   <span className="text-neutral-500 text-sm">{t.projects.modal.confidential}</span>
                   <Button onClick={(e) => {e.stopPropagation(); setSelectedProject(null)}} variant="outline" className="text-xs px-4 py-2">
                     {t.projects.modal.close}

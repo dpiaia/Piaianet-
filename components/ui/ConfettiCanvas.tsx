@@ -1,11 +1,13 @@
 import { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 export interface ConfettiRef {
   explode: (x: number, y: number) => void;
 }
 
 // Cores da marca
-const COLORS = ['#FACC15', '#FFFFFF', '#E5E5E5', '#CA8A04'];
+const DARK_COLORS = ['#FACC15', '#FFFFFF', '#E5E5E5', '#CA8A04'];
+const LIGHT_COLORS = ['#333333', '#666666', '#999999', '#111111'];
 
 class Particle {
   x: number;
@@ -20,11 +22,12 @@ class Particle {
   gravity: number;
   friction: number;
 
-  constructor(x: number, y: number) {
+  constructor(x: number, y: number, theme: 'light' | 'dark') {
     this.x = x;
     this.y = y;
     this.size = Math.random() * 8 + 4;
-    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const colors = theme === 'dark' ? DARK_COLORS : LIGHT_COLORS;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
     
     const angle = Math.random() * Math.PI * 2;
     const velocity = Math.random() * 15 + 5;
@@ -66,6 +69,7 @@ const ConfettiCanvas = forwardRef<ConfettiRef, {}>((_props, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>(undefined);
+  const { theme } = useTheme();
 
   const loop = () => {
     const canvas = canvasRef.current;
@@ -101,7 +105,7 @@ const ConfettiCanvas = forwardRef<ConfettiRef, {}>((_props, ref) => {
       const relativeY = y - rect.top;
 
       for (let i = 0; i < 30; i++) {
-        particlesRef.current.push(new Particle(relativeX, relativeY));
+        particlesRef.current.push(new Particle(relativeX, relativeY, theme));
       }
 
       if (particlesRef.current.length > 0 && !animationFrameId.current) {

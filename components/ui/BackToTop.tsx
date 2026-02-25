@@ -28,7 +28,7 @@ const BackToTop: React.FC = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-3 bg-brand-yellow text-brand-dark rounded-full shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:bg-yellow-300 hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-dark"
+          className="fixed bottom-8 right-8 z-40 p-3 bg-brand-lead dark:bg-brand-yellow text-white dark:text-brand-dark rounded-full shadow-lg dark:shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:bg-neutral-800 dark:hover:bg-yellow-300 hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-light dark:focus:ring-offset-brand-dark"
           aria-label="Back to top"
         >
           <ArrowUp size={24} strokeWidth={2.5} />

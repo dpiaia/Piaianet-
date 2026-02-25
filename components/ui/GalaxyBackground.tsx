@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 const GalaxyBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -61,7 +63,8 @@ const GalaxyBackground: React.FC = () => {
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        const color = theme === 'dark' ? '255, 255, 255' : '51, 51, 51';
+        ctx.fillStyle = `rgba(${color}, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -92,7 +95,7 @@ const GalaxyBackground: React.FC = () => {
         this.speed = 0;
         this.opacity = 0;
         this.angle = 0;
-        this.color = '#FFFFFF';
+        this.color = theme === 'dark' ? '#FFFFFF' : '#333333';
       }
 
       reset() {
@@ -105,8 +108,12 @@ const GalaxyBackground: React.FC = () => {
         this.active = true;
         this.timer = 0;
         this.delay = Math.random() * 300 + 100; // Reset delay
-        // 30% chance of being brand yellow
-        this.color = Math.random() > 0.7 ? '#FACC15' : '#FFFFFF';
+        // 30% chance of being brand yellow (dark) or brand lead (light)
+        if (theme === 'dark') {
+          this.color = Math.random() > 0.7 ? '#FACC15' : '#FFFFFF';
+        } else {
+          this.color = Math.random() > 0.7 ? '#333333' : '#999999';
+        }
       }
 
       update() {
@@ -194,12 +201,12 @@ const GalaxyBackground: React.FC = () => {
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 z-0 pointer-events-none opacity-60"
+      className="absolute inset-0 z-0 pointer-events-none opacity-60 dark:opacity-60"
     />
   );
 };

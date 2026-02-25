@@ -65,33 +65,33 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = (
       className="relative group h-full"
     >
        {/* Background Card Base */}
-      <div className="bg-neutral-900/60 backdrop-blur-sm border border-white/5 p-8 rounded-2xl relative transition-all duration-300 group-hover:bg-neutral-900/80 group-hover:border-brand-yellow/30 flex flex-col h-full overflow-hidden">
+      <div className="bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-brand-lead/10 dark:border-white/5 p-8 rounded-2xl relative transition-all duration-300 group-hover:bg-white/80 dark:group-hover:bg-neutral-900/80 group-hover:border-brand-lead/30 dark:group-hover:border-brand-yellow/30 flex flex-col h-full overflow-hidden shadow-sm dark:shadow-none">
         
         {/* Local Particle Effect (Hearts & Stars) */}
         <CardHoverParticles active={isHovered} />
 
         {/* Decorative Quote Icon */}
-        <div className="absolute top-6 right-8 text-brand-yellow/10 group-hover:text-brand-yellow/20 transition-colors z-10">
+        <div className="absolute top-6 right-8 text-brand-lead/10 dark:text-brand-yellow/10 group-hover:text-brand-lead/20 dark:group-hover:text-brand-yellow/20 transition-colors z-10">
           <Quote size={48} fill="currentColor" />
         </div>
 
         <div className="relative z-10 flex flex-col h-full justify-between">
           <div className="mb-6">
-              <div className="flex text-brand-yellow mb-4">
+              <div className="flex text-brand-lead dark:text-brand-yellow mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 ))}
               </div>
-              <p className="text-neutral-300 italic leading-relaxed text-sm lg:text-base">"{testimonial.quote}"</p>
+              <p className="text-neutral-700 dark:text-neutral-300 italic leading-relaxed text-sm lg:text-base">"{testimonial.quote}"</p>
           </div>
           
-          <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5 relative">
-            <div className="w-10 h-10 rounded-full bg-neutral-800 overflow-hidden border border-brand-yellow/30 shrink-0">
+          <div className="flex items-center gap-4 mt-auto pt-6 border-t border-brand-lead/10 dark:border-white/5 relative">
+            <div className="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden border border-brand-lead/30 dark:border-brand-yellow/30 shrink-0">
               <img src={testimonial.avatarUrl} alt={testimonial.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all" />
             </div>
             <div>
-              <h4 className="text-white font-bold text-sm">{testimonial.name}</h4>
-              <p className="text-xs text-neutral-500">{testimonial.role} <span className="text-brand-yellow/60">@ {testimonial.company}</span></p>
+              <h4 className="text-brand-dark dark:text-white font-bold text-sm">{testimonial.name}</h4>
+              <p className="text-xs text-neutral-500">{testimonial.role} <span className="text-brand-lead/60 dark:text-brand-yellow/60">@ {testimonial.company}</span></p>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ const Testimonials: React.FC = () => {
   }));
 
   return (
-    <section id="testimonials" className="py-24 bg-brand-dark border-t border-white/5 relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-brand-light dark:bg-brand-dark border-t border-brand-lead/10 dark:border-white/5 relative overflow-hidden transition-colors duration-300">
       
       {/* Global Section Particle Background (Ambient) */}
       <ParticleBackground />
@@ -121,8 +121,8 @@ const Testimonials: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-display font-bold mb-4">{t.testimonials.title} <span className="text-brand-yellow">{t.testimonials.titleHighlight}</span></h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-display font-bold mb-4 text-brand-dark dark:text-white">{t.testimonials.title} <span className="text-brand-lead dark:text-brand-yellow">{t.testimonials.titleHighlight}</span></h2>
+          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
             {t.testimonials.subtitle}
           </p>
         </motion.div>

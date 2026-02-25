@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 
 interface CardHoverParticlesProps {
   active: boolean;
@@ -6,6 +7,7 @@ interface CardHoverParticlesProps {
 
 const CardHoverParticles: React.FC<CardHoverParticlesProps> = ({ active }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,9 +56,16 @@ const CardHoverParticles: React.FC<CardHoverParticlesProps> = ({ active }) => {
         this.shape = Math.random() > 0.5 ? '❤' : '★';
         
         // Random color: Brand Yellow or White/Grey
-        this.color = Math.random() > 0.6 
-          ? '250, 204, 21'  // Brand Yellow (RGB)
-          : '255, 255, 255'; // White (RGB)
+        if (theme === 'dark') {
+          this.color = Math.random() > 0.6 
+            ? '250, 204, 21'  // Brand Yellow (RGB)
+            : '255, 255, 255'; // White (RGB)
+        } else {
+          // In light mode, yellow becomes lead (#333333)
+          this.color = Math.random() > 0.6 
+            ? '51, 51, 51'  // Brand Lead (RGB)
+            : '153, 153, 153'; // Grey (RGB)
+        }
       }
 
       update() {
@@ -122,7 +131,7 @@ const CardHoverParticles: React.FC<CardHoverParticlesProps> = ({ active }) => {
       resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
-  }, [active]);
+  }, [active, theme]);
 
   return (
     <canvas 

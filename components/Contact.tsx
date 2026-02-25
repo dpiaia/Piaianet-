@@ -60,14 +60,14 @@ const Contact: FC = () => {
   return (
     <section 
       id="contact" 
-      className="py-24 bg-brand-dark relative overflow-hidden cursor-pointer selection:bg-brand-yellow/30"
+      className="py-24 bg-brand-light dark:bg-brand-dark relative overflow-hidden cursor-pointer selection:bg-brand-lead/30 dark:selection:bg-brand-yellow/30 transition-colors duration-300"
       onClick={handleSectionClick}
     >
       {/* Interactive Confetti Layer */}
       <ConfettiCanvas ref={confettiRef} />
 
       {/* Decorative bg */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-yellow/50 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-lead/50 dark:via-brand-yellow/50 to-transparent" />
       
       <div className="container mx-auto px-6 relative z-10 pointer-events-none">
         <div className="max-w-4xl mx-auto text-center pointer-events-auto">
@@ -76,11 +76,11 @@ const Contact: FC = () => {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6 text-brand-dark dark:text-white">
               {t.contact.title} <br />
-              <span className="text-brand-yellow">{t.contact.titleHighlight}</span> {t.contact.titleEnd}
+              <span className="text-brand-lead dark:text-brand-yellow">{t.contact.titleHighlight}</span> {t.contact.titleEnd}
             </h2>
-            <p className="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-10 max-w-2xl mx-auto">
               {t.contact.subtitle}
             </p>
             
@@ -95,7 +95,7 @@ const Contact: FC = () => {
               </Button>
             </a>
 
-            <div className="mt-16 pt-16 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="mt-16 pt-16 border-t border-brand-lead/10 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-neutral-500 text-sm">
                 &copy; 2026 Denis Piaia - {t.contact.location} {t.contact.rights}
               </div>
@@ -108,7 +108,7 @@ const Contact: FC = () => {
                     target={social.href.startsWith('http') ? "_blank" : "_self"}
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-brand-yellow hover:border-brand-yellow transition-all"
+                    className="w-10 h-10 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow hover:border-brand-lead dark:hover:border-brand-yellow transition-all"
                   >
                     {social.icon}
                   </a>

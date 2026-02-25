@@ -122,10 +122,10 @@ const Experience: FC = () => {
       id="experience" 
       ref={containerRef}
       onClick={handleSpawnShip}
-      className="py-24 bg-brand-dark relative overflow-hidden cursor-crosshair selection:bg-brand-yellow/30"
+      className="py-24 bg-brand-light dark:bg-brand-dark relative overflow-hidden cursor-crosshair selection:bg-brand-lead/30 dark:selection:bg-brand-yellow/30 transition-colors duration-300"
     >
       <GalaxyBackground />
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-transparent to-brand-dark z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-light via-transparent to-brand-light dark:from-brand-dark dark:via-transparent dark:to-brand-dark z-0 pointer-events-none" />
 
       {/* Ships Layer */}
       <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
@@ -137,7 +137,7 @@ const Experience: FC = () => {
               animate={{ x: ship.direction === 'right' ? '120vw' : -200, opacity: [0, 1, 1, 0] }}
               transition={{ duration: ship.speed, ease: "linear" }}
               onAnimationComplete={() => removeShip(ship.id)}
-              className="absolute text-neutral-600"
+              className="absolute text-neutral-400 dark:text-neutral-600"
             >
               {ship.type === 'falcon' ? (
                 <MillenniumFalcon className="w-24 h-24" direction={ship.direction} />
@@ -156,12 +156,12 @@ const Experience: FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-display font-bold mb-4">{t.experience.title} <span className="text-brand-yellow">{t.experience.titleHighlight}</span></h2>
-          <p className="text-neutral-400 max-w-2xl mx-auto">{t.experience.subtitle}</p>
+          <h2 className="text-4xl font-display font-bold mb-4 text-brand-dark dark:text-white">{t.experience.title} <span className="text-brand-lead dark:text-brand-yellow">{t.experience.titleHighlight}</span></h2>
+          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">{t.experience.subtitle}</p>
         </motion.div>
 
         {/* Timeline */}
-        <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-700 before:to-transparent">
+        <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-300 dark:before:via-neutral-700 before:to-transparent">
           {experiences.map((exp, index) => (
             <motion.div 
               key={exp.id} 
@@ -171,18 +171,18 @@ const Experience: FC = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }} 
               className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group pointer-events-auto"
             >
-              <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-brand-dark border-4 border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(250,204,21,0.3)]">
-                <div className="w-3 h-3 bg-brand-yellow rounded-full" />
+              <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-white dark:bg-brand-dark border-4 border-neutral-200 dark:border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 group-hover:border-brand-lead dark:group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(51,51,51,0.1)] dark:shadow-[0_0_15px_rgba(250,204,21,0.3)]">
+                <div className="w-3 h-3 bg-brand-lead dark:bg-brand-yellow rounded-full" />
               </div>
-              <div className="ml-16 md:ml-0 md:w-[45%] p-6 md:p-8 bg-neutral-900/60 backdrop-blur-sm border border-white/5 hover:border-brand-yellow/30 transition-all rounded-none hover:bg-neutral-900/80">
+              <div className="ml-16 md:ml-0 md:w-[45%] p-6 md:p-8 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-brand-lead/10 dark:border-white/5 hover:border-brand-lead/30 dark:hover:border-brand-yellow/30 transition-all rounded-none hover:bg-white/80 dark:hover:bg-neutral-900/80 shadow-sm dark:shadow-none">
                 <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
-                  <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                  <span className="text-sm font-mono text-brand-yellow py-1 px-2 bg-brand-yellow/10 rounded mt-1 sm:mt-0">{exp.period}</span>
+                  <h3 className="text-xl font-bold text-brand-dark dark:text-white">{exp.role}</h3>
+                  <span className="text-sm font-mono text-brand-lead dark:text-brand-yellow py-1 px-2 bg-brand-lead/10 dark:bg-brand-yellow/10 rounded mt-1 sm:mt-0">{exp.period}</span>
                 </div>
-                <h4 className="text-neutral-400 font-medium mb-4">{exp.company}</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed mb-6">{exp.description}</p>
+                <h4 className="text-neutral-500 dark:text-neutral-400 font-medium mb-4">{exp.company}</h4>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 border border-neutral-800 px-2 py-1 bg-black/20">{skill}</span>)}
+                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">{skill}</span>)}
                 </div>
               </div>
             </motion.div>
@@ -195,14 +195,14 @@ const Experience: FC = () => {
           whileInView={{ opacity: 1 }} 
           viewport={{ once: true }} 
           transition={{ duration: 0.8 }} 
-          className="max-w-full mx-auto mt-32 pt-16 border-t border-white/5 pointer-events-auto"
+          className="max-w-full mx-auto mt-32 pt-16 border-t border-brand-lead/10 dark:border-white/5 pointer-events-auto"
         >
           <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 px-6">
             <div>
-              <h3 className="text-2xl font-display font-bold text-white mb-2">
-                {t.experience.consulting.title} <span className="text-brand-yellow">{t.experience.consulting.titleHighlight}</span>
+              <h3 className="text-2xl font-display font-bold text-brand-dark dark:text-white mb-2">
+                {t.experience.consulting.title} <span className="text-brand-lead dark:text-brand-yellow">{t.experience.consulting.titleHighlight}</span>
               </h3>
-              <p className="text-neutral-400 text-sm">{t.experience.consulting.desc}</p>
+              <p className="text-neutral-600 dark:text-neutral-400 text-sm">{t.experience.consulting.desc}</p>
             </div>
             <div className="hidden md:flex items-center gap-2 text-neutral-500 text-sm">
               <Briefcase size={16} /> <span>{t.experience.consulting.label}</span>
@@ -211,8 +211,8 @@ const Experience: FC = () => {
 
           <div className="relative overflow-hidden w-full group py-4">
             {/* Soft edge masking */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-brand-dark to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-brand-dark to-transparent pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-brand-light dark:from-brand-dark to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-brand-light dark:from-brand-dark to-transparent pointer-events-none" />
 
             <motion.div 
               className="flex gap-4 w-max"
@@ -222,14 +222,14 @@ const Experience: FC = () => {
               {doubledPartners.map((partner, idx) => (
                 <div
                   key={idx}
-                  className="relative h-24 w-48 bg-black border border-white/5 overflow-hidden transition-all duration-300 shrink-0 flex items-center justify-center cursor-default p-1"
+                  className="relative h-24 w-48 bg-white dark:bg-black border border-brand-lead/5 dark:border-white/5 overflow-hidden transition-all duration-300 shrink-0 flex items-center justify-center cursor-default p-1"
                 >
                   <div className="relative z-10 w-full h-full flex items-center justify-center overflow-hidden">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
                       loading="eager"
-                      className="w-full h-full object-contain filter grayscale invert brightness-[2] opacity-60 mix-blend-screen"
+                      className="w-full h-full object-contain filter grayscale opacity-60 dark:invert dark:brightness-[2] dark:mix-blend-screen"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';

@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-brand-dark">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-brand-light dark:bg-brand-dark transition-colors duration-300">
       
       {/* Interactive Particles Layer */}
       <ParticleBackground />
@@ -33,8 +33,8 @@ const Hero: React.FC = () => {
         style={{ y: yBg }}
         className="absolute inset-0 z-0 pointer-events-none"
       >
-        <div className="absolute top-20 right-20 w-96 h-96 bg-brand-yellow/5 rounded-full blur-[100px] opacity-40" />
-        <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-brand-lead/5 dark:bg-brand-yellow/5 rounded-full blur-[100px] opacity-40" />
+        <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-brand-lead/5 dark:bg-white/5 rounded-full blur-[120px] opacity-30" />
       </motion.div>
 
       <div className="container mx-auto px-6 z-10 relative">
@@ -45,8 +45,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center gap-3 mb-6"
           >
-            <span className="w-12 h-[1px] bg-brand-yellow" />
-            <span className="text-brand-yellow font-medium tracking-wider uppercase">{t.hero.badge}</span>
+            <span className="w-12 h-[1px] bg-brand-lead dark:bg-brand-yellow" />
+            <span className="text-brand-lead dark:text-brand-yellow font-medium tracking-wider uppercase">{t.hero.badge}</span>
           </motion.div>
 
           <motion.div
@@ -54,15 +54,15 @@ const Hero: React.FC = () => {
             className="group relative"
           >
             {/* Camada Principal Visível */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 relative z-10">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 relative z-10 text-brand-dark dark:text-white">
               {t.hero.titleStart} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark to-neutral-500 dark:from-white dark:to-neutral-500">
                 {t.hero.titleHighlight}
               </span>
             </h1>
 
             {/* Camada Glitch 1 (Red Shift) - Visível no Hover */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-50 animate-glitch-1 select-none pointer-events-none mix-blend-screen">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-50 animate-glitch-1 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen">
                {t.hero.titleStart} <br />
                <span className="text-red-500">
                  {t.hero.titleHighlight}
@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
             </h1>
             
             {/* Camada Glitch 2 (Cyan Shift) - Visível no Hover */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-50 animate-glitch-2 select-none pointer-events-none mix-blend-screen">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-50 animate-glitch-2 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen">
                {t.hero.titleStart} <br />
                <span className="text-cyan-500">
                  {t.hero.titleHighlight}
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
 
           <motion.p
             style={{ y: yText, opacity }}
-            className="text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
+            className="text-neutral-600 dark:text-neutral-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
           >
             {t.hero.intro}
           </motion.p>

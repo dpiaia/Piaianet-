@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   const navItems = [
     { label: t.nav.projects, href: '#projects' },
@@ -24,7 +26,9 @@ const Header: React.FC = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black shadow-lg py-4' : 'bg-transparent py-6'
+        isScrolled 
+          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-lg py-4 border-b border-brand-lead/5 dark:border-white/5' 
+          : 'bg-transparent py-6'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -35,17 +39,17 @@ const Header: React.FC = () => {
         {/* Glitch Logo */}
         <a href="#" className="relative group text-2xl font-display font-bold tracking-tighter">
           {/* Main Layer */}
-          <span className="relative z-10 block text-white group-hover:text-white transition-colors">
-            denis<span className="text-brand-yellow">piaia</span>
+          <span className="relative z-10 block text-brand-dark dark:text-white group-hover:text-brand-dark dark:group-hover:text-white transition-colors">
+            denis<span className="text-brand-lead dark:text-brand-yellow">piaia</span>
           </span>
           
           {/* Glitch Layer 1 (Red Shift) - Visible on Hover */}
-          <span className="absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-100 animate-glitch-1 select-none pointer-events-none mix-blend-screen">
+          <span className="absolute top-0 left-0 -z-10 w-full h-full text-red-500 opacity-0 group-hover:opacity-100 animate-glitch-1 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen">
             denis<span className="text-red-500">piaia</span>
           </span>
           
           {/* Glitch Layer 2 (Cyan Shift) - Visible on Hover */}
-          <span className="absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-100 animate-glitch-2 select-none pointer-events-none mix-blend-screen">
+          <span className="absolute top-0 left-0 -z-10 w-full h-full text-cyan-500 opacity-0 group-hover:opacity-100 animate-glitch-2 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen">
             denis<span className="text-cyan-500">piaia</span>
           </span>
         </a>
@@ -56,34 +60,45 @@ const Header: React.FC = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-neutral-400 hover:text-brand-yellow transition-colors relative group"
+              className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow transition-colors relative group"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-yellow transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-lead dark:bg-brand-yellow transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
           
-          <div className="h-4 w-px bg-white/10 mx-2" />
+          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-brand-lead/5 dark:hover:bg-white/5 text-brand-dark dark:text-white transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
 
           {/* Language Switcher */}
           <div className="flex items-center gap-2">
             <button 
               onClick={() => setLanguage('pt')} 
-              className={`text-xs font-bold transition-colors ${language === 'pt' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+              className={`text-xs font-bold transition-colors ${language === 'pt' ? 'text-brand-lead dark:text-brand-yellow' : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'}`}
             >
               BR
             </button>
-            <span className="text-neutral-700 text-xs">/</span>
+            <span className="text-neutral-400 dark:text-neutral-700 text-xs">/</span>
             <button 
               onClick={() => setLanguage('en')} 
-              className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+              className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-brand-lead dark:text-brand-yellow' : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'}`}
             >
               US
             </button>
-            <span className="text-neutral-700 text-xs">/</span>
+            <span className="text-neutral-400 dark:text-neutral-700 text-xs">/</span>
              <button 
               onClick={() => setLanguage('es')} 
-              className={`text-xs font-bold transition-colors ${language === 'es' ? 'text-brand-yellow' : 'text-neutral-500 hover:text-white'}`}
+              className={`text-xs font-bold transition-colors ${language === 'es' ? 'text-brand-lead dark:text-brand-yellow' : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'}`}
             >
               ES
             </button>
@@ -91,12 +106,21 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-4 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-brand-lead/5 dark:hover:bg-white/5 text-brand-dark dark:text-white transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="text-brand-dark dark:text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -105,7 +129,7 @@ const Header: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-brand-dark border-b border-white/10"
+          className="md:hidden bg-white dark:bg-brand-dark border-b border-brand-lead/10 dark:border-white/10"
         >
           <nav className="flex flex-col p-6 space-y-6">
             <div className="flex flex-col space-y-4">
@@ -113,7 +137,7 @@ const Header: React.FC = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-lg font-medium text-neutral-300 hover:text-brand-yellow"
+                  className="text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-brand-lead dark:hover:text-brand-yellow"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -121,13 +145,13 @@ const Header: React.FC = () => {
               ))}
             </div>
 
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-brand-lead/10 dark:border-white/10">
                <div className="flex items-center gap-4 text-sm font-medium">
                   <span className="text-neutral-500 flex items-center gap-2"><Globe size={14}/> Idioma:</span>
                   <div className="flex gap-4">
-                    <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-yellow' : 'text-white'}>PT</button>
-                    <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-yellow' : 'text-white'}>EN</button>
-                    <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-yellow' : 'text-white'}>ES</button>
+                    <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>PT</button>
+                    <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>EN</button>
+                    <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>ES</button>
                   </div>
                </div>
             </div>

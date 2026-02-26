@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { Menu, X, Globe, Sun, Moon, Gamepad2, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { language, setLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     { label: t.nav.projects, href: '#projects' },
@@ -19,9 +20,16 @@ const Header: React.FC = () => {
     { label: t.nav.contact, href: '#contact' },
   ];
 
+  const themes = [
+    { id: 'light', label: 'Light', icon: <Sun size={16} /> },
+    { id: 'dark', label: 'Dark', icon: <Moon size={16} /> },
+  ] as const;
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
+
+  const currentThemeIcon = themes.find(t => t.id === theme)?.icon || <Sun size={18} />;
 
   return (
     <motion.header
@@ -69,14 +77,49 @@ const Header: React.FC = () => {
           
           <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-brand-lead/5 dark:hover:bg-white/5 text-brand-dark dark:text-white transition-colors"
-            aria-label="Toggle theme"
+          {/* Theme Selector Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsThemeMenuOpen(true)}
+            onMouseLeave={() => setIsThemeMenuOpen(false)}
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+            <button
+              className="flex items-center gap-2 p-2 rounded-lg hover:bg-brand-lead/5 dark:hover:bg-white/5 text-brand-dark dark:text-white transition-colors"
+              aria-label="Select theme"
+            >
+              {currentThemeIcon}
+              <ChevronDown size={14} className={`transition-transform duration-300 ${isThemeMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {isThemeMenuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  className="absolute right-0 mt-2 w-32 bg-white dark:bg-neutral-900 border border-brand-lead/10 dark:border-white/10 rounded-xl shadow-xl overflow-hidden z-50"
+                >
+                  {themes.map((t) => (
+                    <button
+                      key={t.id}
+                      onClick={() => {
+                        setTheme(t.id);
+                        setIsThemeMenuOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition-colors ${
+                        theme === t.id 
+                          ? 'bg-brand-lead/5 dark:bg-white/5 text-brand-lead dark:text-brand-yellow' 
+                          : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                      }`}
+                    >
+                      {t.icon}
+                      {t.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
 
@@ -108,13 +151,6 @@ const Header: React.FC = () => {
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden">
           <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-brand-lead/5 dark:hover:bg-white/5 text-brand-dark dark:text-white transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-          <button
             className="text-brand-dark dark:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -124,40 +160,61 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white dark:bg-brand-dark border-b border-brand-lead/10 dark:border-white/10"
-        >
-          <nav className="flex flex-col p-6 space-y-6">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-brand-lead dark:hover:text-brand-yellow"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white dark:bg-brand-dark border-b border-brand-lead/10 dark:border-white/10"
+          >
+            <nav className="flex flex-col p-6 space-y-6">
+              <div className="flex flex-col space-y-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-brand-lead dark:hover:text-brand-yellow"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
 
-            <div className="pt-4 border-t border-brand-lead/10 dark:border-white/10">
-               <div className="flex items-center gap-4 text-sm font-medium">
-                  <span className="text-neutral-500 flex items-center gap-2"><Globe size={14}/> Idioma:</span>
-                  <div className="flex gap-4">
-                    <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>PT</button>
-                    <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>EN</button>
-                    <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>ES</button>
-                  </div>
-               </div>
-            </div>
-          </nav>
-        </motion.div>
-      )}
+              <div className="pt-4 border-t border-brand-lead/10 dark:border-white/10">
+                 <div className="flex items-center justify-between mb-6">
+                    <span className="text-neutral-500 text-sm flex items-center gap-2"><Sun size={14}/> Tema:</span>
+                    <div className="flex gap-2">
+                      {themes.map((t) => (
+                        <button
+                          key={t.id}
+                          onClick={() => setTheme(t.id)}
+                          className={`p-2 rounded-lg transition-colors ${
+                            theme === t.id 
+                              ? 'bg-brand-lead/10 dark:bg-white/10 text-brand-lead dark:text-brand-yellow' 
+                              : 'text-neutral-400'
+                          }`}
+                        >
+                          {t.icon}
+                        </button>
+                      ))}
+                    </div>
+                 </div>
+
+                 <div className="flex items-center justify-between">
+                    <span className="text-neutral-500 text-sm flex items-center gap-2"><Globe size={14}/> Idioma:</span>
+                    <div className="flex gap-4">
+                      <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>PT</button>
+                      <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>EN</button>
+                      <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>ES</button>
+                    </div>
+                 </div>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

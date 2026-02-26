@@ -177,7 +177,7 @@ const Projects: FC = () => {
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="text-[10px] uppercase border border-brand-lead/10 dark:border-white/10 px-2 py-1 text-neutral-500 rounded">
+                    <span key={tag} className="text-[10px] uppercase border border-brand-lead/10 dark:border-white/10 px-2 py-1 text-neutral-500 dark:text-neutral-400 rounded">
                       {tag}
                     </span>
                   ))}

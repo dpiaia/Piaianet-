@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
+import { ArrowRight } from 'lucide-react';
+
 // Added className and onClick to the interface to resolve missing property errors in components using the Button
 interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: 'primary' | 'outline' | 'ghost';
@@ -18,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props 
 }) => {
   // Adicionado 'relative group overflow-hidden' para conter os efeitos absolutos
-  const baseStyles = "relative group overflow-hidden inline-flex items-center justify-center px-6 py-3 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-light dark:focus:ring-offset-brand-dark disabled:opacity-50 disabled:pointer-events-none";
+  const baseStyles = "fizzy-button relative group overflow-visible inline-flex items-center justify-center px-6 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-light dark:focus:ring-offset-brand-dark disabled:opacity-50 disabled:pointer-events-none";
   
   const variants = {
     primary: "bg-brand-lead dark:bg-brand-yellow text-white dark:text-brand-dark hover:bg-neutral-800 dark:hover:bg-yellow-300",
@@ -26,34 +28,52 @@ const Button: React.FC<ButtonProps> = ({
     ghost: "text-neutral-600 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow hover:bg-brand-lead/5 dark:hover:bg-white/5"
   };
 
-  // Componente interno para evitar duplicação de código nas camadas do glitch
-  const ButtonContent = () => (
-    <>
-      {children}
-      {icon && <span className="ml-2">{icon}</span>}
-    </>
-  );
+  // Generate 12 particles with random positions and delays
+  const particles = Array.from({ length: 12 }).map((_, i) => {
+    const xOffset = Math.random() * 60 - 30; // -30px to 30px
+    const left = Math.random() * 80 + 10; // 10% to 90%
+    const delay = Math.random() * 0.4; // 0s to 0.4s
+    const size = Math.random() * 4 + 4; // 4px to 8px
+    
+    return (
+      <span 
+        key={i}
+        className="particle bg-brand-yellow dark:bg-brand-lead"
+        style={{ 
+          left: `${left}%`, 
+          top: '50%',
+          width: `${size}px`,
+          height: `${size}px`,
+          '--x-offset': `${xOffset}px`,
+          animationDelay: `${delay}s`
+        } as React.CSSProperties}
+      />
+    );
+  });
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
-      {/* Camada Principal (Visível e interativa) */}
+      {/* Background change is handled by variants[variant] hover classes */}
+      
+      {/* Particles Layer */}
+      <span className="particles">
+        {particles}
+      </span>
+
+      {/* Label and Arrow */}
       <span className="relative z-10 flex items-center justify-center">
-        <ButtonContent />
-      </span>
-
-      {/* Camada Glitch 1 (Red Shift) - Visível apenas no Hover */}
-      <span className="absolute inset-0 flex items-center justify-center text-red-500 opacity-0 group-hover:opacity-100 animate-glitch-1 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen z-0">
-        <ButtonContent />
-      </span>
-
-      {/* Camada Glitch 2 (Cyan Shift) - Visível apenas no Hover */}
-      <span className="absolute inset-0 flex items-center justify-center text-cyan-500 opacity-0 group-hover:opacity-100 animate-glitch-2 select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen z-0">
-        <ButtonContent />
+        <span className="label flex items-center">
+          {children}
+          {icon && <span className="ml-2">{icon}</span>}
+        </span>
+        <span className="arrow ml-1">
+          <ArrowRight size={16} />
+        </span>
       </span>
     </motion.button>
   );

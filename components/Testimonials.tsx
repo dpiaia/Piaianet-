@@ -91,7 +91,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = (
             </div>
             <div>
               <h4 className="text-brand-dark dark:text-white font-bold text-sm">{testimonial.name}</h4>
-              <p className="text-xs text-neutral-500">{testimonial.role} <span className="text-brand-lead/60 dark:text-brand-yellow/60">@ {testimonial.company}</span></p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">{testimonial.role} <span className="text-brand-lead/60 dark:text-brand-yellow/60">@ {testimonial.company}</span></p>
             </div>
           </div>
         </div>

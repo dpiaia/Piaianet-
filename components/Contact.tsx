@@ -72,9 +72,9 @@ const Contact: FC = () => {
       <div className="container mx-auto px-6 relative z-10 pointer-events-none">
         <div className="max-w-4xl mx-auto text-center pointer-events-auto">
           <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-6 text-brand-dark dark:text-white">
               {t.contact.title} <br />
@@ -96,7 +96,7 @@ const Contact: FC = () => {
             </a>
 
             <div className="mt-16 pt-16 border-t border-brand-lead/10 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-neutral-500 text-sm">
+              <div className="text-neutral-500 dark:text-neutral-400 text-sm">
                 &copy; 2026 Denis Piaia - {t.contact.location} {t.contact.rights}
               </div>
               

@@ -76,7 +76,68 @@
         color: #F5F5F5; 
       }
 
-      /* Glitch Animations */
+      /* Fizzy Button Effect by Jamie Coulter inspiration */
+      .fizzy-button {
+        position: relative;
+        transition: all 0.2s ease;
+      }
+
+      .fizzy-button .particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .fizzy-button .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .fizzy-button:hover .particle {
+        animation: fizzy-particle 0.8s ease-out forwards;
+      }
+
+      @keyframes fizzy-particle {
+        0% {
+          transform: scale(0) translateY(0);
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.5) translateY(-40px) translateX(var(--x-offset));
+          opacity: 0;
+        }
+      }
+
+      /* Arrow slide effect */
+      .fizzy-button .arrow {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+
+      .fizzy-button:hover .arrow {
+        transform: translateX(5px);
+        opacity: 1;
+      }
+
+      .fizzy-button .label {
+        transition: transform 0.3s ease;
+      }
+
+      .fizzy-button:hover .label {
+        transform: translateX(-5px);
+      }
+
+      /* Glitch Animations (Keeping them if needed, but user asked for Fizzy) */
       @keyframes glitch-anim-1 {
         0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
         20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }

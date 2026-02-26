@@ -108,7 +108,7 @@ const About: FC = () => {
                         {skill.icon}
                       </div>
                       <h3 className="text-xl font-bold text-brand-dark dark:text-white group-hover:text-white dark:group-hover:text-brand-dark mb-2 transition-colors duration-300">{skill.title}</h3>
-                      <p className="text-neutral-500 group-hover:text-white/80 dark:group-hover:text-brand-dark/80 text-sm transition-colors duration-300">{skill.desc}</p>
+                      <p className="text-neutral-500 dark:text-neutral-400 group-hover:text-white/80 dark:group-hover:text-brand-dark/80 text-sm transition-colors duration-300">{skill.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -150,14 +150,14 @@ const About: FC = () => {
                                 className="flex items-center justify-between group cursor-pointer transition-all hover:pl-2"
                              >
                                 <div className="flex items-center gap-3">
-                                   <div className="w-8 h-8 rounded bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs text-neutral-500 group-hover:bg-brand-lead dark:group-hover:bg-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark transition-colors">
+                                   <div className="w-8 h-8 rounded bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs text-neutral-500 dark:text-neutral-400 group-hover:bg-brand-lead dark:group-hover:bg-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark transition-colors">
                                       {i + 1}
                                    </div>
                                    <div>
                                       <p className="text-brand-dark dark:text-white font-medium text-sm group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors flex items-center gap-2">
                                         {track.title} <Play size={10} className="opacity-0 group-hover:opacity-100 transition-opacity fill-current" />
                                       </p>
-                                      <p className="text-neutral-500 text-xs">{track.artist}</p>
+                                      <p className="text-neutral-500 dark:text-neutral-400 text-xs">{track.artist}</p>
                                    </div>
                                 </div>
                                 {/* Animated Bars */}

@@ -26,7 +26,10 @@ class Particle {
     this.x = x;
     this.y = y;
     this.size = Math.random() * 8 + 4;
-    const colors = theme === 'dark' ? DARK_COLORS : LIGHT_COLORS;
+    
+    let colors = DARK_COLORS;
+    if (theme === 'light') colors = LIGHT_COLORS;
+    
     this.color = colors[Math.floor(Math.random() * colors.length)];
     
     const angle = Math.random() * Math.PI * 2;

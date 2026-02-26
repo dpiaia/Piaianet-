@@ -182,7 +182,7 @@ const Experience: FC = () => {
                 <h4 className="text-neutral-500 dark:text-neutral-400 font-medium mb-4">{exp.company}</h4>
                 <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">{skill}</span>)}
+                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">{skill}</span>)}
                 </div>
               </div>
             </motion.div>
@@ -199,12 +199,12 @@ const Experience: FC = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4 px-6">
             <div>
-              <h3 className="text-2xl font-display font-bold text-brand-dark dark:text-white mb-2">
+              <h3 className="text-2xl font-display font-bold text-brand-dark dark:text-white">
                 {t.experience.consulting.title} <span className="text-brand-lead dark:text-brand-yellow">{t.experience.consulting.titleHighlight}</span>
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 text-sm">{t.experience.consulting.desc}</p>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-neutral-500 text-sm">
+            <div className="hidden md:flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm">
               <Briefcase size={16} /> <span>{t.experience.consulting.label}</span>
             </div>
           </div>
@@ -237,7 +237,7 @@ const Experience: FC = () => {
                         if (parent && !parent.querySelector('.fallback-text')) {
                           const span = document.createElement('span');
                           span.innerText = partner.name;
-                          span.className = 'fallback-text text-[10px] font-bold uppercase tracking-tighter text-neutral-500 text-center px-4';
+                          span.className = 'fallback-text text-[10px] font-bold uppercase tracking-tighter text-neutral-500 dark:text-neutral-400 text-center px-4';
                           parent.appendChild(span);
                         }
                       }}

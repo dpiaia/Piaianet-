@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Layers, Users, Zap, Search, Music2, Camera, User, Briefcase, Disc, Play, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ParticleBackground from './ui/ParticleBackground';
+import DotPatternBackground from './ui/DotPatternBackground';
 
 const About: FC = () => {
   const { t } = useLanguage();
@@ -41,7 +42,7 @@ const About: FC = () => {
 
   return (
     <section id="about" ref={containerRef} className="py-24 bg-brand-light-gray dark:bg-brand-gray relative overflow-hidden min-h-[800px] transition-colors duration-300">
-      <ParticleBackground variant="attract" onlyYellow={true} />
+      <DotPatternBackground />
       
       <div className="container mx-auto px-6 relative z-10">
         

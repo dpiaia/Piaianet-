@@ -319,7 +319,7 @@ const Projects: FC = () => {
                     <Button onClick={() => setShowAIGallery(false)} className="px-16 py-5 text-lg">
                       Fechar Studio IA
                     </Button>
-                    <p className="text-neutral-600 mt-8 text-xs font-mono uppercase tracking-[0.3em]">Denis Piaia • Labs • 2024</p>
+                    <p className="text-neutral-600 mt-8 text-xs font-mono uppercase tracking-[0.3em]">Denis Piaia • Labs • 2026</p>
                   </div>
                 </div>
               </div>
@@ -396,15 +396,16 @@ const Projects: FC = () => {
                      </h3>
                      <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg mb-8">{selectedProject.solution}</p>
                      
-                     {/* Gallery Grid */}
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     {/* Gallery Horizontal Scroll */}
+                     <div className="flex gap-6 overflow-x-auto pb-6 timid-scrollbar snap-x snap-mandatory">
                         {selectedProject.gallery.map((img, i) => (
-                          <img 
-                            key={i} 
-                            src={img} 
-                            alt={`Gallery ${i}`} 
-                            className={`rounded-lg border border-brand-lead/10 dark:border-white/5 w-full h-64 object-cover hover:opacity-80 transition-opacity ${i === 2 ? 'md:col-span-2' : ''}`} 
-                          />
+                          <div key={i} className="min-w-[80%] sm:min-w-[60%] md:min-w-[45%] snap-center shrink-0">
+                            <img 
+                              src={img} 
+                              alt={`Gallery ${i}`} 
+                              className="rounded-xl border border-brand-lead/10 dark:border-white/5 w-full h-64 md:h-80 object-cover hover:opacity-90 transition-opacity shadow-lg" 
+                            />
+                          </div>
                         ))}
                      </div>
                   </div>

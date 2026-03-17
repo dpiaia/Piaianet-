@@ -149,7 +149,7 @@ export const translations = {
         tech: 'Tech & Tools',
         solution: 'A Solução',
         results: 'Resultados Alcançados',
-        confidential: 'Confidencial © 2024',
+        confidential: 'Confidencial © 2026',
         close: 'Fechar Case'
       }
     },
@@ -337,7 +337,7 @@ export const translations = {
         tech: 'Tech & Tools',
         solution: 'The Solution',
         results: 'Key Results',
-        confidential: 'Confidencial © 2024',
+        confidential: 'Confidencial © 2026',
         close: 'Close Case'
       }
     },
@@ -525,7 +525,7 @@ export const translations = {
         tech: 'Tech & Tools',
         solution: 'La Solución',
         results: 'Resultados Clave',
-        confidential: 'Confidencial © 2024',
+        confidential: 'Confidencial © 2026',
         close: 'Cerrar Caso'
       }
     },

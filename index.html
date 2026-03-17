@@ -187,6 +187,37 @@
         opacity: 0.08;
         animation: tv-noise-anim 0.15s steps(2) infinite;
       }
+
+      /* Timid Scrollbar */
+      .timid-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+      }
+      
+      .timid-scrollbar:hover {
+        scrollbar-color: rgba(250, 204, 21, 0.3) transparent;
+      }
+
+      .timid-scrollbar::-webkit-scrollbar {
+        height: 4px;
+      }
+      
+      .timid-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      .timid-scrollbar::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 10px;
+      }
+      
+      .timid-scrollbar:hover::-webkit-scrollbar-thumb {
+        background: rgba(250, 204, 21, 0.2);
+      }
+
+      .timid-scrollbar::-webkit-scrollbar-thumb:active {
+        background: rgba(250, 204, 21, 0.5);
+      }
     </style>
   </head>
   <body>

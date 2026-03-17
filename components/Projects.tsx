@@ -36,8 +36,9 @@ const Projects: FC = () => {
       tags: ["HTML", "CSS", "LANDING PAGE"],
       coverImage: "https://piaianet.page.gd/imgs/netshoes.jpg",
       gallery: [
-        "https://picsum.photos/id/366/800/600",
-        "https://picsum.photos/id/395/800/600"
+        "https://piaianet.page.gd/gifs/copa.gif",
+        "https://piaianet.page.gd/gifs/run.gif",
+        "https://piaianet.page.gd/gifs/lojas.gif"
       ],
     },
     {

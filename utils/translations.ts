@@ -120,15 +120,15 @@ export const translations = {
           ]
         },
         {
-          title: "Criação de páginas para a Netshoes",
+          title: "Netshoes: Experiência & Conversão",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Landing pages para o maior e-commerce do Brasil.",
-          challenge: "Ajudei na criação de landing pages para o maior ecommerce do brasil, onde colaborei em projetos especiais como a camisa da Seleção Brasileira para a copa, página oficial da copa do mundo 2026, Netshoes Run, paginas institucionais da Netshoes e de parceiros como Zattini, SAO (São Paulo) e Loja do Palmeiras.",
-          solution: "Utilizei html, css e javascript com total apoio de IAs como Claude e Gemini através do Antigravity.",
+          shortDescription: "Transformando a jornada de compra no maior e-commerce esportivo da América Latina.",
+          challenge: "O desafio era elevar o patamar das experiências digitais da Netshoes, criando landing pages de alto impacto para projetos icônicos como o lançamento da camisa da Seleção Brasileira, a página oficial da Copa do Mundo 2026 e eventos proprietários como a Netshoes Run. Além de sustentar a presença digital de marcas parceiras como Zattini, São Paulo FC e Loja do Palmeiras.",
+          solution: "Através de uma abordagem 'AI-First' utilizando Antigravity com Claude e Gemini, desenvolvi interfaces fluidas em HTML, CSS e JavaScript, unindo velocidade técnica à precisão estética exigida por grandes marcas globais.",
           results: [
-            "Aumento na taxa de cliques (CTR) em campanhas de e-mail.",
-            "Páginas com carregamento abaixo de 2 segundos.",
-            "Consistência visual entre campanhas e o e-commerce principal."
+            "Agilidade excepcional no go-to-market de campanhas sazonais.",
+            "Consistência visual absoluta entre as marcas do ecossistema e parceiros.",
+            "Interfaces ricas e interativas que potencializam o engajamento e a conversão."
           ]
         },
         {
@@ -308,15 +308,15 @@ export const translations = {
           ]
         },
         {
-          title: "Page creation for Netshoes",
+          title: "Netshoes: Experience & Conversion",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Landing pages for Brazil's largest e-commerce.",
-          challenge: "I assisted in creating landing pages for Brazil's largest e-commerce, collaborating on special projects such as the Brazilian National Team jersey for the World Cup, the official 2026 World Cup page, Netshoes Run, Netshoes institutional pages, and partners like Zattini, SAO (São Paulo), and the Palmeiras Store.",
-          solution: "I used HTML, CSS, and JavaScript with full support from AIs like Claude and Gemini through Antigravity.",
+          shortDescription: "Transforming the shopping journey at Latin America's largest sports e-commerce.",
+          challenge: "The challenge was to elevate Netshoes' digital experiences, creating high-impact landing pages for iconic projects like the Brazilian National Team jersey launch, the official 2026 World Cup page, and proprietary events like Netshoes Run. Additionally, maintaining the digital presence for partner brands such as Zattini, São Paulo FC, and the Palmeiras Store.",
+          solution: "Through an 'AI-First' approach using Antigravity with Claude and Gemini, I developed fluid interfaces in HTML, CSS, and JavaScript, merging technical speed with the aesthetic precision required by major global brands.",
           results: [
-            "Increase in click-through rate (CTR) in email campaigns.",
-            "Pages loading under 2 seconds.",
-            "Visual consistency between campaigns and the main e-commerce."
+            "Exceptional agility in seasonal campaign go-to-market.",
+            "Absolute visual consistency across ecosystem brands and partners.",
+            "Rich, interactive interfaces that boost engagement and conversion."
           ]
         },
         {
@@ -496,15 +496,15 @@ export const translations = {
           ]
         },
         {
-          title: "Creación de páginas para Netshoes",
+          title: "Netshoes: Experiencia y Conversión",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Landing pages para el mayor e-commerce de Brasil.",
-          challenge: "Ayudé en la creación de landing pages para el mayor e-commerce de Brasil, colaborando en proyectos especiales como la camiseta de la Selección Brasileña para el mundial, la página oficial del mundial 2026, Netshoes Run, páginas institucionales de Netshoes y de socios como Zattini, SAO (São Paulo) y la Tienda de Palmeiras.",
-          solution: "Utilicé HTML, CSS y JavaScript con el apoyo total de IAs como Claude y Gemini a través de Antigravity.",
+          shortDescription: "Transformando el viaje de compra en el mayor e-commerce deportivo de América Latina.",
+          challenge: "El desafío era elevar el nivel de las experiencias digitales de Netshoes, creando landing pages de alto impacto para proyectos icónicos como el lanzamiento de la camiseta de la Selección Brasileña, la página oficial del Mundial 2026 y eventos propios como Netshoes Run. Además de mantener la presencia digital de marcas aliadas como Zattini, São Paulo FC y la Tienda de Palmeiras.",
+          solution: "A través de un enfoque 'AI-First' utilizando Antigravity con Claude y Gemini, desarrollé interfaces fluidas en HTML, CSS y JavaScript, uniendo la velocidad técnica con la precisión estética exigida por grandes marcas globales.",
           results: [
-            "Aumento en la tasa de clics (CTR) en campañas de correo electrónico.",
-            "Páginas con carga en menos de 2 segundos.",
-            "Consistencia visual entre las campañas y el e-commerce principal."
+            "Agilidad excepcional en el go-to-market de campañas estacionales.",
+            "Consistencia visual absoluta entre las marcas del ecosistema y socios.",
+            "Interfaces ricas e interactivas que potencian el compromiso y la conversión."
           ]
         },
         {

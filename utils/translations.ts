@@ -122,9 +122,9 @@ export const translations = {
         {
           title: "Criação de páginas para a Netshoes",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Criação de landing pages e mail marketing.",
-          challenge: "A necessidade de criar landing pages performáticas e e-mails marketing responsivos para campanhas sazonais de alta conversão na Netshoes.",
-          solution: "Desenvolvimento de templates modulares em HTML/CSS focados em performance e acessibilidade, garantindo uma experiência consistente em múltiplos dispositivos.",
+          shortDescription: "Landing pages para o maior e-commerce do Brasil.",
+          challenge: "Ajudei na criação de landing pages para o maior ecommerce do brasil, onde colaborei em projetos especiais como a camisa da Seleção Brasileira para a copa, página oficial da copa do mundo 2026, Netshoes Run, paginas institucionais da Netshoes e de parceiros como Zattini, SAO (São Paulo) e Loja do Palmeiras.",
+          solution: "Utilizei html, css e javascript com total apoio de IAs como Claude e Gemini através do Antigravity.",
           results: [
             "Aumento na taxa de cliques (CTR) em campanhas de e-mail.",
             "Páginas com carregamento abaixo de 2 segundos.",
@@ -310,9 +310,9 @@ export const translations = {
         {
           title: "Page creation for Netshoes",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Creation of landing pages and email marketing.",
-          challenge: "The need to create high-performance landing pages and responsive email marketing for high-conversion seasonal campaigns at Netshoes.",
-          solution: "Development of modular HTML/CSS templates focused on performance and accessibility, ensuring a consistent experience across multiple devices.",
+          shortDescription: "Landing pages for Brazil's largest e-commerce.",
+          challenge: "I assisted in creating landing pages for Brazil's largest e-commerce, collaborating on special projects such as the Brazilian National Team jersey for the World Cup, the official 2026 World Cup page, Netshoes Run, Netshoes institutional pages, and partners like Zattini, SAO (São Paulo), and the Palmeiras Store.",
+          solution: "I used HTML, CSS, and JavaScript with full support from AIs like Claude and Gemini through Antigravity.",
           results: [
             "Increase in click-through rate (CTR) in email campaigns.",
             "Pages loading under 2 seconds.",
@@ -498,9 +498,9 @@ export const translations = {
         {
           title: "Creación de páginas para Netshoes",
           category: "FRONT END - ECOMMERCE",
-          shortDescription: "Creación de landing pages y email marketing.",
-          challenge: "La necesidad de crear landing pages de alto rendimiento y email marketing responsive para campañas estacionales de alta conversión en Netshoes.",
-          solution: "Desarrollo de plantillas modulares en HTML/CSS enfocadas en el rendimiento y la accesibilidad, garantizando una experiencia consistente en múltiples dispositivos.",
+          shortDescription: "Landing pages para el mayor e-commerce de Brasil.",
+          challenge: "Ayudé en la creación de landing pages para el mayor e-commerce de Brasil, colaborando en proyectos especiales como la camiseta de la Selección Brasileña para el mundial, la página oficial del mundial 2026, Netshoes Run, páginas institucionales de Netshoes y de socios como Zattini, SAO (São Paulo) y la Tienda de Palmeiras.",
+          solution: "Utilicé HTML, CSS y JavaScript con el apoyo total de IAs como Claude y Gemini a través de Antigravity.",
           results: [
             "Aumento en la tasa de clics (CTR) en campañas de correo electrónico.",
             "Páginas con carga en menos de 2 segundos.",

@@ -54,9 +54,16 @@ export const translations = {
       subtitle: 'Liderança e impacto em grandes players do mercado de tecnologia.',
       jobs: [
         {
+          role: "Design Ops Tech Leader",
+          company: "Clinicorp Solutions",
+          period: "2026 - Presente",
+          description: "Liderança técnica na vanguarda da integração entre Design e Engenharia, com foco estratégico em Inteligência Artificial. Responsável por orquestrar a evolução do Design System e otimizar processos de Design Ops, garantindo escalabilidade técnica e excelência criativa em produtos de alta complexidade.",
+          skills: ["AI Integration", "Design Ops", "Tech Leadership"]
+        },
+        {
           role: "Design Manager",
           company: "Clinicorp Solutions",
-          period: "2023 - Presente",
+          period: "2023 - 2026",
           description: "Liderança estratégica da equipe de Product Design focada em SaaS para gestão de clínicas. Responsável pela evolução da maturidade de design (Design Ops), mentoria do time e alinhamento de visão de produto junto aos C-levels para escalar a plataforma.",
           skills: ["Liderança", "SaaS", "Design Ops"]
         },
@@ -242,9 +249,16 @@ export const translations = {
       subtitle: 'Leadership and impact at major technology players.',
       jobs: [
         {
+          role: "Design Ops Tech Leader",
+          company: "Clinicorp Solutions",
+          period: "2026 - Present",
+          description: "Technical leadership at the forefront of Design and Engineering integration, with a strategic focus on Artificial Intelligence. Responsible for orchestrating the evolution of the Design System and optimizing Design Ops processes, ensuring technical scalability and creative excellence in high-complexity products.",
+          skills: ["AI Integration", "Design Ops", "Tech Leadership"]
+        },
+        {
           role: "Design Manager",
           company: "Clinicorp Solutions",
-          period: "2023 - Present",
+          period: "2023 - 2026",
           description: "Strategic leadership of the Product Design team focused on SaaS for clinic management. Responsible for evolving design maturity (Design Ops), team mentoring, and aligning product vision with C-levels to scale the platform.",
           skills: ["Leadership", "SaaS", "Design Ops"]
         },
@@ -430,9 +444,16 @@ export const translations = {
       subtitle: 'Liderazgo e impacto en grandes actores del mercado tecnológico.',
       jobs: [
         {
+          role: "Design Ops Tech Leader",
+          company: "Clinicorp Solutions",
+          period: "2026 - Presente",
+          description: "Liderazgo técnico a la vanguardia de la integración entre Diseño e Ingeniería, con un enfoque estratégico en Inteligencia Artificial. Responsable de orquestar la evolución del Design System y optimizar los procesos de Design Ops, garantizando la escalabilidad técnica y la excelencia creativa en productos de alta complejidad.",
+          skills: ["AI Integration", "Design Ops", "Tech Leadership"]
+        },
+        {
           role: "Design Manager",
           company: "Clinicorp Solutions",
-          period: "2023 - Presente",
+          period: "2023 - 2026",
           description: "Liderazgo estratégico del equipo de Product Design enfocado en SaaS para la gestión de clínicas. Responsable de la evolución da madurez do diseño (Design Ops), mentoría del equipo y alineación de la visión del producto con los C-levels para escalar la plataforma.",
           skills: ["Liderazgo", "SaaS", "Design Ops"]
         },

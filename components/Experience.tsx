@@ -110,10 +110,34 @@ const Experience: FC = () => {
     setShips(prev => prev.filter(ship => ship.id !== id));
   };
 
-  const experiences: ExperienceType[] = t.experience.jobs.map((job, index) => ({
-    id: index + 1,
-    ...job
-  }));
+  const [activeClinicorpIndex, setActiveClinicorpIndex] = useState(0);
+  const clinicorpJobs = t.experience.jobs.filter((j: any) => j.company === "Clinicorp Solutions");
+
+  const displayJobs = React.useMemo(() => {
+    const result: any[] = [];
+    let clinicorpGrouped = false;
+
+    t.experience.jobs.forEach((job: any, index: number) => {
+      if (job.company === "Clinicorp Solutions") {
+        if (!clinicorpGrouped) {
+          result.push({
+            isGrouped: true,
+            company: job.company,
+            roles: clinicorpJobs,
+            id: `group-${job.company}`
+          });
+          clinicorpGrouped = true;
+        }
+      } else {
+        result.push({
+          isGrouped: false,
+          ...job,
+          id: `job-${index}`
+        });
+      }
+    });
+    return result;
+  }, [t.experience.jobs, clinicorpJobs]);
 
   const doubledPartners = [...partners, ...partners];
 
@@ -162,9 +186,9 @@ const Experience: FC = () => {
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto space-y-12 relative before:absolute before:inset-0 before:ml-5 before:w-0.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:bg-gradient-to-b before:from-transparent before:via-neutral-300 dark:before:via-neutral-700 before:to-transparent">
-          {experiences.map((exp, index) => (
+          {displayJobs.map((item, index) => (
             <motion.div 
-              key={exp.id} 
+              key={item.id} 
               initial={{ opacity: 0, y: 50 }} 
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, margin: "-100px" }} 
@@ -174,16 +198,64 @@ const Experience: FC = () => {
               <div className="absolute left-0 md:left-1/2 w-10 h-10 bg-white dark:bg-brand-dark border-4 border-neutral-200 dark:border-neutral-800 rounded-full flex items-center justify-center z-10 -translate-x-1/2 group-hover:border-brand-lead dark:group-hover:border-brand-yellow transition-colors shadow-[0_0_15px_rgba(51,51,51,0.1)] dark:shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                 <div className="w-3 h-3 bg-brand-lead dark:bg-brand-yellow rounded-full" />
               </div>
+              
               <div className="ml-16 md:ml-0 md:w-[45%] p-6 md:p-8 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-brand-lead/10 dark:border-white/5 hover:border-brand-lead/30 dark:hover:border-brand-yellow/30 transition-all rounded-none hover:bg-white/80 dark:hover:bg-neutral-900/80 shadow-sm dark:shadow-none">
-                <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
-                  <h3 className="text-xl font-bold text-brand-dark dark:text-white">{exp.role}</h3>
-                  <span className="text-sm font-mono text-brand-lead dark:text-brand-yellow py-1 px-2 bg-brand-lead/10 dark:bg-brand-yellow/10 rounded mt-1 sm:mt-0">{exp.period}</span>
-                </div>
-                <h4 className="text-neutral-500 dark:text-neutral-400 font-medium mb-4">{exp.company}</h4>
-                <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => <span key={skill} className="text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">{skill}</span>)}
-                </div>
+                {item.isGrouped ? (
+                  <>
+                    <div className="flex justify-between items-center mb-6 border-b border-brand-lead/10 dark:border-white/10 pb-4">
+                      <h4 className="text-brand-lead dark:text-brand-yellow font-bold uppercase tracking-[0.2em] text-xs">{item.company}</h4>
+                      <div className="flex gap-2">
+                        {item.roles.map((_: any, i: number) => (
+                          <button
+                            key={i}
+                            onClick={() => setActiveClinicorpIndex(i)}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeClinicorpIndex === i ? 'bg-brand-lead dark:bg-brand-yellow w-6' : 'bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-400'}`}
+                            aria-label={`Ver cargo ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeClinicorpIndex}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
+                          <h3 className="text-xl font-bold text-brand-dark dark:text-white">{item.roles[activeClinicorpIndex].role}</h3>
+                          <span className="text-sm font-mono text-brand-lead dark:text-brand-yellow py-1 px-2 bg-brand-lead/10 dark:bg-brand-yellow/10 rounded mt-1 sm:mt-0">{item.roles[activeClinicorpIndex].period}</span>
+                        </div>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">{item.roles[activeClinicorpIndex].description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {item.roles[activeClinicorpIndex].skills.map((skill: string) => (
+                            <span key={skill} className="text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex justify-between items-start mb-2 flex-col sm:flex-row">
+                      <h3 className="text-xl font-bold text-brand-dark dark:text-white">{item.role}</h3>
+                      <span className="text-sm font-mono text-brand-lead dark:text-brand-yellow py-1 px-2 bg-brand-lead/10 dark:bg-brand-yellow/10 rounded mt-1 sm:mt-0">{item.period}</span>
+                    </div>
+                    <h4 className="text-neutral-500 dark:text-neutral-400 font-medium mb-4">{item.company}</h4>
+                    <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-6">{item.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {item.skills.map((skill: string) => (
+                        <span key={skill} className="text-xs text-neutral-500 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-1 bg-brand-lead/5 dark:bg-black/20">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </motion.div>
           ))}

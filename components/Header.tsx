@@ -63,7 +63,7 @@ const Header: React.FC = () => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
             </a>
           ))}
           
-          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
+          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-1" />
 
           {/* Theme Selector Dropdown */}
           <div 
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-2" />
+          <div className="h-4 w-px bg-brand-lead/10 dark:bg-white/10 mx-1" />
 
           {/* Language Switcher */}
           <div className="flex items-center gap-2">
@@ -149,9 +149,9 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-3 md:hidden">
           <button
-            className="text-brand-dark dark:text-white"
+            className="text-brand-dark dark:text-white p-1"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -220,3 +220,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+

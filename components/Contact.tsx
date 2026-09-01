@@ -1,6 +1,6 @@
 import { useRef, FC, MouseEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github, Sparkles } from 'lucide-react';
 import Button from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 import ConfettiCanvas, { ConfettiRef } from './ui/ConfettiCanvas';
@@ -28,7 +28,11 @@ const BehanceIcon = ({ size = 20, className = "" }) => (
   </svg>
 );
 
-const Contact: FC = () => {
+interface ContactProps {
+  onNavigateFreela?: () => void;
+}
+
+const Contact: FC<ContactProps> = ({ onNavigateFreela }) => {
   const { t } = useLanguage();
   const confettiRef = useRef<ConfettiRef>(null);
 
@@ -54,6 +58,17 @@ const Contact: FC = () => {
     // Dispara os confetes nas coordenadas do clique
     if (confettiRef.current) {
       confettiRef.current.explode(e.clientX, e.clientY);
+    }
+  };
+
+  const handleFreelaClick = (e: MouseEvent) => {
+    e.preventDefault();
+    if (onNavigateFreela) {
+      onNavigateFreela();
+    } else {
+      window.history.pushState({}, '', '/freela');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -84,20 +99,51 @@ const Contact: FC = () => {
               {t.contact.subtitle}
             </p>
             
-            <a 
-              href="https://linkedin.com/in/denispiaia" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()} // Opcional: Remover se quiser confetes ao clicar no botão também
-            >
-              <Button className="px-10 py-5 text-lg rounded-none">
-                {t.contact.cta}
-              </Button>
-            </a>
+            {/* CTA Buttons Row: Say Hello + Freelancer */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a 
+                href="https://linkedin.com/in/denispiaia" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Button className="px-10 py-5 text-lg rounded-none shadow-md hover:shadow-lg transition-all">
+                  {t.contact.cta}
+                </Button>
+              </a>
+
+              <a
+                href="/freela"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFreelaClick(e);
+                }}
+              >
+                <Button 
+                  variant="outline"
+                  className="px-10 py-5 text-lg rounded-none border-2 border-brand-lead dark:border-brand-yellow text-brand-dark dark:text-white hover:bg-brand-lead/10 dark:hover:bg-brand-yellow/10 flex items-center gap-2 shadow-sm transition-all"
+                >
+                  <Sparkles size={18} className="text-brand-lead dark:text-brand-yellow animate-pulse" />
+                  <span>{t.contact.freelaCta || 'Freelancer 🚀'}</span>
+                </Button>
+              </a>
+            </div>
 
             <div className="mt-16 pt-16 border-t border-brand-lead/10 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-neutral-500 dark:text-neutral-400 text-sm">
-                &copy; 2026 Denis Piaia - {t.contact.location} {t.contact.rights}
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-neutral-500 dark:text-neutral-400 text-sm">
+                <span>&copy; 2026 Denis Piaia - {t.contact.location} {t.contact.rights}</span>
+                <span className="hidden sm:inline text-neutral-300 dark:text-neutral-700">•</span>
+                <a
+                  href="/freela"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleFreelaClick(e);
+                  }}
+                  className="text-brand-lead dark:text-brand-yellow font-semibold hover:underline flex items-center gap-1.5 transition-colors"
+                >
+                  <Sparkles size={14} />
+                  <span>{t.contact.freelaFooter || 'Serviços & Freelancer'}</span>
+                </a>
               </div>
               
               <div className="flex gap-6">

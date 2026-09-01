@@ -191,6 +191,8 @@ export const translations = {
       titleEnd: 'juntos?',
       subtitle: 'Estou sempre aberto a discutir design de produto, colaborar em novos projetos ou falar sobre oportunidades de liderança.',
       cta: 'Mande um Olá 👋',
+      freelaCta: 'Freelancer 🚀',
+      freelaFooter: 'Serviços & Freelancer',
       rights: 'Todos os direitos reservados.',
       location: 'na ensolarada cidade de Campinas/SP.'
     }
@@ -386,6 +388,8 @@ export const translations = {
       titleEnd: 'together?',
       subtitle: 'I\'m always open to discussing product design, collaborating on new projects, or talking about leadership opportunities.',
       cta: 'Say Hello 👋',
+      freelaCta: 'Freelance 🚀',
+      freelaFooter: 'Services & Freelance',
       rights: 'All rights reserved.',
       location: 'in the sunny city of Campinas/SP.'
     }
@@ -581,6 +585,8 @@ export const translations = {
       titleEnd: 'juntos?',
       subtitle: 'Siempre estoy abierto a discutir diseño de produto, colaborar en novos proxectos o hablar sobre oportunidades de liderazgo.',
       cta: 'Manda un Hola 👋',
+      freelaCta: 'Freelance 🚀',
+      freelaFooter: 'Servicios & Freelance',
       rights: 'Todos los derechos reservados.',
       location: 'en a soleada ciudad de Campinas/SP.'
     }

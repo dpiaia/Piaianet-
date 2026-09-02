@@ -34,22 +34,22 @@ const TrustedBySection: React.FC = () => {
           </p>
         </div>
 
-        {/* Grid Layout: 5 logos per row on desktop, transparent background (no white box) and rotating glowing border on hover */}
+        {/* Grid Layout: 5 logos per row on desktop with rotating glowing border stroke on hover */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {partnerList.map((partner, idx) => (
             <div
               key={`${partner.name}-${idx}`}
-              className="relative group p-[1px] rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.04] cursor-pointer"
+              className="relative group p-[2px] rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] cursor-pointer bg-black/[0.04] dark:bg-white/[0.05]"
             >
-              {/* Rotating Glowing Border Beam on Hover */}
-              <div className="absolute inset-[-100%] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[conic-gradient(from_0deg,#EC6726_0deg,#FFD600_120deg,#EC6726_240deg,#FFD600_360deg)] dark:bg-[conic-gradient(from_0deg,#FFD600_0deg,#EC6726_120deg,#FFD600_240deg,#EC6726_360deg)] animate-border-spin" />
+              {/* Rotating Glowing Border Beam on Hover (shows ONLY on the 2px perimeter border) */}
+              <div className="absolute inset-[-150%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[conic-gradient(from_0deg,#EC6726_0deg,#FFD600_120deg,#EC6726_240deg,#FFD600_360deg)] dark:bg-[conic-gradient(from_0deg,#FFD600_0deg,#EC6726_120deg,#FFD600_240deg,#EC6726_360deg)] animate-border-spin" />
 
-              {/* Card Surface - ALWAYS Transparent, No White Background */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center p-5 sm:p-6 rounded-2xl bg-transparent dark:bg-transparent border border-black/[0.08] dark:border-white/[0.1] group-hover:border-transparent group-hover:bg-black/[0.02] dark:group-hover:bg-white/[0.03] transition-all duration-300 min-h-[110px] sm:min-h-[125px]">
+              {/* Card Surface - Solid background covering the inner area so ONLY the border glows */}
+              <div className="relative z-10 w-full h-full flex items-center justify-center p-5 sm:p-6 rounded-[14px] bg-white dark:bg-[#101014] transition-colors duration-300 min-h-[110px] sm:min-h-[125px] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
                 <img 
                   src={partner.logo} 
                   alt={partner.name}
-                  className="h-10 sm:h-12 md:h-14 max-w-[140px] sm:max-w-[160px] w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-125 select-none bg-transparent mix-blend-multiply dark:invert dark:brightness-[2] dark:mix-blend-screen"
+                  className="h-9 sm:h-11 md:h-12 max-w-[130px] sm:max-w-[150px] w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-110 select-none dark:invert dark:brightness-[1.8]"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {

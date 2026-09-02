@@ -6,20 +6,20 @@ import GalaxyBackground from './ui/GalaxyBackground';
 import { useLanguage } from '../context/LanguageContext';
 
 const partners = [
-  { name: "Netshoes", logo: "https://piaianet.page.gd/imgs/netshoes.svg" },
-  { name: "Zatinni", logo: "https://piaianet.page.gd/imgs/zattini.svg" },
-  { name: "PUC Campinas", logo: "https://piaianet.page.gd/imgs/puc.svg" },
-  { name: "Athlético PR", logo: "https://piaianet.page.gd/imgs/cap.svg" },
-  { name: "Cielo", logo: "https://piaianet.page.gd/imgs/cielo.svg" },
-  { name: "IxDA", logo: "https://piaianet.page.gd/imgs/ixda.svg" },
-  { name: "IXDD", logo: "https://piaianet.page.gd/imgs/ixdd.svg" },
-  { name: "TDC", logo: "https://piaianet.page.gd/imgs/tdc.svg" },
-  { name: "iFood", logo: "https://piaianet.page.gd/imgs/ifood.svg" },
-  { name: "UniBR", logo: "https://piaianet.page.gd/imgs/unibr.svg" },
-  { name: "SinDelantal", logo: "https://piaianet.page.gd/imgs/sindelantal.svg" },
-  { name: "Cliente FC", logo: "https://piaianet.page.gd/imgs/clientefc.svg" },
-  { name: "MWMKT", logo: "https://piaianet.page.gd/imgs/mwmkt.svg" },
-  { name: "Mercado Livre", logo: "https://piaianet.page.gd/imgs/meli.svg" },
+  { name: "Netshoes", logo: "/logos/netshoes.svg" },
+  { name: "Zatinni", logo: "/logos/zattini.svg" },
+  { name: "PUC Campinas", logo: "/logos/puc.svg" },
+  { name: "Athlético PR", logo: "/logos/cap.svg" },
+  { name: "Cielo", logo: "/logos/cielo.svg" },
+  { name: "IxDA", logo: "/logos/ixda.svg" },
+  { name: "IXDD", logo: "/logos/ixdd.svg" },
+  { name: "TDC", logo: "/logos/tdc.svg" },
+  { name: "iFood", logo: "/logos/ifood.svg" },
+  { name: "UniBR", logo: "/logos/unibr.svg" },
+  { name: "SinDelantal", logo: "/logos/sindelantal.svg" },
+  { name: "Cliente FC", logo: "/logos/clientefc.svg" },
+  { name: "MWMKT", logo: "/logos/mwmkt.svg" },
+  { name: "Mercado Livre", logo: "/logos/meli.svg" },
 ];
 
 const MillenniumFalcon: FC<{ className?: string, direction: 'left' | 'right' }> = ({ className, direction }) => (
@@ -301,7 +301,7 @@ const Experience: FC = () => {
                       src={partner.logo} 
                       alt={partner.name}
                       loading="eager"
-                      className="w-full h-full object-contain filter grayscale opacity-60 dark:invert dark:brightness-[2] dark:mix-blend-screen"
+                      className="w-full h-full object-contain filter grayscale opacity-60 dark:invert dark:brightness-[1.8] select-none"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';

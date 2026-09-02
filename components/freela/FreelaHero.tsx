@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import SpaceHeroIllustration from './SpaceHeroIllustration';
+import GalaxyHeroBackground from './GalaxyHeroBackground';
 import { useLanguage } from '../../context/LanguageContext';
 import { translationsFreela } from '../../utils/translationsFreela';
 
@@ -24,8 +25,11 @@ const FreelaHero: React.FC = () => {
   return (
     <section 
       id="freela-top"
-      className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-14 bg-brand-light dark:bg-[#08080A] transition-colors duration-300"
+      className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-14 bg-brand-light dark:bg-[#08080A] transition-colors duration-300 overflow-hidden"
     >
+      {/* Dynamic Animated Galaxy Starfield & Floating Planets Background */}
+      <GalaxyHeroBackground />
+
       <div className="container mx-auto px-6 z-10 relative max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           

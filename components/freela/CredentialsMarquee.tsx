@@ -123,38 +123,40 @@ const MarqueeCard: React.FC<MarqueeCardProps> = ({ item }) => {
           </span>
         </div>
 
-        {/* 360-degree Floating Sparks Burst */}
-        <AnimatePresence>
-          {sparks.map((spark) => (
-            <motion.span
-              key={spark.id}
-              initial={{ opacity: 1, scale: 0, x: 0, y: 0 }}
-              animate={{
-                opacity: [1, 1, 0],
-                scale: [0, 1.4, 0.2],
-                x: spark.x,
-                y: spark.y,
-              }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: spark.duration, ease: 'easeOut' }}
-              style={{
-                backgroundColor: spark.color,
-                width: spark.size,
-                height: spark.size,
-                boxShadow: `0 0 10px ${spark.color}, 0 0 4px #FFF`,
-              }}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none z-50"
-            />
-          ))}
-        </AnimatePresence>
+        {/* 360-degree Floating Sparks Burst behind the card */}
+        <div className="absolute inset-0 pointer-events-none -z-10 flex items-center justify-center">
+          <AnimatePresence>
+            {sparks.map((spark) => (
+              <motion.span
+                key={spark.id}
+                initial={{ opacity: 1, scale: 0, x: 0, y: 0 }}
+                animate={{
+                  opacity: [1, 1, 0],
+                  scale: [0, 1.6, 0.2],
+                  x: spark.x,
+                  y: spark.y,
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: spark.duration, ease: 'easeOut' }}
+                style={{
+                  backgroundColor: spark.color,
+                  width: spark.size,
+                  height: spark.size,
+                  boxShadow: `0 0 12px ${spark.color}, 0 0 4px #FFF`,
+                }}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none -z-10"
+              />
+            ))}
+          </AnimatePresence>
+        </div>
 
-        {/* Hover Micro Sparkle Icon */}
+        {/* Hover Micro Sparkle Icon on top corner */}
         {isHovered && (
           <motion.span
             initial={{ scale: 0, rotate: 0 }}
             animate={{ scale: [0.8, 1.3, 0.9], rotate: 180 }}
             transition={{ duration: 0.6, repeat: Infinity }}
-            className="absolute -top-2 -right-2 text-[#FFD600] pointer-events-none drop-shadow-[0_0_6px_#FFD600] z-50"
+            className="absolute -top-2 -right-2 text-[#FFD600] pointer-events-none drop-shadow-[0_0_6px_#FFD600] z-20"
           >
             <Sparkles size={16} />
           </motion.span>

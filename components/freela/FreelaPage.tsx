@@ -21,13 +21,7 @@ const FreelaPage: React.FC<FreelaPageProps> = ({ onNavigateHome }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     document.title = 'Denis Piaia | Freelance, Design Systems para IA & Desenvolvimento';
-
-    // Default to light mode on /freela unless explicitly manually toggled in this session
-    const manualOverride = sessionStorage.getItem('freela_theme_manual_override');
-    if (!manualOverride) {
-      setTheme('light');
-    }
-  }, [setTheme]);
+  }, []);
 
   const handleSelectServiceFromCatalog = (serviceTitle: string) => {
     setSelectedServiceTitle(serviceTitle);

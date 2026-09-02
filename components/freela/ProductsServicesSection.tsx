@@ -50,8 +50,8 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
             <span>{t.badge}</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 text-brand-dark dark:text-white leading-tight">
-            {t.title}{' '}
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 text-brand-dark dark:text-white leading-[1.15]">
+            <span className="block">{t.title}</span>
             <span className="text-[#EC6726] dark:text-[#FFD600]">
               {t.titleHighlight}
             </span>

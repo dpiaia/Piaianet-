@@ -34,22 +34,22 @@ const TrustedBySection: React.FC = () => {
           </p>
         </div>
 
-        {/* Grid Layout with Bigger Logos and Animated Rotating Glowing Border on Hover */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
+        {/* Grid Layout: 5 logos per row on desktop, transparent background (no white box) and rotating glowing border on hover */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5 max-w-6xl mx-auto">
           {partnerList.map((partner, idx) => (
             <div
               key={`${partner.name}-${idx}`}
-              className="relative group p-[1px] rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] cursor-pointer"
+              className="relative group p-[1px] rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.04] cursor-pointer"
             >
               {/* Rotating Glowing Border Beam on Hover */}
               <div className="absolute inset-[-100%] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[conic-gradient(from_0deg,#EC6726_0deg,#FFD600_120deg,#EC6726_240deg,#FFD600_360deg)] dark:bg-[conic-gradient(from_0deg,#FFD600_0deg,#EC6726_120deg,#FFD600_240deg,#EC6726_360deg)] animate-border-spin" />
 
-              {/* Card Surface */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center p-6 sm:p-7 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-[#121216]/95 border border-black/[0.07] dark:border-white/[0.08] group-hover:border-transparent transition-all duration-300 min-h-[110px] sm:min-h-[125px] shadow-[0_2px_12px_rgba(0,0,0,0.02)] group-hover:shadow-[0_12px_28px_rgba(236,103,38,0.18)] dark:group-hover:shadow-[0_12px_28px_rgba(255,214,0,0.14)]">
+              {/* Card Surface - ALWAYS Transparent, No White Background */}
+              <div className="relative z-10 w-full h-full flex items-center justify-center p-5 sm:p-6 rounded-2xl bg-transparent dark:bg-transparent border border-black/[0.08] dark:border-white/[0.1] group-hover:border-transparent group-hover:bg-black/[0.02] dark:group-hover:bg-white/[0.03] transition-all duration-300 min-h-[110px] sm:min-h-[125px]">
                 <img 
                   src={partner.logo} 
                   alt={partner.name}
-                  className="h-10 sm:h-12 md:h-14 max-w-[150px] sm:max-w-[175px] w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-115 dark:brightness-125 select-none"
+                  className="h-10 sm:h-12 md:h-14 max-w-[140px] sm:max-w-[160px] w-auto object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-125 dark:brightness-125 select-none bg-transparent"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {

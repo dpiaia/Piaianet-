@@ -13,21 +13,11 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const pathname = window.location.pathname.toLowerCase();
-      const hash = window.location.hash.toLowerCase();
-      const isFreela = pathname.includes('/freela') || hash.includes('#freela');
-
-      if (isFreela) {
-        const savedFreela = localStorage.getItem('theme_freela') as Theme;
-        if (savedFreela && (savedFreela === 'light' || savedFreela === 'dark')) return savedFreela;
-        return 'light';
-      }
-
       const saved = localStorage.getItem('theme') as Theme;
       if (saved && (saved === 'light' || saved === 'dark')) return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark';
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {

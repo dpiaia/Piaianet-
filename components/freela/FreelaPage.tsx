@@ -8,6 +8,7 @@ import TrustedBySection from './TrustedBySection';
 import AIMetadataSection from './AIMetadataSection';
 import FreelaContactCTA from './FreelaContactCTA';
 import BackToTop from '../ui/BackToTop';
+import { useTheme } from '../../context/ThemeContext';
 
 interface FreelaPageProps {
   onNavigateHome: () => void;
@@ -15,11 +16,18 @@ interface FreelaPageProps {
 
 const FreelaPage: React.FC<FreelaPageProps> = ({ onNavigateHome }) => {
   const [selectedServiceTitle, setSelectedServiceTitle] = useState<string>('Adequação de Design System para IA');
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     document.title = 'Denis Piaia | Freelance, Design Systems para IA & Desenvolvimento';
-  }, []);
+
+    // Default to light mode on /freela unless explicitly manually toggled in this session
+    const manualOverride = sessionStorage.getItem('freela_theme_manual_override');
+    if (!manualOverride) {
+      setTheme('light');
+    }
+  }, [setTheme]);
 
   const handleSelectServiceFromCatalog = (serviceTitle: string) => {
     setSelectedServiceTitle(serviceTitle);

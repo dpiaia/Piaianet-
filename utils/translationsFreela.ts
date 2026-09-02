@@ -33,6 +33,7 @@ export interface TrustedPartner {
 export interface FreelaTranslations {
   nav: {
     backToPortfolio: string;
+    portfolio: string;
     services: string;
     cases: string;
     trustedBy: string;
@@ -148,6 +149,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
   pt: {
     nav: {
       backToPortfolio: 'Voltar ao Portfólio',
+      portfolio: 'Portfólio',
       services: 'Serviços',
       cases: 'Criações',
       trustedBy: 'Clientes',
@@ -514,6 +516,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
   en: {
     nav: {
       backToPortfolio: 'Back to Portfolio',
+      portfolio: 'Portfolio',
       services: 'Services',
       cases: 'Work',
       trustedBy: 'Clients',
@@ -880,6 +883,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
   es: {
     nav: {
       backToPortfolio: 'Volver al Portafolio',
+      portfolio: 'Portafolio',
       services: 'Servicios',
       cases: 'Trabajos',
       trustedBy: 'Clientes',

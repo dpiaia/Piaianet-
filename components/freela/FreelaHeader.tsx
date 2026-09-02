@@ -4,6 +4,7 @@ import { Sun, Moon, MessageSquare, Briefcase, Menu, X, Sparkles, Layers, Buildin
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { translationsFreela } from '../../utils/translationsFreela';
+import BrandLogoIcon from '../ui/BrandLogoIcon';
 
 interface FreelaHeaderProps {
   onNavigateHome: () => void;
@@ -65,8 +66,9 @@ const FreelaHeader: React.FC<FreelaHeaderProps> = ({ onNavigateHome }) => {
           <a 
             href="#freela-top" 
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-lg sm:text-xl font-display font-bold tracking-tight hover:opacity-90 transition-opacity select-none"
+            className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-xl font-display font-bold tracking-tight hover:opacity-90 transition-opacity select-none group"
           >
+            <BrandLogoIcon className="h-6 sm:h-7 w-auto aspect-[72/52] shrink-0 transition-transform duration-300 group-hover:scale-105" />
             <span className="text-brand-dark dark:text-white">
               denis<span className="text-[#EC6726] dark:text-[#FFD600]">piaia</span>
             </span>

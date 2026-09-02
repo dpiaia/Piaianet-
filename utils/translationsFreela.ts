@@ -436,8 +436,8 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
     },
     trustedBy: {
       badge: 'Marcas & Parceiros',
-      title: 'Quem Já Acreditou no',
-      titleHighlight: 'Meu Trabalho',
+      title: 'Quem Já Acreditou em',
+      titleHighlight: 'Mim',
       subtitle: 'Histórico de colaboração com líderes de mercado, startups e instituições de ensino.',
       partners: [
         { name: 'Netshoes', logo: 'https://piaianet.page.gd/imgs/netshoes.svg', category: 'E-commerce' },

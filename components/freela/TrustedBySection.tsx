@@ -16,7 +16,7 @@ const TrustedBySection: React.FC = () => {
     >
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         {/* Header */}
-        <div className="mb-12 text-center max-w-2xl mx-auto">
+        <div className="mb-14 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono uppercase tracking-widest text-[#EC6726] dark:text-[#FFD600] mb-3">
             <ShieldCheck size={13} />
             <span>{t.badge}</span>
@@ -34,39 +34,55 @@ const TrustedBySection: React.FC = () => {
           </p>
         </div>
 
-        {/* 5-Column Grid Layout (All logos visible simultaneously) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 max-w-6xl mx-auto">
+        {/* Grid Layout with Bigger Logos and Animated Rotating Glowing Border on Hover */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {partnerList.map((partner, idx) => (
             <div
               key={`${partner.name}-${idx}`}
-              className="flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl backdrop-blur-xl bg-white/80 dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.08] shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_24px_rgba(236,103,38,0.12)] dark:hover:shadow-[0_8px_24px_rgba(255,214,0,0.08)] hover:border-[#EC6726]/40 dark:hover:border-[#FFD600]/40 transition-all duration-300 group hover:-translate-y-1 min-h-[96px] sm:min-h-[110px]"
+              className="relative group p-[1px] rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.03] cursor-pointer"
             >
-              <img 
-                src={partner.logo} 
-                alt={partner.name}
-                className="h-8 sm:h-9 max-w-[130px] w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-105 dark:brightness-125"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.currentTarget as HTMLElement).style.display = 'none';
-                  const parent = e.currentTarget.parentElement;
-                  if (parent && !parent.querySelector('.fallback-text')) {
-                    const span = document.createElement('span');
-                    span.className = 'fallback-text text-sm font-bold font-display text-brand-dark dark:text-white tracking-tight';
-                    span.innerText = partner.name;
-                    parent.appendChild(span);
-                  }
-                }}
-              />
-              {partner.category && (
-                <span className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 truncate max-w-full">
-                  {partner.category}
-                </span>
-              )}
+              {/* Rotating Glowing Border Beam on Hover */}
+              <div className="absolute inset-[-100%] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[conic-gradient(from_0deg,#EC6726_0deg,#FFD600_120deg,#EC6726_240deg,#FFD600_360deg)] dark:bg-[conic-gradient(from_0deg,#FFD600_0deg,#EC6726_120deg,#FFD600_240deg,#EC6726_360deg)] animate-border-spin" />
+
+              {/* Card Surface */}
+              <div className="relative z-10 w-full h-full flex items-center justify-center p-6 sm:p-7 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-[#121216]/95 border border-black/[0.07] dark:border-white/[0.08] group-hover:border-transparent transition-all duration-300 min-h-[110px] sm:min-h-[125px] shadow-[0_2px_12px_rgba(0,0,0,0.02)] group-hover:shadow-[0_12px_28px_rgba(236,103,38,0.18)] dark:group-hover:shadow-[0_12px_28px_rgba(255,214,0,0.14)]">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="h-10 sm:h-12 md:h-14 max-w-[150px] sm:max-w-[175px] w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-115 dark:brightness-125 select-none"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLElement).style.display = 'none';
+                    const parent = e.currentTarget.parentElement;
+                    if (parent && !parent.querySelector('.fallback-text')) {
+                      const span = document.createElement('span');
+                      span.className = 'fallback-text text-base sm:text-lg font-bold font-display text-brand-dark dark:text-white tracking-tight group-hover:text-[#EC6726] dark:group-hover:text-[#FFD600] group-hover:scale-110 transition-transform';
+                      span.innerText = partner.name;
+                      parent.appendChild(span);
+                    }
+                  }}
+                />
+              </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Border spinning animation style */}
+      <style>{`
+        @keyframes border-spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .animate-border-spin {
+          animation: border-spin 4s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

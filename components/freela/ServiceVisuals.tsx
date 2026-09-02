@@ -7,9 +7,9 @@ import {
   Share2, Calendar, Image as ImageIcon, MessageCircle, Heart, Users
 } from 'lucide-react';
 
-/* 1. Visual: Adequação de Design System para IA (Apple macOS Studio Inspector) */
-export const VisualAIDesignSystem: React.FC = () => {
-  const [activeToken, setActiveToken] = useState<'color' | 'radius' | 'spacing' | 'prompt'>('color');
+/* 1. Visual: Modernização de Design System para IA (Dobra 1) */
+export const VisualAIDesignSystemModernization: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'audit' | 'tokens' | 'ai-prompt'>('tokens');
 
   return (
     <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs font-mono text-neutral-300 relative overflow-hidden select-none">
@@ -22,148 +22,113 @@ export const VisualAIDesignSystem: React.FC = () => {
             <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block shadow-xs" />
           </div>
           <span className="ml-2 text-[11px] text-neutral-400 font-sans font-medium tracking-tight">
-            AGENTS.md • tokens.json
+            DesignOps • Modernização & Tokens
           </span>
         </div>
-        <div className="flex items-center gap-1.5 bg-[#FFD600]/10 text-[#FFD600] px-3 py-0.5 rounded-full border border-[#FFD600]/20 text-[10px] font-semibold">
-          <Bot size={12} className="animate-pulse" />
-          <span>AI Context 100% Determinado</span>
+        <div className="flex items-center gap-1.5 bg-[#EC6726]/15 text-[#FFD600] px-3 py-0.5 rounded-full border border-[#EC6726]/30 text-[10px] font-semibold font-sans">
+          <Bot size={12} className="animate-pulse text-[#EC6726]" />
+          <span>IA Sem Alucinações</span>
         </div>
       </div>
 
-      {/* Segmented Token Switcher (Apple Segments) */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-4 bg-white/[0.04] p-1 rounded-2xl border border-white/[0.06]">
+      {/* Segmented Switcher */}
+      <div className="grid grid-cols-3 gap-1.5 mb-4 bg-white/[0.04] p-1 rounded-2xl border border-white/[0.06]">
         <button 
-          onClick={() => setActiveToken('color')}
+          onClick={() => setActiveTab('audit')}
           className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
-            activeToken === 'color' 
+            activeTab === 'audit' 
               ? 'bg-white/20 text-white font-semibold shadow-sm' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
-          <Palette size={12} />
-          <span>Color</span>
+          <RefreshCw size={12} />
+          <span>1. Diagnóstico</span>
         </button>
         <button 
-          onClick={() => setActiveToken('radius')}
+          onClick={() => setActiveTab('tokens')}
           className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
-            activeToken === 'radius' 
-              ? 'bg-white/20 text-white font-semibold shadow-sm' 
-              : 'text-neutral-400 hover:text-white'
-          }`}
-        >
-          <Layers size={12} />
-          <span>Radius</span>
-        </button>
-        <button 
-          onClick={() => setActiveToken('spacing')}
-          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
-            activeToken === 'spacing' 
+            activeTab === 'tokens' 
               ? 'bg-white/20 text-white font-semibold shadow-sm' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
           <Code2 size={12} />
-          <span>Fluid Space</span>
+          <span>2. Tokens & React</span>
         </button>
         <button 
-          onClick={() => setActiveToken('prompt')}
+          onClick={() => setActiveTab('ai-prompt')}
           className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
-            activeToken === 'prompt' 
+            activeTab === 'ai-prompt' 
               ? 'bg-white/20 text-white font-semibold shadow-sm' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
           <Sparkles size={12} />
-          <span>AGENTS.md</span>
+          <span>3. Prompt no Cursor</span>
         </button>
       </div>
 
-      {/* Code comparison box */}
-      <div className="bg-black/80 rounded-2xl p-4 sm:p-5 border border-white/[0.06] font-mono text-xs leading-relaxed min-h-[140px] flex flex-col justify-between">
+      {/* Terminal View */}
+      <div className="bg-black/80 rounded-2xl p-4 sm:p-5 border border-white/[0.06] font-mono text-xs leading-relaxed min-h-[145px] flex flex-col justify-between">
         <AnimatePresence mode="wait">
-          {activeToken === 'color' && (
+          {activeTab === 'audit' && (
             <motion.div 
-              key="color" 
+              key="audit" 
               initial={{ opacity: 0, y: 4 }} 
               animate={{ opacity: 1, y: 0 }} 
               exit={{ opacity: 0, y: -4 }}
               className="space-y-2"
             >
-              <div className="text-neutral-500">// Definição Semântica W3C Token:</div>
-              <div>
-                <span className="text-purple-400 font-semibold">$color.brand.primary</span>: <span className="text-orange-400">oklch(0.6698 0.1803 42.9750)</span>;
+              <div className="text-red-400/90 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-red-500 inline-block" />
+                <span>Antes: Código legado com CSS disperso e semântica quebrada</span>
               </div>
-              <div className="text-neutral-500">// Paridade Tailwind & shadcn:</div>
+              <div className="text-neutral-500 text-[11px]">
+                Claude/Cursor alucina cores, quebra layouts mobile e gera retrabalho.
+              </div>
+              <div className="p-2.5 rounded-xl bg-red-950/30 border border-red-800/30 text-red-300 text-[11px] flex items-center gap-2 mt-2">
+                <span>⚠️ Diagnóstico: 48 tokens duplicados e 12 componentes órfãos mapeados.</span>
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'tokens' && (
+            <motion.div 
+              key="tokens" 
+              initial={{ opacity: 0, y: 4 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              exit={{ opacity: 0, y: -4 }}
+              className="space-y-2"
+            >
+              <div className="text-neutral-500">// Mapeamento W3C Token ↔ Tailwind ↔ React:</div>
               <div>
-                <span className="text-blue-400">bg-brand-primary</span> <span className="text-neutral-600">→</span> <span className="text-emerald-400">text-brand-foreground</span>
+                <span className="text-purple-400 font-semibold">$color.primary</span>: <span className="text-orange-400">oklch(0.6698 0.1803 42.9750)</span>;
+              </div>
+              <div>
+                <span className="text-blue-400">bg-primary</span> <span className="text-neutral-600">→</span> <span className="text-emerald-400">text-primary-foreground</span>
               </div>
               <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 text-[11px] flex items-center gap-2 mt-2">
                 <CheckCircle2 size={14} className="shrink-0" />
-                <span>Claude, Gemini e Cursor geram UI sem alucinação de cor (#EC6726 validado).</span>
+                <span>Tokens matematicamente alinhados entre Figma e React/Tailwind.</span>
               </div>
             </motion.div>
           )}
 
-          {activeToken === 'radius' && (
+          {activeTab === 'ai-prompt' && (
             <motion.div 
-              key="radius" 
+              key="ai-prompt" 
               initial={{ opacity: 0, y: 4 }} 
               animate={{ opacity: 1, y: 0 }} 
               exit={{ opacity: 0, y: -4 }}
               className="space-y-2"
             >
-              <div className="text-neutral-500">// Regra Matemática de Corner Radius Aninhado:</div>
-              <div>
-                <span className="text-purple-400 font-semibold">$radius.card</span> = <span className="text-blue-300">1.25rem (20px)</span>;
-              </div>
-              <div>
-                <span className="text-purple-400 font-semibold">$radius.inner</span> = <span className="text-yellow-300">calc(var(--radius-card) - var(--padding))</span>;
-              </div>
-              <div className="p-2.5 rounded-xl bg-blue-950/40 border border-blue-800/40 text-blue-300 text-[11px] flex items-center gap-2 mt-2">
-                <CheckCircle2 size={14} className="shrink-0" />
-                <span>Paridade 1:1 entre Figma Variables e componentes Radix / shadcn/ui.</span>
-              </div>
-            </motion.div>
-          )}
-
-          {activeToken === 'spacing' && (
-            <motion.div 
-              key="spacing" 
-              initial={{ opacity: 0, y: 4 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: -4 }}
-              className="space-y-2"
-            >
-              <div className="text-neutral-500">// Escala Fluida Semântica:</div>
-              <div>
-                <span className="text-purple-400 font-semibold">$space.fluid.section</span> = <span className="text-pink-300">clamp(3rem, 6vw, 6rem)</span>;
-              </div>
-              <div>
-                <span className="text-purple-400 font-semibold">$touch.target.min</span> = <span className="text-emerald-300">44px (Acessibilidade WCAG AA)</span>;
-              </div>
-              <div className="p-2.5 rounded-xl bg-purple-950/40 border border-purple-800/40 text-purple-300 text-[11px] flex items-center gap-2 mt-2">
-                <CheckCircle2 size={14} className="shrink-0" />
-                <span>Responsividade determinística para agentes de IA programarem mobile-first.</span>
-              </div>
-            </motion.div>
-          )}
-
-          {activeToken === 'prompt' && (
-            <motion.div 
-              key="prompt" 
-              initial={{ opacity: 0, y: 4 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              exit={{ opacity: 0, y: -4 }}
-              className="space-y-2"
-            >
-              <div className="text-neutral-500">// Diretrizes de Contexto em AGENTS.md:</div>
+              <div className="text-neutral-500">// Prompt no Cursor com contexto AGENTS.md:</div>
               <div className="text-yellow-300 text-[11px]">
-                # Rules: Always use strict token variables, never hardcode hex colors or arbitrary paddings.
+                &gt; "Crie a tela de faturamento usando Button e Card do Design System"
               </div>
               <div className="p-2.5 rounded-xl bg-yellow-950/40 border border-yellow-800/40 text-yellow-300 text-[11px] flex items-center gap-2 mt-2">
                 <Sparkles size={14} className="shrink-0" />
-                <span>Engenheiros economizam até 70% do tempo ao usar Copilot / Cursor no frontend.</span>
+                <span>Resultado instantâneo no 1º comando: código 100% fiel e padronizado.</span>
               </div>
             </motion.div>
           )}
@@ -174,15 +139,138 @@ export const VisualAIDesignSystem: React.FC = () => {
       <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3 text-[11px]">
         <span className="flex items-center gap-1.5 text-neutral-400 font-sans">
           <CheckCircle2 size={13} className="text-[#FFD600]" />
-          Figma ↔ Tokens ↔ React ↔ LLM
+          Figma ↔ Tokens ↔ React ↔ Cursor/Claude
         </span>
         <span className="text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/20 flex items-center gap-1">
-          <Zap size={11} /> 5x Mais Produtividade de Código
+          <Zap size={11} /> Zero Retrabalho
         </span>
       </div>
     </div>
   );
 };
+
+/* 2. Visual: Criação de Design System Compatível com IA (Dobra 2) */
+export const VisualAIDesignSystemCreation: React.FC = () => {
+  const [componentMode, setComponentMode] = useState<'button' | 'card' | 'input'>('button');
+
+  return (
+    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs font-mono text-neutral-300 relative overflow-hidden select-none">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block" />
+          </div>
+          <span className="ml-2 text-[11px] text-neutral-400 font-sans font-medium tracking-tight">
+            UI Kit & Tokens do Zero
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full border border-purple-500/30 text-[10px] font-semibold font-sans">
+          <Layers size={12} />
+          <span>Biblioteca Viva & Escalável</span>
+        </div>
+      </div>
+
+      {/* Component Tabs */}
+      <div className="grid grid-cols-3 gap-1.5 mb-4 bg-white/[0.04] p-1 rounded-2xl border border-white/[0.06]">
+        <button 
+          onClick={() => setComponentMode('button')}
+          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all font-sans ${
+            componentMode === 'button' ? 'bg-white/20 text-white font-semibold' : 'text-neutral-400 hover:text-white'
+          }`}
+        >
+          Button Atomic
+        </button>
+        <button 
+          onClick={() => setComponentMode('card')}
+          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all font-sans ${
+            componentMode === 'card' ? 'bg-white/20 text-white font-semibold' : 'text-neutral-400 hover:text-white'
+          }`}
+        >
+          Card & Surface
+        </button>
+        <button 
+          onClick={() => setComponentMode('input')}
+          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all font-sans ${
+            componentMode === 'input' ? 'bg-white/20 text-white font-semibold' : 'text-neutral-400 hover:text-white'
+          }`}
+        >
+          Input & Form
+        </button>
+      </div>
+
+      {/* Interactive Component Forge */}
+      <div className="bg-black/80 rounded-2xl p-4 sm:p-5 border border-white/[0.06] flex flex-col justify-between min-h-[145px]">
+        {componentMode === 'button' && (
+          <div className="space-y-3">
+            <div className="text-[11px] text-neutral-400 font-sans">
+              Variantes atômicas padronizadas (Primary, Secondary, Outline):
+            </div>
+            <div className="flex flex-wrap gap-2.5 items-center">
+              <div className="px-4 py-2 rounded-xl bg-[#EC6726] dark:bg-[#FFD600] text-white dark:text-black font-sans font-bold text-xs shadow-md flex items-center gap-1.5">
+                <Sparkles size={12} /> Primary Action
+              </div>
+              <div className="px-4 py-2 rounded-xl bg-white/10 text-white font-sans font-medium text-xs border border-white/20">
+                Secondary
+              </div>
+              <div className="px-4 py-2 rounded-xl border border-white/30 text-neutral-300 font-sans text-xs">
+                Outline
+              </div>
+            </div>
+          </div>
+        )}
+
+        {componentMode === 'card' && (
+          <div className="space-y-2">
+            <div className="text-[11px] text-neutral-400 font-sans">
+              Superfície com raio aninhado e contraste WCAG AA:
+            </div>
+            <div className="p-3 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
+              <div className="space-y-1">
+                <div className="text-white font-bold font-sans text-xs">Analytics Card</div>
+                <div className="text-[10px] text-neutral-400 font-mono">radius: 1rem • shadow: md</div>
+              </div>
+              <div className="w-8 h-8 rounded-xl bg-[#EC6726]/20 border border-[#EC6726]/40 flex items-center justify-center text-[#FFD600] font-bold">
+                ✓
+              </div>
+            </div>
+          </div>
+        )}
+
+        {componentMode === 'input' && (
+          <div className="space-y-2">
+            <div className="text-[11px] text-neutral-400 font-sans">
+              Campos com acessibilidade e feedback de estado:
+            </div>
+            <div className="w-full px-3 py-2 rounded-xl bg-white/[0.04] border border-emerald-500/50 flex items-center justify-between text-xs text-white">
+              <span>email@empresa.com.br</span>
+              <span className="text-emerald-400 text-[10px] font-mono">● Válido</span>
+            </div>
+          </div>
+        )}
+
+        <div className="text-[10px] text-neutral-500 font-mono pt-2 border-t border-white/[0.06] flex items-center justify-between">
+          <span>Dark / Light Mode Automático</span>
+          <span className="text-[#FFD600]">100% Pronto para IA</span>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
+        <span className="flex items-center gap-1 text-neutral-300">
+          <CheckCircle2 size={13} className="text-purple-400" />
+          Figma UI Kit + Código React + Tokens
+        </span>
+        <span className="text-purple-400 font-semibold font-mono">Novas telas em minutos</span>
+      </div>
+    </div>
+  );
+};
+
+// Aliases for backwards compatibility
+export const VisualAIDesignSystem = VisualAIDesignSystemModernization;
 
 /* 2. Visual: Criação de Sites (Apple Studio Display / Safari Preview) */
 export const VisualSites: React.FC = () => {
@@ -758,11 +846,216 @@ export const VisualSocialMediaDesign: React.FC = () => {
   );
 };
 
+/* 10. Visual: Presença Digital & Redes Sociais Completa (Dobra 5) */
+export const VisualSocialMedia: React.FC = () => {
+  const [socialTab, setSocialTab] = useState<'creative' | 'planner'>('creative');
+
+  return (
+    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs text-neutral-300 relative select-none">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
+          <Share2 size={14} className="text-[#EC6726] dark:text-[#FFD600]" />
+          <span>Estratégia & Design de Alto Impacto</span>
+        </div>
+        <div className="flex bg-white/[0.06] rounded-full p-0.5 border border-white/[0.08]">
+          <button 
+            onClick={() => setSocialTab('creative')}
+            className={`px-2.5 py-1 rounded-full text-[10px] font-sans transition-all ${
+              socialTab === 'creative' ? 'bg-white/20 text-white font-bold' : 'text-neutral-400'
+            }`}
+          >
+            Peças Visuais
+          </button>
+          <button 
+            onClick={() => setSocialTab('planner')}
+            className={`px-2.5 py-1 rounded-full text-[10px] font-sans transition-all ${
+              socialTab === 'planner' ? 'bg-white/20 text-white font-bold' : 'text-neutral-400'
+            }`}
+          >
+            Calendário
+          </button>
+        </div>
+      </div>
+
+      {/* Content */}
+      {socialTab === 'creative' ? (
+        <div className="bg-black/70 p-4 rounded-2xl border border-white/[0.06] flex gap-3.5 items-center justify-center">
+          {/* Feed Carousel Card (4:5 Format) */}
+          <div className="w-36 h-44 rounded-2xl bg-gradient-to-b from-[#1E1E24] to-[#121216] border border-white/15 p-3 flex flex-col justify-between shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-[#EC6726]/20 rounded-full blur-xl pointer-events-none" />
+            <div className="space-y-1 z-10">
+              <span className="text-[8px] font-mono uppercase tracking-wider text-[#FFD600] bg-black/40 px-1.5 py-0.5 rounded border border-white/10">
+                Carrossel 1/5
+              </span>
+              <div className="text-[11px] font-display font-bold text-white leading-tight mt-1">
+                Autoridade & Conteúdo Estratégico
+              </div>
+            </div>
+
+            <div className="z-10 space-y-1.5">
+              <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-3/4 h-full bg-gradient-to-r from-[#EC6726] to-[#FFD600]" />
+              </div>
+              <div className="flex justify-between items-center text-[8px] text-neutral-400 font-mono">
+                <span>Arraste 👉</span>
+                <span className="text-white font-bold">1080x1350</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Stories / Reels Card (9:16 Format) */}
+          <div className="w-24 h-44 rounded-2xl bg-gradient-to-b from-[#2A1B18] to-[#121216] border border-[#EC6726]/40 p-2.5 flex flex-col justify-between shadow-lg relative overflow-hidden">
+            <div className="space-y-1">
+              <div className="flex justify-between items-center text-[7px] text-neutral-400 font-mono">
+                <span className="text-[#FFD600] font-bold">STORY</span>
+                <span>9:16</span>
+              </div>
+              <div className="w-full aspect-square rounded-lg bg-black/50 border border-white/10 flex items-center justify-center">
+                <Sparkles size={16} className="text-[#FFD600] animate-pulse" />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="text-[8px] font-bold text-white bg-white/10 py-1 rounded-md">
+                Engajamento
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-black/70 p-4 rounded-2xl border border-white/[0.06] space-y-3">
+          <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-mono">
+            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+              <div className="text-neutral-500">SEG</div>
+              <div className="text-white font-bold mt-0.5">Carrossel</div>
+              <div className="text-[8px] text-emerald-400 mt-1">● Publicado</div>
+            </div>
+            <div className="p-2 rounded-xl bg-[#EC6726]/15 border border-[#EC6726]/30">
+              <div className="text-[#FFD600] font-bold">QUA</div>
+              <div className="text-white font-bold mt-0.5">Case / Vídeo</div>
+              <div className="text-[8px] text-[#FFD600] mt-1">● Agendado 18h</div>
+            </div>
+            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+              <div className="text-neutral-500">SEX</div>
+              <div className="text-white font-bold mt-0.5">Infográfico</div>
+              <div className="text-[8px] text-blue-400 mt-1">● Pronto</div>
+            </div>
+            <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+              <div className="text-neutral-500">DOM</div>
+              <div className="text-white font-bold mt-0.5">Stories Box</div>
+              <div className="text-[8px] text-purple-400 mt-1">● Programado</div>
+            </div>
+          </div>
+
+          <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-between text-[11px] font-sans">
+            <span className="text-neutral-300">Copy persuasiva + hashtags segmentadas por nicho</span>
+            <span className="text-emerald-400 font-mono text-[10px]">● Alta Conversão</span>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
+        <span className="flex items-center gap-1 text-neutral-300">
+          <CheckCircle2 size={13} className="text-[#FFD600]" />
+          Instagram, LinkedIn e WhatsApp ativos com autoridade
+        </span>
+        <span className="text-[#FFD600] font-semibold font-mono">Feed Impecável</span>
+      </div>
+    </div>
+  );
+};
+
+/* 11. Visual: Design Gráfico & Materiais Impressos Completo (Dobra 8) */
+export const VisualPrintedMaterials: React.FC = () => {
+  return (
+    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs text-neutral-300 relative select-none">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
+          <Palette size={14} className="text-purple-400" />
+          <span>Fechamento Técnico para Gráfica (PDF/X-1a)</span>
+        </div>
+        <span className="text-[10px] bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full font-semibold border border-purple-500/30 font-mono">
+          CMYK 300 DPI • Sangrias
+        </span>
+      </div>
+
+      {/* Print Materials Grid: Business Card + 3-Fold Brochure */}
+      <div className="bg-black/70 p-4 rounded-2xl border border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Executive Business Card with QR */}
+        <div className="h-28 rounded-2xl bg-gradient-to-tr from-[#1E1E24] to-[#2D2D38] border border-white/20 p-3.5 flex items-center justify-between shadow-xl relative overflow-hidden">
+          <div className="space-y-1 z-10">
+            <div className="w-4 h-4 rounded bg-[#EC6726] dark:bg-[#FFD600] flex items-center justify-center font-bold text-white dark:text-black text-[7px]">
+              D
+            </div>
+            <div className="font-bold text-white text-xs font-display">
+              Cartão Executivo
+            </div>
+            <div className="text-[9px] text-[#FFD600]">
+              QR Code Dinâmico no Verso
+            </div>
+          </div>
+          <div className="w-14 h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-md">
+            <QrCode size={44} className="text-black" />
+          </div>
+        </div>
+
+        {/* Brochure 3-folds spec */}
+        <div className="h-28 rounded-2xl bg-[#18181D] border border-white/10 p-3 flex flex-col justify-between">
+          <div className="flex justify-between items-center text-[10px] text-neutral-400 font-mono">
+            <span className="text-white font-bold">Folder Tri-Fold & Catálogo</span>
+            <span className="text-emerald-400">Pronto p/ Impressão</span>
+          </div>
+          <div className="flex gap-1.5 h-12 my-1">
+            <div className="flex-1 bg-white/[0.04] border border-dashed border-white/20 rounded-lg flex items-center justify-center text-[8px] text-neutral-400">
+              Dobra 1
+            </div>
+            <div className="flex-1 bg-white/[0.06] border border-dashed border-white/30 rounded-lg flex items-center justify-center text-[8px] text-neutral-300">
+              Dobra 2
+            </div>
+            <div className="flex-1 bg-white/[0.04] border border-dashed border-white/20 rounded-lg flex items-center justify-center text-[8px] text-neutral-400">
+              Dobra 3
+            </div>
+          </div>
+          <div className="text-[9px] text-neutral-400 font-mono flex justify-between">
+            <span>Marcas de corte</span>
+            <span className="text-purple-400">Verniz localizado</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Specs */}
+      <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
+        <span className="flex items-center gap-1 text-neutral-300">
+          <CheckCircle2 size={13} className="text-purple-400" />
+          Cartões, folders, papel timbrado e pastas com acabamento de luxo
+        </span>
+        <span className="text-purple-400 font-semibold">Zero Erros na Gráfica</span>
+      </div>
+    </div>
+  );
+};
+
+// Backwards compatibility and semantic aliases
+export const VisualWebsites = VisualSites;
+export const VisualBranding = VisualLogoBrand;
+
 export const serviceVisualMap: Record<string, React.ReactNode> = {
-  'ai-ds': <VisualAIDesignSystem />,
-  'sites': <VisualSites />,
+  // New 8 dobras keys
+  'ai-ds-modernization': <VisualAIDesignSystemModernization />,
+  'ai-ds-creation': <VisualAIDesignSystemCreation />,
+  'websites': <VisualWebsites />,
   'landing-pages': <VisualLandingPages />,
+  'social-media': <VisualSocialMedia />,
   'google-ads': <VisualGoogleAds />,
+  'branding': <VisualBranding />,
+  'printed-materials': <VisualPrintedMaterials />,
+
+  // Legacy keys support
+  'ai-ds': <VisualAIDesignSystemModernization />,
+  'sites': <VisualWebsites />,
   'social-media-management': <VisualSocialMediaManagement />,
   'social-media-design': <VisualSocialMediaDesign />,
   'logo-brand': <VisualLogoBrand />,

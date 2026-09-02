@@ -102,7 +102,6 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
         {/* Productized Services List (Apple Product Cards) */}
         <div className="space-y-16 lg:space-y-20">
           {filteredServices.map((service, index) => {
-            const isFlagship = service.isFlagship;
             const isReversed = index % 2 === 1;
 
             return (
@@ -113,31 +112,13 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={`p-6 sm:p-10 lg:p-12 rounded-3xl backdrop-blur-2xl transition-all duration-300 relative overflow-hidden ${
-                  isFlagship 
-                    ? 'bg-white dark:bg-[#121216] border-2 border-[#EC6726]/40 dark:border-[#FFD600]/40 shadow-md' 
-                    : 'bg-white/80 dark:bg-[#101014] border border-black/[0.08] dark:border-white/[0.08] shadow-xs'
-                }`}
+                className="p-6 sm:p-10 lg:p-12 rounded-3xl backdrop-blur-2xl transition-all duration-300 relative overflow-hidden bg-white/80 dark:bg-[#101014] border border-black/[0.08] dark:border-white/[0.08] shadow-xs hover:border-black/[0.15] dark:hover:border-white/[0.15]"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                   
                   {/* Left (or Right): Text & Specs Content */}
                   <div className={`lg:col-span-6 flex flex-col items-start ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     
-                    {/* Badge */}
-                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                      {isFlagship && (
-                        <span className="px-3 py-1 rounded-full bg-[#EC6726]/15 dark:bg-[#FFD600]/15 text-[#EC6726] dark:text-[#FFD600] text-xs font-bold font-mono tracking-wider uppercase border border-[#EC6726]/30 dark:border-[#FFD600]/30 flex items-center gap-1.5 shadow-xs">
-                          <Sparkles size={12} />
-                          {service.highlightBadge || 'Carro-Chefe IA'}
-                        </span>
-                      )}
-                      
-                      <span className="px-3 py-1 rounded-full bg-black/[0.04] dark:bg-white/[0.06] text-neutral-600 dark:text-neutral-400 text-xs font-mono uppercase tracking-wider">
-                        {service.category === 'digital' ? '✦ Digital Product' : '✦ Visual Identity'}
-                      </span>
-                    </div>
-
                     {/* Title */}
                     <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3 text-brand-dark dark:text-white">
                       {service.title}
@@ -174,7 +155,7 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                         onClick={() => handleRequestQuote(service.title)}
                         className="px-6 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-tight bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] dark:hover:bg-yellow-300 text-white dark:text-black transition-all duration-200 shadow-sm flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                       >
-                        <span>Solicitar Orçamento</span>
+                        <span>{service.actionText || 'Solicitar Orçamento'}</span>
                         <ArrowRight size={14} />
                       </button>
 

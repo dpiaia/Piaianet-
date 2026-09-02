@@ -134,23 +134,14 @@ const FreelaHeader: React.FC<FreelaHeaderProps> = ({ onNavigateHome }) => {
         </div>
 
         {/* Mobile Hamburger Toggle (Visible only on mobile/tablet < md) */}
-        <div className="flex items-center gap-2 md:hidden">
-          {/* Quick CTA on mobile if user wants direct contact */}
-          <button
-            onClick={() => handleContactClick()}
-            className="text-xs font-medium tracking-tight bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] text-white dark:text-black px-3 py-1.5 rounded-full transition-all shadow-xs flex items-center gap-1 cursor-pointer"
-          >
-            <MessageSquare size={12} />
-            <span>{t.contact}</span>
-          </button>
-
+        <div className="flex items-center md:hidden">
           {/* Hamburger Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 rounded-xl bg-black/[0.05] dark:bg-white/[0.08] border border-black/[0.08] dark:border-white/[0.1] text-brand-dark dark:text-white hover:bg-black/[0.1] dark:hover:bg-white/[0.15] transition-all cursor-pointer"
+            className="p-2.5 rounded-xl bg-black/[0.05] dark:bg-white/[0.08] border border-black/[0.08] dark:border-white/[0.1] text-brand-dark dark:text-white hover:bg-black/[0.1] dark:hover:bg-white/[0.15] transition-all cursor-pointer shadow-2xs"
             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>

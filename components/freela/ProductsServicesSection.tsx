@@ -39,24 +39,20 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
   return (
     <section 
       id="services-products"
-      className="py-28 bg-brand-light dark:bg-[#050507] relative overflow-hidden transition-colors duration-500"
+      className="py-24 bg-brand-light dark:bg-[#08080A] relative overflow-hidden transition-colors duration-300"
     >
-      {/* Background Cosmic Atmosphere */}
-      <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-[#EC6726]/8 dark:bg-[#FFD600]/8 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-blue-500/8 dark:bg-purple-500/8 rounded-full blur-[160px] pointer-events-none" />
-
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Section Header (Apple Keynote Layout) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-mono uppercase tracking-widest text-[#EC6726] dark:text-[#FFD600] mb-4 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono uppercase tracking-widest text-[#EC6726] dark:text-[#FFD600] mb-4">
             <Sparkles size={13} />
             <span>{t.badge}</span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 text-brand-dark dark:text-white leading-tight">
             {t.title}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EC6726] to-[#FFD600] dark:from-[#FFD600] dark:to-orange-400">
+            <span className="text-[#EC6726] dark:text-[#FFD600]">
               {t.titleHighlight}
             </span>
           </h2>
@@ -116,15 +112,10 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className={`p-6 sm:p-10 lg:p-12 rounded-3xl backdrop-blur-2xl transition-all duration-300 relative overflow-hidden ${
                   isFlagship 
-                    ? 'bg-white/80 dark:bg-white/[0.04] border-2 border-[#EC6726]/40 dark:border-[#FFD600]/40 shadow-[0_12px_45px_rgba(236,103,38,0.08)] dark:shadow-[0_16px_50px_rgba(255,214,0,0.1)]' 
-                    : 'bg-white/70 dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.4)]'
+                    ? 'bg-white dark:bg-[#121216] border-2 border-[#EC6726]/40 dark:border-[#FFD600]/40 shadow-md' 
+                    : 'bg-white/80 dark:bg-[#101014] border border-black/[0.08] dark:border-white/[0.08] shadow-xs'
                 }`}
               >
-                {/* Flagship Ambient Glow */}
-                {isFlagship && (
-                  <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#EC6726]/15 dark:bg-[#FFD600]/15 rounded-full blur-3xl pointer-events-none" />
-                )}
-
                 <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                   
                   {/* Left (or Right): Text & Specs Content */}

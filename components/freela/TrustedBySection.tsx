@@ -13,17 +13,17 @@ const TrustedBySection: React.FC = () => {
   return (
     <section 
       id="trusted-by"
-      className="py-24 bg-brand-light dark:bg-[#050507] border-t border-black/[0.04] dark:border-white/[0.06] relative overflow-hidden transition-colors duration-500"
+      className="py-20 bg-brand-light dark:bg-[#08080A] border-t border-black/[0.06] dark:border-white/[0.06] relative overflow-hidden transition-colors duration-300"
     >
-      <div className="container mx-auto px-6 relative z-10 mb-12 text-center max-w-7xl">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] text-xs font-mono uppercase tracking-widest text-[#EC6726] dark:text-[#FFD600] mb-3 backdrop-blur-md">
+      <div className="container mx-auto px-6 relative z-10 mb-10 text-center max-w-7xl">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.08] dark:border-white/[0.08] text-xs font-mono uppercase tracking-widest text-[#EC6726] dark:text-[#FFD600] mb-3">
           <ShieldCheck size={13} />
           <span>{t.badge}</span>
         </div>
 
         <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brand-dark dark:text-white">
           {t.title}{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EC6726] to-[#FFD600] dark:from-[#FFD600] dark:to-orange-400">
+          <span className="text-[#EC6726] dark:text-[#FFD600]">
             {t.titleHighlight}
           </span>
         </h2>

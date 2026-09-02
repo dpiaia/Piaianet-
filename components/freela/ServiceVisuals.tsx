@@ -12,9 +12,6 @@ export const VisualAIDesignSystem: React.FC = () => {
 
   return (
     <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs font-mono text-neutral-300 relative overflow-hidden select-none">
-      {/* Subtle Cosmic Ambient Glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#EC6726]/10 dark:bg-[#FFD600]/10 blur-3xl pointer-events-none" />
-
       {/* macOS Window Titlebar */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2">
@@ -249,9 +246,9 @@ export const VisualSites: React.FC = () => {
         </div>
 
         {/* Hero Banner Mock */}
-        <div className="p-4 rounded-xl bg-gradient-to-br from-white/[0.06] via-white/[0.02] to-transparent border border-white/[0.08] flex flex-col sm:flex-row items-center gap-4">
+        <div className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col sm:flex-row items-center gap-4">
           <div className="flex-1 space-y-2 text-left w-full">
-            <div className="w-3/4 h-3 bg-gradient-to-r from-[#EC6726] to-[#FFD600] rounded-full" />
+            <div className="w-3/4 h-3 bg-[#EC6726] dark:bg-[#FFD600] rounded-full" />
             <div className="w-1/2 h-2.5 bg-white/60 rounded-full" />
             <div className="w-full h-2 bg-white/20 rounded-full" />
             <div className="w-2/3 h-2 bg-white/20 rounded-full" />
@@ -328,7 +325,7 @@ export const VisualLandingPages: React.FC = () => {
           <motion.div 
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ duration: 2.5, repeat: Infinity }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EC6726] to-[#FFD600] text-white dark:text-black px-6 py-2.5 rounded-full text-xs font-bold shadow-lg shadow-[#EC6726]/25 cursor-pointer font-sans"
+            className="inline-flex items-center gap-2 bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] text-white dark:text-black px-6 py-2.5 rounded-full text-xs font-bold shadow-md cursor-pointer font-sans"
           >
             <Sparkles size={13} />
             <span>GARANTIR VAGA AGORA</span>
@@ -444,7 +441,7 @@ export const VisualLogoBrand: React.FC = () => {
             {/* Concentric Golden Ratio Circles */}
             <div className="absolute inset-2 rounded-full border border-dashed border-[#EC6726]/40" />
             <div className="absolute inset-4 rounded-full border border-dashed border-[#FFD600]/30" />
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#EC6726] to-[#FFD600] flex items-center justify-center font-display font-black text-white text-lg shadow-md">
+            <div className="w-10 h-10 rounded-full bg-[#EC6726] dark:bg-[#FFD600] flex items-center justify-center font-display font-black text-white dark:text-black text-lg shadow-md">
               D
             </div>
             <span className="absolute -bottom-2 text-[8px] font-mono text-[#FFD600] bg-black px-1.5 py-0.2 rounded-full border border-white/20">

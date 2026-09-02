@@ -97,25 +97,22 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome, sel
   return (
     <section 
       id="contact"
-      className="py-28 bg-brand-light dark:bg-[#050507] relative overflow-hidden transition-colors duration-500 border-t border-black/[0.04] dark:border-white/[0.06]"
+      className="py-24 bg-brand-light dark:bg-[#08080A] relative overflow-hidden transition-colors duration-300 border-t border-black/[0.06] dark:border-white/[0.06]"
     >
       <ConfettiCanvas ref={confettiRef} />
-
-      {/* Atmospheric Space Aura */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#EC6726]/8 dark:bg-[#FFD600]/8 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-mono uppercase tracking-widest mb-4 border border-emerald-500/20 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-mono uppercase tracking-widest mb-4 border border-emerald-500/20">
             <Sparkles size={13} />
             <span>{t.badge}</span>
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 text-brand-dark dark:text-white leading-tight">
             {t.title}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EC6726] to-[#FFD600] dark:from-[#FFD600] dark:to-orange-400">
+            <span className="text-[#EC6726] dark:text-[#FFD600]">
               {t.titleHighlight}
             </span>
           </h2>

@@ -24,14 +24,11 @@ const CredentialsMarquee: React.FC = () => {
   return (
     <section 
       id="credentials-marquee"
-      className="py-8 bg-black/[0.02] dark:bg-white/[0.02] border-y border-black/[0.04] dark:border-white/[0.06] overflow-hidden relative select-none"
+      className="py-6 bg-black/[0.02] dark:bg-white/[0.02] border-y border-black/[0.06] dark:border-white/[0.06] overflow-hidden relative select-none"
     >
-      {/* Subtle cosmic background glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#EC6726]/5 dark:via-[#FFD600]/5 to-transparent pointer-events-none" />
-
-      {/* Apple Edge Fade Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-brand-light dark:from-[#050507] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-brand-light dark:from-[#050507] to-transparent z-10 pointer-events-none" />
+      {/* Edge Fade Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-r from-brand-light dark:from-[#08080A] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-36 bg-gradient-to-l from-brand-light dark:from-[#08080A] to-transparent z-10 pointer-events-none" />
 
       {/* Marquee Track */}
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused] gap-4 sm:gap-5">

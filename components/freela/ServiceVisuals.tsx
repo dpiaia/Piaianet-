@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Bot, Sparkles, CheckCircle2, TrendingUp, Search, QrCode, 
   Palette, FileText, Monitor, Smartphone, Gauge, Zap, 
-  Code2, Check, ArrowRight, Layers, Eye, RefreshCw, Star
+  Code2, Check, ArrowRight, Layers, Eye, RefreshCw, Star,
+  Share2, Calendar, Image as ImageIcon, MessageCircle, Heart, Users
 } from 'lucide-react';
 
 /* 1. Visual: Adequação de Design System para IA (Apple macOS Studio Inspector) */
@@ -614,11 +615,156 @@ export const VisualCartaoPapelaria: React.FC = () => {
   );
 };
 
+/* 8. Visual: Administração de Redes Sociais (Content Ops & Planner Dashboard) */
+export const VisualSocialMediaManagement: React.FC = () => {
+  return (
+    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs text-neutral-300 relative select-none">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
+          <Share2 size={14} className="text-[#EC6726] dark:text-[#FFD600]" />
+          <span>Gestão & Calendário Editorial</span>
+        </div>
+        <span className="text-[10px] bg-emerald-500/15 text-emerald-400 px-3 py-0.5 rounded-full font-semibold border border-emerald-500/30 flex items-center gap-1 font-mono">
+          <TrendingUp size={11} /> +340% Alcance
+        </span>
+      </div>
+
+      {/* Social Planner / Schedule UI */}
+      <div className="bg-black/70 p-4 rounded-2xl border border-white/[0.06] space-y-3">
+        {/* Weekly Mini Planner Strip */}
+        <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-mono">
+          <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+            <div className="text-neutral-500">SEG</div>
+            <div className="text-white font-bold mt-0.5">Carrossel</div>
+            <div className="text-[8px] text-emerald-400 mt-1">● Postado</div>
+          </div>
+          <div className="p-2 rounded-xl bg-[#EC6726]/15 border border-[#EC6726]/30">
+            <div className="text-[#FFD600] font-bold">QUA</div>
+            <div className="text-white font-bold mt-0.5">Reels / Case</div>
+            <div className="text-[8px] text-[#FFD600] mt-1">● Agendado 18h</div>
+          </div>
+          <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+            <div className="text-neutral-500">SEX</div>
+            <div className="text-white font-bold mt-0.5">Infográfico</div>
+            <div className="text-[8px] text-blue-400 mt-1">● Pronto</div>
+          </div>
+          <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+            <div className="text-neutral-500">DOM</div>
+            <div className="text-white font-bold mt-0.5">Stories Quiz</div>
+            <div className="text-[8px] text-purple-400 mt-1">● Programado</div>
+          </div>
+        </div>
+
+        {/* Real-time Interaction Bar */}
+        <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-between text-[11px] font-sans">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#EC6726] to-[#FFD600] flex items-center justify-center text-white font-bold text-[10px]">
+              DP
+            </div>
+            <div>
+              <div className="text-white font-medium">Copy estratégica & Hashtags</div>
+              <div className="text-[10px] text-neutral-400">Público-alvo qualificado & conversão de leads</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 text-neutral-400 font-mono text-[10px]">
+            <span className="flex items-center gap-1 text-rose-400"><Heart size={11} /> 1.2k</span>
+            <span className="flex items-center gap-1 text-blue-400"><MessageCircle size={11} /> 148</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
+        <span className="flex items-center gap-1 text-neutral-300">
+          <CheckCircle2 size={13} className="text-emerald-400" />
+          Instagram, LinkedIn, Facebook e TikTok
+        </span>
+        <span className="text-emerald-400 font-semibold font-mono">Consistência 100%</span>
+      </div>
+    </div>
+  );
+};
+
+/* 9. Visual: Criação de Imagens para Redes Sociais (Multi-Format Social Design Suite) */
+export const VisualSocialMediaDesign: React.FC = () => {
+  return (
+    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs text-neutral-300 relative select-none">
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
+          <ImageIcon size={14} className="text-[#FFD600]" />
+          <span>Design Visual de Alto Impacto</span>
+        </div>
+        <span className="text-[10px] bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full font-semibold border border-purple-500/30 font-mono">
+          Feed 4:5 • Stories 9:16
+        </span>
+      </div>
+
+      {/* Multi-format Creative Grid */}
+      <div className="bg-black/70 p-4 rounded-2xl border border-white/[0.06] flex gap-3.5 items-center justify-center">
+        {/* Feed Carousel Card (4:5 Format) */}
+        <div className="w-36 h-44 rounded-2xl bg-gradient-to-b from-[#1E1E24] to-[#121216] border border-white/15 p-3 flex flex-col justify-between shadow-lg relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-[#EC6726]/20 rounded-full blur-xl pointer-events-none" />
+          <div className="space-y-1 z-10">
+            <span className="text-[8px] font-mono uppercase tracking-wider text-[#FFD600] bg-black/40 px-1.5 py-0.5 rounded border border-white/10">
+              Carrossel 1/5
+            </span>
+            <div className="text-[11px] font-display font-bold text-white leading-tight mt-1">
+              Como Escalar com Design Ops & IA
+            </div>
+          </div>
+
+          <div className="z-10 space-y-1.5">
+            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+              <div className="w-3/4 h-full bg-gradient-to-r from-[#EC6726] to-[#FFD600]" />
+            </div>
+            <div className="flex justify-between items-center text-[8px] text-neutral-400 font-mono">
+              <span>Arraste pro lado 👉</span>
+              <span className="text-white font-bold">1080x1350</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Stories / Reels Card (9:16 Format) */}
+        <div className="w-24 h-44 rounded-2xl bg-gradient-to-b from-[#2A1B18] to-[#121216] border border-[#EC6726]/40 p-2.5 flex flex-col justify-between shadow-lg relative overflow-hidden">
+          <div className="space-y-1">
+            <div className="flex justify-between items-center text-[7px] text-neutral-400 font-mono">
+              <span className="text-[#FFD600] font-bold">STORY</span>
+              <span>9:16</span>
+            </div>
+            <div className="w-full aspect-square rounded-lg bg-black/50 border border-white/10 flex items-center justify-center">
+              <Sparkles size={16} className="text-[#FFD600] animate-pulse" />
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="text-[8px] font-bold text-white bg-white/10 py-1 rounded-md">
+              Arrasta pra Cima
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
+        <span className="flex items-center gap-1 text-neutral-300">
+          <CheckCircle2 size={13} className="text-[#FFD600]" />
+          Identidade visual alinhada, cores, tipografia e alta resolução
+        </span>
+        <span className="text-[#FFD600] font-semibold font-mono">Pronto p/ Postar</span>
+      </div>
+    </div>
+  );
+};
+
 export const serviceVisualMap: Record<string, React.ReactNode> = {
   'ai-ds': <VisualAIDesignSystem />,
   'sites': <VisualSites />,
   'landing-pages': <VisualLandingPages />,
   'google-ads': <VisualGoogleAds />,
+  'social-media-management': <VisualSocialMediaManagement />,
+  'social-media-design': <VisualSocialMediaDesign />,
   'logo-brand': <VisualLogoBrand />,
   'folhetos-folders': <VisualFolhetosFolders />,
   'cartao-papelaria': <VisualCartaoPapelaria />,

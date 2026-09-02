@@ -36,6 +36,9 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
     window.open(`https://api.whatsapp.com/send?phone=5519981517551&text=${message}`, '_blank');
   };
 
+  const digitalCount = t.items.filter(item => item.category === 'digital').length;
+  const graphicCount = t.items.filter(item => item.category === 'grafico').length;
+
   return (
     <section 
       id="services-products"
@@ -81,7 +84,7 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                   : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'
               }`}
             >
-              Digital (4)
+              Digital ({digitalCount})
             </button>
             <button
               onClick={() => setFilter('graphic')}
@@ -91,7 +94,7 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                   : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'
               }`}
             >
-              Gráfico (3)
+              Gráfico ({graphicCount})
             </button>
           </div>
         </div>

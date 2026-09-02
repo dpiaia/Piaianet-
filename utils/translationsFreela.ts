@@ -44,6 +44,11 @@ export interface FreelaTranslations {
   hero: {
     availabilityBadge: string;
     greeting: string;
+    rotatingTitles: {
+      prefix: string;
+      highlight: string;
+      suffix?: string;
+    }[];
     titleStart: string;
     titleHighlight: string;
     titleEnd: string;
@@ -160,6 +165,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
     hero: {
       availabilityBadge: 'Disponível para novos projetos',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
+      rotatingTitles: [
+        { prefix: 'Design Systems para IA & ', highlight: 'Frontend de alta performance' },
+        { prefix: 'Sites pessoais ou para ', highlight: 'sua empresa' },
+        { prefix: 'Imagens para ', highlight: 'redes sociais, impressos ou anúncios' },
+      ],
       titleStart: 'Design Systems para IA &',
       titleHighlight: 'Frontend de alta performance',
       titleEnd: '',
@@ -309,8 +319,44 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           idealFor: 'Empresas que precisam de novos clientes qualificados todos os dias pelo Google.',
           tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
         },
+        {
+          id: 'social-media-management',
+          category: 'digital',
+          productType: 'Social Media & Gestão',
+          title: 'Administração de Redes Sociais',
+          tagline: 'Gestão estratégica de perfil, calendário editorial, engajamento e métricas de crescimento.',
+          description: 'Planejamento editorial completo, publicação programada, curadoria de temas, monitoramento de interações e relatórios periódicos de alcance para manter suas redes ativas, atraentes e gerando novas oportunidades de negócio.',
+          deliverables: [
+            'Calendário editorial mensal com datas, temas e formatos',
+            'Programação e agendamento de posts (feed, stories e reels)',
+            'Copywriting persuasivo e hashtags estratégicas por nicho',
+            'Relatório mensal de métricas de engajamento e novas oportunidades'
+          ],
+          timeline: 'Gestão Contínua (Mensal)',
+          idealFor: 'Empresas, clínicas, consultores e marcas que precisam de presença consistente e profissional sem gastar tempo operacional.',
+          tech: ['Instagram', 'LinkedIn', 'Meta Business Suite', 'Canva / Adobe', 'Analytics'],
+          highlightBadge: 'CRESCIMENTO',
+        },
 
         // GRÁFICO
+        {
+          id: 'social-media-design',
+          category: 'grafico',
+          productType: 'Design Visual & Social Media',
+          title: 'Criação de Imagens para Redes Sociais',
+          tagline: 'Posts, carrosséis, stories e criativos de alto impacto visual para engajar e converter.',
+          description: 'Criação de artes personalizadas seguindo a identidade visual da sua marca, com hierarquia tipográfica, paleta de cores consistente e design moderno para Instagram, LinkedIn, Facebook e anúncios.',
+          deliverables: [
+            'Pacotes de posts para feed (estáticos e carrosséis informativos)',
+            'Templates de stories e capas para destaques',
+            'Tratamento e recorte profissional de fotos e produtos',
+            'Arquivos exportados em alta resolução prontos para postar (PNG/JPG)'
+          ],
+          timeline: '3 a 7 dias úteis (ou pacotes mensais)',
+          idealFor: 'Marcas que desejam elevar a percepção de valor e se destacar visualmente no feed.',
+          tech: ['Photoshop', 'Illustrator', 'Figma', 'Formatos 1080x1350 / 1080x1920'],
+          highlightBadge: 'DESTAQUE',
+        },
         {
           id: 'logo-brand',
           category: 'grafico',
@@ -527,6 +573,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
     hero: {
       availabilityBadge: 'Available for New Projects',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
+      rotatingTitles: [
+        { prefix: 'AI Design Systems & ', highlight: 'High-Performance Frontend' },
+        { prefix: 'Websites for personal or ', highlight: 'your company' },
+        { prefix: 'Visuals for ', highlight: 'social media, print or ads' },
+      ],
       titleStart: 'AI Design Systems &',
       titleHighlight: 'High-Performance Frontend',
       titleEnd: '',
@@ -676,8 +727,44 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           idealFor: 'Companies seeking qualified leads and high-intent buyers daily via Google.',
           tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
         },
+        {
+          id: 'social-media-management',
+          category: 'digital',
+          productType: 'Social Media & Growth',
+          title: 'Social Media Management',
+          tagline: 'Strategic profile curation, editorial scheduling, engagement and audience growth.',
+          description: 'Full-cycle social strategy: monthly content calendars, scheduled publishing across platforms, high-converting copywriting, community monitoring, and analytical reporting to keep your brand relevant and generating business inquiries.',
+          deliverables: [
+            'Monthly editorial calendar with themes, post types and key dates',
+            'Multi-platform scheduling (Feed, Stories, Reels and Carousels)',
+            'Conversion-driven copy and tailored niche hashtag strategy',
+            'Monthly growth and engagement metrics analysis'
+          ],
+          timeline: 'Ongoing Monthly Retainer',
+          idealFor: 'Businesses, founders, clinics, and brands requiring a consistent, authoritative social presence without operational friction.',
+          tech: ['Instagram', 'LinkedIn', 'Meta Business Suite', 'Canva / Adobe', 'Analytics'],
+          highlightBadge: 'GROWTH',
+        },
 
         // GRÁFICO
+        {
+          id: 'social-media-design',
+          category: 'grafico',
+          productType: 'Visual Design & Social Media',
+          title: 'Social Media Visuals & Creative Design',
+          tagline: 'High-impact social posts, carousels, stories, and ad creatives that captivate.',
+          description: 'Custom social graphics crafted to reflect your visual identity: rigorous typographic hierarchy, consistent color palette, and bespoke design for Instagram, LinkedIn, Facebook, and ad formats.',
+          deliverables: [
+            'Feed post packs (static key visuals & educational carousels)',
+            'Story templates and highlight covers',
+            'Professional photo retouching and asset clipping',
+            'High-resolution exported files ready for immediate publishing'
+          ],
+          timeline: '3 to 7 business days (or monthly packs)',
+          idealFor: 'Brands looking to elevate market perception and stand out with world-class visuals.',
+          tech: ['Photoshop', 'Illustrator', 'Figma', '1080x1350 / 1080x1920 Formats'],
+          highlightBadge: 'FEATURED',
+        },
         {
           id: 'logo-brand',
           category: 'grafico',
@@ -894,6 +981,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
     hero: {
       availabilityBadge: 'Disponible para Nuevos Proyectos',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
+      rotatingTitles: [
+        { prefix: 'Design Systems para IA y ', highlight: 'Frontend de Alto Rendimiento' },
+        { prefix: 'Sitios web personales o para ', highlight: 'su empresa' },
+        { prefix: 'Imágenes para ', highlight: 'redes sociales, impresos o anuncios' },
+      ],
       titleStart: 'Design Systems para IA y',
       titleHighlight: 'Frontend de Alto Rendimiento',
       titleEnd: '',
@@ -1043,8 +1135,44 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           idealFor: 'Empresas que buscan clientes calificados diariamente a través de Google.',
           tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
         },
+        {
+          id: 'social-media-management',
+          category: 'digital',
+          productType: 'Social Media & Gestión',
+          title: 'Administración de Redes Sociales',
+          tagline: 'Gestión estratégica de perfiles, calendario editorial, interacción y métricas.',
+          description: 'Planificación de contenidos, programación de publicaciones, redacción estratégica, monitoreo de la comunidad e informes de rendimiento para impulsar tu presencia digital.',
+          deliverables: [
+            'Calendario editorial mensual con temas y formatos estratégicos',
+            'Programación de publicaciones en múltiples redes sociales',
+            'Redacción publicitaria persuasiva y selección de hashtags',
+            'Reporte mensual de métricas de crecimiento y alcance'
+          ],
+          timeline: 'Gestión Continua (Mensual)',
+          idealFor: 'Empresas, clínicas y profesionales que desean una presencia sólida y constante sin complicaciones.',
+          tech: ['Instagram', 'LinkedIn', 'Meta Business Suite', 'Canva / Adobe', 'Analytics'],
+          highlightBadge: 'CRECIMIENTO',
+        },
 
         // GRÁFICO
+        {
+          id: 'social-media-design',
+          category: 'grafico',
+          productType: 'Diseño Visual & Social Media',
+          title: 'Creación de Imágenes para Redes Sociales',
+          tagline: 'Diseño visual de alto impacto para posts, carruseles, historias y anuncios.',
+          description: 'Diseño de piezas visuales a medida alineadas con la identidad de tu marca, con tipografía cuidada, paleta de colores armónica y estética moderna para destacar en el feed.',
+          deliverables: [
+            'Packs de publicaciones para el feed (estáticas y carruseles)',
+            'Plantillas para historias y portadas de destacados',
+            'Retoque y recorte profesional de imágenes y productos',
+            'Archivos exportados en alta resolución listos para publicar'
+          ],
+          timeline: '3 a 7 días hábiles (o planes mensuales)',
+          idealFor: 'Marcas y empresas que buscan elevar la percepción visual y captar la atención.',
+          tech: ['Photoshop', 'Illustrator', 'Figma', 'Formatos 1080x1350 / 1080x1920'],
+          highlightBadge: 'DESTACADO',
+        },
         {
           id: 'logo-brand',
           category: 'grafico',

@@ -149,12 +149,13 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <button
-            className="text-brand-dark dark:text-white p-1"
+            className="p-2 rounded-xl bg-black/[0.05] dark:bg-white/[0.08] border border-black/[0.08] dark:border-white/[0.1] text-brand-dark dark:text-white hover:bg-black/[0.1] dark:hover:bg-white/[0.15] transition-all cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -166,15 +167,16 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-brand-dark border-b border-brand-lead/10 dark:border-white/10"
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden bg-white/95 dark:bg-[#0A0A0E]/95 backdrop-blur-2xl border-b border-brand-lead/10 dark:border-white/10 shadow-2xl"
           >
             <nav className="flex flex-col p-6 space-y-6">
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-3">
                 {navItems.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    className="text-lg font-medium text-neutral-600 dark:text-neutral-300 hover:text-brand-lead dark:hover:text-brand-yellow"
+                    className="text-base font-medium text-neutral-700 dark:text-neutral-200 hover:text-brand-lead dark:hover:text-brand-yellow transition-colors py-1.5 px-2 rounded-lg hover:bg-black/[0.03] dark:hover:bg-white/[0.05]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
@@ -182,32 +184,52 @@ const Header: React.FC = () => {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-brand-lead/10 dark:border-white/10">
-                 <div className="flex items-center justify-between mb-6">
-                    <span className="text-neutral-500 text-sm flex items-center gap-2"><Sun size={14}/> Tema:</span>
-                    <div className="flex gap-2">
+              <div className="pt-4 border-t border-black/[0.08] dark:border-white/[0.1] space-y-4">
+                 <div className="flex items-center justify-between">
+                    <span className="text-neutral-500 text-xs font-mono uppercase tracking-wider flex items-center gap-2">
+                      <Sun size={14}/> Tema:
+                    </span>
+                    <div className="flex gap-2 bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] p-1 rounded-xl">
                       {themes.map((t) => (
                         <button
                           key={t.id}
                           onClick={() => setTheme(t.id)}
-                          className={`p-2 rounded-lg transition-colors ${
+                          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-all ${
                             theme === t.id 
-                              ? 'bg-brand-lead/10 dark:bg-white/10 text-brand-lead dark:text-brand-yellow' 
-                              : 'text-neutral-400'
+                              ? 'bg-white dark:bg-white/20 text-brand-dark dark:text-white shadow-xs font-bold' 
+                              : 'text-neutral-500 hover:text-brand-dark dark:hover:text-white'
                           }`}
                         >
                           {t.icon}
+                          <span>{t.label}</span>
                         </button>
                       ))}
                     </div>
                  </div>
 
                  <div className="flex items-center justify-between">
-                    <span className="text-neutral-500 text-sm flex items-center gap-2"><Globe size={14}/> Idioma:</span>
-                    <div className="flex gap-4">
-                      <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>PT</button>
-                      <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>EN</button>
-                      <button onClick={() => setLanguage('es')} className={language === 'es' ? 'text-brand-lead dark:text-brand-yellow' : 'text-brand-dark dark:text-white'}>ES</button>
+                    <span className="text-neutral-500 text-xs font-mono uppercase tracking-wider flex items-center gap-2">
+                      <Globe size={14}/> Idioma:
+                    </span>
+                    <div className="flex items-center gap-1 text-xs font-mono bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] rounded-full p-0.5">
+                      <button 
+                        onClick={() => setLanguage('pt')} 
+                        className={`px-2.5 py-1 rounded-full transition-all font-bold ${language === 'pt' ? 'bg-white dark:bg-white/20 text-brand-lead dark:text-brand-yellow shadow-xs' : 'text-neutral-500'}`}
+                      >
+                        PT
+                      </button>
+                      <button 
+                        onClick={() => setLanguage('en')} 
+                        className={`px-2.5 py-1 rounded-full transition-all font-bold ${language === 'en' ? 'bg-white dark:bg-white/20 text-brand-lead dark:text-brand-yellow shadow-xs' : 'text-neutral-500'}`}
+                      >
+                        EN
+                      </button>
+                      <button 
+                        onClick={() => setLanguage('es')} 
+                        className={`px-2.5 py-1 rounded-full transition-all font-bold ${language === 'es' ? 'bg-white dark:bg-white/20 text-brand-lead dark:text-brand-yellow shadow-xs' : 'text-neutral-500'}`}
+                      >
+                        ES
+                      </button>
                     </div>
                  </div>
               </div>

@@ -1,5 +1,6 @@
 {
   "name": "Denis Piaia Portfolio",
-  "description": "Portfólio profissional interativo de Denis Piaia, UX Design Leader.",
-  "requestFramePermissions": []
+  "description": "Portfólio profissional interativo e landing page comercial de Denis Piaia - Design Ops, Design Systems para IA e Frontend.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

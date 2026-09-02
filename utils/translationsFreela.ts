@@ -1,80 +1,93 @@
+export interface ServiceItem {
+  id: string;
+  category: 'digital' | 'grafico';
+  isFlagship?: boolean;
+  title: string;
+  tagline: string;
+  description: string;
+  deliverables: string[];
+  timeline: string;
+  idealFor: string;
+  tech: string[];
+  highlightBadge?: string;
+  productType: string;
+}
+
+export interface CreationItem {
+  id: string;
+  title: string;
+  client: string;
+  category: string;
+  description: string;
+  image: string;
+  deliverables: string[];
+  tag: string;
+}
+
+export interface TrustedPartner {
+  name: string;
+  logo: string;
+  category?: string;
+}
+
 export interface FreelaTranslations {
   nav: {
     backToPortfolio: string;
     services: string;
-    aiDesignSystem: string;
+    cases: string;
+    trustedBy: string;
     calculator: string;
-    process: string;
-    differentials: string;
-    faq: string;
     contact: string;
-    getQuote: string;
+    quoteCta: string;
   };
   hero: {
     availabilityBadge: string;
+    greeting: string;
     titleStart: string;
     titleHighlight: string;
     titleEnd: string;
-    subtitle: string;
+    aboutSummary: string;
+    deliveryPromise: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    metrics: {
-      experience: { number: string; label: string };
-      speed: { number: string; label: string };
-      pedigree: { number: string; label: string };
-      satisfaction: { number: string; label: string };
-    };
+    ctaWhatsApp: string;
   };
-  flagship: {
-    badge: string;
-    titleStart: string;
-    titleHighlight: string;
-    titleEnd: string;
-    description: string;
-    whyItMatters: {
+  credentials: {
+    title: string;
+    items: {
+      number: string;
       title: string;
-      desc: string;
-    };
-    pillars: {
-      title: string;
-      desc: string;
+      subtitle: string;
       icon: string;
     }[];
-    comparison: {
-      beforeTitle: string;
-      beforeList: string[];
-      afterTitle: string;
-      afterList: string[];
-    };
-    cta: string;
   };
   services: {
     badge: string;
     title: string;
     titleHighlight: string;
     subtitle: string;
-    allFilter: string;
-    categories: {
-      all: string;
-      ds_ai: string;
-      web: string;
-      product: string;
-      dev: string;
-    };
-    items: {
-      id: string;
-      category: 'ds_ai' | 'web' | 'product' | 'dev';
-      isFlagship?: boolean;
-      title: string;
-      tagline: string;
-      description: string;
-      deliverables: string[];
-      timeline: string;
-      idealFor: string;
-      tech: string[];
-      highlightBadge?: string;
-    }[];
+    digitalTitle: string;
+    digitalSubtitle: string;
+    graficoTitle: string;
+    graficoSubtitle: string;
+    items: ServiceItem[];
     cardCta: string;
+    productBadge: string;
+  };
+  creations: {
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    subtitle: string;
+    viewAllCases: string;
+    items: CreationItem[];
+  };
+  trustedBy: {
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    subtitle: string;
+    partners: TrustedPartner[];
   };
   calculator: {
     badge: string;
@@ -93,57 +106,32 @@ export interface FreelaTranslations {
     summaryDesc: string;
     selectedServices: string;
     emptySelection: string;
-    estimatedDelivery: string;
     urgencyLabel: string;
     whatsappButton: string;
     emailButton: string;
     customNotePlaceholder: string;
   };
-  process: {
+  aiMetadata: {
     badge: string;
     title: string;
     titleHighlight: string;
     subtitle: string;
-    steps: {
-      number: string;
-      title: string;
-      desc: string;
-      deliverable: string;
-    }[];
-  };
-  differentials: {
-    badge: string;
-    title: string;
-    titleHighlight: string;
-    subtitle: string;
-    items: {
-      title: string;
-      desc: string;
-      tag: string;
-    }[];
-  };
-  faq: {
-    badge: string;
-    title: string;
-    titleHighlight: string;
-    subtitle: string;
-    items: {
-      question: string;
-      answer: string;
-    }[];
+    copyPromptLabel: string;
+    copiedSuccess: string;
+    forHumansTitle: string;
+    forAIsTitle: string;
+    aiPromptSummary: string;
   };
   contact: {
     badge: string;
     title: string;
     titleHighlight: string;
-    titleEnd: string;
     subtitle: string;
-    directTitle: string;
-    directDesc: string;
     whatsappTitle: string;
     whatsappDesc: string;
     emailTitle: string;
     emailDesc: string;
+    backHome: string;
     formTitle: string;
     formName: string;
     formEmail: string;
@@ -152,7 +140,6 @@ export interface FreelaTranslations {
     formSubmit: string;
     formSubmitting: string;
     formSuccess: string;
-    backHome: string;
     rights: string;
   };
 }
@@ -160,1093 +147,1099 @@ export interface FreelaTranslations {
 export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> = {
   pt: {
     nav: {
-      backToPortfolio: '← Ver Trajetória & Portfólio',
-      services: 'O que eu faço',
-      aiDesignSystem: 'IA + Design System',
-      calculator: 'Calculadora de Escopo',
-      process: 'Como Funciona',
-      differentials: 'Diferenciais',
-      faq: 'Dúvidas',
+      backToPortfolio: 'Voltar ao Portfólio',
+      services: 'Serviços',
+      cases: 'Criações',
+      trustedBy: 'Clientes',
+      calculator: 'Orçamento',
       contact: 'Contato',
-      getQuote: 'Solicitar Orçamento',
+      quoteCta: 'Falar Comigo',
     },
     hero: {
       availabilityBadge: 'Disponível para novos projetos & sprints',
-      titleStart: 'Design de Alto Impacto,',
-      titleHighlight: 'Design Systems com IA',
-      titleEnd: '& Frontend Moderno.',
-      subtitle: 'Transformo requisitos complexos em produtos digitais de alta conversão. Da concepção de interfaces de elite ao código pronto para produção, potencializado por inteligência artificial.',
-      ctaPrimary: 'Montar Escopo do Projeto',
-      ctaSecondary: 'Conhecer Todos os Serviços',
-      metrics: {
-        experience: { number: '15+ Anos', label: 'de experiência em Tech & UX' },
-        speed: { number: '3x Mais Rápido', label: 'com metodologia AI-First' },
-        pedigree: { number: 'Líderes de Mercado', label: 'Netshoes, iFood, Meli, Clinicorp' },
-        satisfaction: { number: '100% Código & Design', label: 'entrega ponta a ponta sem ruído' },
-      },
+      greeting: 'Olá, sou Denis Piaia 👋',
+      titleStart: 'Transformando ideias em produtos digitais e marcas que',
+      titleHighlight: 'geram resultados reais',
+      titleEnd: 'com design, código e IA.',
+      aboutSummary: 'Com mais de 15 anos de estrada liderando Design de Produto, Frontend e Design Systems em grandes empresas como Netshoes, iFood e Clinicorp, além de lecionar na PUC-Campinas. Domino o ciclo completo: da estratégia visual ao código pronto em produção.',
+      deliveryPromise: 'O que posso entregar para você: Soluções empacotadas de ponta a ponta — desde a adequação do seu Design System para Inteligência Artificial até sites ultra-rápidos, landing pages de alta conversão, identidade visual de autoridade e tráfego qualificado no Google Ads.',
+      ctaPrimary: 'Ver Serviços & Produtos',
+      ctaSecondary: 'Montar Briefing Rápido',
+      ctaWhatsApp: 'Chamar no WhatsApp',
     },
-    flagship: {
-      badge: '★ O Carro-Chefe',
-      titleStart: 'Adequação de',
-      titleHighlight: 'Design Systems para IA',
-      titleEnd: 'e Engenharia Acelerada',
-      description: 'Prepare o ecossistema visual e técnico da sua empresa para a era dos Agentes de IA (Claude, Gemini, Cursor, Copilot). Eu transformo tokens, componentes e documentações em especificações legíveis por máquina para geração de código com fidelidade pixel-perfect.',
-      whyItMatters: {
-        title: 'Por que sua empresa precisa disso agora?',
-        desc: 'A maioria dos times tenta usar IA para gerar código de tela, mas obtém interfaces genéricas, desalinhadas e cheias de inconsistências visuais. Com uma arquitetura de Design System devidamente estruturada para IA, seus desenvolvedores geram interfaces perfeitas na primeira tentativa.',
-      },
-      pillars: [
+    credentials: {
+      title: 'Destaques & Credenciais',
+      items: [
         {
-          title: 'Design Tokens em OKLCH & JSON',
-          desc: 'Padronização de cores, espaçamentos, tipografia e raios exportáveis automaticamente para Tailwind CSS e frameworks modernos.',
-          icon: 'Palette',
+          number: '+15 Anos',
+          title: 'Experiência de Mercado',
+          subtitle: 'Liderando Design & Frontend em grandes players',
+          icon: 'Rocket',
         },
         {
-          title: 'Regras de Contexto para Agentes (AGENTS.md)',
-          desc: 'Diretrizes semânticas e restrições de UX prontas para alimentar LLMs e ferramentas como Cursor, Claude e GitHub Copilot.',
+          number: 'PUC-Campinas',
+          title: 'Professor Universitário',
+          subtitle: 'Formando novas gerações em Design e Tecnologia',
+          icon: 'GraduationCap',
+        },
+        {
+          number: 'Unicórnios & Líderes',
+          title: 'Grandes Ecossistemas',
+          subtitle: 'Netshoes, iFood, Superlógica, Clinicorp, Visa',
+          icon: 'Building2',
+        },
+        {
+          number: 'Palestrante',
+          title: 'TDC, IxDA & Eventos Tech',
+          subtitle: 'Disseminando Design Ops, UI/UX e IA aplicada',
+          icon: 'Mic',
+        },
+        {
+          number: 'AI-First',
+          title: 'Design Ops com IA',
+          subtitle: 'Fluxos avançados com Gemini, Claude e Cursor',
           icon: 'Bot',
         },
         {
-          title: 'Componentes Atômicos Código ↔ Figma',
-          desc: 'Paridade absoluta 1:1 entre a biblioteca do Figma e os componentes em React/Tailwind, eliminando débito técnico.',
-          icon: 'Layers',
+          number: 'Full-Cycle',
+          title: 'Design ao Código',
+          subtitle: 'Do protótipo no Figma à interface em React/Tailwind',
+          icon: 'Code2',
         },
         {
-          title: 'Multiplicação de Velocidade da Equipe',
-          desc: 'Redução de até 70% no tempo de criação de novas telas e features completas por desenvolvedores e designers.',
-          icon: 'Zap',
+          number: 'Atuação Global',
+          title: 'Brasil & América Latina',
+          subtitle: 'Projetos entregues com impacto internacional',
+          icon: 'Globe',
+        },
+        {
+          number: '100% Pontual',
+          title: 'Compromisso com Prazos',
+          subtitle: 'Comunicação transparente e entregas ágeis',
+          icon: 'ShieldCheck',
         },
       ],
-      comparison: {
-        beforeTitle: 'Sem Adequação para IA (Fluxo Tradicional)',
-        beforeList: [
-          'IA inventa cores e fontes fora do padrão da marca',
-          'Códigos com CSS inline e classes desordenadas',
-          'Refação constante de telas pelos designers e devs',
-          'Perda de consistência entre diferentes squads',
-        ],
-        afterTitle: 'Com Design System IA-Ready (Meu Método)',
-        afterList: [
-          'IA consome tokens exatos e gera telas 100% dentro do guia',
-          'Código limpo usando Tailwind e componentes oficiais da marca',
-          'Geração de protótipos funcionais em minutos, não semanas',
-          'Escalabilidade total e governança visual automática',
-        ],
-      },
-      cta: 'Quero preparar meu Design System para IA',
     },
     services: {
-      badge: 'Catálogo de Serviços',
-      title: 'O que eu posso',
-      titleHighlight: 'fazer por você',
-      subtitle: 'Soluções sob medida para startups, scale-ups, agências e empresas consolidadas que buscam velocidade e sofisticação.',
-      allFilter: 'Todos os Serviços',
-      categories: {
-        all: 'Todos',
-        ds_ai: 'Design System & IA',
-        web: 'Web & Landing Pages',
-        product: 'Produto & UX/UI',
-        dev: 'Frontend & Código',
-      },
+      badge: 'Soluções Sob Medida',
+      title: 'O Que Eu Posso',
+      titleHighlight: 'Fazer Por Você',
+      subtitle: 'Serviços estruturados como produtos fechados: com escopo claro, metodologia ágil, alta qualidade e prazos definidos.',
+      digitalTitle: 'Digital & Engenharia',
+      digitalSubtitle: 'Soluções modernas para escalar sua presença, acelerar seu time e multiplicar conversões.',
+      graficoTitle: 'Design Gráfico & Marca',
+      graficoSubtitle: 'Identidade e materiais impressos com acabamento refinado para gerar autoridade imediata.',
+      productBadge: 'PRODUTO',
+      cardCta: 'Solicitar este serviço',
       items: [
+        // DIGITAL
         {
           id: 'ai-ds',
-          category: 'ds_ai',
+          category: 'digital',
           isFlagship: true,
-          highlightBadge: 'Mais Procurado',
+          productType: 'DesignOps & IA',
           title: 'Adequação de Design System para IA',
-          tagline: 'Otimização de tokens, componentes e contexto para desenvolvimento acelerado por LLMs.',
-          description: 'Estruturação de design tokens semânticos, documentação em markdown para agentes de IA, paridade Figma-Código e criação de regras de desenvolvimento para Cursor/Copilot/Claude.',
+          tagline: 'Otimize seu Design System para desenvolvimento 5x mais rápido com agentes de IA.',
+          description: 'Estruturação profunda de Design Tokens (W3C), paridade 1:1 entre Figma e React/Tailwind, criação de regras de contexto (AGENTS.md) e automações para que ferramentas como Claude, Gemini, Cursor e Copilot escrevam código perfeito e sem alucinações visuais.',
           deliverables: [
-            'Design Tokens padronizados (JSON, CSS, Tailwind)',
-            'Prompt Engineering & Regras de Contexto (AGENTS.md)',
-            'Componentes React/Tailwind alinhados ao Figma',
-            'Workshop de aceleração com IA para o time',
+            'Mapeamento completo e arquitetura de Tokens semânticos',
+            'Arquivo AGENTS.md e prompt guidelines para IAs',
+            'Paridade atômica 1:1 entre Figma e componentes React',
+            'Documentação viva e guia de boas práticas para engenharia'
           ],
-          timeline: '1 a 3 semanas',
-          idealFor: 'Startups e times de engenharia que querem usar IA para codificar telas sem perder a identidade visual.',
-          tech: ['Figma Tokens', 'Tailwind CSS', 'Claude/Gemini AI', 'React', 'OKLCH'],
+          timeline: '15 a 30 dias úteis',
+          idealFor: 'Startups, scale-ups e empresas de tecnologia que usam ou querem usar IA no desenvolvimento.',
+          tech: ['Design Tokens', 'Figma Variables', 'Tailwind CSS', 'shadcn/ui', 'Claude/Gemini/Cursor'],
+          highlightBadge: '⭐ CARRO-CHEFE',
+        },
+        {
+          id: 'sites',
+          category: 'digital',
+          productType: 'Web Development',
+          title: 'Criação de Sites',
+          tagline: 'Sites institucionais e corporativos ultra-rápidos, responsivos e otimizados para SEO.',
+          description: 'Desenvolvimento de sites profissionais focados em contar a história da sua marca, transmitir autoridade e conquistar novos clientes. Código limpo, tempo de carregamento instantâneo, total acessibilidade e suporte completo a mobile.',
+          deliverables: [
+            'Arquitetura de informação e wireframes estratégicos',
+            'Layout visual exclusivo no Figma com aprovação de etapas',
+            'Desenvolvimento em React / Next.js / Astro com Tailwind CSS',
+            'SEO técnico estruturado e pontuação 95+ no Google PageSpeed',
+            'Integração com formulários, WhatsApp e Google Analytics'
+          ],
+          timeline: '10 a 20 dias úteis',
+          idealFor: 'Empresas, consultorias, clínicas e profissionais que precisam de presença digital de alto nível.',
+          tech: ['React', 'Next.js', 'Tailwind CSS', 'SEO Técnico', 'Framer Motion'],
+          highlightBadge: 'MAIS PEDIDO',
         },
         {
           id: 'landing-pages',
-          category: 'web',
-          highlightBadge: 'Alta Conversão',
-          title: 'Landing Pages de Alta Conversão',
-          tagline: 'Páginas que encantam visualmente e convertem visitantes em clientes.',
-          description: 'Desenvolvimento completo de páginas de vendas, lançamentos de infoprodutos, campanhas sazonais e captura de leads com design premium e copywriting persuasivo.',
+          category: 'digital',
+          productType: 'Performance & CRO',
+          title: 'Criação de Landing Pages',
+          tagline: 'Páginas de alta conversão para produtos, campanhas e lançamentos.',
+          description: 'Landing pages desenhadas cirurgicamente com técnicas de neuromarketing, copywriting persuasivo, hierarquia visual impecável e micro-interações que retêm a atenção e maximizam as taxas de conversão (leads ou vendas).',
           deliverables: [
-            'Design exclusivo e responsivo no Figma',
-            'Desenvolvimento frontend ultra-rápido (Next.js/React/HTML)',
-            'Animações sutis e micro-interações envolventes',
-            'Integração com analytics, tags e formulários',
+            'Estrutura de copy e funil de conversão focado em vendas',
+            'Design responsivo sob medida (Mobile First)',
+            'Implementação em código ultra-leve e veloz',
+            'Trackeamento de cliques, pixels e conversões configurados',
+            'Otimização de tempo de carregamento e testes A/B ready'
           ],
-          timeline: '3 a 7 dias úteis',
-          idealFor: 'Empresas lançando produtos, campanhas de tráfego pago ou precisando renovar a apresentação comercial.',
-          tech: ['React / HTML5', 'Tailwind CSS', 'Framer Motion', 'SEO & Analytics'],
+          timeline: '5 a 10 dias úteis',
+          idealFor: 'Lançamentos de produtos, infoprodutos, serviços B2B, SaaS e campanhas patrocinadas.',
+          tech: ['Tailwind CSS', 'Framer Motion', 'Conversion Rate Optimization', 'Meta Pixel & GA4'],
         },
         {
-          id: 'institutional-sites',
-          category: 'web',
-          title: 'Sites Institucionais & Portais',
-          tagline: 'Autoridade digital impecável para sua marca ou empresa.',
-          description: 'Criação de websites corporativos modernos, focados em credibilidade, posicionamento de mercado e facilidade de navegação para múltiplos perfis de clientes.',
+          id: 'google-ads',
+          category: 'digital',
+          productType: 'Mídia & Performance',
+          title: 'Tráfego Pago Google ADS',
+          tagline: 'Campanhas estratégicas para colocar sua empresa no topo das buscas com alto ROI.',
+          description: 'Criação, configuração e otimização contínua de campanhas no Google Ads (Rede de Pesquisa, Performance Max, Display e Remarketing). Foco absoluto em custo por lead (CPL) otimizado e retorno sobre investimento.',
           deliverables: [
-            'Arquitetura de informação e wireframing',
-            'Design de todas as páginas institucionais',
-            'Código leve, acessível e otimizado para SEO',
-            'Painel administrativo ou CMS se necessário',
+            'Estudo aprofundado de palavras-chave e concorrência',
+            'Criação de anúncios com copies persuasivas e extensões',
+            'Configuração de conversões no Google Tag Manager e GA4',
+            'Negativação de termos irrelevantes e otimização de lances',
+            'Relatório mensal de desempenho claro e acionável'
           ],
-          timeline: '2 a 4 semanas',
-          idealFor: 'Empresas, clínicas, escritórios e consultorias que buscam transmitir prestígio e inovação.',
-          tech: ['React', 'TypeScript', 'Tailwind', 'Next.js / Vite', 'CMS Headless'],
+          timeline: 'Setup em 5 dias + Gestão Contínua',
+          idealFor: 'Empresas que precisam de novos clientes qualificados todos os dias pelo Google.',
+          tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
+        },
+
+        // GRÁFICO
+        {
+          id: 'logo-brand',
+          category: 'grafico',
+          productType: 'Branding & Identidade',
+          title: 'Criação de Logo & Identidade Visual',
+          tagline: 'Construção de marcas memoráveis que transmitem valor e confiança imediata.',
+          description: 'Desenvolvimento completo de identidade visual: desde a pesquisa de conceito, criação do símbolo e logotipo exclusivo, até a definição da paleta de cores cromáticas, sistema tipográfico e manual de aplicação da marca.',
+          deliverables: [
+            'Símbolo e logotipo exclusivo vetorizado em alta resolução',
+            'Variações de cores (positivo, negativo, monocromático)',
+            'Manual de Identidade Visual com regras de uso e tipografia',
+            'Arquivos finais organizados para web e impressão (.AI, .EPS, .PDF, .SVG, .PNG)'
+          ],
+          timeline: '10 a 15 dias úteis',
+          idealFor: 'Novas empresas, rebranding de marcas consolidadas e produtos que buscam autoridade.',
+          tech: ['Adobe Illustrator', 'Photoshop', 'Figma', 'Vector Craft'],
+          highlightBadge: 'EXCLUSIVO',
         },
         {
-          id: 'promotional-campaigns',
-          category: 'web',
-          title: 'Sites Promocionais & Especiais',
-          tagline: 'Experiências interativas imersivas para grandes campanhas.',
-          description: 'Páginas temáticas para lançamentos de grande porte, eventos esportivos, festivais e campanhas promocionais com alto volume de acessos e interatividade rica.',
+          id: 'folhetos-folders',
+          category: 'grafico',
+          productType: 'Design Editorial & Print',
+          title: 'Folhetos, Folders & Materiais Promocionais',
+          tagline: 'Peças gráficas impressas de alto impacto visual e diagramação impecável.',
+          description: 'Criação e diagramação de folders institucionais, flyers promocionais, catálogos de produtos e folhetos comerciais. Arte preparada com precisão técnica gráfica (CMYK, sangria, marcas de corte e fechamento em PDF/X-1a).',
           deliverables: [
-            'Conceito visual temático de alto impacto',
-            'Gamificação, contadores e elementos interativos',
-            'Otimização extrema para tráfego simultâneo intenso',
-            'Páginas especiais para marcas e parceiros',
+            'Design personalizado frente e verso (ou dobras múltiplas)',
+            'Tratamento profissional de imagens e tipografia editorial',
+            'Fechamento de arquivo pronto para gráfica de alta qualidade',
+            'Versão digital interativa em PDF para envio via WhatsApp e e-mail'
           ],
-          timeline: '1 a 2 semanas',
-          idealFor: 'E-commerces, marcas esportivas, varejo e grandes eventos (ex: Netshoes Run, Copa do Mundo).',
-          tech: ['JavaScript / Canvas', 'Micro-animações', 'Performance Máxima', 'Mobile First'],
+          timeline: '5 a 8 dias úteis',
+          idealFor: 'Feiras, eventos, forças de vendas, clínicas, imobiliárias e comércio.',
+          tech: ['InDesign', 'Illustrator', 'Photoshop', 'PDF/X-1a Ready'],
         },
         {
-          id: 'design-system-creation',
-          category: 'ds_ai',
-          title: 'Criação de Design System do Zero',
-          tagline: 'A base visual e funcional definitiva para produtos digitais escaláveis.',
-          description: 'Construção de ecossistemas de design robustos: paleta de cores, tipografia, grid, componentes atômicos (botões, inputs, modais) e documentação para devs e designers.',
+          id: 'cartao-papelaria',
+          category: 'grafico',
+          productType: 'Papelaria Corporativa',
+          title: 'Cartão de Visita & Papelaria',
+          tagline: 'Cartões executivos sofisticados com QR Code dinâmico e papelaria completa.',
+          description: 'Design de cartões de visita premium (com acabamentos especiais como verniz localizado, hot stamping ou corte especial) integrados com QR Code para salvar o contato direto na agenda do celular, além de papel timbrado, envelopes e pastas corporativas.',
           deliverables: [
-            'Biblioteca completa de componentes no Figma',
-            'Variáveis e tokens de tema (Dark / Light mode)',
-            'Guia de estilo e boas práticas de uso',
-            'Implementação inicial em componentes React',
+            'Design de cartão de visita moderno com QR Code dinâmico',
+            'Papel timbrado em formato editável (Word / Google Docs) e PDF',
+            'Pastas com bolsa, envelopes saco e ofício',
+            'Arquivos técnicos com gabarito de facas especiais para gráfica'
           ],
-          timeline: '3 a 6 semanas',
-          idealFor: 'Empresas de SaaS e produtos em crescimento que sofrem com retrabalho e inconsistência visual.',
-          tech: ['Figma Pro', 'Storybook', 'Radix / shadcn', 'Tailwind CSS'],
-        },
-        {
-          id: 'ux-ui-product',
-          category: 'product',
-          title: 'UX/UI Design para Aplicativos & SaaS',
-          tagline: 'Experiências intuitivas para softwares complexos, dashboards e mobile apps.',
-          description: 'Design de interfaces com foco no usuário final: mapeamento de jornadas, arquitetura de fluxos, testes de usabilidade e telas prontas para implementação pelos engenheiros.',
-          deliverables: [
-            'Mapeamento de jornadas de usuário e fluxogramas',
-            'Protótipos navegáveis interativos de alta fidelidade',
-            'Telas de onboarding, dashboards e operações críticas',
-            'Hand-off detalhado com especificações para devs',
-          ],
-          timeline: '2 a 5 semanas',
-          idealFor: 'Founders e Product Managers construindo MVPs, novas funcionalidades ou redesenhando plataformas existentes.',
-          tech: ['Figma', 'UX Research', 'Design Ops', 'User Testing'],
-        },
-        {
-          id: 'frontend-dev',
-          category: 'dev',
-          title: 'Desenvolvimento Frontend Especializado',
-          tagline: 'Código limpo, moderno e fiel 100% ao design aprovado.',
-          description: 'Codificação de interfaces em React, Tailwind CSS e TypeScript com foco em performance, acessibilidade, animações suaves e arquitetura modular.',
-          deliverables: [
-            'Repositório limpo e organizado em TypeScript',
-            'Layout 100% responsivo para todos os dispositivos',
-            'Animações profissionais com Framer Motion',
-            'Integração com APIs RESTful ou GraphQL',
-          ],
-          timeline: '1 a 3 semanas por sprint',
-          idealFor: 'Equipes que precisam de reforço técnico sênior para entregar interfaces desafiadoras no prazo.',
-          tech: ['React 18+', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'REST APIs'],
-        },
-        {
-          id: 'design-consulting',
-          category: 'product',
-          title: 'Consultoria & Sprints de Design Ops',
-          tagline: 'Diagnóstico e destravamento de processos de design e produto.',
-          description: 'Mentoria técnica, auditoria de usabilidade (heurística), otimização de handoff entre design e desenvolvimento e estruturação de squads ágeis com IA.',
-          deliverables: [
-            'Relatório diagnóstico de gargalos e oportunidades',
-            'Plano de ação prioritário para produto e design',
-            'Sessões de alinhamento estratégico com liderança técnica',
-            'Templates e automações de fluxo de trabalho',
-          ],
-          timeline: 'Por Sprint ou Pacote de Horas',
-          idealFor: 'Lideranças que querem elevar a maturidade de design e a velocidade de entrega do time.',
-          tech: ['Design Ops', 'Agile Methodology', 'Team Mentorship', 'UX Audit'],
+          timeline: '4 a 7 dias úteis',
+          idealFor: 'Executivos, advogados, médicos, dentistas, arquitetos e empresas corporativas.',
+          tech: ['Illustrator', 'InDesign', 'QR Code Generator', 'Print Pre-press'],
         },
       ],
-      cardCta: 'Solicitar Proposta deste Serviço',
+    },
+    creations: {
+      badge: 'Portfólio Selecionado',
+      title: 'Algumas',
+      titleHighlight: 'Criações Emblemáticas',
+      subtitle: 'Conheça um pouco do trabalho entregue para marcas de impacto nacional e internacional.',
+      viewAllCases: 'Ver todos os projetos no portfólio',
+      items: [
+        {
+          id: 'netshoes-run',
+          title: 'Netshoes Run',
+          client: 'Netshoes / Magalu',
+          category: 'Identidade de Evento & Landing Pages',
+          description: 'Criação da identidade visual, páginas promocionais e peças de engajamento para as etapas do maior circuito de corridas de rua do e-commerce esportivo da América Latina.',
+          image: 'https://piaianet.page.gd/gifs/run.gif',
+          deliverables: ['Identidade Visual', 'Landing Page Responsiva', 'Banners Promocionais', 'Kits de Corrida'],
+          tag: 'CAMPANHA ESPORTIVA',
+        },
+        {
+          id: 'netshoes-copa',
+          title: 'Netshoes na Copa',
+          client: 'Netshoes / Magalu',
+          category: 'Gamificação & Campanha Digital',
+          description: 'Ações digitais interativas, interfaces comemorativas e landing pages temáticas durante a Copa do Mundo, gerando recordes de tráfego e engajamento para a marca.',
+          image: 'https://piaianet.page.gd/gifs/copa.gif',
+          deliverables: ['Interface Interativa', 'Gamificação Promocional', 'Banners Dinâmicos', 'E-commerce Theme'],
+          tag: 'ALTA CONVERSÃO',
+        },
+        {
+          id: 'ifood-colombia',
+          title: 'iFood Colômbia',
+          client: 'iFood Internacional',
+          category: 'Expansão de Produto & UX/UI',
+          description: 'Adaptação do ecossistema do iFood para o mercado colombiano, incluindo fluxos do aplicativo, comunicação promocional e identidade adaptada para a América Latina.',
+          image: 'https://piaianet.page.gd/imgs/ifood.jpg',
+          deliverables: ['Localização de UX/UI', 'Comunicação Promocional', 'Design de Telas', 'Design System'],
+          tag: 'EXPANSÃO LATAM',
+        },
+        {
+          id: 'clinicorp-ds',
+          title: 'Clinicorp Design System & AI',
+          client: 'Clinicorp Healthtech',
+          category: 'Design System & AI Integration',
+          description: 'Desenvolvimento do sistema de design com tokens semânticos OKLCH, paridade atômica com shadcn/ui e integração com modelos de IA para software clínico odontológico.',
+          image: 'https://picsum.photos/id/1/800/600',
+          deliverables: ['Design Tokens W3C', 'Biblioteca shadcn/ui', 'Documentação Interativa', 'AI Context Guidelines'],
+          tag: 'HEALTHTECH & AI',
+        },
+        {
+          id: 'superlogica',
+          title: 'Superlógica Fintech & ERP',
+          client: 'Superlógica',
+          category: 'Plataformas Financeiras & UX',
+          description: 'Interface e arquitetura de dashboards financeiros, gestão de condomínios e fluxos de pagamentos recorrentes utilizados por milhares de administradoras.',
+          image: 'https://picsum.photos/id/180/800/600',
+          deliverables: ['Dashboards Financeiros', 'Fluxos de Checkout', 'Design System', 'User Research'],
+          tag: 'FINTECH',
+        },
+        {
+          id: 'zattini',
+          title: 'Zattini Fashion E-commerce',
+          client: 'Zattini / Netshoes',
+          category: 'E-commerce & Editoriais de Moda',
+          description: 'Direção de arte digital, landing pages de coleções de moda e campanhas sazonais de conversão rápida (Black Friday, Dia das Mães e Lançamentos).',
+          image: 'https://piaianet.page.gd/gifs/lojas.gif',
+          deliverables: ['Landing Pages Sazonais', 'Editoriais de Moda', 'UI de E-commerce', 'Testes A/B'],
+          tag: 'E-COMMERCE',
+        },
+      ],
+    },
+    trustedBy: {
+      badge: 'Marcas & Parceiros',
+      title: 'Quem Já Acreditou no',
+      titleHighlight: 'Meu Trabalho',
+      subtitle: 'Histórico de colaboração com líderes de mercado, startups e instituições de ensino.',
+      partners: [
+        { name: 'Netshoes', logo: 'https://piaianet.page.gd/imgs/netshoes.svg', category: 'E-commerce' },
+        { name: 'Zattini', logo: 'https://piaianet.page.gd/imgs/zattini.svg', category: 'Moda & E-commerce' },
+        { name: 'iFood', logo: 'https://piaianet.page.gd/imgs/ifood.svg', category: 'Foodtech' },
+        { name: 'Visa', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Pagamentos' },
+        { name: 'Superlógica', logo: 'https://piaianet.page.gd/imgs/clientefc.svg', category: 'Fintech' },
+        { name: 'Clinicorp', logo: 'https://piaianet.page.gd/imgs/unibr.svg', category: 'Healthtech' },
+        { name: 'Cielo', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Meios de Pagamento' },
+        { name: 'Mercado Livre', logo: 'https://piaianet.page.gd/imgs/meli.svg', category: 'Marketplace' },
+        { name: 'PUC Campinas', logo: 'https://piaianet.page.gd/imgs/puc.svg', category: 'Educação' },
+        { name: 'Athlético PR', logo: 'https://piaianet.page.gd/imgs/cap.svg', category: 'Esportes' },
+        { name: 'TDC', logo: 'https://piaianet.page.gd/imgs/tdc.svg', category: 'Tech Events' },
+        { name: 'IxDA', logo: 'https://piaianet.page.gd/imgs/ixda.svg', category: 'Design Community' },
+      ],
     },
     calculator: {
-      badge: 'Orçamento Interativo',
-      title: 'Monte o Escopo do',
-      titleHighlight: 'seu Projeto',
-      subtitle: 'Selecione os serviços que você precisa para gerar um briefing instantâneo e receber uma proposta personalizada.',
-      step1Title: '1. Quais serviços você precisa?',
-      step2Title: '2. Qual é a urgência da entrega?',
+      badge: 'Calculadora de Escopo',
+      title: 'Monte o Seu',
+      titleHighlight: 'Briefing Personalizado',
+      subtitle: 'Selecione os serviços digitais ou gráficos de interesse para gerar uma mensagem pronta e falar diretamente comigo.',
+      step1Title: '1. Selecione os serviços desejados:',
+      step2Title: '2. Qual é a sua urgência no prazo?',
       step3Title: '3. Detalhes adicionais (opcional):',
       timelineOptions: {
-        urgent: { label: 'Urgente / Sprint Relâmpago', desc: 'Prioridade máxima, entrega no menor prazo possível' },
-        standard: { label: 'Prazo Padrão', desc: 'Cronograma equilibrado com revisões planejadas' },
-        flexible: { label: 'Flexível / Longo Prazo', desc: 'Projetos contínuos, consultoria ou backlog futuro' },
+        urgent: { label: 'Urgente (Sprint acelerada)', desc: 'Prioridade máxima na esteira de produção' },
+        standard: { label: 'Padrão (Cronograma regular)', desc: 'Tempo ideal com etapas estruturadas de aprovação' },
+        flexible: { label: 'Flexível / Planejamento', desc: 'Início planejado para as próximas semanas' },
       },
-      summaryTitle: 'Resumo do Briefing',
-      summaryDesc: 'Com base nas suas seleções, preparamos uma mensagem direta para você falar comigo no WhatsApp ou por e-mail:',
+      summaryTitle: 'Resumo da Sua Solicitação',
+      summaryDesc: 'Clique abaixo para enviar seu briefing pronto direto no WhatsApp ou por E-mail:',
       selectedServices: 'Serviços selecionados:',
-      emptySelection: 'Nenhum serviço selecionado ainda. Clique nas opções acima para começar.',
-      estimatedDelivery: 'Estimativa de início:',
-      urgencyLabel: 'Prazo escolhido:',
-      whatsappButton: 'Conversar no WhatsApp com este Escopo',
-      emailButton: 'Enviar Briefing por E-mail',
-      customNotePlaceholder: 'Conte brevemente sobre sua empresa, objetivo ou link de referência...',
+      emptySelection: 'Nenhum serviço selecionado ainda. Clique nos cards acima para montar seu escopo.',
+      urgencyLabel: 'Prazo desejado:',
+      whatsappButton: 'Enviar Briefing via WhatsApp 💬',
+      emailButton: 'Enviar por E-mail ✉️',
+      customNotePlaceholder: 'Conte um pouco sobre sua empresa, público-alvo ou referências visuais que você gosta...',
     },
-    process: {
-      badge: 'Metodologia Ágil',
-      title: 'Como funciona',
-      titleHighlight: 'o processo de trabalho',
-      subtitle: 'Sem burocracia, com comunicação clara e entregas contínuas em cada etapa.',
-      steps: [
-        {
-          number: '01',
-          title: 'Alinhamento & Briefing',
-          desc: 'Reunião rápida ou troca de mensagens para entender objetivos, público, referências e prazos.',
-          deliverable: 'Escopo fechado, cronograma e contrato claro.',
-        },
-        {
-          number: '02',
-          title: 'Prototipagem & Validação',
-          desc: 'Criação dos layouts no Figma ou protótipos interativos com revisões ágeis.',
-          deliverable: 'Design visual aprovado e pronto para produção.',
-        },
-        {
-          number: '03',
-          title: 'Desenvolvimento & IA Flow',
-          desc: 'Codificação limpa com React/Tailwind ou estruturação do Design System para agentes de IA.',
-          deliverable: 'Código funcional, responsivo e testado.',
-        },
-        {
-          number: '04',
-          title: 'Entrega & Suporte',
-          desc: 'Publicação em produção, handoff de arquivos, documentação e garantia pós-entrega.',
-          deliverable: 'Projeto no ar com suporte e documentação.',
-        },
-      ],
-    },
-    differentials: {
-      badge: 'Por que me contratar?',
-      title: 'Diferenciais que geram',
-      titleHighlight: 'resultados reais',
-      subtitle: 'Mais de uma década entregando soluções digitais para os maiores players de tecnologia do país.',
-      items: [
-        {
-          title: 'Design + Código na Mesma Pessoa',
-          desc: 'Você não precisa gerenciar um designer que não entende de código ou um dev que não liga para tipografia. Eu domino as duas pontas com maestria.',
-          tag: 'Full-Cycle Delivery',
-        },
-        {
-          title: 'Vanguarda em Inteligência Artificial',
-          desc: 'Utilizo IA como acelerador e sou especialista em preparar design systems para serem consumidos por LLMs, multiplicando a velocidade de entrega.',
-          tag: 'AI-First Native',
-        },
-        {
-          title: 'Bagagem de Líderes de Mercado',
-          desc: 'Trabalhei em operações complexas como Mercado Livre, iFood, Netshoes e Clinicorp. Trago práticas de grandes empresas para o seu projeto.',
-          tag: 'Enterprise Pedigree',
-        },
-        {
-          title: 'Comunicação Direta & Sem Burocracia',
-          desc: 'Sem intermediários, sem gerentes de conta. Você fala diretamente com quem está desenhando e codificando a sua solução.',
-          tag: 'Agilidade Total',
-        },
-      ],
-    },
-    faq: {
-      badge: 'Perguntas Frequentes',
-      title: 'Tire suas',
-      titleHighlight: 'dúvidas sobre o freela',
-      subtitle: 'Tudo o que você precisa saber antes de iniciarmos nossa parceria.',
-      items: [
-        {
-          question: 'Como funciona a forma de pagamento?',
-          answer: 'Geralmente trabalhamos com 50% de entrada no início do projeto e 50% na aprovação/entrega final. Para projetos maiores ou consultorias recorrentes, podemos estruturar pagamentos por sprint semanal/quinzenal ou marcos (milestones). Emitimos nota fiscal para empresas.',
-        },
-        {
-          question: 'O que exatamente é a "Adequação de Design System para IA"?',
-          answer: 'É o processo de organizar os tokens visuais, componentes e documentação do seu produto de uma forma semântica e estruturada para que ferramentas de IA (como Cursor, Claude, Copilot e Gemini) consigam gerar novas telas em código seguindo 100% a identidade da sua marca, sem erros visuais.',
-        },
-        {
-          question: 'Você assina termo de confidencialidade (NDA)?',
-          answer: 'Sim, com certeza. A confidencialidade das informações da sua empresa, código e estratégia de produto é garantida por contrato sempre que necessário.',
-        },
-        {
-          question: 'Você entrega apenas o design ou também o código pronto?',
-          answer: 'Ambos! Você pode me contratar apenas para a etapa de UI/UX Design no Figma, apenas para o desenvolvimento Frontend em React/Tailwind, ou para o pacote completo ponta a ponta (Design + Código).',
-        },
-        {
-          question: 'Qual é o prazo médio de uma Landing Page ou Site?',
-          answer: 'Uma Landing Page típica leva entre 3 e 7 dias úteis do briefing ao código final no ar. Sites institucionais maiores ou Design Systems levam entre 2 e 4 semanas dependendo da quantidade de páginas e regras.',
-        },
-        {
-          question: 'Como faço para receber um orçamento rápido?',
-          answer: 'Você pode usar a calculadora interativa nesta página para montar seu escopo e me enviar direto no WhatsApp, ou mandar uma mensagem pelo formulário de contato abaixo.',
-        },
-      ],
+    aiMetadata: {
+      badge: 'Schema & AI Index',
+      title: 'Metadados & Indexação',
+      titleHighlight: 'Para Buscadores e IAs',
+      subtitle: 'Estrutura semântica JSON-LD e dados otimizados para motores de busca e agentes de inteligência artificial (ChatGPT, Gemini, Perplexity, Claude).',
+      copyPromptLabel: 'Copiar Perfil em Markdown para IAs',
+      copiedSuccess: 'Perfil copiado para a área de transferência!',
+      forHumansTitle: 'Sobre Denis Piaia (Resumo para IAs):',
+      forAIsTitle: 'JSON-LD Structured Data (Schema.org):',
+      aiPromptSummary: `### Denis Piaia - Especialista em Design de Produto, Frontend e Design Systems com IA
+- **Experiência:** +15 anos de atuação em grandes players (Netshoes, iFood, Clinicorp, Superlógica) e Professor Universitário na PUC-Campinas.
+- **Serviços Digitais:** Adequação de Design Systems para IA (W3C Tokens, AGENTS.md, shadcn/ui), Criação de Sites institucionais (React, Next.js, Tailwind), Criação de Landing Pages de alta conversão (CRO, micro-interações) e Tráfego Pago Google Ads.
+- **Serviços Gráficos:** Criação de Logos e Identidade Visual corporativa, Folhetos e Folders promocionais, Cartão de Visita e Papelaria executiva.
+- **Disponibilidade:** Projetos pontuais, sprints aceleradas e consultoria para empresas no Brasil e no exterior.
+- **Contato Direto:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
-      badge: 'Iniciar Projeto',
-      title: 'Pronto para elevar o nível do',
-      titleHighlight: 'seu produto digital?',
-      titleEnd: '',
-      subtitle: 'Me conte sobre seu desafio e vamos transformar sua visão em realidade com velocidade e sofisticação.',
-      directTitle: 'Canais Diretos de Contato',
-      directDesc: 'Atendimento rápido e direto com Denis Piaia.',
+      badge: 'Vamos Conversar',
+      title: 'Pronto Para Tirar Seu',
+      titleHighlight: 'Projeto do Papel?',
+      subtitle: 'Entre em contato direto pelo canal de sua preferência ou preencha o formulário para receber uma proposta rápida.',
       whatsappTitle: 'WhatsApp Direto',
-      whatsappDesc: 'Resposta rápida em horário comercial',
-      emailTitle: 'E-mail Profissional',
+      whatsappDesc: '+55 (19) 98151-7551 • Resposta rápida',
+      emailTitle: 'E-mail Comercial',
       emailDesc: 'dpiaia@gmail.com',
-      formTitle: 'Envie uma mensagem rápida',
+      backHome: 'Voltar para a Página Inicial / Portfólio',
+      formTitle: 'Envie uma Mensagem Rápida',
       formName: 'Seu Nome ou Empresa',
-      formEmail: 'Seu E-mail de Contato',
-      formProject: 'Tipo de Projeto / Serviço',
-      formMessage: 'Descreva seu projeto ou objetivo...',
-      formSubmit: 'Enviar Mensagem & Solicitar Proposta',
+      formEmail: 'Seu E-mail',
+      formProject: 'Qual é o seu objetivo?',
+      formMessage: 'Mensagem ou Briefing do Projeto',
+      formSubmit: 'Enviar Mensagem',
       formSubmitting: 'Enviando...',
       formSuccess: 'Mensagem enviada com sucesso! Entrarei em contato em breve.',
-      backHome: 'Voltar ao Portfólio Principal',
       rights: 'Todos os direitos reservados.',
     },
   },
   en: {
     nav: {
-      backToPortfolio: '← View Career & Portfolio',
-      services: 'What I Do',
-      aiDesignSystem: 'AI + Design System',
-      calculator: 'Scope Calculator',
-      process: 'How It Works',
-      differentials: 'Why Me',
-      faq: 'FAQ',
+      backToPortfolio: 'Back to Portfolio',
+      services: 'Services',
+      cases: 'Work',
+      trustedBy: 'Clients',
+      calculator: 'Quote',
       contact: 'Contact',
-      getQuote: 'Request a Quote',
+      quoteCta: 'Talk to Me',
     },
     hero: {
       availabilityBadge: 'Available for new projects & sprints',
-      titleStart: 'High-Impact Design,',
-      titleHighlight: 'AI-Ready Design Systems',
-      titleEnd: '& Modern Frontend.',
-      subtitle: 'I turn complex requirements into high-converting digital products. From elite UI/UX design to production-ready code, supercharged with Artificial Intelligence.',
-      ctaPrimary: 'Build Project Scope',
-      ctaSecondary: 'Explore All Services',
-      metrics: {
-        experience: { number: '15+ Years', label: 'in Tech & Product Design' },
-        speed: { number: '3x Faster', label: 'with AI-First workflows' },
-        pedigree: { number: 'Market Leaders', label: 'Netshoes, iFood, Meli, Clinicorp' },
-        satisfaction: { number: '100% Design & Code', label: 'end-to-end seamless delivery' },
-      },
+      greeting: "Hello, I'm Denis Piaia 👋",
+      titleStart: 'Transforming ideas into digital products and brands that',
+      titleHighlight: 'drive real business results',
+      titleEnd: 'through design, code and AI.',
+      aboutSummary: 'Over 15 years leading Product Design, Frontend Engineering, and Design Systems at market giants like Netshoes, iFood, and Clinicorp, along with teaching at PUC-Campinas. I handle the full cycle: from strategic aesthetics to production-ready code.',
+      deliveryPromise: 'What I deliver for you: Packaged end-to-end solutions — from adapting your Design System for AI agents to ultra-fast websites, high-converting landing pages, authoritative visual branding, and targeted Google Ads traffic.',
+      ctaPrimary: 'Explore Services & Products',
+      ctaSecondary: 'Quick Scope Builder',
+      ctaWhatsApp: 'Chat on WhatsApp',
     },
-    flagship: {
-      badge: '★ The Flagship Offering',
-      titleStart: 'Adapting',
-      titleHighlight: 'Design Systems for AI',
-      titleEnd: '& Accelerated Engineering',
-      description: 'Prepare your company visual and technical ecosystem for the era of AI Agents (Claude, Gemini, Cursor, Copilot). I transform tokens, components, and documentation into machine-readable specs for pixel-perfect code generation.',
-      whyItMatters: {
-        title: 'Why your team needs this right now?',
-        desc: 'Most teams try using AI to generate frontend code, only to get generic layouts with broken styles and design drift. With an AI-Ready Design System, your developers generate production-grade UI on the very first prompt.',
-      },
-      pillars: [
+    credentials: {
+      title: 'Highlights & Credentials',
+      items: [
         {
-          title: 'Design Tokens in OKLCH & JSON',
-          desc: 'Standardized colors, spacing, typography, and corner radii automatically exported to Tailwind CSS and modern frameworks.',
-          icon: 'Palette',
+          number: '15+ Years',
+          title: 'Industry Experience',
+          subtitle: 'Leading Design & Frontend in top-tier companies',
+          icon: 'Rocket',
         },
         {
-          title: 'Agent Context Rules (AGENTS.md)',
-          desc: 'Semantic constraints and prompt guidelines ready to feed LLMs in tools like Cursor, Claude, and GitHub Copilot.',
+          number: 'PUC-Campinas',
+          title: 'University Professor',
+          subtitle: 'Mentoring new generations in Design and Tech',
+          icon: 'GraduationCap',
+        },
+        {
+          number: 'Unicorns & Leaders',
+          title: 'Proven Track Record',
+          subtitle: 'Netshoes, iFood, Superlógica, Clinicorp, Visa',
+          icon: 'Building2',
+        },
+        {
+          number: 'Speaker',
+          title: 'TDC, IxDA & Tech Events',
+          subtitle: 'Sharing Design Ops, UI/UX, and applied AI',
+          icon: 'Mic',
+        },
+        {
+          number: 'AI-First',
+          title: 'Design Ops with AI',
+          subtitle: 'Advanced workflows with Gemini, Claude & Cursor',
           icon: 'Bot',
         },
         {
-          title: 'Atomic Components Code ↔ Figma',
-          desc: '1:1 parity between Figma UI kits and React/Tailwind components, completely eliminating visual debt.',
-          icon: 'Layers',
+          number: 'Full-Cycle',
+          title: 'Design to Code',
+          subtitle: 'From Figma components to React/Tailwind code',
+          icon: 'Code2',
         },
         {
-          title: 'Team Velocity Multiplication',
-          desc: 'Up to 70% reduction in time needed to ship new features and screens by developers and designers.',
-          icon: 'Zap',
+          number: 'Global Reach',
+          title: 'Brazil & Latin America',
+          subtitle: 'Delivering international impact',
+          icon: 'Globe',
+        },
+        {
+          number: '100% On-Time',
+          title: 'Deadline Reliability',
+          subtitle: 'Transparent communication and agile delivery',
+          icon: 'ShieldCheck',
         },
       ],
-      comparison: {
-        beforeTitle: 'Without AI Optimization (Standard DS)',
-        beforeList: [
-          'AI invents arbitrary colors and non-compliant fonts',
-          'Code generated with inline styles and messy classes',
-          'Endless manual touchups by designers and devs',
-          'Visual drift and inconsistency across squads',
-        ],
-        afterTitle: 'With AI-Ready Design System (My Approach)',
-        afterList: [
-          'AI reads exact tokens and outputs 100% compliant UI',
-          'Clean, maintainable code using official brand components',
-          'Functional prototypes delivered in minutes, not weeks',
-          'Automated design governance and infinite scalability',
-        ],
-      },
-      cta: 'Get my Design System AI-Ready',
     },
     services: {
-      badge: 'Services Catalog',
-      title: 'What I can',
-      titleHighlight: 'do for you',
-      subtitle: 'Tailored solutions for startups, scale-ups, agencies, and enterprise brands demanding velocity and craft.',
-      allFilter: 'All Services',
-      categories: {
-        all: 'All',
-        ds_ai: 'Design System & AI',
-        web: 'Web & Landing Pages',
-        product: 'Product & UX/UI',
-        dev: 'Frontend & Code',
-      },
+      badge: 'Tailored Solutions',
+      title: 'What I Can',
+      titleHighlight: 'Deliver For You',
+      subtitle: 'Structured as productized services: clear deliverables, agile methodologies, high quality, and guaranteed timelines.',
+      digitalTitle: 'Digital & Engineering',
+      digitalSubtitle: 'Modern solutions to scale your digital presence, empower your engineering team, and boost conversions.',
+      graficoTitle: 'Graphic Design & Branding',
+      graficoSubtitle: 'Refined brand identity and print assets engineered for instant authority.',
+      productBadge: 'PRODUCT',
+      cardCta: 'Request this service',
       items: [
+        // DIGITAL
         {
           id: 'ai-ds',
-          category: 'ds_ai',
+          category: 'digital',
           isFlagship: true,
-          highlightBadge: 'Most Requested',
-          title: 'AI Design System Adaptation',
-          tagline: 'Optimizing tokens, components, and context for LLM-accelerated development.',
-          description: 'Structuring semantic design tokens, markdown documentation for AI agents, Figma-to-code parity, and development rule sets for Cursor/Copilot/Claude.',
+          productType: 'DesignOps & AI',
+          title: 'Design System Adaptation for AI',
+          tagline: 'Optimize your Design System for 5x faster engineering with AI coding agents.',
+          description: 'Deep structuring of W3C semantic Design Tokens, 1:1 parity between Figma and React/Tailwind, AGENTS.md context rulebooks, and prompts so Claude, Gemini, Cursor, and Copilot write pristine UI code without hallucinations.',
           deliverables: [
-            'Standardized Design Tokens (JSON, CSS, Tailwind)',
-            'Prompt Engineering & Context Rules (AGENTS.md)',
-            'React/Tailwind components synced with Figma',
-            'Team AI acceleration workshop & documentation',
+            'Complete semantic Design Token mapping and architecture',
+            'AGENTS.md guidelines and LLM context files',
+            '1:1 Atomic parity between Figma variables and React components',
+            'Living documentation and engineering best practices guide'
           ],
-          timeline: '1 to 3 weeks',
-          idealFor: 'Startups and engineering teams wanting to code with AI without breaking brand guidelines.',
-          tech: ['Figma Tokens', 'Tailwind CSS', 'Claude/Gemini AI', 'React', 'OKLCH'],
+          timeline: '15 to 30 business days',
+          idealFor: 'Startups, scale-ups, and tech companies leveraging AI coding agents in production.',
+          tech: ['Design Tokens', 'Figma Variables', 'Tailwind CSS', 'shadcn/ui', 'Claude/Gemini/Cursor'],
+          highlightBadge: '⭐ FLAGSHIP',
+        },
+        {
+          id: 'sites',
+          category: 'digital',
+          productType: 'Web Development',
+          title: 'Website Creation',
+          tagline: 'Ultra-fast, responsive corporate and institutional websites optimized for SEO.',
+          description: 'Custom professional websites engineered to elevate your brand authority, engage visitors, and convert leads. Clean code, instant load times, full accessibility, and flawless mobile responsiveness.',
+          deliverables: [
+            'Information architecture and strategic wireframing',
+            'Bespoke Figma UI/UX design with milestone reviews',
+            'React / Next.js / Tailwind CSS modern web development',
+            'Technical SEO setup and 95+ Google PageSpeed score',
+            'Form, WhatsApp, and Google Analytics integrations'
+          ],
+          timeline: '10 to 20 business days',
+          idealFor: 'Businesses, consultancies, healthcare clinics, and executives seeking a premier digital presence.',
+          tech: ['React', 'Next.js', 'Tailwind CSS', 'Technical SEO', 'Framer Motion'],
+          highlightBadge: 'POPULAR',
         },
         {
           id: 'landing-pages',
-          category: 'web',
-          highlightBadge: 'High Conversion',
+          category: 'digital',
+          productType: 'Performance & CRO',
           title: 'High-Converting Landing Pages',
-          tagline: 'Pages that captivate visually and convert visitors into customers.',
-          description: 'Full-cycle creation of sales pages, product launches, seasonal campaigns, and lead capture with premium visual design and persuasive UX.',
+          tagline: 'Conversion-driven landing pages for product launches and campaigns.',
+          description: 'Engineered with proven neuromarketing principles, persuasive copy structure, visual hierarchy, and smooth micro-interactions that captivate users and maximize conversion rates.',
           deliverables: [
-            'Custom, responsive Figma design',
-            'Lightning-fast frontend development (Next.js/React/HTML)',
-            'Smooth animations and micro-interactions',
-            'Analytics, conversion tags, and form integrations',
+            'Persuasive copy hierarchy designed for high conversion',
+            'Mobile-first bespoke responsive layout',
+            'Ultra-lightweight and lightning-fast frontend code',
+            'Event, conversion, and pixel tracking integration',
+            'Speed optimization and A/B test readiness'
           ],
-          timeline: '3 to 7 business days',
-          idealFor: 'Companies launching products, paid traffic campaigns, or refreshing their commercial presence.',
-          tech: ['React / HTML5', 'Tailwind CSS', 'Framer Motion', 'SEO & Analytics'],
+          timeline: '5 to 10 business days',
+          idealFor: 'Product launches, SaaS, B2B services, digital courses, and paid media funnels.',
+          tech: ['Tailwind CSS', 'Framer Motion', 'Conversion Rate Optimization', 'Meta Pixel & GA4'],
         },
         {
-          id: 'institutional-sites',
-          category: 'web',
-          title: 'Corporate Websites & Portals',
-          tagline: 'Flawless digital authority for your brand or company.',
-          description: 'Modern corporate websites built for high credibility, market positioning, and frictionless navigation across customer segments.',
+          id: 'google-ads',
+          category: 'digital',
+          productType: 'Media & Performance',
+          title: 'Google Ads Paid Traffic',
+          tagline: 'Strategic search and performance campaigns engineered for maximum ROI.',
+          description: 'Setup, launch, and continuous optimization of Google Ads campaigns (Search, Performance Max, Display, and Remarketing). Relentless focus on lowering cost-per-lead (CPL) and maximizing return on ad spend.',
           deliverables: [
-            'Information architecture and wireframing',
-            'Full visual design for all institutional pages',
-            'Lightweight, accessible, SEO-optimized code',
-            'Admin dashboard or Headless CMS integration',
+            'Comprehensive keyword intent and competitor research',
+            'Compelling ad copy with high-performing extensions',
+            'GA4 and Google Tag Manager conversion tracking setup',
+            'Negative keyword filtering and continuous bid optimization',
+            'Clear and actionable monthly performance reporting'
           ],
-          timeline: '2 to 4 weeks',
-          idealFor: 'Enterprises, clinics, firms, and consultancies looking to convey prestige and modern innovation.',
-          tech: ['React', 'TypeScript', 'Tailwind', 'Next.js / Vite', 'Headless CMS'],
+          timeline: '5-day setup + Ongoing Management',
+          idealFor: 'Companies seeking qualified leads and high-intent buyers daily via Google.',
+          tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
+        },
+
+        // GRÁFICO
+        {
+          id: 'logo-brand',
+          category: 'grafico',
+          productType: 'Branding & Identity',
+          title: 'Logo & Visual Identity Design',
+          tagline: 'Memorable brand identities that command instant trust and market authority.',
+          description: 'End-to-end visual identity development: conceptual discovery, custom logo crafting, chromatic color system, typography curation, and brand application guidelines.',
+          deliverables: [
+            'Exclusive vector logo and symbol in ultra-high resolution',
+            'Color variations (positive, negative, monochrome)',
+            'Brand guidelines manual with typography and application rules',
+            'Organized production files for web and print (.AI, .EPS, .PDF, .SVG, .PNG)'
+          ],
+          timeline: '10 to 15 business days',
+          idealFor: 'New ventures, established business rebranding, and products needing elite authority.',
+          tech: ['Adobe Illustrator', 'Photoshop', 'Figma', 'Vector Craft'],
+          highlightBadge: 'BESPOKE',
         },
         {
-          id: 'promotional-campaigns',
-          category: 'web',
-          title: 'Promotional & Special Event Sites',
-          tagline: 'Immersive interactive web experiences for landmark campaigns.',
-          description: 'Themed landing hubs for major product rollouts, sporting events, festivals, and high-traffic promotional pushes.',
+          id: 'folhetos-folders',
+          category: 'grafico',
+          productType: 'Print & Editorial',
+          title: 'Brochures, Folders & Promotional Assets',
+          tagline: 'High-impact printed promotional pieces with immaculate editorial design.',
+          description: 'Design and layout of corporate brochures, multi-fold flyers, sales folders, and product catalogs. Prepared with rigorous prepress technical standards (CMYK, bleed, PDF/X-1a).',
           deliverables: [
-            'High-impact thematic visual concept',
-            'Gamification, countdowns, and dynamic interactions',
-            'Extreme performance tuning for traffic spikes',
-            'Co-branded landing pages for partners',
+            'Custom double-sided or multi-fold editorial design',
+            'Professional image retouching and typography hierarchy',
+            'Press-ready files formatted for premium commercial printers',
+            'Interactive digital PDF for instant WhatsApp and email distribution'
           ],
-          timeline: '1 to 2 weeks',
-          idealFor: 'E-commerce, sports brands, retail, and major events (e.g., Netshoes Run, World Cup).',
-          tech: ['JavaScript / Canvas', 'Micro-animations', 'Peak Performance', 'Mobile First'],
+          timeline: '5 to 8 business days',
+          idealFor: 'Trade shows, field sales, clinics, real estate, and retail businesses.',
+          tech: ['InDesign', 'Illustrator', 'Photoshop', 'PDF/X-1a Ready'],
         },
         {
-          id: 'design-system-creation',
-          category: 'ds_ai',
-          title: 'Design System Creation from Scratch',
-          tagline: 'The foundational visual and functional source of truth for scalable digital products.',
-          description: 'Robust design systems: color palettes, typography, grid, atomic components (buttons, inputs, modals), and comprehensive dev/design guides.',
+          id: 'cartao-papelaria',
+          category: 'grafico',
+          productType: 'Corporate Stationery',
+          title: 'Business Cards & Stationery',
+          tagline: 'Executive business cards with interactive dynamic QR Codes and stationery.',
+          description: 'Premium business card design (with support for spot UV, hot foil, or custom die-cuts) paired with smart QR Codes for 1-tap phone contact saving, plus letterheads and folders.',
           deliverables: [
-            'Complete Figma component library',
-            'Theming tokens (Dark / Light mode support)',
-            'Style guide and usage best practices',
-            'Initial React component library implementation',
+            'Modern executive business card with dynamic QR Code',
+            'Editable letterhead (Word / Docs) and PDF formats',
+            'Corporate presentation folders and envelopes',
+            'Technical prepress files with specialized finishing guides'
           ],
-          timeline: '3 to 6 weeks',
-          idealFor: 'SaaS companies and growing products suffering from visual inconsistency and dev rework.',
-          tech: ['Figma Pro', 'Storybook', 'Radix / shadcn', 'Tailwind CSS'],
-        },
-        {
-          id: 'ux-ui-product',
-          category: 'product',
-          title: 'UX/UI Design for Apps & SaaS',
-          tagline: 'Intuitive user experiences for complex software, dashboards, and mobile apps.',
-          description: 'User-centered interface design: journey mapping, workflow architecture, usability validation, and developer-ready handoff.',
-          deliverables: [
-            'User journey maps and user flows',
-            'Interactive high-fidelity clickable prototypes',
-            'Onboarding flows, dashboards, and core screens',
-            'Detailed developer handoff with tokens & specs',
-          ],
-          timeline: '2 to 5 weeks',
-          idealFor: 'Founders and Product Managers building MVPs, new feature modules, or revamping existing platforms.',
-          tech: ['Figma', 'UX Research', 'Design Ops', 'User Testing'],
-        },
-        {
-          id: 'frontend-dev',
-          category: 'dev',
-          title: 'Specialized Frontend Engineering',
-          tagline: 'Clean, modern code with 100% fidelity to approved designs.',
-          description: 'React, Tailwind CSS, and TypeScript development focused on performance, accessibility, butter-smooth animations, and modular architecture.',
-          deliverables: [
-            'Clean, modular TypeScript repository',
-            '100% responsive across all screen sizes',
-            'Professional Framer Motion animations',
-            'Seamless RESTful or GraphQL API integrations',
-          ],
-          timeline: '1 to 3 weeks per sprint',
-          idealFor: 'Engineering teams needing senior reinforcement to deliver challenging interfaces on schedule.',
-          tech: ['React 18+', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'REST APIs'],
-        },
-        {
-          id: 'design-consulting',
-          category: 'product',
-          title: 'Design Ops Consulting & Sprints',
-          tagline: 'Diagnosing and unblocking product design workflows.',
-          description: 'Technical mentorship, heuristic usability audits, design-to-code handoff streamlining, and agile squad acceleration using AI tooling.',
-          deliverables: [
-            'Bottleneck diagnostic and opportunity report',
-            'Prioritized product & design action plan',
-            'Strategic alignment sessions with tech leadership',
-            'Workflow templates and automation scripts',
-          ],
-          timeline: 'Per Sprint or Hourly Retainer',
-          idealFor: 'Leaders wanting to boost design maturity and team shipping speed.',
-          tech: ['Design Ops', 'Agile Methodology', 'Team Mentorship', 'UX Audit'],
+          timeline: '4 to 7 business days',
+          idealFor: 'Executives, physicians, dentists, attorneys, architects, and corporate firms.',
+          tech: ['Illustrator', 'InDesign', 'QR Code Generator', 'Print Pre-press'],
         },
       ],
-      cardCta: 'Request a Quote for this Service',
+    },
+    creations: {
+      badge: 'Selected Work',
+      title: 'Emblematic',
+      titleHighlight: 'Creations & Cases',
+      subtitle: 'A glimpse into high-impact work delivered for regional and global market leaders.',
+      viewAllCases: 'View all projects in the main portfolio',
+      items: [
+        {
+          id: 'netshoes-run',
+          title: 'Netshoes Run',
+          client: 'Netshoes / Magalu',
+          category: 'Event Identity & Landing Pages',
+          description: 'Visual identity, promotional landing pages, and digital engagement assets for Latin America’s premier sporting e-commerce running circuit.',
+          image: 'https://piaianet.page.gd/gifs/run.gif',
+          deliverables: ['Visual Identity', 'Responsive Landing Page', 'Promotional Banners', 'Runner Kits'],
+          tag: 'SPORTS CAMPAIGN',
+        },
+        {
+          id: 'netshoes-copa',
+          title: 'Netshoes World Cup',
+          client: 'Netshoes / Magalu',
+          category: 'Gamification & Digital Campaign',
+          description: 'Interactive digital promotions, celebratory campaign interfaces, and thematic landing pages during the World Cup, breaking traffic and engagement records.',
+          image: 'https://piaianet.page.gd/gifs/copa.gif',
+          deliverables: ['Interactive UI', 'Gamified Promotions', 'Dynamic Banners', 'E-commerce Theme'],
+          tag: 'HIGH CONVERSION',
+        },
+        {
+          id: 'ifood-colombia',
+          title: 'iFood Colombia',
+          client: 'iFood International',
+          category: 'Product Expansion & UX/UI',
+          description: 'Localization and expansion of the iFood ecosystem for the Colombian market, including mobile flows, marketing communications, and Latin American assets.',
+          image: 'https://piaianet.page.gd/imgs/ifood.jpg',
+          deliverables: ['UX/UI Localization', 'Campaign Assets', 'Screen Design', 'Design System'],
+          tag: 'LATAM EXPANSION',
+        },
+        {
+          id: 'clinicorp-ds',
+          title: 'Clinicorp Design System & AI',
+          client: 'Clinicorp Healthtech',
+          category: 'Design System & AI Integration',
+          description: 'Design system architecture with OKLCH semantic tokens, shadcn/ui parity, and AI model context integration for clinical dental software.',
+          image: 'https://picsum.photos/id/1/800/600',
+          deliverables: ['W3C Design Tokens', 'shadcn/ui Component Library', 'Living Docs', 'AI Context Guidelines'],
+          tag: 'HEALTHTECH & AI',
+        },
+        {
+          id: 'superlogica',
+          title: 'Superlógica Fintech & ERP',
+          client: 'Superlógica',
+          category: 'Financial Platforms & UX',
+          description: 'UI and UX architecture for financial dashboards, condo management platforms, and recurring billing engines trusted by thousands of enterprises.',
+          image: 'https://picsum.photos/id/180/800/600',
+          deliverables: ['Financial Dashboards', 'Checkout Flows', 'Design System', 'User Research'],
+          tag: 'FINTECH',
+        },
+        {
+          id: 'zattini',
+          title: 'Zattini Fashion E-commerce',
+          client: 'Zattini / Netshoes',
+          category: 'E-commerce & Fashion Editorials',
+          description: 'Digital art direction, high-converting collection pages, and seasonal campaigns (Black Friday, Mother’s Day, Seasonal Fashion Releases).',
+          image: 'https://piaianet.page.gd/gifs/lojas.gif',
+          deliverables: ['Seasonal Landing Pages', 'Fashion Editorials', 'E-commerce UI', 'A/B Testing'],
+          tag: 'E-COMMERCE',
+        },
+      ],
+    },
+    trustedBy: {
+      badge: 'Brands & Partners',
+      title: 'Brands That Have Trusted',
+      titleHighlight: 'My Work',
+      subtitle: 'A track record of high-impact collaboration with market leaders, unicorns, and universities.',
+      partners: [
+        { name: 'Netshoes', logo: 'https://piaianet.page.gd/imgs/netshoes.svg', category: 'E-commerce' },
+        { name: 'Zattini', logo: 'https://piaianet.page.gd/imgs/zattini.svg', category: 'Fashion & E-commerce' },
+        { name: 'iFood', logo: 'https://piaianet.page.gd/imgs/ifood.svg', category: 'Foodtech' },
+        { name: 'Visa', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Payments' },
+        { name: 'Superlógica', logo: 'https://piaianet.page.gd/imgs/clientefc.svg', category: 'Fintech' },
+        { name: 'Clinicorp', logo: 'https://piaianet.page.gd/imgs/unibr.svg', category: 'Healthtech' },
+        { name: 'Cielo', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Payments' },
+        { name: 'Mercado Libre', logo: 'https://piaianet.page.gd/imgs/meli.svg', category: 'Marketplace' },
+        { name: 'PUC Campinas', logo: 'https://piaianet.page.gd/imgs/puc.svg', category: 'Education' },
+        { name: 'Athlético PR', logo: 'https://piaianet.page.gd/imgs/cap.svg', category: 'Sports' },
+        { name: 'TDC', logo: 'https://piaianet.page.gd/imgs/tdc.svg', category: 'Tech Events' },
+        { name: 'IxDA', logo: 'https://piaianet.page.gd/imgs/ixda.svg', category: 'Design Community' },
+      ],
     },
     calculator: {
-      badge: 'Interactive Estimator',
-      title: 'Build your',
-      titleHighlight: 'Project Scope',
-      subtitle: 'Select the services you need to generate an instant briefing and receive a customized commercial proposal.',
-      step1Title: '1. What services do you need?',
-      step2Title: '2. What is your desired timeline?',
-      step3Title: '3. Additional details (optional):',
+      badge: 'Scope Calculator',
+      title: 'Build Your Custom',
+      titleHighlight: 'Project Briefing',
+      subtitle: 'Select the digital or graphic services you need to generate an instant briefing and connect with me directly.',
+      step1Title: '1. Select desired services:',
+      step2Title: '2. What is your timeline urgency?',
+      step3Title: '3. Additional project details (optional):',
       timelineOptions: {
-        urgent: { label: 'Urgent / Flash Sprint', desc: 'Highest priority, delivered in the shortest timeframe possible' },
-        standard: { label: 'Standard Timeline', desc: 'Balanced schedule with structured review milestones' },
-        flexible: { label: 'Flexible / Long Term', desc: 'Continuous sprints, consulting, or future backlog' },
+        urgent: { label: 'Urgent (Accelerated sprint)', desc: 'Top priority in production pipeline' },
+        standard: { label: 'Standard (Regular roadmap)', desc: 'Ideal timeline with structured review milestones' },
+        flexible: { label: 'Flexible / Planning ahead', desc: 'Planned launch over the coming weeks' },
       },
-      summaryTitle: 'Briefing Summary',
-      summaryDesc: 'Based on your selections, we formatted a direct message ready for WhatsApp or Email:',
+      summaryTitle: 'Your Scope Summary',
+      summaryDesc: 'Click below to send your structured briefing directly via WhatsApp or Email:',
       selectedServices: 'Selected services:',
-      emptySelection: 'No services selected yet. Click on the options above to get started.',
-      estimatedDelivery: 'Estimated kickoff:',
-      urgencyLabel: 'Selected timeline:',
-      whatsappButton: 'Chat on WhatsApp with this Scope',
-      emailButton: 'Send Briefing via Email',
-      customNotePlaceholder: 'Briefly tell me about your company, goals, or reference links...',
+      emptySelection: 'No services selected yet. Click the cards above to build your scope.',
+      urgencyLabel: 'Desired timeline:',
+      whatsappButton: 'Send Briefing via WhatsApp 💬',
+      emailButton: 'Send via Email ✉️',
+      customNotePlaceholder: 'Tell me a bit about your company, target audience, or visual references...',
     },
-    process: {
-      badge: 'Agile Methodology',
-      title: 'How the',
-      titleHighlight: 'workflow works',
-      subtitle: 'Zero bureaucracy, crystal-clear communication, and continuous deliveries at every milestone.',
-      steps: [
-        {
-          number: '01',
-          title: 'Briefing & Discovery',
-          desc: 'A quick sync or message exchange to grasp goals, target audience, benchmarks, and timelines.',
-          deliverable: 'Clear scope, transparent schedule, and contract.',
-        },
-        {
-          number: '02',
-          title: 'Prototyping & Validation',
-          desc: 'High-fidelity Figma layouts or interactive prototypes with rapid iteration loops.',
-          deliverable: 'Approved visual design ready for development.',
-        },
-        {
-          number: '03',
-          title: 'Development & AI Flow',
-          desc: 'Clean code in React/Tailwind or structured Design System rules for AI agents.',
-          deliverable: 'Tested, responsive, high-performance code.',
-        },
-        {
-          number: '04',
-          title: 'Launch & Support',
-          desc: 'Production deployment, asset handoff, documentation, and post-delivery warranty.',
-          deliverable: 'Live project backed by full documentation.',
-        },
-      ],
-    },
-    differentials: {
-      badge: 'Why Hire Denis?',
-      title: 'Commercial advantages that',
-      titleHighlight: 'drive real outcomes',
-      subtitle: 'Over 15 years delivering high-stakes digital solutions for top-tier tech brands.',
-      items: [
-        {
-          title: 'Design + Code in One Person',
-          desc: 'You won’t need to mediate between a designer who does not code and a developer who overlooks typography. I master both ends seamlessly.',
-          tag: 'Full-Cycle Delivery',
-        },
-        {
-          title: 'Pioneer in Generative AI for Design',
-          desc: 'I leverage AI as a speed multiplier and specialize in structuring design systems for LLM consumption, multiplying engineering velocity.',
-          tag: 'AI-First Native',
-        },
-        {
-          title: 'Enterprise Pedigree',
-          desc: 'Proven track record at high-scale operations like Mercado Libre, iFood, Netshoes, and Clinicorp. I bring enterprise-grade craft to your project.',
-          tag: 'Enterprise Pedigree',
-        },
-        {
-          title: 'Direct, Frictionless Communication',
-          desc: 'No middlemen or junior account managers. You speak directly with the senior specialist designing and coding your product.',
-          tag: 'Direct Agility',
-        },
-      ],
-    },
-    faq: {
-      badge: 'Frequently Asked Questions',
-      title: 'Answers to your',
-      titleHighlight: 'freelance questions',
-      subtitle: 'Everything you need to know before we kick off our collaboration.',
-      items: [
-        {
-          question: 'How do payments work?',
-          answer: 'Typically, we structure projects with 50% upfront to reserve the sprint and 50% upon final delivery/approval. For ongoing consulting, we work with weekly/biweekly sprints or project milestones. Invoices provided.',
-        },
-        {
-          question: 'What exactly is "AI Design System Adaptation"?',
-          answer: 'It is the specialized process of restructuring your product tokens, UI components, and documentation in a machine-readable format so AI tools (like Cursor, Claude, Copilot, and Gemini) can generate new screen code that adheres 100% to your brand guidelines without visual drift.',
-        },
-        {
-          question: 'Do you sign Non-Disclosure Agreements (NDAs)?',
-          answer: 'Yes, absolutely. The confidentiality of your company data, codebase, and strategic plans is safeguarded by contract.',
-        },
-        {
-          question: 'Do you deliver only design or also production-ready code?',
-          answer: 'Both! You can hire me purely for UI/UX Design in Figma, strictly for Frontend development in React/Tailwind, or for the full end-to-end package (Design + Code).',
-        },
-        {
-          question: 'What is the average turnaround time for a Landing Page or Website?',
-          answer: 'A standard high-converting Landing Page takes between 3 and 7 business days from briefing to live production code. Full corporate websites or Design Systems typically take 2 to 4 weeks depending on scope.',
-        },
-        {
-          question: 'How can I get a fast quote?',
-          answer: 'You can use the interactive scope calculator on this page to build your briefing and send it straight to WhatsApp, or submit a message through the contact form below.',
-        },
-      ],
+    aiMetadata: {
+      badge: 'Schema & AI Index',
+      title: 'Metadata & Indexing',
+      titleHighlight: 'For Search Engines & AIs',
+      subtitle: 'Structured JSON-LD schema and optimized context for search engines and AI agents (ChatGPT, Gemini, Perplexity, Claude).',
+      copyPromptLabel: 'Copy Markdown Profile for AIs',
+      copiedSuccess: 'Profile copied to clipboard!',
+      forHumansTitle: 'About Denis Piaia (AI Summary):',
+      forAIsTitle: 'JSON-LD Structured Data (Schema.org):',
+      aiPromptSummary: `### Denis Piaia - Product Designer, Frontend Engineer & AI Design Systems Specialist
+- **Experience:** 15+ years delivering for market leaders (Netshoes, iFood, Clinicorp, Superlógica) and University Professor at PUC-Campinas.
+- **Digital Services:** AI Design System Adaptation (W3C Tokens, AGENTS.md, shadcn/ui), High-performance Websites (React, Next.js, Tailwind), High-converting Landing Pages (CRO, micro-interactions), and Google Ads Paid Traffic.
+- **Graphic Services:** Logo & Visual Identity Design, Brochures & Folders, Business Cards & Corporate Stationery.
+- **Availability:** Bespoke projects, accelerated sprints, and strategic consulting worldwide.
+- **Direct Contact:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
-      badge: 'Start Project',
-      title: 'Ready to elevate your',
-      titleHighlight: 'digital product?',
-      titleEnd: '',
-      subtitle: 'Tell me about your project and let us turn your vision into reality with speed and aesthetic precision.',
-      directTitle: 'Direct Contact Channels',
-      directDesc: 'Fast and direct communication with Denis Piaia.',
+      badge: "Let's Connect",
+      title: 'Ready to Bring Your',
+      titleHighlight: 'Vision to Life?',
+      subtitle: 'Get in touch directly via WhatsApp or fill out the quick form to receive an immediate proposal.',
       whatsappTitle: 'Direct WhatsApp',
-      whatsappDesc: 'Quick response during business hours',
-      emailTitle: 'Professional Email',
+      whatsappDesc: '+55 (19) 98151-7551 • Fast response',
+      emailTitle: 'Business Email',
       emailDesc: 'dpiaia@gmail.com',
-      formTitle: 'Send a quick message',
+      backHome: 'Back to Main Portfolio / Home',
+      formTitle: 'Send a Quick Message',
       formName: 'Your Name or Company',
-      formEmail: 'Your Contact Email',
-      formProject: 'Project Type / Desired Service',
-      formMessage: 'Describe your project or goals...',
-      formSubmit: 'Send Message & Get Quote',
+      formEmail: 'Your Email',
+      formProject: 'What is your primary goal?',
+      formMessage: 'Project Details / Briefing',
+      formSubmit: 'Send Message',
       formSubmitting: 'Sending...',
-      formSuccess: 'Message sent successfully! I will reach out to you shortly.',
-      backHome: 'Back to Main Portfolio',
+      formSuccess: 'Message sent successfully! I will get back to you shortly.',
       rights: 'All rights reserved.',
     },
   },
   es: {
     nav: {
-      backToPortfolio: '← Ver Trayectoria y Portafolio',
-      services: 'Qué puedo hacer',
-      aiDesignSystem: 'IA + Design System',
-      calculator: 'Calculadora de Alcance',
-      process: 'Cómo Funciona',
-      differentials: 'Diferenciales',
-      faq: 'Preguntas',
+      backToPortfolio: 'Volver al Portafolio',
+      services: 'Servicios',
+      cases: 'Trabajos',
+      trustedBy: 'Clientes',
+      calculator: 'Cotización',
       contact: 'Contacto',
-      getQuote: 'Solicitar Cotización',
+      quoteCta: 'Hablemos',
     },
     hero: {
       availabilityBadge: 'Disponible para nuevos proyectos y sprints',
-      titleStart: 'Diseño de Alto Impacto,',
-      titleHighlight: 'Design Systems con IA',
-      titleEnd: 'y Frontend Moderno.',
-      subtitle: 'Transformo requisitos complejos en productos digitales de alta conversión. Desde la concepción de interfaces de élite hasta el código listo para producción, potenciado por Inteligencia Artificial.',
-      ctaPrimary: 'Armar Alcance del Proyecto',
-      ctaSecondary: 'Ver Todos los Servicios',
-      metrics: {
-        experience: { number: '15+ Años', label: 'de experiencia en Tech & UX' },
-        speed: { number: '3x Más Rápido', label: 'con flujo AI-First' },
-        pedigree: { number: 'Líderes de Mercado', label: 'Netshoes, iFood, Meli, Clinicorp' },
-        satisfaction: { number: '100% Diseño y Código', label: 'entrega integral sin fricción' },
-      },
+      greeting: 'Hola, soy Denis Piaia 👋',
+      titleStart: 'Transformando ideas en productos digitales y marcas que',
+      titleHighlight: 'generan resultados reales',
+      titleEnd: 'con diseño, código e IA.',
+      aboutSummary: 'Con más de 15 años liderando Diseño de Producto, Frontend y Design Systems en grandes empresas como Netshoes, iFood y Clinicorp, además de ser docente en la PUC-Campinas. Domino el ciclo completo: desde la estrategia visual hasta el código listo en producción.',
+      deliveryPromise: 'Lo que puedo entregar para ti: Soluciones empaquetadas de extremo a extremo — desde la adecuación de tu Design System para Inteligencia Artificial hasta sitios ultra-rápidos, landing pages de alta conversión, identidad visual de autoridad y tráfico en Google Ads.',
+      ctaPrimary: 'Ver Servicios & Productos',
+      ctaSecondary: 'Armar Briefing Rápido',
+      ctaWhatsApp: 'Contactar por WhatsApp',
     },
-    flagship: {
-      badge: '★ El Servicio Estrella',
-      titleStart: 'Adecuación de',
-      titleHighlight: 'Design Systems para IA',
-      titleEnd: 'e Ingeniería Acelerada',
-      description: 'Prepare el ecosistema visual y técnico de su empresa para la era de los Agentes de IA (Claude, Gemini, Cursor, Copilot). Transformo tokens, componentes y documentación en especificaciones legibles por máquina para generar código pixel-perfect.',
-      whyItMatters: {
-        title: '¿Por qué su empresa necesita esto ahora?',
-        desc: 'La mayoría de los equipos intenta usar IA para generar código de interfaz, pero obtiene pantallas genéricas y desalineadas. Con un Design System optimizado para IA, sus desarrolladores generan interfaces perfectas en el primer intento.',
-      },
-      pillars: [
+    credentials: {
+      title: 'Destacados & Credenciales',
+      items: [
         {
-          title: 'Design Tokens en OKLCH y JSON',
-          desc: 'Estandarización de colores, espacios, tipografía y radios exportables a Tailwind CSS y frameworks modernos.',
-          icon: 'Palette',
+          number: '+15 Años',
+          title: 'Experiencia de Mercado',
+          subtitle: 'Liderando Diseño y Frontend en grandes empresas',
+          icon: 'Rocket',
         },
         {
-          title: 'Reglas de Contexto para Agentes (AGENTS.md)',
-          desc: 'Directrices semánticas y restricciones de UX listas para alimentar LLMs en Cursor, Claude y GitHub Copilot.',
+          number: 'PUC-Campinas',
+          title: 'Profesor Universitario',
+          subtitle: 'Formando nuevas generaciones en Diseño y Tecnología',
+          icon: 'GraduationCap',
+        },
+        {
+          number: 'Unicornios & Líderes',
+          title: 'Grandes Ecosistemas',
+          subtitle: 'Netshoes, iFood, Superlógica, Clinicorp, Visa',
+          icon: 'Building2',
+        },
+        {
+          number: 'Conferencista',
+          title: 'TDC, IxDA y Eventos Tech',
+          subtitle: 'Compartiendo Design Ops, UI/UX e IA aplicada',
+          icon: 'Mic',
+        },
+        {
+          number: 'AI-First',
+          title: 'Design Ops con IA',
+          subtitle: 'Flujos avanzados con Gemini, Claude y Cursor',
           icon: 'Bot',
         },
         {
-          title: 'Componentes Atómicos Código ↔ Figma',
-          desc: 'Paridad 1:1 absoluta entre las librerías de Figma y los componentes en React/Tailwind, eliminando la deuda técnica.',
-          icon: 'Layers',
+          number: 'Full-Cycle',
+          title: 'Del Diseño al Código',
+          subtitle: 'Desde el Figma hasta la interfaz en React/Tailwind',
+          icon: 'Code2',
         },
         {
-          title: 'Multiplicación de la Velocidad del Equipo',
-          desc: 'Reducción de hasta un 70% en el tiempo de creación de nuevas pantallas y funcionalidades por diseñadores y devs.',
-          icon: 'Zap',
+          number: 'Alcance Global',
+          title: 'Brasil y Latinoamérica',
+          subtitle: 'Proyectos entregados con impacto internacional',
+          icon: 'Globe',
+        },
+        {
+          number: '100% Puntual',
+          title: 'Compromiso con Plazos',
+          subtitle: 'Comunicación transparente y entregas ágiles',
+          icon: 'ShieldCheck',
         },
       ],
-      comparison: {
-        beforeTitle: 'Sin Optimización para IA (DS Tradicional)',
-        beforeList: [
-          'La IA inventa colores y fuentes fuera de la guía de marca',
-          'Código desordenado con estilos inline y clases arbitrarias',
-          'Ajustes manuales constantes por parte de diseñadores y devs',
-          'Pérdida de consistencia visual entre squads',
-        ],
-        afterTitle: 'Con Design System IA-Ready (Mi Enfoque)',
-        afterList: [
-          'La IA lee tokens exactos y genera interfaces 100% fieles a la marca',
-          'Código limpio usando Tailwind y componentes oficiales',
-          'Prototipos funcionales en minutos, no semanas',
-          'Gobernanza visual automática y escalabilidad infinita',
-        ],
-      },
-      cta: 'Quiero preparar mi Design System para IA',
     },
     services: {
-      badge: 'Catálogo de Servicios',
-      title: 'Qué puedo',
-      titleHighlight: 'hacer por ti',
-      subtitle: 'Soluciones a medida para startups, scale-ups, agencias y empresas consolidadas que buscan velocidad y sofisticación.',
-      allFilter: 'Todos los Servicios',
-      categories: {
-        all: 'Todos',
-        ds_ai: 'Design System e IA',
-        web: 'Web y Landing Pages',
-        product: 'Producto y UX/UI',
-        dev: 'Frontend y Código',
-      },
+      badge: 'Soluciones a Medida',
+      title: 'Lo Que Puedo',
+      titleHighlight: 'Hacer Por Ti',
+      subtitle: 'Servicios estructurados como productos: alcance claro, metodología ágil, alta calidad y plazos definidos.',
+      digitalTitle: 'Digital & Ingeniería',
+      digitalSubtitle: 'Soluciones modernas para escalar tu presencia digital y multiplicar conversiones.',
+      graficoTitle: 'Diseño Gráfico & Marca',
+      graficoSubtitle: 'Identidad y materiales impresos de acabado refinado para generar autoridad inmediata.',
+      productBadge: 'PRODUCTO',
+      cardCta: 'Solicitar este servicio',
       items: [
+        // DIGITAL
         {
           id: 'ai-ds',
-          category: 'ds_ai',
+          category: 'digital',
           isFlagship: true,
-          highlightBadge: 'Más Solicitado',
+          productType: 'DesignOps & IA',
           title: 'Adecuación de Design System para IA',
-          tagline: 'Optimización de tokens, componentes y contexto para desarrollo acelerado con LLMs.',
-          description: 'Estructuración de design tokens semánticos, documentación markdown para agentes de IA, paridad Figma-Código y reglas de desarrollo para Cursor/Copilot/Claude.',
+          tagline: 'Optimiza tu Design System para programar 5x más rápido con agentes de IA.',
+          description: 'Estructuración profunda de Design Tokens (W3C), paridad 1:1 entre Figma e React/Tailwind, creación de reglas de contexto (AGENTS.md) para que Claude, Gemini, Cursor y Copilot escriban código sin alucinaciones.',
           deliverables: [
-            'Design Tokens estandarizados (JSON, CSS, Tailwind)',
-            'Prompt Engineering y Reglas de Contexto (AGENTS.md)',
-            'Componentes React/Tailwind sincronizados con Figma',
-            'Workshop de aceleración con IA para el equipo',
+            'Mapeo completo y arquitectura de Tokens semánticos',
+            'Archivo AGENTS.md y prompt guidelines para IAs',
+            'Paridad atómica 1:1 entre Figma y componentes React',
+            'Documentación viva y guía de buenas prácticas'
           ],
-          timeline: '1 a 3 semanas',
-          idealFor: 'Startups y equipos de ingeniería que desean codificar con IA sin perder la identidad de marca.',
-          tech: ['Figma Tokens', 'Tailwind CSS', 'Claude/Gemini AI', 'React', 'OKLCH'],
+          timeline: '15 a 30 días hábiles',
+          idealFor: 'Startups y empresas de tecnología que usan o quieren usar agentes de IA.',
+          tech: ['Design Tokens', 'Figma Variables', 'Tailwind CSS', 'shadcn/ui', 'Claude/Gemini/Cursor'],
+          highlightBadge: '⭐ DESTACADO',
+        },
+        {
+          id: 'sites',
+          category: 'digital',
+          productType: 'Web Development',
+          title: 'Creación de Sitios Web',
+          tagline: 'Sitios institucionales y corporativos ultra-rápidos, responsivos y con SEO técnico.',
+          description: 'Desarrollo de sitios web profesionales enfocados en contar la historia de tu marca, transmitir autoridad y captar clientes. Código limpio, carga instantánea y soporte móvil impecable.',
+          deliverables: [
+            'Arquitectura de información y wireframes estratégicos',
+            'Diseño visual exclusivo en Figma con aprobaciones por etapas',
+            'Desarrollo en React / Next.js / Tailwind CSS',
+            'SEO técnico estructurado y puntuación 95+ en Google PageSpeed',
+            'Integración con formularios, WhatsApp y Google Analytics'
+          ],
+          timeline: '10 a 20 días hábiles',
+          idealFor: 'Empresas, consultoras, clínicas y profesionales que buscan presencia digital de alto nivel.',
+          tech: ['React', 'Next.js', 'Tailwind CSS', 'SEO Técnico', 'Framer Motion'],
+          highlightBadge: 'MÁS PEDIDO',
         },
         {
           id: 'landing-pages',
-          category: 'web',
-          highlightBadge: 'Alta Conversión',
-          title: 'Landing Pages de Alta Conversión',
-          tagline: 'Páginas que cautivan visualmente y convierten visitantes en clientes.',
-          description: 'Desarrollo integral de páginas de venta, lanzamientos de producto, campañas estacionales y captura de leads con diseño premium y UX persuasiva.',
+          category: 'digital',
+          productType: 'Performance & CRO',
+          title: 'Creación de Landing Pages',
+          tagline: 'Páginas de alta conversión para productos, campañas y lanzamientos.',
+          description: 'Landing pages diseñadas con técnicas de neuromarketing, copywriting persuasivo, jerarquía visual y micro-interacciones que maximizan las tasas de conversión.',
           deliverables: [
-            'Diseño exclusivo y responsivo en Figma',
-            'Desarrollo frontend ultrarrápido (Next.js/React/HTML)',
-            'Animaciones sutiles y microinteracciones fluidas',
-            'Integración con analítica, etiquetas y formularios',
+            'Estructura de copy y embudo de conversión optimizado',
+            'Diseño responsivo a medida (Mobile First)',
+            'Código ligero y de carga instantánea',
+            'Configuración de píxeles y seguimiento de eventos',
+            'Optimización de velocidad y preparado para pruebas A/B'
           ],
-          timeline: '3 a 7 días hábiles',
-          idealFor: 'Empresas lanzando productos, campañas de tráfico pago o renovando su presencia comercial.',
-          tech: ['React / HTML5', 'Tailwind CSS', 'Framer Motion', 'SEO y Analítica'],
+          timeline: '5 a 10 días hábiles',
+          idealFor: 'Lanzamientos de productos, SaaS, servicios B2B y campañas de tráfico pago.',
+          tech: ['Tailwind CSS', 'Framer Motion', 'Conversion Rate Optimization', 'Meta Pixel & GA4'],
         },
         {
-          id: 'institutional-sites',
-          category: 'web',
-          title: 'Sitios Web Corporativos y Portales',
-          tagline: 'Autoridad digital impecable para su marca o empresa.',
-          description: 'Creación de sitios web corporativos modernos, enfocados en credibilidad, posicionamiento de mercado y facilidad de navegación.',
+          id: 'google-ads',
+          category: 'digital',
+          productType: 'Medios & Performance',
+          title: 'Tráfico Pago Google ADS',
+          tagline: 'Campañas estratégicas para posicionar tu empresa en el tope de búsquedas con alto ROI.',
+          description: 'Creación, configuración y optimización continua de campañas en Google Ads (Búsqueda, Performance Max, Display y Remarketing) enfocadas en maximizar el retorno de inversión.',
           deliverables: [
-            'Arquitectura de información y wireframes',
-            'Diseño visual completo para todas las páginas',
-            'Código ligero, accesible y optimizado para SEO',
-            'Integración con panel administrativo o Headless CMS',
+            'Estudio exhaustivo de palabras clave y competencia',
+            'Creación de anuncios con copies persuasivos y extensiones',
+            'Configuración de conversiones en Google Tag Manager y GA4',
+            'Filtrado de términos negativos y optimización de pujas',
+            'Reporte mensual de rendimiento claro y accionable'
           ],
-          timeline: '2 a 4 semanas',
-          idealFor: 'Empresas, clínicas, firmas y consultorías que buscan transmitir prestigio e innovación.',
-          tech: ['React', 'TypeScript', 'Tailwind', 'Next.js / Vite', 'CMS Headless'],
+          timeline: 'Setup en 5 días + Gestión Continua',
+          idealFor: 'Empresas que buscan clientes calificados diariamente a través de Google.',
+          tech: ['Google Ads', 'Google Tag Manager', 'Google Analytics 4', 'Looker Studio'],
+        },
+
+        // GRÁFICO
+        {
+          id: 'logo-brand',
+          category: 'grafico',
+          productType: 'Branding & Identidad',
+          title: 'Creación de Logo & Identidad Visual',
+          tagline: 'Marcas memorables que transmiten valor y confianza inmediata.',
+          description: 'Desarrollo integral de identidad visual: desde la investigación conceptual, diseño del isotipo y logotipo exclusivo, hasta la paleta cromática, tipografía y manual de marca.',
+          deliverables: [
+            'Símbolo y logotipo exclusivo vectorizado en alta resolución',
+            'Variaciones de color (positivo, negativo, monocromático)',
+            'Manual de Identidad Visual con normas de aplicación',
+            'Archivos organizados para web e impresión (.AI, .EPS, .PDF, .SVG, .PNG)'
+          ],
+          timeline: '10 a 15 días hábiles',
+          idealFor: 'Nuevos negocios, rebranding de empresas consolidadas y productos de alta gama.',
+          tech: ['Adobe Illustrator', 'Photoshop', 'Figma', 'Vector Craft'],
+          highlightBadge: 'EXCLUSIVO',
         },
         {
-          id: 'promotional-campaigns',
-          category: 'web',
-          title: 'Sitios Promocionales y Campañas',
-          tagline: 'Experiencias interactivas inmersivas para grandes lanzamientos.',
-          description: 'Páginas temáticas para lanzamientos de gran escala, eventos deportivos, festivales y campañas promocionales de alto tráfico.',
+          id: 'folhetos-folders',
+          category: 'grafico',
+          productType: 'Diseño Editorial & Print',
+          title: 'Folletos, Folders & Materiales Promocionales',
+          tagline: 'Piezas gráficas impresas de alto impacto visual y diagramación impecable.',
+          description: 'Diseño y diagramación de folders corporativos, volantes promocionales, catálogos y folletos comerciales con precisión técnica gráfica (CMYK, sangría, marcas de corte).',
           deliverables: [
-            'Concepto visual temático de alto impacto',
-            'Gamificación, contadores y elementos dinámicos',
-            'Optimización extrema para picos de tráfico',
-            'Páginas especiales para marcas y aliados',
+            'Diseño personalizado frente y dorso (o múltiples pliegues)',
+            'Tratamiento profesional de imágenes y tipografía editorial',
+            'Archivos finales listos para imprenta de alta calidad (PDF/X-1a)',
+            'Versión digital interactiva en PDF para WhatsApp y correo'
           ],
-          timeline: '1 a 2 semanas',
-          idealFor: 'E-commerce, marcas deportivas, retail y grandes eventos (ej: Netshoes Run, Copa del Mundo).',
-          tech: ['JavaScript / Canvas', 'Microanimaciones', 'Máximo Rendimiento', 'Mobile First'],
+          timeline: '5 a 8 días hábiles',
+          idealFor: 'Ferias, eventos, fuerzas de venta, clínicas, inmobiliarias y comercios.',
+          tech: ['InDesign', 'Illustrator', 'Photoshop', 'PDF/X-1a Ready'],
         },
         {
-          id: 'design-system-creation',
-          category: 'ds_ai',
-          title: 'Creación de Design System desde Cero',
-          tagline: 'La base visual y funcional definitiva para productos escalables.',
-          description: 'Construcción de ecosistemas de diseño robustos: paleta de colores, tipografía, cuadrículas, componentes atómicos y guías completas.',
+          id: 'cartao-papelaria',
+          category: 'grafico',
+          productType: 'Papelería Corporativa',
+          title: 'Tarjeta de Presentación & Papelería',
+          tagline: 'Tarjetas ejecutivas con Código QR dinámico y papelería corporativa.',
+          description: 'Diseño de tarjetas de presentación premium con acabados especiales (laca sectorizada, stamping) integradas con QR Code para guardar el contacto directamente en el celular, hojas membretadas y carpetas.',
           deliverables: [
-            'Biblioteca completa de componentes en Figma',
-            'Tokens de tema (Soporte a Modo Oscuro y Claro)',
-            'Guía de estilo y mejores prácticas de uso',
-            'Implementación inicial de componentes en React',
+            'Diseño de tarjeta moderna con Código QR dinámico',
+            'Hoja membretada editable (Word / Docs) y PDF',
+            'Carpetas corporativas y sobres institucionales',
+            'Archivos técnicos con troqueles para imprenta'
           ],
-          timeline: '3 a 6 semanas',
-          idealFor: 'Empresas de SaaS y productos en crecimiento que sufren por inconsistencias visuales y retrabajo.',
-          tech: ['Figma Pro', 'Storybook', 'Radix / shadcn', 'Tailwind CSS'],
-        },
-        {
-          id: 'ux-ui-product',
-          category: 'product',
-          title: 'Diseño UX/UI para Aplicaciones y SaaS',
-          tagline: 'Experiencias intuitivas para software complejo, dashboards y apps móviles.',
-          description: 'Diseño centrado en el usuario: mapas de viaje, arquitectura de flujos, validación de usabilidad y entregables listos para desarrollo.',
-          deliverables: [
-            'Mapas de viaje del usuario y flujogramas',
-            'Prototipos interactivos navegables de alta fidelidad',
-            'Pantallas de onboarding, dashboards y flujos críticos',
-            'Handoff detallado con especificaciones para devs',
-          ],
-          timeline: '2 a 5 semanas',
-          idealFor: 'Founders y Product Managers construyendo MVPs, nuevos módulos o rediseñando plataformas existentes.',
-          tech: ['Figma', 'UX Research', 'Design Ops', 'User Testing'],
-        },
-        {
-          id: 'frontend-dev',
-          category: 'dev',
-          title: 'Desarrollo Frontend Especializado',
-          tagline: 'Código limpio, moderno y con 100% de fidelidad al diseño aprobado.',
-          description: 'Codificación en React, Tailwind CSS y TypeScript enfocada en rendimiento, accesibilidad, animaciones fluidas y arquitectura modular.',
-          deliverables: [
-            'Repositorio limpio y modular en TypeScript',
-            'Diseño 100% responsivo para todos los dispositivos',
-            'Animaciones profesionales con Framer Motion',
-            'Integración fluida con APIs RESTful o GraphQL',
-          ],
-          timeline: '1 a 3 semanas por sprint',
-          idealFor: 'Equipos que necesitan refuerzo técnico senior para entregar interfaces desafiantes a tiempo.',
-          tech: ['React 18+', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'REST APIs'],
-        },
-        {
-          id: 'design-consulting',
-          category: 'product',
-          title: 'Consultoría y Sprints de Design Ops',
-          tagline: 'Diagnóstico y desbloqueo de procesos de diseño y producto.',
-          description: 'Mentoría técnica, auditorías de usabilidad (heurística), optimización del handoff entre diseño y desarrollo y aceleración de squads con IA.',
-          deliverables: [
-            'Informe diagnóstico de cuellos de botella y oportunidades',
-            'Plan de acción prioritario para producto y diseño',
-            'Sesiones de alineación estratégica con líderes técnicos',
-            'Plantillas y automatizaciones de flujos de trabajo',
-          ],
-          timeline: 'Por Sprint o Paquete de Horas',
-          idealFor: 'Líderes que buscan elevar la madurez de diseño y la velocidad de entrega del equipo.',
-          tech: ['Design Ops', 'Metodología Ágil', 'Mentoría de Equipo', 'Auditoría UX'],
+          timeline: '4 a 7 días hábiles',
+          idealFor: 'Ejecutivos, médicos, abogados, odontólogos, arquitectos y empresas.',
+          tech: ['Illustrator', 'InDesign', 'QR Code Generator', 'Print Pre-press'],
         },
       ],
-      cardCta: 'Solicitar Cotización de este Servicio',
+    },
+    creations: {
+      badge: 'Portafolio Seleccionado',
+      title: 'Algunas',
+      titleHighlight: 'Creaciones Emblemáticas',
+      subtitle: 'Conoce un poco del trabajo entregado para marcas de impacto nacional e internacional.',
+      viewAllCases: 'Ver todos los proyectos en el portafolio',
+      items: [
+        {
+          id: 'netshoes-run',
+          title: 'Netshoes Run',
+          client: 'Netshoes / Magalu',
+          category: 'Identidad de Evento & Landing Pages',
+          description: 'Creación de la identidad visual, páginas promocionales y piezas de interacción para el circuito de carreras más grande del e-commerce deportivo en Latinoamérica.',
+          image: 'https://piaianet.page.gd/gifs/run.gif',
+          deliverables: ['Identidad Visual', 'Landing Page Responsiva', 'Banners Promocionales', 'Kits de Carrera'],
+          tag: 'CAMPAÑA DEPORTIVA',
+        },
+        {
+          id: 'netshoes-copa',
+          title: 'Netshoes en el Mundial',
+          client: 'Netshoes / Magalu',
+          category: 'Gamificación & Campaña Digital',
+          description: 'Acciones digitales interactivas, interfaces conmemorativas y landing pages temáticas durante la Copa del Mundo, alcanzando récords de tráfico.',
+          image: 'https://piaianet.page.gd/gifs/copa.gif',
+          deliverables: ['Interfaz Interactiva', 'Gamificación Promocional', 'Banners Dinámicos', 'E-commerce Theme'],
+          tag: 'ALTA CONVERSIÓN',
+        },
+        {
+          id: 'ifood-colombia',
+          title: 'iFood Colombia',
+          client: 'iFood Internacional',
+          category: 'Expansión de Producto & UX/UI',
+          description: 'Adaptación del ecosistema de iFood para el mercado colombiano, incluyendo flujos de la app, comunicación promocional e identidad visual.',
+          image: 'https://piaianet.page.gd/imgs/ifood.jpg',
+          deliverables: ['Localización UX/UI', 'Comunicación Promocional', 'Diseño de Pantallas', 'Design System'],
+          tag: 'EXPANSIÓN LATAM',
+        },
+        {
+          id: 'clinicorp-ds',
+          title: 'Clinicorp Design System & AI',
+          client: 'Clinicorp Healthtech',
+          category: 'Design System & Integración IA',
+          description: 'Desarrollo del sistema de diseño con tokens semánticos OKLCH, paridad atómica con shadcn/ui e integración con modelos de IA para software clínico.',
+          image: 'https://picsum.photos/id/1/800/600',
+          deliverables: ['Design Tokens W3C', 'Biblioteca shadcn/ui', 'Documentación Viva', 'AI Context Guidelines'],
+          tag: 'HEALTHTECH & IA',
+        },
+        {
+          id: 'superlogica',
+          title: 'Superlógica Fintech & ERP',
+          client: 'Superlógica',
+          category: 'Plataformas Financieras & UX',
+          description: 'Interfaz y arquitectura de dashboards financieros, gestión de condominios y flujos de cobro recurrente para miles de empresas.',
+          image: 'https://picsum.photos/id/180/800/600',
+          deliverables: ['Dashboards Financieros', 'Flujos de Checkout', 'Design System', 'User Research'],
+          tag: 'FINTECH',
+        },
+        {
+          id: 'zattini',
+          title: 'Zattini Fashion E-commerce',
+          client: 'Zattini / Netshoes',
+          category: 'E-commerce & Editoriales de Moda',
+          description: 'Direção de arte digital, landing pages de coleções e campanhas estacionais de rápida conversão.',
+          image: 'https://piaianet.page.gd/gifs/lojas.gif',
+          deliverables: ['Landing Pages Estacionales', 'Editoriales de Moda', 'UI de E-commerce', 'Pruebas A/B'],
+          tag: 'E-COMMERCE',
+        },
+      ],
+    },
+    trustedBy: {
+      badge: 'Marcas & Aliados',
+      title: 'Marcas Que Han Confiado en',
+      titleHighlight: 'Mi Trabajo',
+      subtitle: 'Historial de colaboración con líderes de mercado, startups y universidades.',
+      partners: [
+        { name: 'Netshoes', logo: 'https://piaianet.page.gd/imgs/netshoes.svg', category: 'E-commerce' },
+        { name: 'Zattini', logo: 'https://piaianet.page.gd/imgs/zattini.svg', category: 'Moda & E-commerce' },
+        { name: 'iFood', logo: 'https://piaianet.page.gd/imgs/ifood.svg', category: 'Foodtech' },
+        { name: 'Visa', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Pagos' },
+        { name: 'Superlógica', logo: 'https://piaianet.page.gd/imgs/clientefc.svg', category: 'Fintech' },
+        { name: 'Clinicorp', logo: 'https://piaianet.page.gd/imgs/unibr.svg', category: 'Healthtech' },
+        { name: 'Cielo', logo: 'https://piaianet.page.gd/imgs/cielo.svg', category: 'Medios de Pago' },
+        { name: 'Mercado Libre', logo: 'https://piaianet.page.gd/imgs/meli.svg', category: 'Marketplace' },
+        { name: 'PUC Campinas', logo: 'https://piaianet.page.gd/imgs/puc.svg', category: 'Educación' },
+        { name: 'Athlético PR', logo: 'https://piaianet.page.gd/imgs/cap.svg', category: 'Deportes' },
+        { name: 'TDC', logo: 'https://piaianet.page.gd/imgs/tdc.svg', category: 'Eventos Tech' },
+        { name: 'IxDA', logo: 'https://piaianet.page.gd/imgs/ixda.svg', category: 'Comunidad Design' },
+      ],
     },
     calculator: {
-      badge: 'Presupuesto Interactivo',
-      title: 'Arma el Alcance de',
-      titleHighlight: 'tu Proyecto',
-      subtitle: 'Selecciona los servicios que necesitas para generar un briefing instantáneo y recibir una propuesta personalizada.',
-      step1Title: '1. ¿Qué servicios necesitas?',
-      step2Title: '2. ¿Cuál es la urgencia de entrega?',
+      badge: 'Calculadora de Alcance',
+      title: 'Arma Tu',
+      titleHighlight: 'Briefing Personalizado',
+      subtitle: 'Selecciona los servicios digitales o gráficos de tu interés para generar un mensaje listo y hablar directamente conmigo.',
+      step1Title: '1. Selecciona los servicios deseados:',
+      step2Title: '2. ¿Cuál es la urgencia de tu plazo?',
       step3Title: '3. Detalles adicionales (opcional):',
       timelineOptions: {
-        urgent: { label: 'Urgente / Sprint Relámpago', desc: 'Prioridad máxima, entrega en el menor plazo posible' },
-        standard: { label: 'Plazo Estándar', desc: 'Cronograma equilibrado con revisiones estructuradas' },
-        flexible: { label: 'Flexible / Largo Plazo', desc: 'Sprints continuos, consultoría o backlog futuro' },
+        urgent: { label: 'Urgente (Sprint acelerada)', desc: 'Máxima prioridad en la línea de producción' },
+        standard: { label: 'Estándar (Cronograma regular)', desc: 'Tiempo ideal con etapas estructuradas de aprobación' },
+        flexible: { label: 'Flexible / Planificación', desc: 'Inicio planificado para las próximas semanas' },
       },
-      summaryTitle: 'Resumen del Briefing',
-      summaryDesc: 'Con base en tus selecciones, preparamos un mensaje directo para WhatsApp o correo electrónico:',
+      summaryTitle: 'Resumen de Tu Solicitud',
+      summaryDesc: 'Haz clic abajo para enviar tu briefing listo por WhatsApp o por Correo:',
       selectedServices: 'Servicios seleccionados:',
-      emptySelection: 'Aún no has seleccionado servicios. Haz clic en las opciones arriba para comenzar.',
-      estimatedDelivery: 'Inicio estimado:',
-      urgencyLabel: 'Plazo seleccionado:',
-      whatsappButton: 'Conversar por WhatsApp con este Alcance',
-      emailButton: 'Enviar Briefing por Correo',
-      customNotePlaceholder: 'Cuéntame brevemente sobre tu empresa, objetivos o enlaces de referencia...',
+      emptySelection: 'Ningún servicio seleccionado todavía. Haz clic en las tarjetas de arriba para armar tu alcance.',
+      urgencyLabel: 'Plazo deseado:',
+      whatsappButton: 'Enviar Briefing por WhatsApp 💬',
+      emailButton: 'Enviar por Correo ✉️',
+      customNotePlaceholder: 'Cuéntame un poco sobre tu empresa, público objetivo o referencias visuales...',
     },
-    process: {
-      badge: 'Metodología Ágil',
-      title: 'Cómo funciona',
-      titleHighlight: 'el proceso de trabajo',
-      subtitle: 'Sin burocracia, con comunicación clara y entregas continuas en cada hito.',
-      steps: [
-        {
-          number: '01',
-          title: 'Alineación y Briefing',
-          desc: 'Reunión rápida o intercambio de mensajes para comprender objetivos, público, referencias y plazos.',
-          deliverable: 'Alcance cerrado, cronograma y contrato transparente.',
-        },
-        {
-          number: '02',
-          title: 'Prototipado y Validación',
-          desc: 'Creación de layouts en Figma o prototipos interactivos con iteraciones ágiles.',
-          deliverable: 'Diseño visual aprobado y listo para producción.',
-        },
-        {
-          number: '03',
-          title: 'Desarrollo y Flujo IA',
-          desc: 'Codificación limpia en React/Tailwind o estructuración de Design System para agentes de IA.',
-          deliverable: 'Código funcional, probado y responsivo.',
-        },
-        {
-          number: '04',
-          title: 'Lanzamiento y Soporte',
-          desc: 'Puesta en producción, entrega de archivos, documentación y garantía posterior.',
-          deliverable: 'Proyecto en vivo respaldado por documentación completa.',
-        },
-      ],
-    },
-    differentials: {
-      badge: '¿Por qué contratar a Denis?',
-      title: 'Ventajas comerciales que',
-      titleHighlight: 'generan resultados reales',
-      subtitle: 'Más de 15 años entregando soluciones digitales para los mayores referentes tecnológicos.',
-      items: [
-        {
-          title: 'Diseño + Código en la Misma Persona',
-          desc: 'No necesitas mediar entre un diseñador que no programa y un desarrollador que descuida la tipografía. Domino ambos extremos con fluidez.',
-          tag: 'Full-Cycle Delivery',
-        },
-        {
-          title: 'Pionero en Inteligencia Artificial para Diseño',
-          desc: 'Utilizo la IA como acelerador y me especializo en estructurar design systems para agentes LLM, multiplicando la velocidad de desarrollo.',
-          tag: 'AI-First Native',
-        },
-        {
-          title: 'Experiencia en Grandes Empresas',
-          desc: 'Trayectoria comprobada en operaciones de gran escala como Mercado Libre, iFood, Netshoes y Clinicorp. Aporto solidez a su proyecto.',
-          tag: 'Enterprise Pedigree',
-        },
-        {
-          title: 'Comunicación Directa y Sin Burocracia',
-          desc: 'Sin intermediarios ni ejecutivos de cuenta. Hablas directamente con el especialista senior que diseña y programa tu solución.',
-          tag: 'Agilidad Total',
-        },
-      ],
-    },
-    faq: {
-      badge: 'Preguntas Frecuentes',
-      title: 'Respuestas a tus',
-      titleHighlight: 'dudas sobre el freelance',
-      subtitle: 'Todo lo que necesitas saber antes de iniciar nuestra colaboración.',
-      items: [
-        {
-          question: '¿Cómo funciona la forma de pago?',
-          answer: 'Generalmente trabajamos con 50% de anticipo para reservar el sprint y 50% contra entrega y aprobación final. Para consultoría continua, estructuramos pagos por sprint semanal/quincenal o hitos de proyecto. Facturación disponible.',
-        },
-        {
-          question: '¿Qué es exactamente la "Adequación de Design System para IA"?',
-          answer: 'Es el proceso especializado de estructurar los tokens visuales, componentes y documentación de su producto en un formato semántico y legible por máquina para que herramientas de IA (como Cursor, Claude, Copilot y Gemini) generen código siguiendo el 100% de la identidad de su marca.',
-        },
-        {
-          question: '¿Firmas acuerdos de confidencialidad (NDA)?',
-          answer: 'Sí, totalmente. La confidencialidad de la información de su empresa, código y estrategia de producto está garantizada por contrato.',
-        },
-        {
-          question: '¿Entregas solo diseño o también código listo para producción?',
-          answer: '¡Ambos! Puedes contratarme exclusivamente para la etapa de diseño UI/UX en Figma, solo para desarrollo frontend en React/Tailwind, o para el paquete completo de punta a punta (Diseño + Código).',
-        },
-        {
-          question: '¿Cuál es el tiempo promedio de entrega de una Landing Page o Sitio?',
-          answer: 'Una Landing Page de alta conversión toma entre 3 y 7 días hábiles desde el briefing hasta el código final en vivo. Sitios corporativos completos o Design Systems toman de 2 a 4 semanas según el alcance.',
-        },
-        {
-          question: '¿Cómo puedo recibir una cotización rápida?',
-          answer: 'Puedes utilizar la calculadora interactiva de esta página para armar tu alcance y enviármelo directamente por WhatsApp, o mandar un mensaje mediante el formulario de contacto.',
-        },
-      ],
+    aiMetadata: {
+      badge: 'Schema & AI Index',
+      title: 'Metadatos & Indexación',
+      titleHighlight: 'Para Buscadores e IAs',
+      subtitle: 'Estructura semántica JSON-LD y datos optimizados para motores de búsqueda y agentes de inteligencia artificial (ChatGPT, Gemini, Perplexity, Claude).',
+      copyPromptLabel: 'Copiar Perfil en Markdown para IAs',
+      copiedSuccess: '¡Perfil copiado al portapapeles!',
+      forHumansTitle: 'Sobre Denis Piaia (Resumen para IAs):',
+      forAIsTitle: 'JSON-LD Structured Data (Schema.org):',
+      aiPromptSummary: `### Denis Piaia - Especialista en Diseño de Producto, Frontend y Design Systems con IA
+- **Experiencia:** +15 años de trayectoria en grandes empresas (Netshoes, iFood, Clinicorp, Superlógica) y Profesor Universitario en la PUC-Campinas.
+- **Servicios Digitales:** Adecuación de Design Systems para IA (W3C Tokens, AGENTS.md, shadcn/ui), Creación de Sitios Web (React, Next.js, Tailwind), Landing Pages de alta conversión (CRO, micro-interacciones) e Tráfico Pago Google Ads.
+- **Servicios Gráficos:** Creación de Logos e Identidad Visual corporativa, Folletos y Folders promocionales, Tarjetas de Presentación y Papelería ejecutiva.
+- **Disponibilidad:** Proyectos puntuales, sprints aceleradas e consultoría estratégica en Brasil y en el exterior.
+- **Contacto Directo:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
-      badge: 'Iniciar Proyecto',
-      title: '¿Listo para elevar el nivel de',
-      titleHighlight: 'tu producto digital?',
-      titleEnd: '',
-      subtitle: 'Cuéntame sobre tu proyecto y convirtamos tu visión en realidad con velocidad y precisión estética.',
-      directTitle: 'Canales Directos de Contacto',
-      directDesc: 'Atención rápida y directa con Denis Piaia.',
+      badge: 'Hablemos',
+      title: '¿Listo Para Llevar Tu',
+      titleHighlight: 'Proyecto a Otro Nivel?',
+      subtitle: 'Contáctame directamente por WhatsApp o completa el formulario para recibir una propuesta rápida.',
       whatsappTitle: 'WhatsApp Directo',
-      whatsappDesc: 'Respuesta rápida en horario comercial',
-      emailTitle: 'Correo Profesional',
+      whatsappDesc: '+55 (19) 98151-7551 • Respuesta rápida',
+      emailTitle: 'Correo Comercial',
       emailDesc: 'dpiaia@gmail.com',
-      formTitle: 'Envía un mensaje rápido',
+      backHome: 'Volver a la Página Principal / Portafolio',
+      formTitle: 'Envía un Mensaje Rápido',
       formName: 'Tu Nombre o Empresa',
-      formEmail: 'Tu Correo de Contacto',
-      formProject: 'Tipo de Proyecto / Servicio Deseado',
-      formMessage: 'Describe tu proyecto o metas...',
-      formSubmit: 'Enviar Mensaje y Solicitar Cotización',
+      formEmail: 'Tu Correo',
+      formProject: '¿Cuál es tu objetivo?',
+      formMessage: 'Mensaje o Briefing del Proyecto',
+      formSubmit: 'Enviar Mensaje',
       formSubmitting: 'Enviando...',
-      formSuccess: '¡Mensaje enviado con éxito! Me pondré en contacto contigo a la brevedad.',
-      backHome: 'Volver al Portafolio Principal',
+      formSuccess: '¡Mensaje enviado con éxito! Me pondré en contacto pronto.',
       rights: 'Todos los derechos reservados.',
     },
   },

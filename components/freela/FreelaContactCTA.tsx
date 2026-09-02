@@ -2,13 +2,13 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MessageSquare, Mail, Linkedin, Github, Send, Sparkles, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
-import Button from '../ui/Button';
 import ConfettiCanvas, { ConfettiRef } from '../ui/ConfettiCanvas';
 import { useLanguage } from '../../context/LanguageContext';
 import { translationsFreela } from '../../utils/translationsFreela';
 
 interface FreelaContactCTAProps {
   onNavigateHome: () => void;
+  selectedServiceTitle?: string;
 }
 
 const BehanceIcon = ({ size = 20, className = "" }) => (
@@ -33,7 +33,7 @@ const BehanceIcon = ({ size = 20, className = "" }) => (
   </svg>
 );
 
-const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) => {
+const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome, selectedServiceTitle }) => {
   const { language } = useLanguage();
   const t = translationsFreela[language].contact;
   const confettiRef = useRef<ConfettiRef>(null);
@@ -41,11 +41,17 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'Adequação de Design System para IA',
+    projectType: selectedServiceTitle || 'Adequação de Design System para IA',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  React.useEffect(() => {
+    if (selectedServiceTitle) {
+      setFormData(prev => ({ ...prev, projectType: selectedServiceTitle }));
+    }
+  }, [selectedServiceTitle]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,17 +78,17 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
 
   const socials = [
     { 
-      icon: <Linkedin size={20} />, 
+      icon: <Linkedin size={18} />, 
       href: "https://linkedin.com/in/denispiaia",
       label: "LinkedIn"
     },
     { 
-      icon: <BehanceIcon size={20} />, 
+      icon: <BehanceIcon size={18} />, 
       href: "https://www.behance.net/denispiaia",
       label: "Behance"
     },
     { 
-      icon: <Github size={20} />, 
+      icon: <Github size={18} />, 
       href: "https://github.com/dpiaia",
       label: "Github" 
     }
@@ -91,49 +97,36 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
   return (
     <section 
       id="contact"
-      className="py-24 bg-brand-light dark:bg-brand-dark relative overflow-hidden transition-colors duration-300 border-t border-brand-lead/10 dark:border-white/5"
+      className="py-28 bg-brand-light dark:bg-[#050507] relative overflow-hidden transition-colors duration-500 border-t border-black/[0.04] dark:border-white/[0.06]"
     >
       <ConfettiCanvas ref={confettiRef} />
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* Atmospheric Space Aura */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#EC6726]/8 dark:bg-[#FFD600]/8 rounded-full blur-[180px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-green-500/10 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-mono uppercase tracking-widest mb-4 border border-green-500/30"
-          >
-            <Sparkles size={14} />
-            {t.badge}
-          </motion.div>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-xs font-mono uppercase tracking-widest mb-4 border border-emerald-500/20 backdrop-blur-md">
+            <Sparkles size={13} />
+            <span>{t.badge}</span>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display text-4xl sm:text-6xl font-bold mb-4 text-brand-dark dark:text-white"
-          >
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 text-brand-dark dark:text-white leading-tight">
             {t.title}{' '}
-            <span className="text-brand-lead dark:text-brand-yellow">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EC6726] to-[#FFD600] dark:from-[#FFD600] dark:to-orange-400">
               {t.titleHighlight}
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-neutral-600 dark:text-neutral-300 text-base sm:text-lg"
-          >
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base font-normal leading-relaxed">
             {t.subtitle}
-          </motion.p>
+          </p>
         </div>
 
         {/* 2-Column Contact Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto mb-20">
           
           {/* Direct channels (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
@@ -143,14 +136,14 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
               href="https://api.whatsapp.com/send?phone=5519981517551&text=Ol%C3%A1%20Denis!%20Gostaria%20de%20conversar%20sobre%20um%20projeto%20freelance."
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-white/80 dark:bg-neutral-900/80 border border-green-500/30 hover:border-green-500 transition-all duration-300 shadow-sm block group hover:-translate-y-1"
+              className="p-6 rounded-3xl bg-white/70 dark:bg-white/[0.02] border border-emerald-500/20 hover:border-emerald-500/60 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.02)] block group hover:-translate-y-1 backdrop-blur-xl"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-green-500/10 text-green-600 dark:text-green-400 flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-white transition-colors">
-                  <MessageSquare size={24} />
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                  <MessageSquare size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base text-brand-dark dark:text-white">
+                  <h4 className="font-bold text-base text-brand-dark dark:text-white font-display tracking-tight">
                     {t.whatsappTitle}
                   </h4>
                   <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
@@ -163,14 +156,14 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
             {/* Email Card */}
             <a
               href="mailto:dpiaia@gmail.com?subject=Briefing%20de%20Projeto%20Freelance%20-%20Denis%20Piaia"
-              className="p-6 rounded-2xl bg-white/80 dark:bg-neutral-900/80 border border-brand-lead/10 dark:border-white/5 hover:border-brand-lead/30 dark:hover:border-brand-yellow/30 transition-all duration-300 shadow-sm block group hover:-translate-y-1"
+              className="p-6 rounded-3xl bg-white/70 dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.08] hover:border-[#EC6726]/40 dark:hover:border-[#FFD600]/40 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.02)] block group hover:-translate-y-1 backdrop-blur-xl"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-brand-lead/5 dark:bg-white/5 text-brand-lead dark:text-brand-yellow flex items-center justify-center shrink-0 group-hover:bg-brand-lead dark:group-hover:bg-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark transition-colors">
-                  <Mail size={24} />
+                <div className="w-12 h-12 rounded-2xl bg-black/[0.04] dark:bg-white/[0.06] text-brand-dark dark:text-[#FFD600] flex items-center justify-center shrink-0 group-hover:bg-[#1D1D1F] dark:group-hover:bg-[#FFD600] group-hover:text-white dark:group-hover:text-black transition-colors">
+                  <Mail size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base text-brand-dark dark:text-white">
+                  <h4 className="font-bold text-base text-brand-dark dark:text-white font-display tracking-tight">
                     {t.emailTitle}
                   </h4>
                   <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 font-mono">
@@ -185,14 +178,14 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
               href="https://linkedin.com/in/denispiaia"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-white/80 dark:bg-neutral-900/80 border border-brand-lead/10 dark:border-white/5 hover:border-brand-lead/30 dark:hover:border-brand-yellow/30 transition-all duration-300 shadow-sm block group hover:-translate-y-1"
+              className="p-6 rounded-3xl bg-white/70 dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.08] hover:border-[#EC6726]/40 dark:hover:border-[#FFD600]/40 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.02)] block group hover:-translate-y-1 backdrop-blur-xl"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-brand-lead/5 dark:bg-white/5 text-brand-lead dark:text-brand-yellow flex items-center justify-center shrink-0 group-hover:bg-brand-lead dark:group-hover:bg-brand-yellow group-hover:text-white dark:group-hover:text-brand-dark transition-colors">
-                  <Linkedin size={24} />
+                <div className="w-12 h-12 rounded-2xl bg-black/[0.04] dark:bg-white/[0.06] text-brand-dark dark:text-[#FFD600] flex items-center justify-center shrink-0 group-hover:bg-[#1D1D1F] dark:group-hover:bg-[#FFD600] group-hover:text-white dark:group-hover:text-black transition-colors">
+                  <Linkedin size={22} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base text-brand-dark dark:text-white">
+                  <h4 className="font-bold text-base text-brand-dark dark:text-white font-display tracking-tight">
                     LinkedIn
                   </h4>
                   <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
@@ -205,7 +198,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
             {/* Return to Portfolio button */}
             <button
               onClick={onNavigateHome}
-              className="w-full p-4 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow hover:border-brand-lead/40 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full p-4 rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400 hover:text-brand-dark dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <ArrowLeft size={14} />
               <span>{t.backHome}</span>
@@ -215,15 +208,15 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
 
           {/* Contact Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-8 rounded-2xl bg-white/80 dark:bg-neutral-900/80 border border-brand-lead/10 dark:border-white/5 shadow-xl">
-              <h3 className="text-xl font-bold font-display text-brand-dark dark:text-white mb-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white/80 dark:bg-white/[0.02] border border-black/[0.06] dark:border-white/[0.08] shadow-[0_12px_45px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl">
+              <h3 className="text-xl sm:text-2xl font-bold font-display text-brand-dark dark:text-white mb-6 tracking-tight">
                 {t.formTitle}
               </h3>
 
               {isSuccess ? (
                 <div className="p-8 text-center space-y-4">
-                  <CheckCircle2 size={48} className="text-green-500 mx-auto animate-bounce" />
-                  <h4 className="text-lg font-bold text-brand-dark dark:text-white">
+                  <CheckCircle2 size={48} className="text-emerald-500 mx-auto animate-bounce" />
+                  <h4 className="text-lg font-bold text-brand-dark dark:text-white font-display">
                     {t.formSuccess}
                   </h4>
                   <p className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -231,7 +224,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="text-xs text-brand-lead dark:text-brand-yellow font-bold underline"
+                    className="text-xs text-[#EC6726] dark:text-[#FFD600] font-bold underline cursor-pointer"
                   >
                     Enviar outra mensagem
                   </button>
@@ -239,7 +232,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5 font-mono">
                       {t.formName} *
                     </label>
                     <input
@@ -248,12 +241,12 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Ex: João Silva ou Startup X"
-                      className="w-full p-3 rounded-xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow"
+                      className="w-full p-3.5 rounded-2xl bg-neutral-50/80 dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#EC6726] dark:focus:ring-[#FFD600] transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5 font-mono">
                       {t.formEmail} *
                     </label>
                     <input
@@ -262,18 +255,18 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="seuemail@empresa.com"
-                      className="w-full p-3 rounded-xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow"
+                      className="w-full p-3.5 rounded-2xl bg-neutral-50/80 dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#EC6726] dark:focus:ring-[#FFD600] transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5 font-mono">
                       {t.formProject}
                     </label>
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full p-3 rounded-xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow"
+                      className="w-full p-3.5 rounded-2xl bg-neutral-50/80 dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-[#EC6726] dark:focus:ring-[#FFD600] transition-all"
                     >
                       <option value="Adequação de Design System para IA">Adequação de Design System para IA (Carro-Chefe)</option>
                       <option value="Landing Page de Alta Conversão">Landing Page de Alta Conversão</option>
@@ -288,7 +281,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5 font-mono">
                       {t.formMessage}
                     </label>
                     <textarea
@@ -296,16 +289,17 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Conte sobre o projeto, objetivo, links de referência e prazo desejado..."
-                      className="w-full p-3 rounded-xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-lead dark:focus:ring-brand-yellow"
+                      className="w-full p-3.5 rounded-2xl bg-neutral-50/80 dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-[#EC6726] dark:focus:ring-[#FFD600] transition-all"
                     />
                   </div>
 
+                  {/* Apple Pill Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-xl font-bold text-sm bg-brand-lead dark:bg-brand-yellow text-white dark:text-brand-dark hover:bg-neutral-800 dark:hover:bg-yellow-300 transition-all flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 cursor-pointer"
+                    className="w-full py-4 px-6 rounded-full font-semibold text-sm tracking-tight bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] dark:hover:bg-yellow-300 text-white dark:text-black transition-all flex items-center justify-center gap-2 shadow-md disabled:opacity-50 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
                   >
-                    <Send size={16} />
+                    <Send size={15} />
                     <span>{isSubmitting ? t.formSubmitting : t.formSubmit}</span>
                   </button>
                 </form>
@@ -316,12 +310,12 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
         </div>
 
         {/* Footer info */}
-        <div className="pt-12 border-t border-brand-lead/10 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-neutral-500 dark:text-neutral-400">
+        <div className="pt-12 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-neutral-500 dark:text-neutral-400">
           <div>
             &copy; 2026 Denis Piaia - Freelance & Design Ops Leader. {t.rights}
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             {socials.map((social, i) => (
               <a 
                 key={i} 
@@ -329,7 +323,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome }) =
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="w-9 h-9 border border-neutral-200 dark:border-neutral-800 rounded-lg flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-brand-lead dark:hover:text-brand-yellow hover:border-brand-lead dark:hover:border-brand-yellow transition-all"
+                className="w-9 h-9 border border-black/[0.08] dark:border-white/[0.1] rounded-full flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:text-brand-dark dark:hover:text-white hover:border-black/30 dark:hover:border-white/30 transition-all backdrop-blur-md"
               >
                 {social.icon}
               </a>

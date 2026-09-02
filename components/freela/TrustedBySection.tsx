@@ -49,7 +49,7 @@ const TrustedBySection: React.FC = () => {
                 <img 
                   src={partner.logo} 
                   alt={partner.name}
-                  className="h-10 sm:h-12 md:h-14 max-w-[140px] sm:max-w-[160px] w-auto object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-125 dark:brightness-125 select-none bg-transparent"
+                  className="h-10 sm:h-12 md:h-14 max-w-[140px] sm:max-w-[160px] w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-125 select-none bg-transparent mix-blend-multiply dark:invert dark:brightness-[2] dark:mix-blend-screen"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {

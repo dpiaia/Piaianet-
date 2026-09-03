@@ -142,7 +142,7 @@ const Contact: FC<ContactProps> = ({ onNavigateFreela }) => {
                   className="text-brand-lead dark:text-brand-yellow font-semibold hover:underline flex items-center gap-1.5 transition-colors"
                 >
                   <Sparkles size={14} />
-                  <span>{t.contact.freelaFooter || 'Serviços & Freelancer'}</span>
+                  <span>{t.contact.freelaFooter || 'Serviços & freelancer'}</span>
                 </a>
               </div>
               

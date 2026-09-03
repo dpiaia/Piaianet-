@@ -5,7 +5,7 @@ import {
   Layers, Code2, Palette, Globe, Target, FileText, CreditCard
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
-import { translationsFreela } from '../../utils/translationsFreela';
+import { translationsFreela, ServiceItem } from '../../utils/translationsFreela';
 import { serviceVisualMap } from './ServiceVisuals';
 
 interface ProductsServicesSectionProps {
@@ -31,9 +31,10 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
     }
   };
 
-  const handleWhatsAppService = (title: string) => {
-    const message = encodeURIComponent(`Olá Denis! Gostaria de um orçamento para o serviço: ${title}`);
-    window.open(`https://api.whatsapp.com/send?phone=5519981517551&text=${message}`, '_blank');
+  const handleWhatsAppService = (service: ServiceItem) => {
+    const text = service.whatsappMessage || `Olá Denis! Gostaria de falar sobre ${service.productType || service.title}`;
+    const message = encodeURIComponent(text);
+    window.open(`https://api.whatsapp.com/send?phone=5519991119674&text=${message}`, '_blank');
   };
 
   const digitalCount = t.items.filter(item => item.category === 'digital').length;
@@ -177,11 +178,11 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                   </button>
 
                   <button
-                    onClick={() => handleWhatsAppService(service.title)}
+                    onClick={() => handleWhatsAppService(service)}
                     className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-medium tracking-tight bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/[0.12] transition-all duration-200 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                   >
                     <MessageSquare size={16} className="text-emerald-400" />
-                    <span>Falar no WhatsApp</span>
+                    <span>{t.talkOnWhatsApp || 'Falar no WhatsApp'}</span>
                   </button>
                 </div>
 

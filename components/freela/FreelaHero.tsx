@@ -43,8 +43,8 @@ const FreelaHero: React.FC = () => {
   };
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent('Olá Denis! Vi seu site e gostaria de solicitar um orçamento para meu projeto.');
-    window.open(`https://api.whatsapp.com/send?phone=5519981517551&text=${message}`, '_blank');
+    const message = encodeURIComponent('Olá Denis! Vi seu site e gostaria de conversar sobre meu projeto.');
+    window.open(`https://api.whatsapp.com/send?phone=5519991119674&text=${message}`, '_blank');
   };
 
   const currentTitle = titles[currentTitleIndex] || titles[0];
@@ -141,11 +141,11 @@ const FreelaHero: React.FC = () => {
             {/* Quick Proof Strip */}
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-mono text-neutral-500 dark:text-neutral-400 pt-2 border-t border-black/[0.06] dark:border-white/[0.06] w-full max-w-lg">
               <span className="flex items-center gap-1.5">
-                <span className="font-bold text-brand-dark dark:text-white">+15 Anos</span> de Mercado
+                <span className="font-bold text-brand-dark dark:text-white">+15 anos</span> de mercado
               </span>
               <span className="text-neutral-300 dark:text-neutral-700">•</span>
               <span className="flex items-center gap-1.5">
-                <span className="font-bold text-brand-dark dark:text-white">Figma 1:1</span> Código
+                <span className="font-bold text-brand-dark dark:text-white">Figma 1:1</span> código
               </span>
               <span className="text-neutral-300 dark:text-neutral-700">•</span>
               <span className="flex items-center gap-1.5">

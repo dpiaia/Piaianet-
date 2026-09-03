@@ -118,7 +118,7 @@ const CreationsCarousel: React.FC<CreationsCarouselProps> = ({ onNavigateHome })
               <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between">
                 <div>
                   <div className="text-xs font-mono font-bold text-[#EC6726] dark:text-[#FFD600] uppercase tracking-wider mb-2">
-                    Case em Destaque
+                    Case em destaque
                   </div>
 
                   <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark dark:text-white mb-4">

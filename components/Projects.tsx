@@ -285,7 +285,7 @@ const Projects: FC = () => {
                             </p>
                             
                             <div className="flex items-center gap-2 text-brand-dark/40 dark:text-white/40 text-[10px] font-mono uppercase tracking-widest group-hover:text-brand-lead dark:group-hover:text-brand-yellow transition-colors">
-                              <Eye size={14} /> View Details
+                              <Eye size={14} /> Ver detalhes
                             </div>
                           </div>
                         </motion.div>
@@ -295,7 +295,7 @@ const Projects: FC = () => {
                     {/* Scientific/Technical Section */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mt-40 pt-20 border-t border-brand-lead/10 dark:border-white/5">
                       <div className="lg:col-span-1">
-                         <h4 className="text-3xl font-display font-bold text-brand-dark dark:text-white mb-6">Metodologia <span className="text-brand-lead dark:text-brand-yellow">Generativa</span></h4>
+                         <h4 className="text-3xl font-display font-bold text-brand-dark dark:text-white mb-6">Metodologia <span className="text-brand-lead dark:text-brand-yellow">generativa</span></h4>
                          <p className="text-neutral-600 dark:text-neutral-500 leading-relaxed">
                            Utilizo prompts iterativos e modelos treinados localmente para garantir que o resultado final mantenha a essência do design focado no humano, enquanto explora territórios visuais inexplorados.
                          </p>
@@ -303,12 +303,12 @@ const Projects: FC = () => {
                       <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
                          <div className="p-8 bg-brand-lead/5 dark:bg-white/5 border border-brand-lead/10 dark:border-white/5 rounded-2xl">
                             <div className="text-brand-lead dark:text-brand-yellow mb-4"><Zap size={32} /></div>
-                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Velocidade de Conceito</h5>
+                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Velocidade de conceito</h5>
                             <p className="text-sm text-neutral-600 dark:text-neutral-400">Redução de 80% no tempo de criação de moodboards e conceitos visuais iniciais.</p>
                          </div>
                          <div className="p-8 bg-brand-lead/5 dark:bg-white/5 border border-brand-lead/10 dark:border-white/5 rounded-2xl">
                             <div className="text-brand-lead dark:text-brand-yellow mb-4"><Layers size={32} /></div>
-                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Escalabilidade de Assets</h5>
+                            <h5 className="text-brand-dark dark:text-white font-bold mb-2">Escalabilidade de assets</h5>
                             <p className="text-sm text-neutral-600 dark:text-neutral-400">Geração de milhares de variações iconográficas e texturais em minutos.</p>
                          </div>
                       </div>

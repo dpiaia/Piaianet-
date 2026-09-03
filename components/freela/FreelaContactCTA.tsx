@@ -130,7 +130,7 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome, sel
             
             {/* WhatsApp Card */}
             <a
-              href="https://api.whatsapp.com/send?phone=5519981517551&text=Ol%C3%A1%20Denis!%20Gostaria%20de%20conversar%20sobre%20um%20projeto%20freelance."
+              href="https://api.whatsapp.com/send?phone=5519991119674&text=Ol%C3%A1%20Denis!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 rounded-3xl bg-white/70 dark:bg-white/[0.02] border border-emerald-500/20 hover:border-emerald-500/60 transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.02)] block group hover:-translate-y-1 backdrop-blur-xl"
@@ -265,15 +265,15 @@ const FreelaContactCTA: React.FC<FreelaContactCTAProps> = ({ onNavigateHome, sel
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                       className="w-full p-3.5 rounded-2xl bg-neutral-50/80 dark:bg-black/60 border border-neutral-200 dark:border-neutral-800 text-sm text-brand-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-[#EC6726] dark:focus:ring-[#FFD600] transition-all"
                     >
-                      <option value="Adequação de Design System para IA">Adequação de Design System para IA (Carro-Chefe)</option>
-                      <option value="Landing Page de Alta Conversão">Landing Page de Alta Conversão</option>
-                      <option value="Site Institucional / Corporativo">Site Institucional / Corporativo</option>
-                      <option value="Site Promocional / Campanha">Site Promocional / Campanha</option>
-                      <option value="Criação de Design System do Zero">Criação de Design System do Zero</option>
-                      <option value="UX/UI Design para Aplicativo ou SaaS">UX/UI Design para Aplicativo ou SaaS</option>
-                      <option value="Desenvolvimento Frontend (React / Tailwind)">Desenvolvimento Frontend (React / Tailwind)</option>
-                      <option value="Consultoria / Sprint de Design Ops">Consultoria / Sprint de Design Ops</option>
-                      <option value="Outro">Outro Escopo</option>
+                      <option value="Adequação de Design System para IA">Adequação de Design System para IA (carro-chefe)</option>
+                      <option value="Landing Page de Alta Conversão">Landing page de alta conversão</option>
+                      <option value="Site Institucional / Corporativo">Site institucional / corporativo</option>
+                      <option value="Site Promocional / Campanha">Site promocional / campanha</option>
+                      <option value="Criação de Design System do Zero">Criação de Design System do zero</option>
+                      <option value="UX/UI Design para Aplicativo ou SaaS">UX/UI Design para aplicativo ou SaaS</option>
+                      <option value="Desenvolvimento Frontend (React / Tailwind)">Desenvolvimento frontend (React / Tailwind)</option>
+                      <option value="Consultoria / Sprint de Design Ops">Consultoria / sprint de Design Ops</option>
+                      <option value="Outro">Outro escopo</option>
                     </select>
                   </div>
 

@@ -12,6 +12,7 @@ export interface ServiceItem {
   highlightBadge?: string;
   productType: string;
   actionText?: string;
+  whatsappMessage?: string;
 }
 
 export interface CreationItem {
@@ -80,6 +81,7 @@ export interface FreelaTranslations {
     items: ServiceItem[];
     cardCta: string;
     productBadge: string;
+    talkOnWhatsApp?: string;
   };
   creations: {
     badge: string;
@@ -154,25 +156,25 @@ export interface FreelaTranslations {
 export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> = {
   pt: {
     nav: {
-      backToPortfolio: 'Voltar ao Portfólio',
+      backToPortfolio: 'Voltar ao portfólio',
       portfolio: 'Portfólio',
       services: 'Serviços',
       cases: 'Criações',
       trustedBy: 'Clientes',
       calculator: 'Orçamento',
       contact: 'Contato',
-      quoteCta: 'Falar Comigo',
+      quoteCta: 'Falar comigo',
     },
     hero: {
       availabilityBadge: 'Disponível para novos projetos',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
       rotatingTitles: [
-        { prefix: 'Design Systems para IA & ', highlight: 'Frontend de alta performance' },
+        { prefix: 'Design Systems para IA & ', highlight: 'frontend de alta performance' },
         { prefix: 'Sites pessoais ou para ', highlight: 'sua empresa' },
         { prefix: 'Imagens para ', highlight: 'redes sociais, impressos ou anúncios' },
       ],
       titleStart: 'Design Systems para IA &',
-      titleHighlight: 'Frontend de alta performance',
+      titleHighlight: 'frontend de alta performance',
       titleEnd: '',
       aboutSummary: '+15 anos escalando produtos digitais na Netshoes, iFood e Clinicorp. Da arquitetura de tokens ao código em produção.',
       deliveryPromise: '',
@@ -222,7 +224,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           number: 'Atuação Global',
           title: 'Brasil & América Latina',
-          subtitle: 'Projetos entregues com impacto internacional',
+          subtitle: 'Projetos entregados com impacto internacional',
           icon: 'Globe',
         },
         {
@@ -236,7 +238,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
     services: {
       badge: 'Soluções sob medida',
       title: 'O que eu',
-      titleHighlight: 'Posso fazer por você',
+      titleHighlight: 'posso fazer por você',
       subtitle: 'Serviços estruturados como produtos fechados: com escopo claro, metodologia ágil, alta qualidade e prazos definidos.',
       digitalTitle: 'Digital & engenharia',
       digitalSubtitle: 'Soluções modernas para escalar sua presença, acelerar seu time e multiplicar conversões.',
@@ -244,6 +246,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       graficoSubtitle: 'Identidade e materiais impressos com acabamento refinado para gerar autoridade imediata.',
       productBadge: 'PRODUTO',
       cardCta: 'Solicitar este serviço',
+      talkOnWhatsApp: 'Falar no WhatsApp',
       items: [
         // DIGITAL
         // DOBRA 1: MODERNIZAÇÃO DE DESIGN SYSTEM PARA IA
@@ -251,10 +254,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'ai-ds-modernization',
           category: 'digital',
           productType: 'Design System & IA',
-          title: 'Faça a Inteligência Artificial Entender o seu Design System Sem Erros',
+          title: 'Faça a inteligência artificial entender o seu design system sem erros',
           tagline: 'Modernização e adequação para quem já tem um Design System travado ou confuso para as ferramentas modernas.',
           description: 'Se você já tentou usar Cursor, Claude ou Copilot para programar e o resultado visual veio todo quebrado, o problema não é a IA: é o seu Design System falando uma língua antiga. Eu traduzo e migro a sua biblioteca atual para tecnologias que a IA domina nativamente (como React, Tailwind e componentes padronizados). Mapeio cada cor, espaçamento e componente para que seus desenvolvedores gerem telas perfeitas e padronizadas no primeiro comando, sem retrabalho.',
-          actionText: 'Destravar Meu Design System para IA',
+          actionText: 'Destravar meu design system para IA',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre adequação de Design System para IA.',
           deliverables: [
             'Auditoria de componentes legados e mapeamento de tokens',
             'Migração para React + Tailwind com TypeScript rígido',
@@ -269,11 +273,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'ai-ds-creation',
           category: 'digital',
-          productType: 'Design System do Zero',
-          title: 'Pare de Reinventar a Roda: Um Design System Pronto para o Futuro',
+          productType: 'Design system do zero',
+          title: 'Pare de reinventar a roda: um design system pronto para o futuro',
           tagline: 'Criação estrutural completa para quem ainda não tem padrão nenhum e quer nascer pronto pro futuro.',
           description: 'Criar telas do zero a cada novo projeto queima tempo, dinheiro e cansa seu time. Eu construo a base visual e estrutural completa do seu produto digital do absoluto zero — já 100% pensada para trabalhar lado a lado com assistentes de IA. Você recebe uma biblioteca viva, intuitiva e organizada, onde criar uma nova página ou tela para o seu sistema leva minutos em vez de semanas.',
-          actionText: 'Criar Meu Design System',
+          actionText: 'Criar meu design system',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre criação de Design System do zero.',
           deliverables: [
             'Biblioteca modular de componentes (UI Kit no Figma e Código)',
             'Tokens de cor, tipografia, espaçamento, sombras e raios',
@@ -288,11 +293,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'websites',
           category: 'digital',
-          productType: 'Websites & Autoridade',
-          title: 'Seu Negócio Precisa de Uma Casa Própria na Internet',
+          productType: 'Websites & autoridade',
+          title: 'Seu negócio precisa de uma casa própria na internet',
           tagline: 'Websites institucionais e profissionais com foco em autoridade e posse do próprio espaço digital.',
           description: 'Depender apenas de redes sociais é construir sua empresa em terreno alugado. Um site institucional profissional é o endereço oficial da sua marca, o lugar onde clientes em potencial encontram você no Google, entendem exatamente o valor do seu trabalho e sentem segurança imediata para fechar negócio. Seja você uma empresa sólida ou um profissional autônomo construindo sua autoridade pessoal, crio uma página rápida, elegante e pronta para colocar seu nome no topo.',
-          actionText: 'Construir Minha Casa Digital',
+          actionText: 'Construir minha casa digital',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre criação de website institucional.',
           deliverables: [
             'Design exclusivo e alinhado com a autoridade da sua marca',
             'Desenvolvimento responsivo com pontuação 95+ no PageSpeed',
@@ -307,11 +313,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'landing-pages',
           category: 'digital',
-          productType: 'Landing Pages & Conversão',
-          title: 'Uma Página com Um Único Objetivo: Transformar Visitantes em Vendas',
+          productType: 'Landing pages & conversão',
+          title: 'Uma página com um único objetivo: transformar visitantes em vendas',
           tagline: 'Páginas de alta conversão com foco na urgência, vendas diretas e validação rápida.',
           description: 'Se você tem um produto novo, um serviço específico ou uma campanha que precisa dar retorno rápido, mandar as pessoas para a página inicial comum é perder dinheiro. A Landing Page é um funil cirúrgico: ela pega o cliente pela mão, explica sua oferta com clareza, quebra objeções e foca em uma única ação imediata — comprar ou chamar no WhatsApp. Sem distrações, com carregamento instantâneo no celular e desenhada para vender.',
-          actionText: 'Quero Vender Mais Rápido',
+          actionText: 'Quero vender mais rápido',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre landing page de alta conversão.',
           deliverables: [
             'Estrutura de copy cirúrgica para quebra de objeções',
             'Carregamento instantâneo em mobile (menos de 1 segundo)',
@@ -326,18 +333,19 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'social-media',
           category: 'digital',
-          productType: 'Presença Digital & Redes',
-          title: 'Seja Visto, Lembrado e Respeitado Todos os Dias nas Redes',
+          productType: 'Presença digital & redes',
+          title: 'Seja visto, lembrado e respeitado todos os dias nas redes',
           tagline: 'Planejamento, constância, autoridade e design visual de alto impacto para suas redes sociais.',
           description: 'Estar nas redes sociais não é sobre postar qualquer coisa por obrigação, mas sobre ocupar espaço na mente do seu público com autoridade. Eu cuido do planejamento, dos temas que atraem clientes reais e da criação visual dos posts e carrosséis com um design profissional que destaca seu perfil da concorrência. Você foca em atender os clientes enquanto sua marca se mantém viva, atraente e gerando novas conversas.',
-          actionText: 'Profissionalizar Minhas Redes',
+          actionText: 'Profissionalizar minhas redes',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre presença digital e redes sociais.',
           deliverables: [
             'Calendário editorial com temas e formatos estratégicos',
             'Design de posts para feed (carrosséis informativos e estáticos)',
             'Templates para stories e capas para destaques',
             'Copywriting persuasivo e hashtags otimizadas por nicho'
           ],
-          timeline: 'Gestão Contínua (Mensal) ou Pacotes',
+          timeline: 'Gestão Contínua (Mensual) ou Pacotes',
           idealFor: 'Marcas, clínicas, consultores e empresas que precisam de presença ativa e visual impecável.',
           tech: ['Instagram', 'LinkedIn', 'Figma', 'Photoshop', 'Meta Business'],
         },
@@ -345,11 +353,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'google-ads',
           category: 'digital',
-          productType: 'Tráfego Pago & Performance',
-          title: 'Esteja Exatamente na Frente de Quem Quer Comprar de Você',
+          productType: 'Tráfego pago & performance',
+          title: 'Esteja exatamente na frente de quem quer comprar de você',
           tagline: 'A ponte direta com quem já está procurando ativamente pelo seu serviço no Google agora.',
           description: 'Todos os dias, centenas de pessoas abrem o Google buscando ativamente a solução que você vende. Se o seu negócio não aparece ali, seu concorrente fica com a venda. Crio e acompanho campanhas de anúncios estratégicas no Google para colocar sua marca em primeiro lugar para o público certo, sem desperdiçar dinheiro com cliques vazios e buscando sempre o menor custo para cada novo contato de cliente gerado.',
-          actionText: 'Atrair Clientes no Google',
+          actionText: 'Atrair clientes no Google',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre tráfego pago e Google Ads.',
           deliverables: [
             'Pesquisa de palavras-chave com alta intenção de contratação',
             'Criação e estruturação técnica de anúncios na Rede de Pesquisa',
@@ -366,11 +375,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'branding',
           category: 'grafico',
-          productType: 'Identidade Visual & Branding',
-          title: 'Uma Marca Que Inspira Confiança Antes de Você Falar o Preço',
+          productType: 'Identidade visual & branding',
+          title: 'Uma marca que inspira confiança antes de você falar o preço',
           tagline: 'O nascimento da percepção de valor: identidade visual profissional e memorável.',
           description: 'A primeira impressão define se o cliente vai achar seu produto caro ou valioso. Uma identidade visual profissional vai muito além de um desenho bonito: ela traduz a personalidade, o cuidado e a solidez do seu trabalho. Desenvolvo marcas completas, do logotipo às paletas de cores e tipografia, para que seu negócio passe credibilidade instantânea em qualquer lugar do mundo.',
-          actionText: 'Criar Minha Marca Marcante',
+          actionText: 'Criar minha marca marcante',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre identidade visual e branding.',
           deliverables: [
             'Logotipo exclusivo vetorizado (símbolo + tipografia)',
             'Variações de aplicação (positivo, negativo, monocromático)',
@@ -385,11 +395,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'printed-materials',
           category: 'grafico',
-          productType: 'Design Gráfico & Impressos',
-          title: 'O Toque Físico da Sua Empresa com Acabamento Impecável',
+          productType: 'Design gráfico & impressos',
+          title: 'O toque físico da sua empresa com acabamento impecável',
           tagline: 'O contato físico impecável e sem surpresas na gráfica: cartões, folders, catálogos e papelaria.',
           description: 'Entregar um cartão de visitas de alta qualidade, um catálogo bem diagramado ou um folder elegante em uma reunião ainda tem um peso enorme na decisão de compra. Crio peças gráficas completas e preparo os arquivos com rigor técnico total para a gráfica, garantindo que as cores, dobras e cortes saiam exatamente como planejado no papel, sem dores de cabeça ou surpresas na impressão.',
-          actionText: 'Produzir Meus Materiais Impressos',
+          actionText: 'Produzir meus materiais impressos',
+          whatsappMessage: 'Olá Denis! Gostaria de falar sobre design gráfico e materiais impressos.',
           deliverables: [
             'Design de cartões de visita executivos (com QR Code inteligente opcional)',
             'Folders institucionais, panfletos comerciais e catálogos diagramados',
@@ -527,7 +538,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
 - **Serviços Digitais:** Adequação de Design Systems para IA (W3C Tokens, AGENTS.md, shadcn/ui), Criação de Sites institucionais (React, Next.js, Tailwind), Criação de Landing Pages de alta conversão (CRO, micro-interações) e Tráfego Pago Google Ads.
 - **Serviços Gráficos:** Criação de Logos e Identidade Visual corporativa, Folhetos e Folders promocionais, Cartão de Visita e Papelaria executiva.
 - **Disponibilidade:** Projetos pontuais, sprints aceleradas e consultoria para empresas no Brasil e no exterior.
-- **Contato Direto:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
+- **Contato Direto:** dpiaia@gmail.com | WhatsApp: +55 (19) 99111-9674 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
       badge: 'Vamos conversar',
@@ -535,7 +546,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       titleHighlight: 'projeto do papel?',
       subtitle: 'Entre em contato direto pelo canal de sua preferência ou preencha o formulário para receber uma proposta rápida.',
       whatsappTitle: 'WhatsApp direto',
-      whatsappDesc: '+55 (19) 98151-7551 • Resposta rápida',
+      whatsappDesc: '+55 (19) 99111-9674 • Resposta rápida',
       emailTitle: 'E-mail comercial',
       emailDesc: 'dpiaia@gmail.com',
       backHome: 'Voltar para a página inicial / portfólio',
@@ -552,56 +563,56 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
   },
   en: {
     nav: {
-      backToPortfolio: 'Back to Portfolio',
+      backToPortfolio: 'Back to portfolio',
       portfolio: 'Portfolio',
       services: 'Services',
       cases: 'Work',
       trustedBy: 'Clients',
       calculator: 'Quote',
       contact: 'Contact',
-      quoteCta: 'Talk to Me',
+      quoteCta: 'Talk to me',
     },
     hero: {
-      availabilityBadge: 'Available for New Projects',
+      availabilityBadge: 'Available for new projects',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
       rotatingTitles: [
-        { prefix: 'AI Design Systems & ', highlight: 'High-Performance Frontend' },
+        { prefix: 'AI Design Systems & ', highlight: 'high-performance frontend' },
         { prefix: 'Websites for personal or ', highlight: 'your company' },
         { prefix: 'Visuals for ', highlight: 'social media, print or ads' },
       ],
       titleStart: 'AI Design Systems &',
-      titleHighlight: 'High-Performance Frontend',
+      titleHighlight: 'high-performance frontend',
       titleEnd: '',
       aboutSummary: '15+ years scaling digital products at market leaders like Netshoes, iFood, and Clinicorp. From token architecture to production code.',
       deliveryPromise: '',
-      ctaPrimary: 'Explore Services',
-      ctaSecondary: 'Request a Quote',
+      ctaPrimary: 'Explore services',
+      ctaSecondary: 'Request a quote',
       ctaWhatsApp: 'WhatsApp',
     },
     credentials: {
-      title: 'Highlights & Credentials',
+      title: 'Highlights & credentials',
       items: [
         {
           number: '15+ Years',
-          title: 'Industry Experience',
+          title: 'Industry experience',
           subtitle: 'Leading Design & Frontend in top-tier companies',
           icon: 'Rocket',
         },
         {
           number: 'PUC-Campinas',
-          title: 'University Professor',
+          title: 'University professor',
           subtitle: 'Mentoring new generations in Design and Tech',
           icon: 'GraduationCap',
         },
         {
           number: 'Unicorns & Leaders',
-          title: 'Proven Track Record',
+          title: 'Proven track record',
           subtitle: 'Netshoes, iFood, Superlógica, Clinicorp, Visa',
           icon: 'Building2',
         },
         {
           number: 'Speaker',
-          title: 'TDC, IxDA & Tech Events',
+          title: 'TDC, IxDA & tech events',
           subtitle: 'Sharing Design Ops, UI/UX, and applied AI',
           icon: 'Mic',
         },
@@ -613,7 +624,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         },
         {
           number: 'Full-Cycle',
-          title: 'Design to Code',
+          title: 'Design to code',
           subtitle: 'From Figma components to React/Tailwind code',
           icon: 'Code2',
         },
@@ -625,23 +636,24 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         },
         {
           number: '100% On-Time',
-          title: 'Deadline Reliability',
+          title: 'Deadline reliability',
           subtitle: 'Transparent communication and agile delivery',
           icon: 'ShieldCheck',
         },
       ],
     },
     services: {
-      badge: 'Tailored Solutions',
-      title: 'What I Can',
-      titleHighlight: 'Deliver For You',
+      badge: 'Tailored solutions',
+      title: 'What I can',
+      titleHighlight: 'deliver for you',
       subtitle: 'Structured as productized services: clear deliverables, agile methodologies, high quality, and guaranteed timelines.',
-      digitalTitle: 'Digital & Engineering',
+      digitalTitle: 'Digital & engineering',
       digitalSubtitle: 'Modern solutions to scale your digital presence, empower your engineering team, and boost conversions.',
-      graficoTitle: 'Graphic Design & Branding',
+      graficoTitle: 'Graphic design & branding',
       graficoSubtitle: 'Refined brand identity and print assets engineered for instant authority.',
       productBadge: 'PRODUCT',
       cardCta: 'Request this service',
+      talkOnWhatsApp: 'Talk on WhatsApp',
       items: [
         // DIGITAL
         // DOBRA 1: MODERNIZAÇÃO DE DESIGN SYSTEM PARA IA
@@ -649,10 +661,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'ai-ds-modernization',
           category: 'digital',
           productType: 'Design System & AI',
-          title: 'Make Artificial Intelligence Understand Your Design System Flawlessly',
+          title: 'Make artificial intelligence understand your design system flawlessly',
           tagline: 'Modernization and alignment for existing Design Systems that stall modern AI coding workflows.',
           description: 'If you have tried using Cursor, Claude, or Copilot to code and the visual UI output came back broken, the issue isn’t AI: it is your Design System speaking an obsolete dialect. I translate and migrate your component library to AI-native standards (React, Tailwind, and semantic tokens). Every color, spacing rule, and component is mathematically structured so your developers generate production-ready screens on the very first prompt, with zero rework.',
-          actionText: 'Unlock My Design System for AI',
+          actionText: 'Unlock my design system for AI',
+          whatsappMessage: "Hi Denis! I'd like to talk about Design System modernization for AI.",
           deliverables: [
             'Legacy component audit and Design Token mapping',
             'Migration to React + Tailwind with strict TypeScript',
@@ -667,11 +680,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'ai-ds-creation',
           category: 'digital',
-          productType: 'Design System from Scratch',
-          title: 'Stop Reinventing the Wheel: A Future-Proof Design System',
+          productType: 'Design system from scratch',
+          title: 'Stop reinventing the wheel: a future-proof design system',
           tagline: 'Complete visual and structural foundation built from scratch, 100% optimized for AI.',
           description: 'Building screens from scratch for every project burns time, budget, and exhausts your engineering team. I architect your entire digital product foundation from absolute zero — built from day one to work hand-in-hand with AI assistants. You get an intuitive, living component library where spinning up a new screen or feature takes minutes instead of weeks.',
-          actionText: 'Create My Design System',
+          actionText: 'Create my design system',
+          whatsappMessage: "Hi Denis! I'd like to talk about building a Design System from scratch.",
           deliverables: [
             'Modular component library (UI Kit in Figma & Code)',
             'Semantic tokens for colors, typography, spacing, shadows, and radii',
@@ -686,11 +700,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'websites',
           category: 'digital',
-          productType: 'Websites & Authority',
-          title: 'Your Business Deserves Its Own Home on the Internet',
+          productType: 'Websites & authority',
+          title: 'Your business deserves its own home on the internet',
           tagline: 'Institutional and professional websites focused on authoritative digital ownership.',
           description: 'Relying solely on social platforms is building your business on rented land. A bespoke institutional website is your brand’s official headquarters — where prospects discover you on Google, understand your unique value, and feel immediate confidence to close deals. Whether you are an established company or an independent leader building personal authority, I build fast, elegant pages engineered to position you at the top.',
-          actionText: 'Build My Digital Home',
+          actionText: 'Build my digital home',
+          whatsappMessage: "Hi Denis! I'd like to talk about creating an institutional website.",
           deliverables: [
             'Bespoke design aligned with your brand authority',
             'Responsive development with 95+ Google PageSpeed score',
@@ -705,11 +720,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'landing-pages',
           category: 'digital',
-          productType: 'Landing Pages & Conversion',
-          title: 'One Page with a Single Purpose: Turn Visitors into Customers',
+          productType: 'Landing pages & conversion',
+          title: 'One page with a single purpose: turn visitors into customers',
           tagline: 'High-converting landing pages built for urgency, fast validation, and direct sales.',
           description: 'If you have a new product, specific service, or ad campaign that needs fast ROI, sending visitors to a generic homepage loses money. A high-converting Landing Page is a surgical funnel: it takes prospects by the hand, articulates your offer with crystal clarity, dismantles objections, and drives a single decisive action — buy or message on WhatsApp. Zero distractions, instant mobile load, engineered to convert.',
-          actionText: 'I Want to Sell Faster',
+          actionText: 'I want to sell faster',
+          whatsappMessage: "Hi Denis! I'd like to talk about a high-converting landing page.",
           deliverables: [
             'Surgical copy structure engineered for objection breaking',
             'Instant mobile loading (< 1 second)',
@@ -724,11 +740,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'social-media',
           category: 'digital',
-          productType: 'Digital Presence & Social',
-          title: 'Be Seen, Remembered, and Respected Every Day Across Social Media',
+          productType: 'Digital presence & social',
+          title: 'Be seen, remembered, and respected every day across social media',
           tagline: 'Strategic planning, consistency, authority, and high-impact visual design for social channels.',
           description: 'Social media success isn’t about posting random content out of obligation, but commanding space in your audience’s mind with authority. I handle content strategy, customer-attracting themes, and high-impact visual design for carousels and posts that stand out from competitors. You focus on closing clients while your brand stays vibrant, authoritative, and sparking conversations.',
-          actionText: 'Professionalize My Social Channels',
+          actionText: 'Professionalize my social channels',
+          whatsappMessage: "Hi Denis! I'd like to talk about digital presence and social media.",
           deliverables: [
             'Monthly editorial calendar with high-converting formats',
             'Feed post graphics (informative carousels & key visuals)',
@@ -743,11 +760,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'google-ads',
           category: 'digital',
-          productType: 'Paid Traffic & Performance',
-          title: 'Be Exactly Where High-Intent Buyers Are Searching Right Now',
+          productType: 'Paid traffic & performance',
+          title: 'Be exactly where high-intent buyers are searching right now',
           tagline: 'The direct bridge to customers actively searching for your services on Google today.',
           description: 'Every single day, hundreds of potential clients open Google searching for the exact solutions you offer. If your business doesn’t appear there, your competitor wins the deal. I create and optimize strategic Google Ads campaigns to put your brand at the very top for high-intent queries, eliminating wasted budget on empty clicks and relentlessly lowering cost per lead.',
-          actionText: 'Attract Clients on Google',
+          actionText: 'Attract clients on Google',
+          whatsappMessage: "Hi Denis! I'd like to talk about paid traffic and Google Ads.",
           deliverables: [
             'High-intent keyword and competitor search research',
             'Search ad creation with persuasive copy and extensions',
@@ -764,11 +782,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'branding',
           category: 'grafico',
-          productType: 'Visual Identity & Branding',
-          title: 'A Brand That Inspires Trust Before You Even Mention Price',
+          productType: 'Visual identity & branding',
+          title: 'A brand that inspires trust before you even mention price',
           tagline: 'The foundation of perceived value: memorable, authoritative visual identity design.',
           description: 'First impressions dictate whether clients perceive your offering as expensive or invaluable. Professional visual identity goes far beyond a pretty logo: it encapsulates the craftsmanship, personality, and trustworthiness of your business. I craft complete brand systems, from logo design to chromatic color palettes and typography, ensuring your brand commands instant respect worldwide.',
-          actionText: 'Create My Memorable Brand',
+          actionText: 'Create my memorable brand',
+          whatsappMessage: "Hi Denis! I'd like to talk about visual identity and branding.",
           deliverables: [
             'Exclusive vector logo and symbol (high-resolution & vector)',
             'Comprehensive application variants (light, dark, monochrome)',
@@ -783,11 +802,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'printed-materials',
           category: 'grafico',
-          productType: 'Graphic Design & Print',
-          title: 'The Tactile Touch of Your Business with Flawless Craftsmanship',
+          productType: 'Graphic design & print',
+          title: 'The tactile touch of your business with flawless craftsmanship',
           tagline: 'Impeccable physical print collateral with zero prepress surprises: cards, folders, and catalogs.',
           description: 'Handing over an executive business card, a curated product catalog, or a sleek folder in a business meeting still holds immense influence over buying decisions. I design complete print assets and prepare files with total prepress technical precision, guaranteeing that colors, folds, and die-cuts translate onto paper with zero headaches or print surprises.',
-          actionText: 'Produce My Printed Materials',
+          actionText: 'Produce my printed materials',
+          whatsappMessage: "Hi Denis! I'd like to talk about graphic design and printed materials.",
           deliverables: [
             'Executive business card design with smart dynamic QR Code',
             'Corporate brochures, sales folders, and product catalogs',
@@ -801,9 +821,9 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       ],
     },
     creations: {
-      badge: 'Selected Work',
+      badge: 'Selected work',
       title: 'Emblematic',
-      titleHighlight: 'Creations & Cases',
+      titleHighlight: 'creations & cases',
       subtitle: 'A glimpse into high-impact work delivered for regional and global market leaders.',
       viewAllCases: 'View all projects in the main portfolio',
       items: [
@@ -811,7 +831,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'netshoes-run',
           title: 'Netshoes Run',
           client: 'Netshoes / Magalu',
-          category: 'Event Identity & Landing Pages',
+          category: 'Event identity & landing pages',
           description: 'Visual identity, promotional landing pages, and digital engagement assets for Latin America’s premier sporting e-commerce running circuit.',
           image: 'https://piaianet.page.gd/gifs/run.gif',
           deliverables: ['Visual Identity', 'Responsive Landing Page', 'Promotional Banners', 'Runner Kits'],
@@ -821,7 +841,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'netshoes-copa',
           title: 'Netshoes World Cup',
           client: 'Netshoes / Magalu',
-          category: 'Gamification & Digital Campaign',
+          category: 'Gamification & digital campaign',
           description: 'Interactive digital promotions, celebratory campaign interfaces, and thematic landing pages during the World Cup, breaking traffic and engagement records.',
           image: 'https://piaianet.page.gd/gifs/copa.gif',
           deliverables: ['Interactive UI', 'Gamified Promotions', 'Dynamic Banners', 'E-commerce Theme'],
@@ -831,7 +851,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'ifood-colombia',
           title: 'iFood Colombia',
           client: 'iFood International',
-          category: 'Product Expansion & UX/UI',
+          category: 'Product expansion & UX/UI',
           description: 'Localization and expansion of the iFood ecosystem for the Colombian market, including mobile flows, marketing communications, and Latin American assets.',
           image: 'https://piaianet.page.gd/imgs/ifood.jpg',
           deliverables: ['UX/UI Localization', 'Campaign Assets', 'Screen Design', 'Design System'],
@@ -841,7 +861,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'clinicorp-ds',
           title: 'Clinicorp Design System & AI',
           client: 'Clinicorp Healthtech',
-          category: 'Design System & AI Integration',
+          category: 'Design System & AI integration',
           description: 'Design system architecture with OKLCH semantic tokens, shadcn/ui parity, and AI model context integration for clinical dental software.',
           image: 'https://picsum.photos/id/1/800/600',
           deliverables: ['W3C Design Tokens', 'shadcn/ui Component Library', 'Living Docs', 'AI Context Guidelines'],
@@ -851,7 +871,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'superlogica',
           title: 'Superlógica Fintech & ERP',
           client: 'Superlógica',
-          category: 'Financial Platforms & UX',
+          category: 'Financial platforms & UX',
           description: 'UI and UX architecture for financial dashboards, condo management platforms, and recurring billing engines trusted by thousands of enterprises.',
           image: 'https://picsum.photos/id/180/800/600',
           deliverables: ['Financial Dashboards', 'Checkout Flows', 'Design System', 'User Research'],
@@ -861,7 +881,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'zattini',
           title: 'Zattini Fashion E-commerce',
           client: 'Zattini / Netshoes',
-          category: 'E-commerce & Fashion Editorials',
+          category: 'E-commerce & fashion editorials',
           description: 'Digital art direction, high-converting collection pages, and seasonal campaigns (Black Friday, Mother’s Day, Seasonal Fashion Releases).',
           image: 'https://piaianet.page.gd/gifs/lojas.gif',
           deliverables: ['Seasonal Landing Pages', 'Fashion Editorials', 'E-commerce UI', 'A/B Testing'],
@@ -870,9 +890,9 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       ],
     },
     trustedBy: {
-      badge: 'Brands & Partners',
-      title: 'Brands That Have Trusted',
-      titleHighlight: 'My Work',
+      badge: 'Brands & partners',
+      title: 'Brands that have trusted',
+      titleHighlight: 'my work',
       subtitle: 'A track record of high-impact collaboration with market leaders, unicorns, and universities.',
       partners: [
         { name: 'Netshoes', logo: '/logos/netshoes.svg', category: 'E-commerce' },
@@ -890,9 +910,9 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       ],
     },
     calculator: {
-      badge: 'Scope Calculator',
-      title: 'Build Your Custom',
-      titleHighlight: 'Project Briefing',
+      badge: 'Scope calculator',
+      title: 'Build your custom',
+      titleHighlight: 'project briefing',
       subtitle: 'Select the digital or graphic services you need to generate an instant briefing and connect with me directly.',
       step1Title: '1. Select desired services:',
       step2Title: '2. What is your timeline urgency?',
@@ -902,7 +922,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         standard: { label: 'Standard (Regular roadmap)', desc: 'Ideal timeline with structured review milestones' },
         flexible: { label: 'Flexible / Planning ahead', desc: 'Planned launch over the coming weeks' },
       },
-      summaryTitle: 'Your Scope Summary',
+      summaryTitle: 'Your scope summary',
       summaryDesc: 'Click below to send your structured briefing directly via WhatsApp or Email:',
       selectedServices: 'Selected services:',
       emptySelection: 'No services selected yet. Click the cards above to build your scope.',
@@ -912,9 +932,9 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       customNotePlaceholder: 'Tell me a bit about your company, target audience, or visual references...',
     },
     aiMetadata: {
-      badge: 'Schema & AI Index',
-      title: 'Metadata & Indexing',
-      titleHighlight: 'For Search Engines & AIs',
+      badge: 'Schema & AI index',
+      title: 'Metadata & indexing',
+      titleHighlight: 'for search engines & AIs',
       subtitle: 'Structured JSON-LD schema and optimized context for search engines and AI agents (ChatGPT, Gemini, Perplexity, Claude).',
       copyPromptLabel: 'Copy Markdown Profile for AIs',
       copiedSuccess: 'Profile copied to clipboard!',
@@ -925,24 +945,24 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
 - **Digital Services:** AI Design System Adaptation (W3C Tokens, AGENTS.md, shadcn/ui), High-performance Websites (React, Next.js, Tailwind), High-converting Landing Pages (CRO, micro-interactions), and Google Ads Paid Traffic.
 - **Graphic Services:** Logo & Visual Identity Design, Brochures & Folders, Business Cards & Corporate Stationery.
 - **Availability:** Bespoke projects, accelerated sprints, and strategic consulting worldwide.
-- **Direct Contact:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
+- **Direct Contact:** dpiaia@gmail.com | WhatsApp: +55 (19) 99111-9674 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
-      badge: "Let's Connect",
-      title: 'Ready to Bring Your',
-      titleHighlight: 'Vision to Life?',
+      badge: "Let's connect",
+      title: 'Ready to bring your',
+      titleHighlight: 'vision to life?',
       subtitle: 'Get in touch directly via WhatsApp or fill out the quick form to receive an immediate proposal.',
       whatsappTitle: 'Direct WhatsApp',
-      whatsappDesc: '+55 (19) 98151-7551 • Fast response',
-      emailTitle: 'Business Email',
+      whatsappDesc: '+55 (19) 99111-9674 • Fast response',
+      emailTitle: 'Business email',
       emailDesc: 'dpiaia@gmail.com',
-      backHome: 'Back to Main Portfolio / Home',
-      formTitle: 'Send a Quick Message',
+      backHome: 'Back to main portfolio / home',
+      formTitle: 'Send a quick message',
       formName: 'Your Name or Company',
       formEmail: 'Your Email',
       formProject: 'What is your primary goal?',
       formMessage: 'Project Details / Briefing',
-      formSubmit: 'Send Message',
+      formSubmit: 'Send message',
       formSubmitting: 'Sending...',
       formSuccess: 'Message sent successfully! I will get back to you shortly.',
       rights: 'All rights reserved.',
@@ -950,7 +970,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
   },
   es: {
     nav: {
-      backToPortfolio: 'Volver al Portafolio',
+      backToPortfolio: 'Volver al portafolio',
       portfolio: 'Portafolio',
       services: 'Servicios',
       cases: 'Trabajos',
@@ -960,46 +980,46 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       quoteCta: 'Hablemos',
     },
     hero: {
-      availabilityBadge: 'Disponible para Nuevos Proyectos',
+      availabilityBadge: 'Disponible para nuevos proyectos',
       greeting: 'Denis Piaia • Design Ops & Tech Leader',
       rotatingTitles: [
-        { prefix: 'Design Systems para IA y ', highlight: 'Frontend de Alto Rendimiento' },
+        { prefix: 'Design Systems para IA y ', highlight: 'frontend de alto rendimiento' },
         { prefix: 'Sitios web personales o para ', highlight: 'su empresa' },
         { prefix: 'Imágenes para ', highlight: 'redes sociales, impresos o anuncios' },
       ],
       titleStart: 'Design Systems para IA y',
-      titleHighlight: 'Frontend de Alto Rendimiento',
+      titleHighlight: 'frontend de alto rendimiento',
       titleEnd: '',
       aboutSummary: '+15 años escalando productos digitales en líderes como Netshoes, iFood y Clinicorp. De la arquitectura de tokens al código en producción.',
       deliveryPromise: '',
-      ctaPrimary: 'Explorar Servicios',
-      ctaSecondary: 'Solicitar Cotización',
+      ctaPrimary: 'Explorar servicios',
+      ctaSecondary: 'Solicitar cotización',
       ctaWhatsApp: 'WhatsApp',
     },
     credentials: {
-      title: 'Destacados & Credenciales',
+      title: 'Destacados & credenciales',
       items: [
         {
           number: '+15 Años',
-          title: 'Experiencia de Mercado',
+          title: 'Experiencia de mercado',
           subtitle: 'Liderando Diseño y Frontend en grandes empresas',
           icon: 'Rocket',
         },
         {
           number: 'PUC-Campinas',
-          title: 'Profesor Universitario',
+          title: 'Profesor universitario',
           subtitle: 'Formando nuevas generaciones en Diseño y Tecnología',
           icon: 'GraduationCap',
         },
         {
           number: 'Unicornios & Líderes',
-          title: 'Grandes Ecosistemas',
+          title: 'Grandes ecosistemas',
           subtitle: 'Netshoes, iFood, Superlógica, Clinicorp, Visa',
           icon: 'Building2',
         },
         {
           number: 'Conferencista',
-          title: 'TDC, IxDA y Eventos Tech',
+          title: 'TDC, IxDA y eventos tech',
           subtitle: 'Compartiendo Design Ops, UI/UX e IA aplicada',
           icon: 'Mic',
         },
@@ -1011,7 +1031,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         },
         {
           number: 'Full-Cycle',
-          title: 'Del Diseño al Código',
+          title: 'Del diseño al código',
           subtitle: 'Desde el Figma hasta la interfaz en React/Tailwind',
           icon: 'Code2',
         },
@@ -1023,7 +1043,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         },
         {
           number: '100% Puntual',
-          title: 'Compromiso con Plazos',
+          title: 'Compromiso con plazos',
           subtitle: 'Comunicación transparente y entregas ágiles',
           icon: 'ShieldCheck',
         },
@@ -1040,6 +1060,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       graficoSubtitle: 'Identidad y materiales impresos de acabado refinado para generar autoridad inmediata.',
       productBadge: 'PRODUCTO',
       cardCta: 'Solicitar este servicio',
+      talkOnWhatsApp: 'Hablar por WhatsApp',
       items: [
         // DIGITAL
         // DOBRA 1: MODERNIZAÇÃO DE DESIGN SYSTEM PARA IA
@@ -1047,10 +1068,11 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'ai-ds-modernization',
           category: 'digital',
           productType: 'Design System & IA',
-          title: 'Haz que la Inteligencia Artificial Entienda tu Design System Sin Errores',
+          title: 'Haz que la inteligencia artificial entienda tu design system sin errores',
           tagline: 'Modernización y adecuación para quienes ya tienen un Design System desactualizado para herramientas de IA.',
           description: 'Si has intentado usar Cursor, Claude o Copilot para programar y el resultado visual salió roto, el problema no es la IA: es tu Design System hablando un idioma obsoleto. Traduzco y migro tu biblioteca a tecnologías que la IA domina de forma nativa (React, Tailwind y tokens estandarizados). Mapeo cada color, espaciado y componente para que tus desarrolladores generen pantallas perfectas al primer comando.',
-          actionText: 'Destrabar Mi Design System para IA',
+          actionText: 'Destrabar mi design system para IA',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre modernización de Design System para IA.',
           deliverables: [
             'Auditoría de componentes legados y mapeo de tokens',
             'Migración a React + Tailwind con TypeScript estricto',
@@ -1065,11 +1087,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'ai-ds-creation',
           category: 'digital',
-          productType: 'Design System desde Cero',
-          title: 'Deja de Reinventar la Rueda: Un Design System Listo para el Futuro',
+          productType: 'Design system desde cero',
+          title: 'Deja de reinventar la rueda: un design system listo para el futuro',
           tagline: 'Creación de la base visual y estructural completa desde cero, pensada 100% para IA.',
           description: 'Crear pantallas desde cero en cada proyecto quema tiempo, dinero y agota a tu equipo. Construyo la base visual e estructural completa de tu producto digital desde cero — pensada para trabajar mano a mano con asistentes de IA. Recibes una biblioteca viva y organizada donde crear una nueva pantalla toma minutos en lugar de semanas.',
-          actionText: 'Crear Mi Design System',
+          actionText: 'Crear mi design system',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre creación de Design System desde cero.',
           deliverables: [
             'Biblioteca modular de componentes (UI Kit en Figma y Código)',
             'Tokens semánticos de color, tipografía, espaciado, sombras y radios',
@@ -1084,11 +1107,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'websites',
           category: 'digital',
-          productType: 'Sitios Web & Autoridad',
-          title: 'Tu Negocio Necesita una Casa Propia en Internet',
+          productType: 'Sitios web & autoridad',
+          title: 'Tu negocio necesita una casa propia en internet',
           tagline: 'Sitios web institucionales y profesionales enfocados en autoridad y propiedad de tu espacio digital.',
           description: 'Depender solo de redes sociales es construir tu empresa en terreno alquilado. Un sitio web institucional profesional es la dirección oficial de tu marca, donde clientes potenciales te encuentran en Google, entienden tu valor y sienten seguridad para cerrar tratos. Creo páginas rápidas, elegantes y listas para posicionar tu nombre en la cima.',
-          actionText: 'Construir Mi Casa Digital',
+          actionText: 'Construir mi casa digital',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre creación de sitio web institucional.',
           deliverables: [
             'Diseño exclusivo alineado con la autoridad de tu marca',
             'Desarrollo responsivo con puntuación 95+ en PageSpeed',
@@ -1103,16 +1127,17 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'landing-pages',
           category: 'digital',
-          productType: 'Landing Pages & Conversión',
-          title: 'Una Página con un Único Objetivo: Transformar Visitas en Ventas',
+          productType: 'Landing pages & conversión',
+          title: 'Una página con un único objetivo: transformar visitas en ventas',
           tagline: 'Páginas de alta conversión con foco en urgencia, validación rápida y ventas directas.',
           description: 'Si tienes un producto nuevo o una campaña que necesita retorno rápido, enviar personas a una página genérica es perder dinero. La Landing Page es un embudo quirúrgico: toma al cliente de la mano, explica tu oferta con claridad, disuelve objeciones y se enfoca en una sola acción — comprar o contactar por WhatsApp. Carga instantánea en móviles y diseñada para convertir.',
-          actionText: 'Quiero Vender Más Rápido',
+          actionText: 'Quero vender más rápido',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre landing page de alta conversión.',
           deliverables: [
             'Estructura de copy quirúrgica para eliminación de objeciones',
             'Carga instantánea en móviles (menos de 1 segundo)',
             'Botones de acción estratégicos con enlace directo a WhatsApp',
-            'Seguimiento de píxeles (Meta, Google) y eventos de conversión'
+            'Seguimiento de píxeles (Meta, Google) e eventos de conversión'
           ],
           timeline: '5 a 10 días hábiles',
           idealFor: 'Lanzamientos de productos, servicios específicos y campañas de tráfico pago.',
@@ -1122,18 +1147,19 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'social-media',
           category: 'digital',
-          productType: 'Presencia Digital & Redes',
-          title: 'Sé Visto, Recordado y Respetado Todos los Días en Redes',
+          productType: 'Presencia digital & redes',
+          title: 'Sé visto, recordado y respetado todos los días en redes',
           tagline: 'Estrategia de contenidos, constancia, autoridad y diseño visual de alto impacto para redes sociales.',
           description: 'Estar en redes sociales no es publicar por obligación, sino ocupar espacio en la mente de tu público con autoridad. Me encargo de la planificación, temas estratégicos y diseño visual de publicaciones y carruseles profesionales. Tú te enfocas en atender clientes mientras tu marca se mantiene activa y generando conversaciones.',
-          actionText: 'Profesionalizar Mis Redes',
+          actionText: 'Profesionalizar mis redes',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre presencia digital y redes sociales.',
           deliverables: [
             'Calendario editorial con temas y formatos estratégicos',
-            'Diseño de posts para feed (carruseles informativos y estáticos)',
+            'Diseño de posts para feed (carruseles informativos e estáticos)',
             'Plantillas para historias y portadas para destacados',
             'Redacción persuasiva y hashtags optimizados por nicho'
           ],
-          timeline: 'Gestión Continua (Mensual) o Paquetes',
+          timeline: 'Gestão Continua (Mensual) o Paquetes',
           idealFor: 'Marcas, clínicas, consultores y empresas que necesitan presencia activa e impecable.',
           tech: ['Instagram', 'LinkedIn', 'Figma', 'Photoshop', 'Meta Business'],
         },
@@ -1141,11 +1167,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'google-ads',
           category: 'digital',
-          productType: 'Tráfico Pago & Rendimiento',
-          title: 'Ponte Exactamente Frente a Quienes Quieren Comprarte Ahora',
+          productType: 'Tráfico pago & rendimiento',
+          title: 'Ponte exactamente frente a quienes quieren comprarte ahora',
           tagline: 'El puente directo con clientes que ya están buscando tus servicios en Google.',
           description: 'Todos os días, cientos de personas abren Google buscando activamente la solución que vendes. Si tu negocio no aparece ahí, tu competencia se queda con la venta. Creo y optimizo campañas estratégicas en Google Ads para posicionarte en primer lugar ante el público correcto, sin desperdiciar presupuesto y reduciendo el costo por contacto.',
-          actionText: 'Atraer Clientes en Google',
+          actionText: 'Atraer clientes en Google',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre tráfico pago e Google Ads.',
           deliverables: [
             'Investigación de palabras clave con alta intención de compra',
             'Creación y estructuración técnica de anuncios en Red de Búsqueda',
@@ -1162,11 +1189,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'branding',
           category: 'grafico',
-          productType: 'Identidad Visual & Branding',
-          title: 'Una Marca Que Inspira Confianza Antes de Que Digas el Precio',
+          productType: 'Identidad visual & branding',
+          title: 'Una marca que inspira confianza antes de que digas el precio',
           tagline: 'El nacimiento de la percepción de valor: identidad visual profesional y memorable.',
           description: 'La primera impresión define si el cliente percibirá tu producto como costoso o valioso. Una identidad visual profesional va mucho más allá de un dibujo: refleja la solidez y el cuidado de tu trabajo. Desarrollo marcas completas, desde el logotipo hasta paletas de colores y tipografía, para proyectar credibilidad instantánea.',
-          actionText: 'Crear Mi Marca Memorable',
+          actionText: 'Crear mi marca memorable',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre identidad visual y branding.',
           deliverables: [
             'Logotipo exclusivo vectorizado (símbolo + tipografía)',
             'Variaciones de aplicación (positivo, negativo, monocromático)',
@@ -1181,11 +1209,12 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
         {
           id: 'printed-materials',
           category: 'grafico',
-          productType: 'Diseño Gráfico & Impresos',
-          title: 'El Toque Físico de Tu Empresa con un Acabado Impecable',
+          productType: 'Diseño gráfico & impresos',
+          title: 'El toque físico de tu empresa con un acabado impecable',
           tagline: 'Presencia física impecable y sin sorpresas en imprenta: tarjetas, folders y catálogos.',
           description: 'Entregar una tarjeta de presentación de alta calidad o un catálogo bien diagramado en una reunión todavía tiene un peso enorme en la decisión de compra. Creo piezas gráficas completas y preparo archivos con rigor técnico total para imprenta (CMYK, sangrías, marcas de corte), garantizando un resultado idéntico a lo planeado en papel.',
-          actionText: 'Producir Mis Materiales Impresos',
+          actionText: 'Producir mis materiales impresos',
+          whatsappMessage: '¡Hola Denis! Me gustaría hablar sobre diseño gráfico e materiales impresos.',
           deliverables: [
             'Diseño de tarjetas de presentación ejecutivas (con Código QR inteligente)',
             'Folders institucionales, folletos comerciales y catálogos diagramados',
@@ -1209,7 +1238,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'netshoes-run',
           title: 'Netshoes Run',
           client: 'Netshoes / Magalu',
-          category: 'Identidad de Evento & Landing Pages',
+          category: 'Identidad de evento & landing pages',
           description: 'Creación de la identidad visual, páginas promocionales y piezas de interacción para el circuito de carreras más grande del e-commerce deportivo en Latinoamérica.',
           image: 'https://piaianet.page.gd/gifs/run.gif',
           deliverables: ['Identidad Visual', 'Landing Page Responsiva', 'Banners Promocionales', 'Kits de Carrera'],
@@ -1219,7 +1248,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'netshoes-copa',
           title: 'Netshoes en el Mundial',
           client: 'Netshoes / Magalu',
-          category: 'Gamificación & Campaña Digital',
+          category: 'Gamificación & campaña digital',
           description: 'Acciones digitales interactivas, interfaces conmemorativas y landing pages temáticas durante la Copa del Mundo, alcanzando récords de tráfico.',
           image: 'https://piaianet.page.gd/gifs/copa.gif',
           deliverables: ['Interfaz Interactiva', 'Gamificación Promocional', 'Banners Dinámicos', 'E-commerce Theme'],
@@ -1229,7 +1258,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'ifood-colombia',
           title: 'iFood Colombia',
           client: 'iFood Internacional',
-          category: 'Expansión de Producto & UX/UI',
+          category: 'Expansión de producto & UX/UI',
           description: 'Adaptación del ecosistema de iFood para el mercado colombiano, incluyendo flujos de la app, comunicación promocional e identidad visual.',
           image: 'https://piaianet.page.gd/imgs/ifood.jpg',
           deliverables: ['Localización UX/UI', 'Comunicación Promocional', 'Diseño de Pantallas', 'Design System'],
@@ -1239,7 +1268,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'clinicorp-ds',
           title: 'Clinicorp Design System & AI',
           client: 'Clinicorp Healthtech',
-          category: 'Design System & Integración IA',
+          category: 'Design System & integración IA',
           description: 'Desarrollo del sistema de diseño con tokens semánticos OKLCH, paridad atómica con shadcn/ui e integración con modelos de IA para software clínico.',
           image: 'https://picsum.photos/id/1/800/600',
           deliverables: ['Design Tokens W3C', 'Biblioteca shadcn/ui', 'Documentación Viva', 'AI Context Guidelines'],
@@ -1249,7 +1278,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'superlogica',
           title: 'Superlógica Fintech & ERP',
           client: 'Superlógica',
-          category: 'Plataformas Financieras & UX',
+          category: 'Plataformas financieras & UX',
           description: 'Interfaz y arquitectura de dashboards financieros, gestión de condominios y flujos de cobro recurrente para miles de empresas.',
           image: 'https://picsum.photos/id/180/800/600',
           deliverables: ['Dashboards Financieros', 'Flujos de Checkout', 'Design System', 'User Research'],
@@ -1259,7 +1288,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
           id: 'zattini',
           title: 'Zattini Fashion E-commerce',
           client: 'Zattini / Netshoes',
-          category: 'E-commerce & Editoriales de Moda',
+          category: 'E-commerce & editoriales de moda',
           description: 'Direção de arte digital, landing pages de coleções e campanhas estacionais de rápida conversão.',
           image: 'https://piaianet.page.gd/gifs/lojas.gif',
           deliverables: ['Landing Pages Estacionales', 'Editoriales de Moda', 'UI de E-commerce', 'Pruebas A/B'],
@@ -1323,7 +1352,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
 - **Servicios Digitales:** Adecuación de Design Systems para IA (W3C Tokens, AGENTS.md, shadcn/ui), Creación de Sitios Web (React, Next.js, Tailwind), Landing Pages de alta conversión (CRO, micro-interacciones) e Tráfico Pago Google Ads.
 - **Servicios Gráficos:** Creación de Logos e Identidad Visual corporativa, Folletos y Folders promocionales, Tarjetas de Presentación y Papelería ejecutiva.
 - **Disponibilidad:** Proyectos puntuales, sprints aceleradas e consultoría estratégica en Brasil y en el exterior.
-- **Contacto Directo:** dpiaia@gmail.com | WhatsApp: +55 (19) 98151-7551 | LinkedIn: linkedin.com/in/denispiaia`,
+- **Contacto Directo:** dpiaia@gmail.com | WhatsApp: +55 (19) 99111-9674 | LinkedIn: linkedin.com/in/denispiaia`,
     },
     contact: {
       badge: 'Hablemos',
@@ -1331,7 +1360,7 @@ export const translationsFreela: Record<'pt' | 'en' | 'es', FreelaTranslations> 
       titleHighlight: 'proyecto a otro nivel?',
       subtitle: 'Contáctame directamente por WhatsApp o completa el formulario para recibir una propuesta rápida.',
       whatsappTitle: 'WhatsApp directo',
-      whatsappDesc: '+55 (19) 98151-7551 • Respuesta rápida',
+      whatsappDesc: '+55 (19) 99111-9674 • Respuesta rápida',
       emailTitle: 'Correo comercial',
       emailDesc: 'dpiaia@gmail.com',
       backHome: 'Volver a la página principal / portafolio',

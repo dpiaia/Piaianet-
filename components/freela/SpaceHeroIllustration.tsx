@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Layers, Code2, Bot, Palette, Globe, Star } from 'lucide-react';
+import { Sparkles, Layers, Code2, Bot, Palette, Globe, Star, Zap } from 'lucide-react';
 
 interface Spark {
   id: number;
@@ -137,6 +137,80 @@ interface OrbitItem {
 
 const SpaceHeroIllustration: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const rocketRef = useRef<HTMLDivElement>(null);
+  const [dodgeOffset, setDodgeOffset] = useState({ x: 0, y: 0, rotate: 0 });
+  const [isDodging, setIsDodging] = useState(false);
+  const [dodgeCount, setDodgeCount] = useState(0);
+  const [reactionText, setReactionText] = useState('');
+  const returnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const textTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const reactions = [
+    'Opa! 🚀',
+    'Quase! 💨',
+    'Muito rápido! ⚡',
+    'Fui! 🛸',
+    'Não pega! ✨',
+    'Veloz demais! 🔥',
+    'Desviei! 😎',
+  ];
+
+  const triggerDodge = (clientX: number, clientY: number) => {
+    if (!rocketRef.current) return;
+    const rect = rocketRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const dx = clientX - centerX;
+    const dy = clientY - centerY;
+    const dist = Math.hypot(dx, dy);
+
+    // Limiar de aproximação do cursor para acionar a esquiva
+    if (dist < 210) {
+      // Direção de fuga: vetor oposto ao cursor do mouse
+      const angle = dist > 5 ? Math.atan2(dy, dx) : Math.random() * Math.PI * 2;
+      const escapeAngle = angle + Math.PI + (Math.random() - 0.5) * 0.5;
+
+      // Força de empurrão proporcional (foge mais rápido e longe quanto mais perto o cursor)
+      const pushForce = Math.max(90, Math.min(145, 210 - dist + 70));
+      const fleeX = Math.cos(escapeAngle) * pushForce;
+      const fleeY = Math.sin(escapeAngle) * (pushForce * 0.72);
+
+      // Inclinação do foguete na direção do desvio
+      const tilt = (fleeX > 0 ? 14 : -14) + (Math.random() - 0.5) * 8;
+
+      setIsDodging(true);
+      setDodgeOffset({
+        x: fleeX,
+        y: fleeY,
+        rotate: tilt,
+      });
+
+      const nextText = reactions[dodgeCount % reactions.length];
+      setReactionText(nextText);
+      setDodgeCount((prev) => prev + 1);
+
+      if (returnTimerRef.current) clearTimeout(returnTimerRef.current);
+      if (textTimerRef.current) clearTimeout(textTimerRef.current);
+
+      textTimerRef.current = setTimeout(() => {
+        setReactionText('');
+      }, 900);
+
+      // Sempre tenta voltar ao local original quando o cursor para ou se afasta
+      returnTimerRef.current = setTimeout(() => {
+        setDodgeOffset({ x: 0, y: 0, rotate: 0 });
+        setIsDodging(false);
+      }, 950);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (returnTimerRef.current) clearTimeout(returnTimerRef.current);
+      if (textTimerRef.current) clearTimeout(textTimerRef.current);
+    };
+  }, []);
 
   // 5 Organic Orbiting Technology Badges with independent tempos, radii, and floating waveforms
   const techOrbits: OrbitItem[] = [
@@ -185,7 +259,7 @@ const SpaceHeroIllustration: React.FC = () => {
       floatDelay: 2.1,
     },
     {
-      name: 'Front End',
+      name: 'Frontend',
       icon: <Code2 size={13} className="text-[#00D8FF]" />,
       startAngle: 198, // Top-Left
       radius: 182,
@@ -198,7 +272,10 @@ const SpaceHeroIllustration: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-[500px] h-[440px] sm:h-[480px] flex items-center justify-center select-none mx-auto">
+    <div 
+      onMouseMove={(e) => triggerDodge(e.clientX, e.clientY)}
+      className="relative w-full max-w-[500px] h-[440px] sm:h-[480px] flex items-center justify-center select-none mx-auto"
+    >
       
       {/* Background Decorative Rings & Nebula Aura */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -287,34 +364,85 @@ const SpaceHeroIllustration: React.FC = () => {
         );
       })}
 
-      {/* Centerpiece: Denis Riding Rocket Illustration with dynamic motion */}
+      {/* Centerpiece: Denis Riding Rocket Illustration with dodge-and-return evasion physics */}
       <motion.div 
+        ref={rocketRef}
+        onMouseMove={(e) => triggerDodge(e.clientX, e.clientY)}
+        onMouseEnter={(e) => triggerDodge(e.clientX, e.clientY)}
+        onTouchStart={(e) => {
+          const touch = e.touches[0];
+          if (touch) triggerDodge(touch.clientX, touch.clientY);
+        }}
         animate={{ 
-          y: [0, -14, 0],
-          rotate: [-1, 2, -1]
+          x: dodgeOffset.x,
+          y: dodgeOffset.y,
+          rotate: dodgeOffset.rotate,
         }}
         transition={{ 
-          duration: 4.5, 
-          repeat: Infinity, 
-          ease: 'easeInOut' 
+          type: 'spring', 
+          stiffness: isDodging ? 420 : 180, 
+          damping: isDodging ? 16 : 14, 
+          mass: 0.6,
         }}
-        whileHover={{ scale: 1.05, rotate: 3 }}
         className="relative z-10 flex flex-col items-center justify-center cursor-pointer w-[280px] sm:w-[330px] max-w-full"
       >
-        {/* Main Rocket Artwork Image */}
-        <img 
-          src="https://i.postimg.cc/m2Z56h32/rocket-final-exact-no-smoke.png" 
-          alt="Denis Piaia pilotando foguete retro"
-          referrerPolicy="no-referrer"
-          className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
-        />
+        {/* Playful Floating Speech Bubble when dodging */}
+        <AnimatePresence>
+          {reactionText && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: -8 }}
+              exit={{ opacity: 0, scale: 0.7, y: -18 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 22 }}
+              className="absolute -top-10 sm:-top-12 z-30 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-[#1C1C22]/95 backdrop-blur-md border border-[#EC6726] dark:border-[#FFD600] text-neutral-900 dark:text-white font-mono text-xs font-bold shadow-[0_6px_20px_rgba(236,103,38,0.35)] pointer-events-none flex items-center gap-1.5 whitespace-nowrap"
+            >
+              <Zap size={13} className="text-[#EC6726] dark:text-[#FFD600] fill-current animate-pulse" />
+              <span>{reactionText}</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        {/* Thruster Pulse Effect underneath */}
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-3 right-8 w-24 h-6 bg-[#EC6726]/40 dark:bg-[#FFD600]/40 rounded-full blur-lg pointer-events-none"
-        />
+        {/* Ambient floating loop (active when not actively dodging) */}
+        <motion.div
+          animate={
+            isDodging 
+              ? { y: 0, scale: 1.04 } 
+              : { y: [0, -14, 0], rotate: [-1, 2, -1], scale: 1 }
+          }
+          transition={{ 
+            duration: 4.5, 
+            repeat: Infinity, 
+            ease: 'easeInOut' 
+          }}
+          className="relative w-full flex flex-col items-center justify-center"
+        >
+          {/* Main Rocket Artwork Image */}
+          <img 
+            src="https://i.postimg.cc/m2Z56h32/rocket-final-exact-no-smoke.png" 
+            alt="Denis Piaia pilotando foguete retro"
+            referrerPolicy="no-referrer"
+            className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] select-none pointer-events-none"
+          />
+
+          {/* Thruster Pulse Effect underneath (flares up during dodge evasion) */}
+          <motion.div 
+            animate={
+              isDodging
+                ? { scale: [1.4, 2.2, 1.5], opacity: [0.85, 1, 0.85] }
+                : { scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }
+            }
+            transition={{ 
+              duration: isDodging ? 0.35 : 1.2, 
+              repeat: Infinity, 
+              ease: 'easeInOut' 
+            }}
+            className={`absolute -bottom-3 right-8 rounded-full blur-lg pointer-events-none transition-all duration-300 ${
+              isDodging
+                ? 'w-32 h-10 bg-gradient-to-r from-[#EC6726] via-[#FF3D00] to-[#FFD600]'
+                : 'w-24 h-6 bg-[#EC6726]/40 dark:bg-[#FFD600]/40'
+            }`}
+          />
+        </motion.div>
       </motion.div>
 
       {/* Mobile-only tags strip below illustration for responsive view */}

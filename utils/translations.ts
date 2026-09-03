@@ -9,17 +9,17 @@ export const translations = {
       contact: 'Contato',
     },
     hero: {
-      badge: 'Portfólio Profissional',
+      badge: 'Portfólio profissional',
       titleHighlight: "o Denis.",
       titleStart: 'Olá, eu sou',
       intro: 'UX Design Leader com mais de 10 anos de experiência criando produtos digitais intuitivos, acessíveis e focados na conversão e satisfação do usuário.',
-      ctaProjects: 'Ver Projetos',
-      ctaContact: 'Entrar em Contato',
+      ctaProjects: 'Ver projetos',
+      ctaContact: 'Entrar em contato',
       scroll: 'Scroll',
     },
     about: {
       title: 'Sobre',
-      titleHighlight: 'Mim',
+      titleHighlight: 'mim',
       tabs: {
         professional: 'Profissional',
         personal: 'Pessoal'
@@ -29,17 +29,17 @@ export const translations = {
         p2: 'Como UX Leader, meu foco mudou da execução individual para a orquestração de experiências. Trabalho lado a lado com PMs e Engenheiros para garantir que a voz do usuário seja ouvida em cada etapa do desenvolvimento.',
         p3: 'Atuo como facilitador entre negócios e criatividade, garantindo que as entregas tenham impacto mensurável.',
         skills: {
-          leadership: { title: "Liderança de Equipe", desc: "Mentoria e gestão de times de alta performance." },
-          research: { title: "User Research", desc: "Decisões baseadas em dados e comportamento real." },
-          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
-          prototyping: { title: "Prototipagem Ágil", desc: "Validação rápida de hipóteses e conceitos." },
+          leadership: { title: "Liderança de equipe", desc: "Mentoria e gestão de times de alta performance." },
+          research: { title: "User research", desc: "Decisões baseadas em dados e comportamento real." },
+          designSystems: { title: "Design systems", desc: "Escalabilidade e consistência visual." },
+          prototyping: { title: "Prototipagem ágil", desc: "Validação rápida de hipóteses e conceitos." },
         }
       },
       personal: {
-        title: 'Além do Pixel',
+        title: 'Além do pixel',
         p1: 'Quando não estou no Figma ou em reuniões, gosto de desconectar e buscar inspiração no mundo real. Acredito que um bom designer precisa ter repertório de vida, não apenas visual.',
-        photosTitle: 'Momentos & Hobbies',
-        musicTitle: 'No meu Fone',
+        photosTitle: 'Momentos & hobbies',
+        musicTitle: 'No meu fone',
         playlist: [
           { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
           { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
@@ -50,7 +50,7 @@ export const translations = {
     },
     experience: {
       title: 'Trajetória',
-      titleHighlight: 'Profissional',
+      titleHighlight: 'profissional',
       subtitle: 'Liderança e impacto em grandes players do mercado de tecnologia.',
       jobs: [
         {
@@ -91,16 +91,16 @@ export const translations = {
       ],
       consulting: {
         title: 'Consultoria &',
-        titleHighlight: 'Parcerias Estratégicas',
+        titleHighlight: 'parcerias estratégicas',
         desc: 'Projetos paralelos, freelas e consultorias de alto impacto.',
-        label: 'Projetos Entregues'
+        label: 'Projetos entregues'
       }
     },
     projects: {
       title: 'Projetos',
-      titleHighlight: 'Selecionados',
+      titleHighlight: 'selecionados',
       subtitle: 'Clique nos cards para ver o estudo de caso detalhado.',
-      ctaBehance: 'Ver Behance Completo',
+      ctaBehance: 'Ver Behance completo',
       items: [
         {
           title: "CliniDS",
@@ -139,7 +139,7 @@ export const translations = {
           ]
         },
         {
-          title: "Projetos variados com Inteligência Artificial",
+          title: "Projetos variados com inteligência artificial",
           category: "AI • VIBEDESIGN",
           shortDescription: "Compilado de projetos que fiz com uso das IAs.",
           challenge: "Explorar como as novas ferramentas de IA Generativa podem ser integradas ao fluxo de trabalho de design para expandir a criatividade e eficiência.",
@@ -152,17 +152,17 @@ export const translations = {
         }
       ],
       modal: {
-        challenge: 'O Desafio',
-        tech: 'Tech & Tools',
-        solution: 'A Solução',
-        results: 'Resultados Alcançados',
+        challenge: 'O desafio',
+        tech: 'Tech & tools',
+        solution: 'A solução',
+        results: 'Resultados alcançados',
         confidential: 'Confidencial © 2026',
-        close: 'Fechar Case'
+        close: 'Fechar case'
       }
     },
     testimonials: {
       title: 'O que dizem',
-      titleHighlight: 'Colegas e Clientes',
+      titleHighlight: 'colegas e clientes',
       subtitle: 'Feedback real de quem já trabalhou comigo em projetos internacionais e de alta complexidade.',
       items: [
         {
@@ -187,12 +187,12 @@ export const translations = {
     },
     contact: {
       title: 'Vamos construir algo',
-      titleHighlight: 'Incrível',
+      titleHighlight: 'incrível',
       titleEnd: 'juntos?',
       subtitle: 'Estou sempre aberto a discutir design de produto, colaborar em novos projetos ou falar sobre oportunidades de liderança.',
-      cta: 'Mande um Olá 👋',
+      cta: 'Mande um olá 👋',
       freelaCta: 'Freelancer 🚀',
-      freelaFooter: 'Serviços & Freelancer',
+      freelaFooter: 'Serviços & freelancer',
       rights: 'Todos os direitos reservados.',
       location: 'na ensolarada cidade de Campinas/SP.'
     }
@@ -206,17 +206,17 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      badge: 'Professional Portfolio',
+      badge: 'Professional portfolio',
       titleHighlight: "I'm Denis.",
-      titleStart: 'Hi There,',
+      titleStart: 'Hi there,',
       intro: 'UX Design Leader with over 10 years of experience creating intuitive, accessible digital products focused on conversion and user satisfaction.',
-      ctaProjects: 'View Projects',
-      ctaContact: 'Get in Touch',
+      ctaProjects: 'View projects',
+      ctaContact: 'Get in touch',
       scroll: 'Scroll',
     },
     about: {
       title: 'About',
-      titleHighlight: 'Me',
+      titleHighlight: 'me',
       tabs: {
         professional: 'Professional',
         personal: 'Personal'
@@ -226,17 +226,17 @@ export const translations = {
         p2: 'As a UX Leader, my focus shifted from individual execution to orchestrating experiences. I work side-by-side with PMs and Engineers to ensure the user voice is heard at every stage of development.',
         p3: 'I act as a facilitator between business and creativity, ensuring deliverables have measurable impact.',
         skills: {
-          leadership: { title: "Team Leadership", desc: "Mentoring and managing high-performance teams." },
-          research: { title: "User Research", desc: "Decisions based on data and real behavior." },
-          designSystems: { title: "Design Systems", desc: "Scalability and visual consistency." },
-          prototyping: { title: "Agile Prototyping", desc: "Rapid validation of hypotheses and concepts." },
+          leadership: { title: "Team leadership", desc: "Mentoring and managing high-performance teams." },
+          research: { title: "User research", desc: "Decisions based on data and real behavior." },
+          designSystems: { title: "Design systems", desc: "Scalability and visual consistency." },
+          prototyping: { title: "Agile prototyping", desc: "Rapid validation of hypotheses and concepts." },
         }
       },
       personal: {
-        title: 'Beyond the Pixel',
+        title: 'Beyond the pixel',
         p1: 'When I\'m not in Figma or meetings, I like to disconnect and seek inspiration in the real world. I believe a good designer needs life repertoire, not just visual.',
-        photosTitle: 'Momentos & Hobbies',
-        musicTitle: 'On My Headphones',
+        photosTitle: 'Moments & hobbies',
+        musicTitle: 'On my headphones',
         playlist: [
           { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
           { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
@@ -247,7 +247,7 @@ export const translations = {
     },
     experience: {
       title: 'Professional',
-      titleHighlight: 'Journey',
+      titleHighlight: 'journey',
       subtitle: 'Leadership and impact at major technology players.',
       jobs: [
         {
@@ -288,16 +288,16 @@ export const translations = {
       ],
       consulting: {
         title: 'Consulting &',
-        titleHighlight: 'Strategic Partnerships',
+        titleHighlight: 'strategic partnerships',
         desc: 'Side projects, freelance work, and high-impact consulting.',
-        label: 'Delivered Projects'
+        label: 'Projects delivered'
       }
     },
     projects: {
       title: 'Selected',
-      titleHighlight: 'Projects',
+      titleHighlight: 'projects',
       subtitle: 'Click on the cards to view the detailed case study.',
-      ctaBehance: 'View Full Behance',
+      ctaBehance: 'View full Behance',
       items: [
         {
           title: "CliniDS",
@@ -336,7 +336,7 @@ export const translations = {
           ]
         },
         {
-          title: "Various AI Projects",
+          title: "Various AI projects",
           category: "AI • VIBEDESIGN",
           shortDescription: "Compilation of projects I did using AI.",
           challenge: "Explore how new Generative AI tools can be integrated into the design workflow to expand creativity and efficiency.",
@@ -349,17 +349,17 @@ export const translations = {
         }
       ],
       modal: {
-        challenge: 'The Challenge',
-        tech: 'Tech & Tools',
-        solution: 'The Solution',
-        results: 'Key Results',
+        challenge: 'The challenge',
+        tech: 'Tech & tools',
+        solution: 'The solution',
+        results: 'Key results',
         confidential: 'Confidencial © 2026',
-        close: 'Close Case'
+        close: 'Close case'
       }
     },
     testimonials: {
       title: 'What',
-      titleHighlight: 'Colleagues & Clients Say',
+      titleHighlight: 'colleagues & clients say',
       subtitle: 'Real feedback from those who have worked with me on international and high-complexity projects.',
       items: [
         {
@@ -384,12 +384,12 @@ export const translations = {
     },
     contact: {
       title: 'Let\'s build something',
-      titleHighlight: 'Amazing',
+      titleHighlight: 'amazing',
       titleEnd: 'together?',
       subtitle: 'I\'m always open to discussing product design, collaborating on new projects, or talking about leadership opportunities.',
-      cta: 'Say Hello 👋',
+      cta: 'Say hello 👋',
       freelaCta: 'Freelance 🚀',
-      freelaFooter: 'Services & Freelance',
+      freelaFooter: 'Services & freelance',
       rights: 'All rights reserved.',
       location: 'in the sunny city of Campinas/SP.'
     }
@@ -403,17 +403,17 @@ export const translations = {
       contact: 'Contacto',
     },
     hero: {
-      badge: 'Portafolio Profesional',
+      badge: 'Portafolio profesional',
       titleHighlight: "Denis.",
       titleStart: 'Hola, soy',
       intro: 'UX Design Leader con más de 10 anos de experiencia criando productos digitales intuitivos, accesibles y enfocados en la conversión y satisfacción del usuario.',
-      ctaProjects: 'Ver Proyectos',
+      ctaProjects: 'Ver proyectos',
       ctaContact: 'Ponerse en contacto',
       scroll: 'Scroll',
     },
     about: {
       title: 'Sobre',
-      titleHighlight: 'Mí',
+      titleHighlight: 'mí',
       tabs: {
         professional: 'Profesional',
         personal: 'Personal'
@@ -423,17 +423,17 @@ export const translations = {
         p2: 'Como UX Leader, mi enfoque cambió de la ejecución individual a la orquestación de experiencias. Trabajo codo a codo con PMs e Ingenieros para asegurar que la voz del usuario sea escuchada en cada etapa del desarrollo.',
         p3: 'Actúo como facilitador entre negocios y creatividad, asegurando que las entregas tengan impacto medible.',
         skills: {
-          leadership: { title: "Liderazgo de Equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
-          research: { title: "User Research", desc: "Decisiones basadas en datos y comportamiento real." },
-          designSystems: { title: "Design Systems", desc: "Escalabilidade e consistência visual." },
-          prototyping: { title: "Prototipado Ágil", desc: "Validación rápida de hipótesis e conceptos." },
+          leadership: { title: "Liderazgo de equipo", desc: "Mentoría y gestión de equipos de alto rendimiento." },
+          research: { title: "User research", desc: "Decisiones basadas en datos y comportamiento real." },
+          designSystems: { title: "Design systems", desc: "Escalabilidade e consistência visual." },
+          prototyping: { title: "Prototipado ágil", desc: "Validación rápida de hipótesis e conceptos." },
         }
       },
       personal: {
-        title: 'Más allá del Píxel',
+        title: 'Más allá del píxel',
         p1: 'Cuando no estoy en Figma o en reuniones, me gusta desconectarme y buscar inspiración en el mundo real. Creo que un buen diseñador necesita repertorio de vida, no solo visual.',
-        photosTitle: 'Momentos & Hobbies',
-        musicTitle: 'En mi Auricular',
+        photosTitle: 'Momentos & hobbies',
+        musicTitle: 'En mi auricular',
         playlist: [
           { title: "Evolve", artist: "The Warning", embedUrl: "https://open.spotify.com/embed/track/2uzluI26zEowYnMqhyr0BY?utm_source=generator&theme=0" },
           { title: "The Emptiness Machine", artist: "Linkin Park", embedUrl: "https://open.spotify.com/embed/track/1EDPVGbyPKJPeGqATwXZvN?utm_source=generator&theme=0" },
@@ -444,7 +444,7 @@ export const translations = {
     },
     experience: {
       title: 'Trayectoria',
-      titleHighlight: 'Profesional',
+      titleHighlight: 'profesional',
       subtitle: 'Liderazgo e impacto en grandes actores del mercado tecnológico.',
       jobs: [
         {
@@ -485,16 +485,16 @@ export const translations = {
       ],
       consulting: {
         title: 'Consultoría y',
-        titleHighlight: 'Alianzas Estratégicas',
+        titleHighlight: 'alianzas estratégicas',
         desc: 'Proyectos paralelos, freelance e consultorías de alto impacto.',
-        label: 'Proyectos Entregados'
+        label: 'Proyectos entregados'
       }
     },
     projects: {
       title: 'Proyectos',
-      titleHighlight: 'Seleccionados',
+      titleHighlight: 'seleccionados',
       subtitle: 'Haga clic en las tarjetas para ver o estudio de caso detalhado.',
-      ctaBehance: 'Ver Behance Completo',
+      ctaBehance: 'Ver Behance completo',
       items: [
         {
           title: "CliniDS",
@@ -533,9 +533,9 @@ export const translations = {
           ]
         },
         {
-          title: "Varios proxectos de IA",
+          title: "Varios proyectos de IA",
           category: "AI • VIBEDESIGN",
-          shortDescription: "Compilado de proxectos que fixen usando IA.",
+          shortDescription: "Compilado de proyectos que hice usando IA.",
           challenge: "Explorar como as novas ferramentas de IA Generativa poden integrarse ao fluxo de traballo de diseño para expandir a creatividade e eficiencia.",
           solution: "Unha colección de experimentos visuales e funcionales utilizando Midjourney, Stable Diffusion e LLM para prototipado rápido e generación de activos.",
           results: [
@@ -546,17 +546,17 @@ export const translations = {
         }
       ],
       modal: {
-        challenge: 'El Desafío',
-        tech: 'Tech & Tools',
-        solution: 'La Solución',
-        results: 'Resultados Clave',
+        challenge: 'El desafío',
+        tech: 'Tech & tools',
+        solution: 'La solución',
+        results: 'Resultados clave',
         confidential: 'Confidencial © 2026',
-        close: 'Cerrar Caso'
+        close: 'Cerrar caso'
       }
     },
     testimonials: {
       title: 'Lo que dicen',
-      titleHighlight: 'Colegas y Clientes',
+      titleHighlight: 'colegas y clientes',
       subtitle: 'Feedback real de quienes ya han trabajado conmigo en proyectos internacionales y de alta complejidad.',
       items: [
         {
@@ -581,12 +581,12 @@ export const translations = {
     },
     contact: {
       title: '¿Vamos a construir algo',
-      titleHighlight: 'Increíble',
+      titleHighlight: 'increíble',
       titleEnd: 'juntos?',
       subtitle: 'Siempre estoy abierto a discutir diseño de produto, colaborar en novos proxectos o hablar sobre oportunidades de liderazgo.',
-      cta: 'Manda un Hola 👋',
+      cta: 'Manda un hola 👋',
       freelaCta: 'Freelance 🚀',
-      freelaFooter: 'Servicios & Freelance',
+      freelaFooter: 'Servicios & freelance',
       rights: 'Todos los derechos reservados.',
       location: 'en a soleada ciudad de Campinas/SP.'
     }

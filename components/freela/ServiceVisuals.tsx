@@ -22,12 +22,12 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
             <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block shadow-xs" />
           </div>
           <span className="ml-2 text-[11px] text-neutral-400 font-sans font-medium tracking-tight">
-            DesignOps • Modernização & Tokens
+            DesignOps • Modernização & tokens
           </span>
         </div>
         <div className="flex items-center gap-1.5 bg-[#251408] text-[#F59E0B] px-3 py-1 rounded-full border border-[#6B3208] text-[10px] font-semibold font-sans">
           <Bot size={12} className="text-[#F59E0B]" />
-          <span>IA Sem Alucinações</span>
+          <span>IA sem alucinações</span>
         </div>
       </div>
 
@@ -142,7 +142,7 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
           Figma ↔ Tokens ↔ React ↔ Cursor/Claude
         </span>
         <span className="text-emerald-400 font-semibold bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800/40 flex items-center gap-1 text-[11px]">
-          <Zap size={11} /> Zero Retrabalho
+          <Zap size={11} /> Zero retrabalho
         </span>
       </div>
     </div>
@@ -164,12 +164,12 @@ export const VisualAIDesignSystemCreation: React.FC = () => {
             <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block" />
           </div>
           <span className="ml-2 text-[11px] text-neutral-400 font-sans font-medium tracking-tight">
-            UI Kit & Tokens do Zero
+            UI kit & tokens do zero
           </span>
         </div>
         <div className="flex items-center gap-1.5 bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full border border-purple-500/30 text-[10px] font-semibold font-sans">
           <Layers size={12} />
-          <span>Biblioteca Viva & Escalável</span>
+          <span>Biblioteca viva & escalável</span>
         </div>
       </div>
 
@@ -210,7 +210,7 @@ export const VisualAIDesignSystemCreation: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-2.5 items-center">
               <div className="px-4 py-2 rounded-xl bg-[#EC6726] dark:bg-[#FFD600] text-white dark:text-black font-sans font-bold text-xs shadow-md flex items-center gap-1.5">
-                <Sparkles size={12} /> Primary Action
+                <Sparkles size={12} /> Primary action
               </div>
               <div className="px-4 py-2 rounded-xl bg-white/10 text-white font-sans font-medium text-xs border border-white/20">
                 Secondary
@@ -229,7 +229,7 @@ export const VisualAIDesignSystemCreation: React.FC = () => {
             </div>
             <div className="p-3 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-between">
               <div className="space-y-1">
-                <div className="text-white font-bold font-sans text-xs">Analytics Card</div>
+                <div className="text-white font-bold font-sans text-xs">Card de métricas</div>
                 <div className="text-[10px] text-neutral-400 font-mono">radius: 1rem • shadow: md</div>
               </div>
               <div className="w-8 h-8 rounded-xl bg-[#EC6726]/20 border border-[#EC6726]/40 flex items-center justify-center text-[#FFD600] font-bold">
@@ -252,8 +252,8 @@ export const VisualAIDesignSystemCreation: React.FC = () => {
         )}
 
         <div className="text-[10px] text-neutral-500 font-mono pt-2 border-t border-white/[0.06] flex items-center justify-between">
-          <span>Dark / Light Mode Automático</span>
-          <span className="text-[#FFD600]">100% Pronto para IA</span>
+          <span>Dark / light mode automático</span>
+          <span className="text-[#FFD600]">100% pronto para IA</span>
         </div>
       </div>
 
@@ -343,7 +343,7 @@ export const VisualSites: React.FC = () => {
             <div className="w-2/3 h-2 bg-white/20 rounded-full" />
             <div className="pt-1">
               <div className="w-24 h-5 bg-[#EC6726] dark:bg-[#FFD600] rounded-full text-[9px] font-bold text-white dark:text-black flex items-center justify-center gap-1">
-                <Zap size={10} /> Saiba Mais
+                <Zap size={10} /> Saiba mais
               </div>
             </div>
           </div>
@@ -356,15 +356,15 @@ export const VisualSites: React.FC = () => {
         <div className="grid grid-cols-3 gap-2">
           <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] text-center">
             <div className="text-[10px] font-bold text-[#FFD600]">React / Next</div>
-            <div className="text-[8px] text-neutral-400 mt-0.5">SSR & Rápido</div>
+            <div className="text-[8px] text-neutral-400 mt-0.5">SSR & rápido</div>
           </div>
           <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] text-center">
-            <div className="text-[10px] font-bold text-emerald-400">SEO Técnico</div>
+            <div className="text-[10px] font-bold text-emerald-400">SEO técnico</div>
             <div className="text-[8px] text-neutral-400 mt-0.5">Top no Google</div>
           </div>
           <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] text-center">
             <div className="text-[10px] font-bold text-blue-400">Responsivo</div>
-            <div className="text-[8px] text-neutral-400 mt-0.5">Mobile First</div>
+            <div className="text-[8px] text-neutral-400 mt-0.5">Mobile first</div>
           </div>
         </div>
       </div>
@@ -375,7 +375,7 @@ export const VisualSites: React.FC = () => {
           <CheckCircle2 size={13} className="text-[#FFD600]" />
           Código limpo, seguro e escalável
         </span>
-        <span className="text-[#FFD600] font-semibold">Entrega Completa</span>
+        <span className="text-[#FFD600] font-semibold">Entrega completa</span>
       </div>
     </div>
   );
@@ -389,12 +389,12 @@ export const VisualLandingPages: React.FC = () => {
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-sans text-neutral-300 flex items-center gap-1.5 font-semibold">
-            <TrendingUp size={14} className="text-emerald-400" /> CRO & Neuromarketing
+            <TrendingUp size={14} className="text-emerald-400" /> CRO & neuromarketing
           </span>
         </div>
         <div className="flex items-center gap-1.5 bg-emerald-500/15 text-emerald-400 px-3 py-0.5 rounded-full font-semibold border border-emerald-500/30 text-[10px]">
           <Sparkles size={12} />
-          <span>Alta Conversão de Vendas</span>
+          <span>Alta conversão de vendas</span>
         </div>
       </div>
 
@@ -403,7 +403,7 @@ export const VisualLandingPages: React.FC = () => {
         {/* Headline */}
         <div className="space-y-1.5">
           <div className="inline-block px-2.5 py-0.5 rounded-full bg-[#EC6726]/20 text-[#FFD600] text-[9px] font-bold uppercase tracking-wider">
-            Oferta Exclusiva
+            Oferta exclusiva
           </div>
           <div className="w-4/5 h-3 bg-white/90 mx-auto rounded-full" />
           <div className="w-3/5 h-2.5 bg-neutral-400 mx-auto rounded-full" />
@@ -417,7 +417,7 @@ export const VisualLandingPages: React.FC = () => {
             className="inline-flex items-center gap-2 bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] text-white dark:text-black px-6 py-2.5 rounded-full text-xs font-bold shadow-md cursor-pointer font-sans"
           >
             <Sparkles size={13} />
-            <span>GARANTIR VAGA AGORA</span>
+            <span>Garantir vaga agora</span>
             <ArrowRight size={13} />
           </motion.div>
         </div>
@@ -445,9 +445,9 @@ export const VisualLandingPages: React.FC = () => {
       <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 font-sans">
         <span className="flex items-center gap-1 text-neutral-300">
           <CheckCircle2 size={13} className="text-emerald-400" />
-          Pixel + GA4 + GTM Configurados
+          Pixel + GA4 + GTM configurados
         </span>
-        <span className="text-[#FFD600] font-semibold">A/B Test Ready</span>
+        <span className="text-[#FFD600] font-semibold">A/B test ready</span>
       </div>
     </div>
   );
@@ -464,7 +464,7 @@ export const VisualGoogleAds: React.FC = () => {
           <span>Google Search • Posição #1</span>
         </div>
         <span className="text-[10px] bg-blue-500/15 text-blue-400 px-3 py-0.5 rounded-full font-semibold border border-blue-500/30 flex items-center gap-1">
-          <TrendingUp size={12} /> ROAS 4.8x Médio
+          <TrendingUp size={12} /> ROAS 4.8x médio
         </span>
       </div>
 
@@ -478,7 +478,7 @@ export const VisualGoogleAds: React.FC = () => {
         </div>
         
         <div className="text-blue-400 font-semibold text-sm hover:underline cursor-pointer tracking-tight">
-          Soluções Estratégicas de Alto Nível | Fale com Especialistas
+          Soluções estratégicas de alto nível | Fale com especialistas
         </div>
         
         <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
@@ -488,10 +488,10 @@ export const VisualGoogleAds: React.FC = () => {
         {/* Extensions Sitelinks */}
         <div className="grid grid-cols-2 gap-2 pt-1.5">
           <div className="p-2 rounded-xl bg-white/[0.03] text-[10px] text-blue-300">
-            • Solicitar Orçamento Rápido
+            • Solicitar orçamento rápido
           </div>
           <div className="p-2 rounded-xl bg-white/[0.03] text-[10px] text-blue-300">
-            • Ver Portfólio de Cases
+            • Ver portfólio de cases
           </div>
         </div>
       </div>
@@ -502,7 +502,7 @@ export const VisualGoogleAds: React.FC = () => {
           <CheckCircle2 size={13} className="text-blue-400" />
           PMax + Rede de Pesquisa + Remarketing
         </span>
-        <span className="text-emerald-400 font-semibold">Menor Custo por Lead</span>
+        <span className="text-emerald-400 font-semibold">Menor custo por lead</span>
       </div>
     </div>
   );
@@ -515,10 +515,10 @@ export const VisualLogoBrand: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <span className="text-[11px] font-sans text-neutral-300 flex items-center gap-1.5 font-semibold">
-          <Palette size={14} className="text-[#EC6726]" /> Proporção Áurea & Geometria
+          <Palette size={14} className="text-[#EC6726]" /> Proporção áurea & geometria
         </span>
         <span className="text-[10px] bg-[#EC6726]/15 text-[#FFD600] px-3 py-0.5 rounded-full font-semibold border border-[#EC6726]/30">
-          Manual de Marca Completo
+          Manual de marca completo
         </span>
       </div>
 
@@ -547,14 +547,14 @@ export const VisualLogoBrand: React.FC = () => {
               Font: Inter Variable + Space Grotesk
             </div>
             <div className="text-[9px] text-emerald-400 flex items-center gap-1 pt-1">
-              <CheckCircle2 size={11} /> Vetores com Precisão Matemática
+              <CheckCircle2 size={11} /> Vetores com precisão matemática
             </div>
           </div>
         </div>
 
         {/* Color Palette Swatches */}
         <div className="pt-2 border-t border-white/[0.06]">
-          <div className="text-[10px] text-neutral-400 mb-2 font-mono">Paleta Cromática Semântica:</div>
+          <div className="text-[10px] text-neutral-400 mb-2 font-mono">Paleta cromática semântica:</div>
           <div className="grid grid-cols-4 gap-2">
             <div className="p-1.5 rounded-xl bg-white/[0.03] text-center">
               <div className="h-6 rounded-lg bg-[#EC6726] mb-1" />
@@ -582,7 +582,7 @@ export const VisualLogoBrand: React.FC = () => {
           <CheckCircle2 size={13} className="text-[#FFD600]" />
           Arquivos em .AI, .SVG, .PDF e .PNG
         </span>
-        <span className="text-[#FFD600] font-semibold">Autoridade Imediata</span>
+        <span className="text-[#FFD600] font-semibold">Autoridade imediata</span>
       </div>
     </div>
   );
@@ -595,7 +595,7 @@ export const VisualFolhetosFolders: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <span className="text-[11px] font-sans text-neutral-300 flex items-center gap-1.5 font-semibold">
-          <FileText size={14} className="text-[#FFD600]" /> Fechamento Gráfico & Editorial
+          <FileText size={14} className="text-[#FFD600]" /> Fechamento gráfico & editorial
         </span>
         <span className="text-[10px] bg-yellow-500/15 text-yellow-400 px-3 py-0.5 rounded-full font-semibold border border-yellow-500/30">
           PDF/X-1a Ready
@@ -614,7 +614,7 @@ export const VisualFolhetosFolders: React.FC = () => {
               <div className="w-2/3 h-1 bg-white/30 rounded-full" />
             </div>
             <div className="text-[8px] text-neutral-400 font-mono text-center bg-black/60 py-0.5 rounded-md">
-              Dobra 1 (Capa)
+              Dobra 1 (capa)
             </div>
           </div>
 
@@ -627,7 +627,7 @@ export const VisualFolhetosFolders: React.FC = () => {
               <div className="w-3/4 h-1 bg-white/30 rounded-full" />
             </div>
             <div className="text-[8px] text-neutral-400 font-mono text-center bg-black/60 py-0.5 rounded-md">
-              Dobra 2 (Corpo)
+              Dobra 2 (corpo)
             </div>
           </div>
 
@@ -639,7 +639,7 @@ export const VisualFolhetosFolders: React.FC = () => {
               <div className="w-3/5 h-1 bg-white/30 rounded-full" />
             </div>
             <div className="text-[8px] text-neutral-400 font-mono text-center bg-black/60 py-0.5 rounded-md">
-              Dobra 3 (Contato)
+              Dobra 3 (contato)
             </div>
           </div>
         </div>
@@ -651,7 +651,7 @@ export const VisualFolhetosFolders: React.FC = () => {
           <CheckCircle2 size={13} className="text-yellow-400" />
           Sangrias, marcas de corte e verniz definidos
         </span>
-        <span className="text-yellow-400 font-semibold">Impressão Sem Erros</span>
+        <span className="text-yellow-400 font-semibold">Impressão sem erros</span>
       </div>
     </div>
   );
@@ -664,10 +664,10 @@ export const VisualCartaoPapelaria: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <span className="text-[11px] font-sans text-neutral-300 flex items-center gap-1.5 font-semibold">
-          <QrCode size={14} className="text-[#FFD600]" /> Cartão Executivo & QR Dinâmico
+          <QrCode size={14} className="text-[#FFD600]" /> Cartão executivo & QR dinâmico
         </span>
         <span className="text-[10px] bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full font-semibold border border-purple-500/30">
-          Papelaria Completa
+          Papelaria completa
         </span>
       </div>
 
@@ -680,7 +680,7 @@ export const VisualCartaoPapelaria: React.FC = () => {
               Product Design • Frontend • IA
             </div>
             <div className="text-[10px] text-neutral-400">
-              dpiaia@gmail.com • +55 (19) 98151-7551
+              dpiaia@gmail.com • +55 (19) 99111-9674
             </div>
           </div>
 
@@ -697,7 +697,7 @@ export const VisualCartaoPapelaria: React.FC = () => {
           <CheckCircle2 size={13} className="text-purple-400" />
           Salva contato instantâneo no celular + Papel timbrado & Pastas
         </span>
-        <span className="text-purple-400 font-semibold">Elegância Corporativa</span>
+        <span className="text-purple-400 font-semibold">Elegância corporativa</span>
       </div>
     </div>
   );
@@ -711,10 +711,10 @@ export const VisualSocialMediaManagement: React.FC = () => {
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
           <Share2 size={14} className="text-[#EC6726] dark:text-[#FFD600]" />
-          <span>Gestão & Calendário Editorial</span>
+          <span>Gestão & calendário editorial</span>
         </div>
         <span className="text-[10px] bg-emerald-500/15 text-emerald-400 px-3 py-0.5 rounded-full font-semibold border border-emerald-500/30 flex items-center gap-1 font-mono">
-          <TrendingUp size={11} /> +340% Alcance
+          <TrendingUp size={11} /> +340% alcance
         </span>
       </div>
 
@@ -782,7 +782,7 @@ export const VisualSocialMediaDesign: React.FC = () => {
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
           <ImageIcon size={14} className="text-[#FFD600]" />
-          <span>Design Visual de Alto Impacto</span>
+          <span>Design visual de alto impacto</span>
         </div>
         <span className="text-[10px] bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full font-semibold border border-purple-500/30 font-mono">
           Feed 4:5 • Stories 9:16
@@ -799,7 +799,7 @@ export const VisualSocialMediaDesign: React.FC = () => {
               Carrossel 1/5
             </span>
             <div className="text-[11px] font-display font-bold text-white leading-tight mt-1">
-              Como Escalar com Design Ops & IA
+              Como escalar com Design Ops & IA
             </div>
           </div>
 
@@ -828,7 +828,7 @@ export const VisualSocialMediaDesign: React.FC = () => {
 
           <div className="text-center">
             <div className="text-[8px] font-bold text-white bg-white/10 py-1 rounded-md">
-              Arrasta pra Cima
+              Arrasta pra cima
             </div>
           </div>
         </div>
@@ -840,7 +840,7 @@ export const VisualSocialMediaDesign: React.FC = () => {
           <CheckCircle2 size={13} className="text-[#FFD600]" />
           Identidade visual alinhada, cores, tipografia e alta resolução
         </span>
-        <span className="text-[#FFD600] font-semibold font-mono">Pronto p/ Postar</span>
+        <span className="text-[#FFD600] font-semibold font-mono">Pronto p/ postar</span>
       </div>
     </div>
   );
@@ -856,7 +856,7 @@ export const VisualSocialMedia: React.FC = () => {
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
           <Share2 size={14} className="text-[#EC6726] dark:text-[#FFD600]" />
-          <span>Estratégia & Design de Alto Impacto</span>
+          <span>Estratégia & design de alto impacto</span>
         </div>
         <div className="flex bg-white/[0.06] rounded-full p-0.5 border border-white/[0.08]">
           <button 
@@ -865,7 +865,7 @@ export const VisualSocialMedia: React.FC = () => {
               socialTab === 'creative' ? 'bg-white/20 text-white font-bold' : 'text-neutral-400'
             }`}
           >
-            Peças Visuais
+            Peças visuais
           </button>
           <button 
             onClick={() => setSocialTab('planner')}
@@ -889,7 +889,7 @@ export const VisualSocialMedia: React.FC = () => {
                 Carrossel 1/5
               </span>
               <div className="text-[11px] font-display font-bold text-white leading-tight mt-1">
-                Autoridade & Conteúdo Estratégico
+                Autoridade & conteúdo estratégico
               </div>
             </div>
 
@@ -950,7 +950,7 @@ export const VisualSocialMedia: React.FC = () => {
 
           <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center justify-between text-[11px] font-sans">
             <span className="text-neutral-300">Copy persuasiva + hashtags segmentadas por nicho</span>
-            <span className="text-emerald-400 font-mono text-[10px]">● Alta Conversão</span>
+            <span className="text-emerald-400 font-mono text-[10px]">● Alta conversão</span>
           </div>
         </div>
       )}
@@ -961,7 +961,7 @@ export const VisualSocialMedia: React.FC = () => {
           <CheckCircle2 size={13} className="text-[#FFD600]" />
           Instagram, LinkedIn e WhatsApp ativos com autoridade
         </span>
-        <span className="text-[#FFD600] font-semibold font-mono">Feed Impecável</span>
+        <span className="text-[#FFD600] font-semibold font-mono">Feed impecável</span>
       </div>
     </div>
   );
@@ -975,7 +975,7 @@ export const VisualPrintedMaterials: React.FC = () => {
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2 text-[11px] text-neutral-300 font-semibold font-sans">
           <Palette size={14} className="text-purple-400" />
-          <span>Fechamento Técnico para Gráfica (PDF/X-1a)</span>
+          <span>Fechamento técnico para gráfica (PDF/X-1a)</span>
         </div>
         <span className="text-[10px] bg-purple-500/15 text-purple-400 px-3 py-0.5 rounded-full font-semibold border border-purple-500/30 font-mono">
           CMYK 300 DPI • Sangrias
@@ -991,10 +991,10 @@ export const VisualPrintedMaterials: React.FC = () => {
               D
             </div>
             <div className="font-bold text-white text-xs font-display">
-              Cartão Executivo
+              Cartão executivo
             </div>
             <div className="text-[9px] text-[#FFD600]">
-              QR Code Dinâmico no Verso
+              QR code dinâmico no verso
             </div>
           </div>
           <div className="w-14 h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-md">
@@ -1005,8 +1005,8 @@ export const VisualPrintedMaterials: React.FC = () => {
         {/* Brochure 3-folds spec */}
         <div className="h-28 rounded-2xl bg-[#18181D] border border-white/10 p-3 flex flex-col justify-between">
           <div className="flex justify-between items-center text-[10px] text-neutral-400 font-mono">
-            <span className="text-white font-bold">Folder Tri-Fold & Catálogo</span>
-            <span className="text-emerald-400">Pronto p/ Impressão</span>
+            <span className="text-white font-bold">Folder tri-fold & catálogo</span>
+            <span className="text-emerald-400">Pronto p/ impressão</span>
           </div>
           <div className="flex gap-1.5 h-12 my-1">
             <div className="flex-1 bg-white/[0.04] border border-dashed border-white/20 rounded-lg flex items-center justify-center text-[8px] text-neutral-400">
@@ -1032,7 +1032,7 @@ export const VisualPrintedMaterials: React.FC = () => {
           <CheckCircle2 size={13} className="text-purple-400" />
           Cartões, folders, papel timbrado e pastas com acabamento de luxo
         </span>
-        <span className="text-purple-400 font-semibold">Zero Erros na Gráfica</span>
+        <span className="text-purple-400 font-semibold">Zero erros na gráfica</span>
       </div>
     </div>
   );

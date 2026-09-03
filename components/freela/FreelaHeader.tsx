@@ -30,7 +30,7 @@ const FreelaHeader: React.FC<FreelaHeaderProps> = ({ onNavigateHome }) => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     } else {
-      window.open('https://api.whatsapp.com/send?phone=5519981517551', '_blank');
+      window.open('https://api.whatsapp.com/send?phone=5519991119674', '_blank');
     }
   };
 

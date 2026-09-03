@@ -9,10 +9,10 @@ import {
 
 /* 1. Visual: Modernização de Design System para IA (Dobra 1) */
 export const VisualAIDesignSystemModernization: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'audit' | 'tokens' | 'ai-prompt'>('tokens');
+  const [activeTab, setActiveTab] = useState<'audit' | 'tokens' | 'ai-prompt'>('ai-prompt');
 
   return (
-    <div className="w-full backdrop-blur-2xl bg-[#111114]/90 dark:bg-black/90 rounded-3xl p-5 sm:p-7 border border-white/[0.1] shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-xs font-mono text-neutral-300 relative overflow-hidden select-none">
+    <div className="w-full bg-[#08090D] rounded-2xl p-5 sm:p-6 border border-white/10 shadow-2xl text-xs font-mono text-neutral-300 relative overflow-hidden select-none">
       {/* macOS Window Titlebar */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5 mb-4">
         <div className="flex items-center gap-2">
@@ -25,19 +25,19 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
             DesignOps • Modernização & Tokens
           </span>
         </div>
-        <div className="flex items-center gap-1.5 bg-[#EC6726]/15 text-[#FFD600] px-3 py-0.5 rounded-full border border-[#EC6726]/30 text-[10px] font-semibold font-sans">
-          <Bot size={12} className="animate-pulse text-[#EC6726]" />
+        <div className="flex items-center gap-1.5 bg-[#251408] text-[#F59E0B] px-3 py-1 rounded-full border border-[#6B3208] text-[10px] font-semibold font-sans">
+          <Bot size={12} className="text-[#F59E0B]" />
           <span>IA Sem Alucinações</span>
         </div>
       </div>
 
       {/* Segmented Switcher */}
-      <div className="grid grid-cols-3 gap-1.5 mb-4 bg-white/[0.04] p-1 rounded-2xl border border-white/[0.06]">
+      <div className="grid grid-cols-3 gap-1.5 mb-4 bg-white/[0.04] p-1 rounded-xl border border-white/[0.06]">
         <button 
           onClick={() => setActiveTab('audit')}
-          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
+          className={`px-3 py-2 rounded-lg text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans cursor-pointer ${
             activeTab === 'audit' 
-              ? 'bg-white/20 text-white font-semibold shadow-sm' 
+              ? 'bg-[#2D2E33] text-white font-medium shadow-xs' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
@@ -46,9 +46,9 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
         </button>
         <button 
           onClick={() => setActiveTab('tokens')}
-          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
+          className={`px-3 py-2 rounded-lg text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans cursor-pointer ${
             activeTab === 'tokens' 
-              ? 'bg-white/20 text-white font-semibold shadow-sm' 
+              ? 'bg-[#2D2E33] text-white font-medium shadow-xs' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
@@ -57,9 +57,9 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
         </button>
         <button 
           onClick={() => setActiveTab('ai-prompt')}
-          className={`px-3 py-1.5 rounded-xl text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans ${
+          className={`px-3 py-2 rounded-lg text-[11px] transition-all flex items-center justify-center gap-1.5 font-sans cursor-pointer ${
             activeTab === 'ai-prompt' 
-              ? 'bg-white/20 text-white font-semibold shadow-sm' 
+              ? 'bg-[#2D2E33] text-white font-medium shadow-xs' 
               : 'text-neutral-400 hover:text-white'
           }`}
         >
@@ -69,7 +69,7 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
       </div>
 
       {/* Terminal View */}
-      <div className="bg-black/80 rounded-2xl p-4 sm:p-5 border border-white/[0.06] font-mono text-xs leading-relaxed min-h-[145px] flex flex-col justify-between">
+      <div className="bg-[#050608] rounded-xl p-4 sm:p-5 border border-white/[0.06] font-mono text-xs leading-relaxed min-h-[145px] flex flex-col justify-between">
         <AnimatePresence mode="wait">
           {activeTab === 'audit' && (
             <motion.div 
@@ -120,15 +120,15 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
               initial={{ opacity: 0, y: 4 }} 
               animate={{ opacity: 1, y: 0 }} 
               exit={{ opacity: 0, y: -4 }}
-              className="space-y-2"
+              className="space-y-2.5"
             >
-              <div className="text-neutral-500">// Prompt no Cursor com contexto AGENTS.md:</div>
-              <div className="text-yellow-300 text-[11px]">
-                &gt; "Crie a tela de faturamento usando Button e Card do Design System"
+              <div className="text-neutral-400 text-xs font-mono">// Prompt no Cursor com contexto AGENTS.md:</div>
+              <div className="text-[#FCD34D] text-xs font-mono leading-relaxed">
+                &gt; &quot;Crie a tela de faturamento usando Button e Card do Design System&quot;
               </div>
-              <div className="p-2.5 rounded-xl bg-yellow-950/40 border border-yellow-800/40 text-yellow-300 text-[11px] flex items-center gap-2 mt-2">
-                <Sparkles size={14} className="shrink-0" />
-                <span>Resultado instantâneo no 1º comando: código 100% fiel e padronizado.</span>
+              <div className="p-3 rounded-xl bg-[#141108] border border-amber-900/50 text-[#FCD34D] text-xs flex items-center gap-2.5 mt-2.5 shadow-inner">
+                <Sparkles size={15} className="text-[#F7D032] shrink-0" />
+                <span className="font-sans font-medium text-amber-200">Resultado instantâneo no 1º comando: código 100% fiel e padronizado.</span>
               </div>
             </motion.div>
           )}
@@ -137,11 +137,11 @@ export const VisualAIDesignSystemModernization: React.FC = () => {
 
       {/* Floating Metrics Bar */}
       <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3 text-[11px]">
-        <span className="flex items-center gap-1.5 text-neutral-400 font-sans">
-          <CheckCircle2 size={13} className="text-[#FFD600]" />
+        <span className="flex items-center gap-1.5 text-neutral-300 font-sans">
+          <CheckCircle2 size={14} className="text-[#F7D032]" />
           Figma ↔ Tokens ↔ React ↔ Cursor/Claude
         </span>
-        <span className="text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-500/20 flex items-center gap-1">
+        <span className="text-emerald-400 font-semibold bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800/40 flex items-center gap-1 text-[11px]">
           <Zap size={11} /> Zero Retrabalho
         </span>
       </div>

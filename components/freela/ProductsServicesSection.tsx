@@ -99,8 +99,8 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
           </div>
         </div>
 
-        {/* Productized Services List (Apple Product Cards) */}
-        <div className="space-y-16 lg:space-y-20">
+        {/* Productized Services List (Standardized Pro Panels) */}
+        <div className="space-y-12 sm:space-y-16 lg:space-y-20">
           {filteredServices.map((service, index) => {
             const isReversed = index % 2 === 1;
 
@@ -112,74 +112,79 @@ const ProductsServicesSection: React.FC<ProductsServicesSectionProps> = ({ onSel
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="p-6 sm:p-10 lg:p-12 rounded-3xl backdrop-blur-2xl transition-all duration-300 relative overflow-hidden bg-white/80 dark:bg-[#101014] border border-black/[0.08] dark:border-white/[0.08] shadow-xs hover:border-black/[0.15] dark:hover:border-white/[0.15]"
+                className="p-6 sm:p-10 lg:p-12 xl:p-14 rounded-[28px] sm:rounded-[32px] transition-all duration-300 relative overflow-hidden bg-[#0C0D11] border border-white/[0.08] shadow-2xl"
               >
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+                {/* Top Section: 2 Columns (Alternating Text and Interactive Visual Mockup) */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                   
-                  {/* Left (or Right): Text & Specs Content */}
-                  <div className={`lg:col-span-6 flex flex-col items-start ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+                  {/* Text Content Column */}
+                  <div className={`lg:col-span-6 flex flex-col items-start justify-center ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     
                     {/* Title */}
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3 text-brand-dark dark:text-white">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-[38px] font-bold tracking-tight mb-4 text-white leading-[1.18]">
                       {service.title}
                     </h3>
 
                     {/* Tagline */}
-                    <div className="text-sm font-semibold text-[#EC6726] dark:text-[#FFD600] mb-4">
+                    <div className="text-sm sm:text-base font-bold text-[#F7D032] mb-5 leading-snug">
                       {service.tagline}
                     </div>
 
                     {/* Description */}
-                    <p className="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                    <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-normal">
                       {service.description}
                     </p>
-
-                    {/* Deliverables Bullet List */}
-                    <div className="w-full space-y-2.5 mb-8">
-                      <div className="text-xs font-mono uppercase font-bold text-neutral-400 tracking-wider">
-                        O que você recebe:
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-neutral-700 dark:text-neutral-200">
-                        {service.deliverables.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <CheckCircle2 size={15} className="text-[#EC6726] dark:text-[#FFD600] shrink-0 mt-0.5" />
-                            <span className="font-medium">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Buttons (Apple Pill Styling) */}
-                    <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-black/[0.06] dark:border-white/[0.08] w-full">
-                      <button
-                        onClick={() => handleRequestQuote(service.title)}
-                        className="px-6 py-3 rounded-full text-xs sm:text-sm font-semibold tracking-tight bg-[#1D1D1F] hover:bg-black dark:bg-[#FFD600] dark:hover:bg-yellow-300 text-white dark:text-black transition-all duration-200 shadow-sm flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                      >
-                        <span>{service.actionText || 'Solicitar Orçamento'}</span>
-                        <ArrowRight size={14} />
-                      </button>
-
-                      <button
-                        onClick={() => handleWhatsAppService(service.title)}
-                        className="px-5 py-3 rounded-full text-xs sm:text-sm font-medium tracking-tight bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/[0.08] dark:hover:bg-white/[0.1] text-neutral-800 dark:text-neutral-200 border border-black/[0.06] dark:border-white/[0.08] transition-all duration-200 flex items-center gap-1.5 cursor-pointer"
-                      >
-                        <MessageSquare size={14} className="text-emerald-500" />
-                        <span>Falar no WhatsApp</span>
-                      </button>
-                    </div>
-
                   </div>
 
-                  {/* Right (or Left): Interactive Apple-Grade Visual Mockup */}
-                  <div className={`lg:col-span-6 w-full ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
+                  {/* Visual Mockup Column */}
+                  <div className={`lg:col-span-6 w-full flex items-center justify-center ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
                     {serviceVisualMap[service.id] || (
-                      <div className="p-8 rounded-3xl bg-neutral-900 border border-neutral-800 text-center text-neutral-400">
+                      <div className="p-8 rounded-2xl bg-[#08090D] border border-white/10 text-center text-neutral-400 w-full">
                         Visualização Interativa
                       </div>
                     )}
                   </div>
 
                 </div>
+
+                {/* Horizontal Divider Across Panel */}
+                <div className="w-full border-t border-white/[0.08] my-8 sm:my-10" />
+
+                {/* Bottom Section: Deliverables Row (O QUE VOCÊ RECEBE) */}
+                <div className="w-full">
+                  <div className="text-xs font-mono uppercase font-bold text-neutral-400 tracking-wider mb-5">
+                    O QUE VOCÊ RECEBE:
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs sm:text-sm">
+                    {service.deliverables.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 size={18} className="text-[#F7D032] shrink-0 mt-0.5" />
+                        <span className="font-medium leading-relaxed text-neutral-200">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons: Aligned to Right */}
+                <div className="flex flex-wrap items-center justify-end gap-3.5 sm:gap-4 mt-8 pt-2">
+                  <button
+                    onClick={() => handleRequestQuote(service.title)}
+                    className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-bold tracking-tight bg-[#F7D032] hover:bg-[#FFE043] text-black transition-all duration-200 shadow-md flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  >
+                    <span>{service.actionText || 'Solicitar Orçamento'}</span>
+                    <ArrowRight size={16} />
+                  </button>
+
+                  <button
+                    onClick={() => handleWhatsAppService(service.title)}
+                    className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-medium tracking-tight bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/[0.12] transition-all duration-200 flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  >
+                    <MessageSquare size={16} className="text-emerald-400" />
+                    <span>Falar no WhatsApp</span>
+                  </button>
+                </div>
+
               </motion.article>
             );
           })}
